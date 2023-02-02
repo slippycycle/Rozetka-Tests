@@ -72,6 +72,7 @@
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "4.7"
         },
+        
         {
             "id": 4,
             "name": "Redmi mi7",
@@ -87,6 +88,15 @@
             "brand": "SONY",
             "type": "consoles",
             "price": "17,00",
+            "description": "bla bla bla bla bla bla bla bla ",
+            "rating": "4.7"
+        },
+        {
+            "id": 6,
+            "name": "Iphone X",
+            "brand": "apple",
+            "type": "phone",
+            "price": "17000",
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "4.7"
         }

@@ -11,44 +11,50 @@ interface BrandsCheckListProps {
 }
 
 
-export default React.memo(function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
+export default function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
 
     const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
-   
+
     const dispacth = useAppDispatch()
 
-   
-   
-    
     const handleSelect = (event: any) => {
+       
+       
         const value = event.target.value;
         const isChecked = event.target.checked;
-        
+
         if (isChecked) {
             //Add checked item into checkList
             setCheckedList([...checkedList, value]);
-            //add selected brands to global store
-            dispacth(addSelectedBrands(checkedList))
+            
         } else {
             //Remove unchecked item from checkList
             const filteredList = checkedList.filter((item) => item !== value);
+            dispacth(addSelectedBrands(filteredList))
             setCheckedList(filteredList);
+                
         }
+        
     };
 
+    function setSelectedBrands () {
+        dispacth(addSelectedBrands(checkedList))
+        console.log('hadle work',checkedList)
+    }
+    setSelectedBrands()
 
     return (
         <div className="container">
             <div className="card">
                 <div className="card-header">
-                    <p className="title">Select Programming Language</p>
+                    <p className="title">Select Brand</p>
                 </div>
 
                 <div className="list-container">
                     <label>You Selected:</label>
                     {checkedList?.map((item, index) => {
                         return (
-                            <div className="chip">
+                            <div key={item} className="chip">
                                 <p className="chip-label">{item}</p>
                             </div>
                         );
@@ -58,12 +64,12 @@ export default React.memo(function BrandsCheckList({ brandsArray }: BrandsCheckL
                 <div className="card-body">
                     {brandsArray?.map((item, index) => {
                         return (
-                            <div key={item} className="checkbox-container">
+                            <div key={item + index} className="checkbox-container">
                                 <input
                                     type="checkbox"
                                     name="languages"
                                     value={item}
-                                    onChange={handleSelect}
+                                    onClick={handleSelect}
                                 />
                                 <label>{item}</label>
                             </div>
@@ -74,4 +80,4 @@ export default React.memo(function BrandsCheckList({ brandsArray }: BrandsCheckL
         </div>
 
     )
-})
+}

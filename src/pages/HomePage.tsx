@@ -1,7 +1,7 @@
 import React from 'react'
 import CategoryLeftBar from '../components/CategoryLeftBar'
 import Home from '../components/Home'
-import ProductsComponent from '../components/ProductsComponents'
+
 import c from '../styles/HomePage.module.scss'
 
 export default function HomePage() {
