@@ -6,9 +6,9 @@ import Loader from './Loader'
 import TypesComponent from './TypesComponent'
 import { setTypes } from '../store/features/Types.Slice'
 import { fetchTypes } from '../store/features/Types.Slice'
-import { Types } from '../models/TypeModel'
+import { Types } from '../models/models'
 
-export default React.memo(function LeftBar() {
+export default React.memo(function CategoryLeftBar() {
 
   const { types, loading, error } = useAppSelector(state => state.typeReducer)
 

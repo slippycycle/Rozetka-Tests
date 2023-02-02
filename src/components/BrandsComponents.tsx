@@ -1,5 +1,5 @@
 import React from 'react'
-import { Brands } from '../models/TypeModel'
+import { Brands } from '../models/models'
 
 interface BrandsComponentsProps {
     brands: Brands | string[]

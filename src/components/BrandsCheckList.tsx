@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
-import { Brands } from '../models/TypeModel';
+import { useSelector } from 'react-redux';
+import { Brands } from '../models/models';
 import { fetchBrands } from '../store/features/Brands.Slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
+// import c from '../styles/BrandsCheckList.module.scss'
+import { addSelectedBrands } from '../store/features/Brands.Slice';
 
 interface BrandsCheckListProps {
     brandsArray: Brands | string[]
@@ -10,17 +13,22 @@ interface BrandsCheckListProps {
 
 export default React.memo(function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
 
-    const [checkedList, setCheckedList] = React.useState<[] | string[]>(['wadwad']);
-    const [brandsList, setBrandsList] = React.useState([])
+    const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
+   
+    const dispacth = useAppDispatch()
 
-
+   
+   
+    
     const handleSelect = (event: any) => {
         const value = event.target.value;
         const isChecked = event.target.checked;
-
+        
         if (isChecked) {
             //Add checked item into checkList
             setCheckedList([...checkedList, value]);
+            //add selected brands to global store
+            dispacth(addSelectedBrands(checkedList))
         } else {
             //Remove unchecked item from checkList
             const filteredList = checkedList.filter((item) => item !== value);

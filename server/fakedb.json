@@ -36,9 +36,14 @@
             "name": "Iphone 12",
             "brand": "apple",
             "type": "phone",
-            "price": "23,000",
+            "price": "24,000",
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "1"
+            "rating": "1",
+            "images": [{"color":"gray",
+            "urls":["https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-1b_result_1_1_1.jpg",
+            "https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-1a_result_1_1_1.jpg",
+            "https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-2_result_1_1_1.jpg",
+            "https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-3_result_1_1_1.jpg"]}]
         },
         {
             "id": 2,
@@ -72,6 +77,15 @@
             "name": "Redmi mi7",
             "brand": "redmi",
             "type": "phone",
+            "price": "17,00",
+            "description": "bla bla bla bla bla bla bla bla ",
+            "rating": "4.7"
+        },
+        {
+            "id": 5,
+            "name": "PS4",
+            "brand": "SONY",
+            "type": "consoles",
             "price": "17,00",
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "4.7"

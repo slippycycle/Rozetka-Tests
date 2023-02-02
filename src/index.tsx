@@ -10,6 +10,7 @@ const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 const store = setupStore();
+//http://localhost:3001/products?type=phone&brand=apple&brand=samsung&brand=redmi
 //http://localhost:3001/products?type=phone&brand=apple&brand=samsung&brand=redmi&_page=1&_limit=0 pagination +  type + couple brand
 //http://localhost:3001/products?name_like=iphone search by name 
 //http://localhost:3001/products?_sort=rating&_order=desc filter by rating

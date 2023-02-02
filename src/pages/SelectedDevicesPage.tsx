@@ -1,11 +1,11 @@
 import React from 'react'
-import DevicesComponents from '../components/DevicesComponents'
+import DevicesComponents from '../components/ComponentsCategory'
 
 export default function SelectedDevicesPage() {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <DevicesComponents type={window.location.pathname} />
+            <DevicesComponents  />
         </div>
     )
 }

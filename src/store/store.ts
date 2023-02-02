@@ -2,12 +2,15 @@ import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/t
 import { typeSlice } from './features/Types.Slice';
 import typeReducer from './features/Types.Slice'
 import brandReducer from './features/Brands.Slice'
+import productReducer from './features/Device.Slice'
+
 
 
 
 const rootReducer = combineReducers({
   typeReducer,
   brandReducer,
+  productReducer,
 })
 
 export const setupStore = () => {

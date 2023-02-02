@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import axios, { AxiosError } from "axios"
-import { Types } from "../../models/TypeModel"
+import { Brands, Types } from "../../models/models"
 
 type BrandListItem = {
     id: string | number
@@ -29,7 +29,7 @@ export const initialState: BrandState = {
 }
 
 
-export const fetchBrands = createAsyncThunk('brands/fetchBrands',
+export const fetchBrands = createAsyncThunk('brand/fetchBrands',
 
     async function (type: string, { rejectWithValue }) {
 
@@ -59,9 +59,9 @@ const brandSlice = createSlice({
     name: 'brand',
     initialState,
     reducers: {
-        // brandsFromCurrentType(state, action: PayloadAction<string[]>) {
-        //     state.brandsFromCurrentType = action.payload
-        // }
+       addSelectedBrands(state, action: PayloadAction<Brands>){
+         state.selectedBrands = action.payload
+       }
     },
     extraReducers: (builder) => {
         builder
@@ -83,6 +83,8 @@ const brandSlice = createSlice({
 
 
 export default brandSlice.reducer
+
+export const { addSelectedBrands } = brandSlice.actions
 
 
 

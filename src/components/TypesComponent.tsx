@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Type } from 'typescript'
-import { Types } from '../models/TypeModel'
+import { Types } from '../models/models'
 import { useNavigate } from "react-router-dom";
 import { typeSlice } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'

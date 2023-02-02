@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit"
 import axios, { AxiosError } from "axios"
 import { Type } from "typescript"
-import { Types } from "../../models/TypeModel"
+import { Types } from "../../models/models"
 
 
 export interface TypeState {
