@@ -5,7 +5,7 @@ import BrandBar from './BrandBar'
 
 export default function ProductsComponent() {
 
-  const { currentType } = useAppSelector(state => state.typeReducer)
+
 
   const dispatch = useAppDispatch()
 

@@ -8,16 +8,14 @@ export interface TypeState {
     types: Types[] | []
     loading: boolean
     error: null | string
-    currentType: any | Types 
-    currentBrands: string[] | []
+    
 }
 
 const initialState: TypeState = {
     types: [],
     loading: false,
     error: null,
-    currentType: {},
-    currentBrands:[],
+   
 }
 
 export const fetchTypes = createAsyncThunk('types/fetchTypes',
@@ -47,9 +45,8 @@ export const typeSlice = createSlice({
         setTypes(state, action: PayloadAction<Types[]>) {
             state.types = action.payload
         },
-        setCurrentType(state, action: PayloadAction<Types>) {
-            state.currentType = action.payload
-        }
+       
+        
     },
     extraReducers: (builder) => {
         builder
@@ -70,5 +67,5 @@ export const typeSlice = createSlice({
 
 export default typeSlice.reducer
 
-export const { setTypes,setCurrentType } = typeSlice.actions
+export const { setTypes } = typeSlice.actions
 

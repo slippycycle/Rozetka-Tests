@@ -12,18 +12,16 @@ export default React.memo(function LeftBar() {
 
   const { types, loading, error } = useAppSelector(state => state.typeReducer)
 
-  const setTypes = typeSlice.actions.setTypes
-
+ 
   const dispatch = useAppDispatch()
 
+  //fetching types
   React.useEffect(() => {
     dispatch(fetchTypes())
     console.log(types)
   }, [])
 
-
   console.log('render left types bar')
-
 
   return (
     <div className={c.container}>

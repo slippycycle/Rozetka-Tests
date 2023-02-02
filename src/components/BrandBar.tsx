@@ -8,14 +8,14 @@ export default function BrandBar() {
 
     const dispatch = useAppDispatch()
 
-    console.log(types.currentType)
+  
 
     return (
         <div className={c.brand_bar_conatiner}>
-            {types.currentType?.brands?
+            {/* {types.currentType?.brands?
                 types.currentType.brands.map((pr: string) => <div className={c.brand_item}>{pr}</div>)
                 : null
-            }
+            } */}
         </div>
     )
 }

@@ -1,14 +1,11 @@
 import React from 'react'
-import SortbyBrandsLeftBar from '../components/SortbyBrandsLeftBar'
+import DevicesComponents from '../components/DevicesComponents'
 
 export default function SelectedDevicesPage() {
 
-   console.log( window.location.pathname)
-
-
     return (
-        <div style={{display:'flex'}}>
-            <SortbyBrandsLeftBar brands={['awdwad']}/>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <DevicesComponents type={window.location.pathname} />
         </div>
     )
 }

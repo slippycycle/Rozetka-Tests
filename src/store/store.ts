@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
 import { typeSlice } from './features/Types.Slice';
 import typeReducer from './features/Types.Slice'
+import brandReducer from './features/Brands.Slice'
 
 
 
 const rootReducer = combineReducers({
   typeReducer,
+  brandReducer,
 })
 
 export const setupStore = () => {

@@ -4,4 +4,9 @@ export type Types = {
     brands: string[]
 }
 
+export type Brands = string[]
+
+export type Brand = string
+
+
 
