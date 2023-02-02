@@ -1,0 +1,80 @@
+{
+    "brands": [
+        "apple",
+        "samsung",
+        "redmi",
+        "ASUS",
+        "razer",
+        "SONY",
+        "XBOX",
+        "steel series",
+        "nintendo"
+    ],
+    "types": [
+        {
+            "type": "phone",
+            "brands": ["apple","samsung","redmi"]
+        },
+        {
+            "type": "consoles",
+            "brands": ["SONY","XBOX","nintendo"]
+        },
+        {
+            "type": "laptops",
+            "brands": ["samsung","apple","ASUS","razer"]
+        }
+    ],
+    "products": [
+        [
+            {
+                "id": 0,
+                "name": "ASUS ROG"
+            }
+        ],
+        {
+            "id": 1,
+            "name": "Iphone 12",
+            "brand": "apple",
+            "type": "phone",
+            "price": "23,000",
+            "description": "bla bla bla bla bla bla bla bla ",
+            "rating": "1"
+        },
+        {
+            "id": 2,
+            "name": "Samsung A51",
+            "brand": "samsung",
+            "type": "phone",
+            "price": "23,000",
+            "description": "bla bla bla bla bla bla bla bla ",
+            "rating": "4.7"
+        },
+        {
+            "id": 34,
+            "name": "Samsung A52",
+            "brand": "samsung",
+            "type": "phone",
+            "price": "23,000",
+            "description": "bla bla bla bla bla bla bla bla ",
+            "rating": "4.7"
+        },
+        {
+            "id": 3,
+            "name": "Iphone 12 Pro",
+            "brand": "apple",
+            "type": "phone",
+            "price": "27,00",
+            "description": "bla bla bla bla bla bla bla bla ",
+            "rating": "4.7"
+        },
+        {
+            "id": 4,
+            "name": "Redmi mi7",
+            "brand": "redmi",
+            "type": "phone",
+            "price": "17,00",
+            "description": "bla bla bla bla bla bla bla bla ",
+            "rating": "4.7"
+        }
+    ]
+}
