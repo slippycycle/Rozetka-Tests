@@ -11,7 +11,7 @@ export interface DeviceState {
 }
 
 interface Params {
-    brands: Brands
+    brand: Brands
     type: string
 }
 

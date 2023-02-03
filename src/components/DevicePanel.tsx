@@ -21,6 +21,7 @@ export default function DevicePanel() {
 
     React.useEffect(() => {
 
+        //fetc devices by selected brands 
         dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands }))
 
     }, [selectedBrands])
