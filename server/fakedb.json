@@ -13,55 +13,98 @@
     "types": [
         {
             "type": "phone",
-            "brands": ["apple","samsung","redmi"]
+            "brands": [
+                "apple",
+                "samsung",
+                "redmi"
+            ]
         },
         {
             "type": "consoles",
-            "brands": ["SONY","XBOX","nintendo"]
+            "brands": [
+                "SONY",
+                "XBOX",
+                "nintendo"
+            ]
         },
         {
             "type": "laptops",
-            "brands": ["samsung","apple","ASUS","razer"]
+            "brands": [
+                "samsung",
+                "apple",
+                "ASUS",
+                "razer"
+            ]
         }
     ],
     "products": [
-        [
-            {
-                "id": 0,
-                "name": "ASUS ROG"
-            }
-        ],
         {
             "id": 1,
             "name": "Iphone 12",
             "brand": "apple",
             "type": "phone",
             "price": "24,000",
+            "colors": ["purple","blue"],
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "1",
-            "images": [{"color":"gray",
-            "urls":["https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-1b_result_1_1_1.jpg",
-            "https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-1a_result_1_1_1.jpg",
-            "https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-2_result_1_1_1.jpg",
-            "https://i.allo.ua/media/catalog/product/cache/1/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/w/w/wwru_iphone12mini_q321_purple_pdp-image-3_result_1_1_1.jpg"]}]
+            "faceDescription":"Apple 12 256GB/32MGPX cool",
+            "images": {
+                "purple": [
+                    "https://content1.rozetka.com.ua/goods/images/big/173867779.jpg",
+                    "https://content.rozetka.com.ua/goods/images/big/173867780.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/173867781.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/173867782.jpg"
+                ],
+                "blue": [
+                    "https://content.rozetka.com.ua/goods/images/big/30872903.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872861.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
+                ]
+            }
         },
         {
             "id": 2,
             "name": "Samsung A51",
             "brand": "samsung",
             "type": "phone",
-            "price": "23,000",
+            "price": "13,000",
+            "colors":["teal"],
+            "faceDescription":" A51 56GB/32MGPX cool to",
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "4.7"
+            "rating": "4.7",
+            "images": {
+                "teal":["https://content2.rozetka.com.ua/goods/images/big/266876325.jpg"]
+            }
+
         },
         {
             "id": 34,
-            "name": "Samsung A52",
+            "name": "Galaxy 12 S22",
             "brand": "samsung",
             "type": "phone",
-            "price": "23,000",
+            "price": "24,000",
+            "colors": ["black","green"],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "4.7"
+            "rating": "5",
+            "faceDescription":"42mgpx S22 Ultra 12/256GB",
+            "images": {
+                "black": [
+                    "https://content.rozetka.com.ua/goods/images/big/253281460.jpg",
+                    "https://content.rozetka.com.ua/goods/images/big/253281461.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/173867781.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/173867782.jpg"
+                ],
+                "green": [
+                    "https://content.rozetka.com.ua/goods/images/big/30872903.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872861.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
+                    "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
+                ]
+            }
+
         },
         {
             "id": 3,
@@ -72,7 +115,6 @@
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "4.7"
         },
-        
         {
             "id": 4,
             "name": "Redmi mi7",
