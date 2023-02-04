@@ -15,7 +15,7 @@ const initialState: TypeState = {
     types: [],
     loading: false,
     error: null,
-   
+    
 }
 
 export const fetchTypes = createAsyncThunk('types/fetchTypes',

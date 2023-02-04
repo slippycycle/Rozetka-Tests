@@ -3,6 +3,7 @@ import { fetchProducts } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import DeviceContainer from './DeviceContainer'
+import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
 
 
@@ -13,24 +14,40 @@ export default function DevicePanel() {
 
     const dispatch = useAppDispatch()
 
-    const { error, loading, devices } = useAppSelector((state) => state.productReducer)
-    const types = useAppSelector((state) => state.typeReducer)
+    const { error, loading, devices, currentSortType } = useAppSelector((state) => state.productReducer)
+
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
 
     React.useEffect(() => {
+        //_sort:'rating',_order:'desc'
+        //_sort=rating&_order=desc
+        //{ type: 'phone', brand: ['apple','samsung'],_sort:'rating',_order:'desc'}
+    
+            switch (currentSortType) {
+                case 'rating':       
+                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc' }))
+                  break;
+                case 'expensive':
+                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc' }))
+                  break;
+                case 'cheap':
+                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price' }))
+                  break;
+                default:
+                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands }))
+              }
 
-        //fetc devices by selected brands 
-        dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands }))
+    
 
-    }, [selectedBrands])
+    }, [selectedBrands, currentSortType])
 
     return (
         <div className={c.wrap}>
             <SortDevicesBar />
             {error ? <h2>{error}</h2> : null}
-            {loading ? <h2>loading...</h2> : <DeviceContainer devicesArray={devices} />}
+            {loading ? <Loader/> : <DeviceContainer devicesArray={devices} />}
         </div>
     )
 }

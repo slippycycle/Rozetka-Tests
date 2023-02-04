@@ -46,7 +46,7 @@
             "price": "24,000",
             "colors": ["purple","blue"],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "1",
+            "rating": "5",
             "faceDescription":"Apple 12 256GB/32MGPX cool",
             "images": {
                 "purple": [
@@ -73,7 +73,7 @@
             "colors":["teal"],
             "faceDescription":" A51 56GB/32MGPX cool to",
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "4.7",
+            "rating": "3.7",
             "images": {
                 "teal":["https://content2.rozetka.com.ua/goods/images/big/266876325.jpg"]
             }
@@ -87,7 +87,7 @@
             "price": "24,000",
             "colors": ["black","green"],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "5",
+            "rating": "4.9",
             "faceDescription":"42mgpx S22 Ultra 12/256GB",
             "images": {
                 "black": [
