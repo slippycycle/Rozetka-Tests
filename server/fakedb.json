@@ -44,10 +44,13 @@
             "brand": "apple",
             "type": "phone",
             "price": "24,000",
-            "colors": ["purple","blue"],
+            "colors": [
+                "purple",
+                "blue"
+            ],
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "5",
-            "faceDescription":"Apple 12 256GB/32MGPX cool",
+            "faceDescription": "Apple 12 256GB/32MGPX cool",
             "images": {
                 "purple": [
                     "https://content1.rozetka.com.ua/goods/images/big/173867779.jpg",
@@ -70,14 +73,17 @@
             "brand": "samsung",
             "type": "phone",
             "price": "13,000",
-            "colors":["teal"],
-            "faceDescription":" A51 56GB/32MGPX cool to",
+            "colors": [
+                "teal"
+            ],
+            "faceDescription": " A51 56GB/32MGPX cool to",
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "3.7",
             "images": {
-                "teal":["https://content2.rozetka.com.ua/goods/images/big/266876325.jpg"]
+                "teal": [
+                    "https://content2.rozetka.com.ua/goods/images/big/266876325.jpg"
+                ]
             }
-
         },
         {
             "id": 34,
@@ -85,10 +91,13 @@
             "brand": "samsung",
             "type": "phone",
             "price": "24,000",
-            "colors": ["black","green"],
+            "colors": [
+                "black",
+                "green"
+            ],
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "4.9",
-            "faceDescription":"42mgpx S22 Ultra 12/256GB",
+            "faceDescription": "42mgpx S22 Ultra 12/256GB",
             "images": {
                 "black": [
                     "https://content.rozetka.com.ua/goods/images/big/253281460.jpg",
@@ -104,7 +113,6 @@
                     "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
                 ]
             }
-
         },
         {
             "id": 3,

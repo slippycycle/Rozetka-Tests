@@ -1,34 +1,58 @@
+import { render } from '@testing-library/react'
 import React from 'react'
 import { DeviceI } from '../models/models'
-import { addSelectedDeviceId } from '../store/features/Backet.Slice'
-import { removeSelectedDeviceId } from '../store/features/Backet.Slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+
 import c from '../styles/DevicePanel.module.scss'
 
 interface DeviceItemProps {
     device: DeviceI
-    alreadyInBacket: boolean
-    //should rewrite type
 }
 
-export default function DeviceItem({ device, alreadyInBacket }: DeviceItemProps) {
+export default function DeviceItem({ device }: DeviceItemProps) {
 
-    const {selectedDevicesId} = useAppSelector(state => state.backetReducer)
 
-    const dispatch = useAppDispatch()
+
+
+
+ 
+
+
+
 
     function handleDevicebacket() {
-        if (alreadyInBacket) {
-            dispatch(removeSelectedDeviceId(device.id))
+
+        let currentBcket = JSON.parse(localStorage.getItem('backet') as string)
+
+
+        if (!Array.isArray(currentBcket)) {
+
+            let stertArray = []
+            stertArray.push(device.id)
+
+            localStorage.setItem('backet', JSON.stringify(stertArray))
+
+
         }
-        else {
-            dispatch(addSelectedDeviceId(device.id))
+        if (Array.isArray(currentBcket)) {
+
+            if (currentBcket.find((el) => el == device.id)) {
+                console.log('included')
+            }
+            else {
+                let result = currentBcket
+                result.push(device.id)
+                localStorage.setItem('backet', JSON.stringify(result))
+            }
+
         }
 
+
+        console.log(localStorage.getItem('backet'))
     }
 
     return (
         <div className={c.device_item}>
+
             <div className={c.image_container}>
                 <img src={device.colors ? device.images[device.colors[0]][0] as string : 'image'} />
             </div>
@@ -39,10 +63,10 @@ export default function DeviceItem({ device, alreadyInBacket }: DeviceItemProps)
                 <p>
                     {device.colors ? device.faceDescription : 'wda'}
                 </p>
-            </div>
-            <div className={c.item__bottom__container}>
-                <p>{device.price}</p>
-                <button className={alreadyInBacket ? c.added_backet_button : c.backet_button} onClick={handleDevicebacket}>Add</button>
+                <div className={c.price__backet__conatiner}>
+                    <p>{device.price}</p>
+                    <button className={c.backet_button} onClick={handleDevicebacket}>Add</button>
+                </div>
             </div>
         </div>
     )

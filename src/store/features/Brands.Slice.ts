@@ -35,8 +35,7 @@ export const fetchBrands = createAsyncThunk('brand/fetchBrands',
 
         try {
 
-            console.log(type, `http://localhost:3001/types?type_like=${type}`)
-
+        
             const response = axios.get<Types[]>(`http://localhost:3001/types?type_like=${type}`)
 
 

@@ -6,6 +6,7 @@ import App from './App';
 import './index.css';
 import TopNavbar from './components/TopNavbar';
 
+
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
@@ -18,8 +19,9 @@ const store = setupStore();
 
 root.render(
   <Provider store={store}>
-    <TopNavbar />
-    <App />
+     
+      <App />
+      
   </Provider>
 );
 

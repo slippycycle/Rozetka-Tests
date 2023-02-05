@@ -3,29 +3,30 @@ import { sortDevicestypes } from '../models/models'
 import { fetchProducts, setSortType } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SortDevicesBar.module.css'
+import { memo } from 'react'
 
 
-export default function SortDevicesBar() {
+interface  SortDevicesBarProps {
+  currentSortType: string
+}
 
+
+function SortDevicesBar({currentSortType}: SortDevicesBarProps) {
 
   const dispatch = useAppDispatch()
 
-  console.log('sort bar render')
-
-  const { currentSortType } = useAppSelector(state => state.productReducer)
+  console.log('sort bar render X')
 
   function handleSortType(sortType: sortDevicestypes) {
 
     dispatch(setSortType(sortType))
-   
 
   }
 
-
   return (
-    <div  className={c.conatiner}>
+    <div className={c.conatiner}>
       <div className={c.dropdown}>
-        <button className={c.dropbtn}>{currentSortType.length? `Sort by: ${currentSortType}`: 'Select sort'}</button>
+        <button className={c.dropbtn}>{currentSortType.length ? `Sort by: ${currentSortType}` : 'Select sort'}</button>
         <div className={c.dropdown_content}>
           <a onClick={() => handleSortType('rating')} >sort by rating</a>
           <a onClick={() => handleSortType('expensive')} >from expensive to cheap</a>
@@ -35,3 +36,5 @@ export default function SortDevicesBar() {
     </div>
   )
 }
+
+export default memo(SortDevicesBar);

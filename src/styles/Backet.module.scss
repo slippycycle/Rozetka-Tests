@@ -1,0 +1,125 @@
+.backet_bloor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.315);
+    width: 100vw;
+    height: 92vh;
+    overflow: hidden;
+    padding: 5px;
+    z-index: 120;
+
+    .backet_container {
+        display: flex;
+        position: absolute;
+        z-index: 121;
+        width: 70%;
+        background-color: aliceblue;
+        flex-direction: column;
+        padding: 10px;
+        height: 90%;
+        border-radius: 30px;
+
+        .header_conatiner {
+            font-size: 1.8rem;
+            border-bottom: 1px solid #d8d8d8;
+            padding: 5px;
+
+        }
+
+        .backet_list {
+            width: 100%;
+            height: 80%;
+            background-color: rgb(226, 231, 231);
+            overflow-y: auto;
+            overflow-x: hidden;
+ 
+            .device__item__container {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+                background-color: rgb(255, 255, 255);
+            }
+
+
+
+        }
+
+        .backet_image_conatiner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                max-height: 80%;
+                width: auto;
+            }
+        }
+    }
+}
+
+.hide {
+    display: none;
+}
+
+@media (min-width: 320px) and (max-width: 700px) {
+    .backet_bloor {
+        .backet_container {
+            width: 100%;
+            height: 100%;
+            border-radius: 0px;
+
+            .backet_image_conatiner {
+                img {
+                    max-height: 100%;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 700px) and (max-width: 920px) {
+    .backet_bloor {
+        .backet_container {
+            width: 90%;
+            height: 90%;
+
+            .backet_image_conatiner {
+                img {
+                    max-height: 100%;
+
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .backet_bloor {
+        .backet_container {
+
+            .backet_image_conatiner {
+                img {
+                    max-height: 100%;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1620px) {
+    .backet_bloor {
+
+        .backet_container {
+            background-color: rgb(255, 255, 255);
+            height: 1000px;
+            width: 1000px;
+        }
+
+    }
+}

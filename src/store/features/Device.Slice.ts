@@ -32,10 +32,10 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts',
         try {
 
 
-            const response = await axios.get<DeviceI[]>(`http://localhost:3001/products`, { params: fetchParams }
-            )
+            const response = await axios.get<DeviceI[]>(`http://localhost:3001/products`, { params: fetchParams })
 
-            console.log(response.data)
+
+
             return response.data as DeviceI[]
 
         } catch (e) {

@@ -14,11 +14,12 @@ export default function SortbyBrandsLeftBar() {
   const dispacth = useAppDispatch()
   const getCurrentType = useAppSelector((state) => state.brandReducer)
 
+
+  console.log('render sortbybrandsleftBar as left bar')
+
   React.useEffect(() => {
     dispacth(fetchBrands(takeCurrentType))
   }, [])
-
-  console.log(getCurrentType.currentType.brands)
 
 
   return (

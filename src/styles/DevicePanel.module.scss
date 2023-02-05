@@ -1,7 +1,11 @@
+$device-wdth: 19%;
+$device-hght: 500px;
+
+
 .wrap {
     background-color: rgb(51, 248, 124);
     width: 100%;
-    height: 100%;
+    height: 92vh;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
@@ -13,20 +17,18 @@
         height: auto;
         display: flex;
         flex-direction: row;
+        padding-top: 5px;
         flex-wrap: wrap;
 
 
-        $item-wdth: 25%;
-
-
         .device_item {
-            width: 19%;
+            width: $device-wdth;
             margin: 3px;
-            height: 400px;
+            height: $device-hght;
             background-color: white;
             display: block;
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-            overflow: hidden;
+            box-shadow: rgba(149, 157, 165, 0.378) 0px 8px 24px;
+
 
             .image_container {
                 display: flex;
@@ -35,7 +37,6 @@
                 width: 100%;
                 background-color: rgb(255, 255, 255);
                 height: 70%;
-                overflow: hidden;
 
                 img {
                     object-fit: cover;
@@ -49,10 +50,11 @@
             .device_item_info_block {
                 width: 100%;
                 display: flex;
-                flex-direction:column;
+                flex-direction: column;
                 background-color: rgb(255, 255, 255);
-                height: 50px;
-                
+                height: 90px;
+                padding: 2px;
+
 
                 .name_header {
                     font-size: 1.1rem;
@@ -63,42 +65,116 @@
                     font-size: 0.9rem;
                     color: rgb(82, 82, 82);
                 }
-            }
-            .item__bottom__container {
-                width: 100%;
-                display: flex;
-                padding: 3px;
-                justify-content: center;
-                justify-content: space-between;
-                align-items: center;
-                background-color: rgb(255, 255, 255);
-                height: 50px;
-                .backet_button{
-                    background-color: white;
-                    border: 1px solid green;
-                    width: 30%;
-                    height: auto;
-                    border-radius: 10px;
-                }
-                .added_backet_button {
-                    background-color: rgb(0, 125, 17);
-                    border: 1px solid rgb(19, 135, 19);
-                    width: 30%;
-                    height: auto;
-                    border-radius: 10px;
+
+                .price__backet__conatiner {
+                    width: 100%;
+                    display: flex;
+                    padding: 3px;
+                    justify-content: center;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: rgb(255, 255, 255);
+                    height: 30px;
+
+                    .backet_button {
+                        background-color: white;
+                        border: 1px solid green;
+                        width: 30%;
+                        height: auto;
+                        border-radius: 10px;
+                    }
+
+                    .added_backet_button {
+                        background-color: rgb(0, 125, 17);
+                        border: 1px solid rgb(19, 135, 19);
+                        width: 30%;
+                        height: auto;
+                        border-radius: 10px;
+                    }
                 }
             }
 
         }
 
     }
+
+    @media (min-width: 1320px) and (max-width: 1500px) {
+        .content {
+
+            .device_item {
+                background-color: rgb(255, 255, 255);
+                height: $device-hght - 50px;
+                ;
+            }
+
+        }
+    }
+
+    @media (min-width: 1250px) and (max-width: 1330px) {
+        .content {
+
+            .device_item {
+                background-color: rgb(255, 255, 255);
+                height: $device-hght - 60px;
+                ;
+            }
+
+        }
+    }
+
+    @media (min-width: 950px) and (max-width: 1250px) {
+        .content {
+
+            .device_item {
+                width: $device-wdth + 13%;
+                height: $device-hght - 10px;
+                ;
+            }
+
+            .name_header {
+                font-size: 0.8rem;
+                color: black;
+            }
+
+            p {
+                font-size: 0.7rem;
+                color: rgb(82, 82, 82);
+            }
+
+        }
+    }
+
 
     @media (min-width: 950px) and (max-width: 1150px) {
         .content {
             .device_item {
                 background-color: rgb(255, 255, 255);
-                height: 270px;
-                width: 24%;
+                height: $device-hght - 100px;
+                width: $device-wdth + 13%;
+
+                .image_container {
+                    object-fit: fill;
+                }
+
+                .name_header {
+                    font-size: 0.9rem;
+                    color: black;
+                }
+
+                p {
+                    font-size: 0.7rem;
+                    color: rgb(82, 82, 82);
+                }
+            }
+        }
+    }
+
+    @media (min-width: 610px) and (max-width: 950px) {
+        .content {
+            .device_item {
+                width: $device-wdth + 13%;
+
+                height: $device-hght - 110px;
 
                 .image_container {
                     object-fit: fill;
@@ -107,16 +183,62 @@
         }
     }
 
-    @media (min-width: 650px) and (max-width: 950px) {
+    @media (min-width: 435px) and (max-width: 610px) {
         .content {
             .device_item {
-                width: 32%;
-                background-color: rgb(255, 255, 255);
-                height: 300px;
+                width: $device-wdth + 29%;
+
+                height: $device-hght - 110px;
 
                 .image_container {
                     object-fit: fill;
                 }
+            }
+        }
+    }
+
+    @media (min-width: 390px) and (max-width:435px) {
+        .content {
+            padding: 0px;
+
+            .device_item {
+                width: $device-wdth + 29%;
+                margin: 1px;
+                height: $device-hght - 110px;
+
+                .image_container {
+                  
+                    img {
+                        object-fit: cover;
+                        // max-width: 100%;
+                        max-height: 70%;
+    
+    
+                    }
+                }
+    
+            }
+        }
+    }
+    @media (min-width: 320px) and (max-width:390px) {
+        .content {
+           
+            .device_item {
+                width: $device-wdth + 29%;
+                margin: 1px;
+                height: $device-hght - 130px;
+
+                .image_container {
+                  
+                    img {
+                        object-fit: cover;
+                        // max-width: 100%;
+                        max-height: 60%;
+    
+    
+                    }
+                }
+    
             }
         }
     }

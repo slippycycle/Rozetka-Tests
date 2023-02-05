@@ -45,7 +45,7 @@ export default function DevicePanel() {
 
     return (
         <div className={c.wrap}>
-            <SortDevicesBar />
+            <SortDevicesBar currentSortType={currentSortType} />
             {error ? <h2>{error}</h2> : null}
             {loading ? <Loader/> : <DeviceContainer devicesArray={devices} />}
         </div>
