@@ -5,6 +5,7 @@ import { fetchBrands } from '../store/features/Brands.Slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 // import c from '../styles/BrandsCheckList.module.scss'
 import { addSelectedBrands } from '../store/features/Brands.Slice';
+import { setCurrentPage } from '../store/features/Device.Slice';
 
 interface BrandsCheckListProps {
     brandsArray: Brands | string[]
@@ -24,6 +25,7 @@ export default function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
         if (isChecked) {
 
             setCheckedList([...checkedList, value]);
+            
 
         } else {
 
@@ -37,6 +39,9 @@ export default function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
     //without useEffect => Warning: Cannot update a component (`SortbyBrandsLeftBar`) while rendering a different component (`BrandsCheckList`). 
     React.useEffect(() => {
         dispacth(addSelectedBrands(checkedList))
+        
+        //reset page
+        dispacth(setCurrentPage(1))
     }, [checkedList])
 
 

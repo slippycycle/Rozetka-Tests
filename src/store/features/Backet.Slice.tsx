@@ -43,9 +43,13 @@ const basketSlice = createSlice({
         handleBacket(state) {
            state.backetActive = !state.backetActive
         },
+        setDevicesFromBacket(state, actions) {
+            state.devicesArray = actions.payload
+        }
+
     },
 })
 
 export default  basketSlice.reducer
 
-export const {handleBacket} = basketSlice.actions
+export const {handleBacket,setDevicesFromBacket} = basketSlice.actions

@@ -11,7 +11,6 @@ export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
 
 
     const [dev, setDev] = React.useState<DeviceI | any>({})
-
     const [error, setError] = React.useState(false)
 
 
@@ -21,10 +20,11 @@ export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
 
         let arrayWithoutCurrentDev = parsedbacket.filter((devId: string | number) => devId !== id)
 
-        setDev('Deleted')
-
         localStorage.setItem('backet', JSON.stringify(arrayWithoutCurrentDev))
+        
+        setDev('deleted')
     }
+
 
     async function fethDevice() {
         const responose = await axios.get(`http://localhost:3001/products?id=${id}`)
@@ -43,8 +43,10 @@ export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
 
             {error ?
                 <h2>Error</h2>
-                : <div className={c.device__item__container}>
-                    <h2>{dev.name}</h2>
+                :
+                 <div className={c.device__item__container}>
+                    <img src={ dev.images? dev.images[0]: 'xxxxx'  }/>
+                    <h2>{dev?.name}</h2>
                     <button onClick={removeDevice}>delete</button>
                 </div>
             }
