@@ -7,12 +7,9 @@ export default function Backet() {
 
   const { backetActive } = useAppSelector(state => state.backetReducer)
 
-
-
   let DevicesId: any[] = JSON.parse(localStorage.getItem('backet') as string)
 
   console.log('backet render', DevicesId)
-
 
   return (
     <div className={backetActive ? c.backet_bloor : c.hide}>

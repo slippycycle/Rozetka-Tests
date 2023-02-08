@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { DeviceI } from '../models/models'
+import { useAppDispatch } from '../store/hooks'
 import c from '../styles/Backet.module.scss'
 
 interface DeviceItemFromBacketProps {
@@ -10,9 +11,10 @@ interface DeviceItemFromBacketProps {
 export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
 
 
+    const dispatch = useAppDispatch()
+
     const [dev, setDev] = React.useState<DeviceI | any>({})
     const [error, setError] = React.useState(false)
-
 
     function removeDevice() {
 

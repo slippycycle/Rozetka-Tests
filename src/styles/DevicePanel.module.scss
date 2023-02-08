@@ -43,6 +43,18 @@ $device-hght: 500px;
             text-align: center;
             margin: 1px;
         }
+        .page__button__next {
+            height: 30px;
+            width: auto;
+            padding: 0px 10px 0px 10px;
+            color: rgb(255, 255, 255);
+            border-radius: 10px;
+            background-color: rgb(0, 94, 255);
+            align-items: center;
+            text-align: center;
+            text-align: center;
+            margin: 1px;
+        }
 
     }
 
@@ -119,9 +131,9 @@ $device-hght: 500px;
                         border-radius: 10px;
                     }
 
-                    .backet_button :active {
-                        background-color: white;
-                        border: 1px solid rgb(192, 35, 35);
+                    .backet_button_added {
+                        background-color: rgb(20, 204, 75);
+                        border: 1px solid rgb(28, 187, 36);
                         width: 30%;
                         height: auto;
                         border-radius: 10px;

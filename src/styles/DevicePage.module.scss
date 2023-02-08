@@ -1,0 +1,67 @@
+.conatiner {
+    background-color: rgb(123, 123, 123);
+    width: 100%;
+    height: auto;
+}
+
+.device_top_conatiner {
+    width: 100%;
+    height: 15vh;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #d1d1d168;
+}
+
+$blue: rgb(0, 30, 255);
+$green: rgb(0, 136, 30);
+$silver: rgb(151, 151, 151);
+$purple: rgb(140, 0, 255);
+$pink: rgb(247, 0, 255);
+$black: rgb(0, 0, 0);
+$white: white;
+
+%color__item {
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+    display: block;
+
+}
+
+.color__item__purple {
+    background-color: $purple;
+    @extend %color__item
+}
+
+.color__item__blue {
+    background-color: $blue;
+    @extend %color__item
+}
+
+
+.color__item__green {
+    background-color: $green;
+    @extend %color__item
+}
+
+.color__item__black {
+    background-color: $black;
+    @extend %color__item
+}
+
+.pictures_conatiner {
+
+    .device__image__conatiner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
+        height: 500px;
+    
+        .device__image {
+            width: auto;
+            max-height: 100%;
+            border: 40px red solid;
+        }
+    }
+
+}

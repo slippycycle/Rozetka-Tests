@@ -1,7 +1,7 @@
 import React from 'react'
 import { DeviceI } from '../models/models'
 import backetSlice, { handleBacket } from '../store/features/Backet.Slice'
-import { setCurrentPage } from '../store/features/Device.Slice'
+import { setCurrentPage, setNextPage } from '../store/features/Device.Slice'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import { getPages } from '../utils/pagination'
@@ -18,8 +18,13 @@ export default function DeviceContainer({ devicesArray }: DeviceContainerProps) 
 
     const dispacth = useAppDispatch()
 
-    const { tottalItems, limit, currentPage } = useAppSelector(state => state.productReducer)
+    const [pagesArray, setPagesArray] = React.useState<number[]>([])
 
+    React.useEffect(() => {
+        setPagesArray(getPages(limit, tottalItems))
+    }, [])
+
+    const { tottalItems, limit, currentPage } = useAppSelector(state => state.productReducer)
 
 
     console.log(currentPage)
@@ -32,11 +37,17 @@ export default function DeviceContainer({ devicesArray }: DeviceContainerProps) 
             </div>
             <div className={c.pages_conatiner}>
 
-                {getPages(limit, tottalItems).map((el) =>
-                    <button className={el == currentPage?c.page__button_active :c.page__button} onClick={() => { dispacth(setCurrentPage(el)) }} >
+                {pagesArray.map((el) =>
+                    <button className={el == currentPage ? c.page__button_active : c.page__button} onClick={() => { dispacth(setCurrentPage(el)) }} >
                         {el}
                     </button>
                 )}
+                {
+                    currentPage == pagesArray[pagesArray.length - 1] ?
+                        null
+                        :
+                        <button className={c.page__button__next} onClick={() => { dispacth(setNextPage()) }}>Next page</button>
+                }
 
             </div>
         </>
