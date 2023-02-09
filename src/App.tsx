@@ -8,20 +8,32 @@ import DevicePage from './pages/DevicePage';
 import SelectedDevicesPage from './pages/SelectedDevicesPage';
 import TopNavbar from './components/TopNavbar';
 import Backet from './components/Backet';
+import Menu from './components/Menu';
+import { MenuContext } from './context';
 
 
 function App() {
+
+   const [menuActive, setMenuActive] = React.useState<boolean>(false)
+
+   function menuHandle() {
+      setMenuActive(prev => !prev)
+   }
+
    return (
       <div className='app-wrapp'>
-         <TopNavbar />
-         <Backet/>
-         <BrowserRouter>
-            <Routes>
-               <Route element={<HomePage />} path='/'></Route>
-               <Route element={<SelectedDevicesPage />} path='/:id'></Route>
-               <Route element={<DevicePage />} path='/:deviceType/:id'></Route>
-            </Routes>
-         </BrowserRouter>
+         <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
+            <Menu />
+            <TopNavbar />
+            <Backet />
+            <BrowserRouter>
+               <Routes>
+                  <Route element={<HomePage />} path='/'></Route>
+                  <Route element={<SelectedDevicesPage />} path='/:id'></Route>
+                  <Route element={<DevicePage />} path='/:deviceType/:id'></Route>
+               </Routes>
+            </BrowserRouter>
+         </MenuContext.Provider>
       </div>
    );
 }

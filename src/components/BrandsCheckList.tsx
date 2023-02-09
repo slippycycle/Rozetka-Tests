@@ -43,7 +43,7 @@ export default function BrandsCheckList() {
 
     };
 
-    console.log(brandsStore,'wadwadawd')
+  
 
 
 React.useEffect(() => {

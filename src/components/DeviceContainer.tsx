@@ -12,7 +12,7 @@ interface DeviceContainerProps {
     devicesArray: DeviceI[]
 }
 
-type backetArrayType = Array<string | number>
+
 
 export default function DeviceContainer({ devicesArray }: DeviceContainerProps) {
 
@@ -26,8 +26,6 @@ export default function DeviceContainer({ devicesArray }: DeviceContainerProps) 
 
     const { tottalItems, limit, currentPage } = useAppSelector(state => state.productReducer)
 
-
-    console.log(currentPage)
 
 
     return (

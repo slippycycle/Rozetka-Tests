@@ -6,7 +6,7 @@ import c from '../styles/SortbyBrandsLeftBar.module.scss'
 import BrandsCheckList from './BrandsCheckList'
 
 
-export default function SortbyBrandsLeftBar() {
+export default React.memo(function SortbyBrandsLeftBar() {
 
 
   const takeCurrentType = window.location.pathname.slice(1, 100)
@@ -19,9 +19,9 @@ export default function SortbyBrandsLeftBar() {
 
   React.useEffect(() => {
     dispacth(fetchBrands(takeCurrentType))
+    dispacth(setAvailableBrands(getCurrentType.currentType.brands))
   }, [])
 
-  
 
   return (
     <div className={c.container}>
@@ -30,4 +30,4 @@ export default function SortbyBrandsLeftBar() {
       }
     </div>
   )
-}
+});

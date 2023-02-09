@@ -11,7 +11,6 @@ interface DeviceItemFromBacketProps {
 export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
 
 
-    const dispatch = useAppDispatch()
 
     const [dev, setDev] = React.useState<DeviceI | any>({})
     const [error, setError] = React.useState(false)
@@ -33,7 +32,6 @@ export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
 
         return await responose.data[0]
     }
-    console.log(JSON.parse(localStorage.getItem('backet') as string))
 
     React.useEffect(() => {
         fethDevice().then(data => setDev(data)).catch(er => setError(true))

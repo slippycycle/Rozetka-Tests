@@ -13,7 +13,7 @@ export default function LeftMobileFilter() {
 
     const menuState = React.useContext(MobileSortActive)
 
-    const brands = useAppSelector(state => state.brandReducer)
+    
 
     const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
 
@@ -23,7 +23,9 @@ export default function LeftMobileFilter() {
         const value = event.target.value;
         const isChecked = event.target.checked;
 
-       
+       if (brandsStore.currentType.brands) {
+
+       }
 
         if (isChecked) {
 
