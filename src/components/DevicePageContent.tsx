@@ -2,8 +2,7 @@ import React from 'react'
 import Swiper from 'swiper'
 import { colors, DeviceI } from '../models/models'
 import c from '../styles/DevicePage.module.scss'
-import SwiperSlider from './DevicePageSlider'
-import CustomArrows from './DevicePageSlider'
+
 
 
 interface DevicePageContent {
@@ -27,7 +26,7 @@ export default function DevicePageContent({ device }: DevicePageContent) {
 
     return (
         <div>
-            <SwiperSlider/>
+          
             <div>
                 {device?.colors ?
                     device.colors.map((col) => <div onClick={() => {setCurrentColor(col)}} className={c['color__item__' + col]}></div>)

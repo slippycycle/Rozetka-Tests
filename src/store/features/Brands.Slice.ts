@@ -60,6 +60,9 @@ const brandSlice = createSlice({
     reducers: {
        addSelectedBrands(state, action: PayloadAction<Brands>){
          state.selectedBrands = action.payload
+       },
+       setAvailableBrands (state, action) {
+         state.brandsList = action.payload
        }
     },
     extraReducers: (builder) => {
@@ -69,8 +72,8 @@ const brandSlice = createSlice({
                 state.loading = true
             },)
             .addCase(fetchBrands.fulfilled, (state, action) => {
-                state.loading = false
                 state.currentType = action.payload;
+                state.loading = false
             },)
             .addCase(fetchBrands.rejected, (state, action) => {
                 state.loading = false
@@ -83,7 +86,7 @@ const brandSlice = createSlice({
 
 export default brandSlice.reducer
 
-export const { addSelectedBrands } = brandSlice.actions
+export const { addSelectedBrands,setAvailableBrands} = brandSlice.actions
 
 
 

@@ -4,14 +4,16 @@ import { fetchProducts, setSortType } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SortDevicesBar.module.css'
 import { memo } from 'react'
+import { MobileSortActive } from '../context'
 
 
-interface  SortDevicesBarProps {
+
+interface SortDevicesBarProps {
   currentSortType: string
 }
 
 
-function SortDevicesBar({currentSortType}: SortDevicesBarProps) {
+function SortDevicesBar({ currentSortType }: SortDevicesBarProps) {
 
   const dispatch = useAppDispatch()
 
@@ -23,8 +25,13 @@ function SortDevicesBar({currentSortType}: SortDevicesBarProps) {
 
   }
 
+
+  let { handleMenuState } = React.useContext(MobileSortActive)
+
   return (
-    <div className={c.conatiner}>
+
+    <div className={c.container}>
+      <button className={c.filter__button} onClick={handleMenuState}>filter</button>
       <div className={c.dropdown}>
         <button className={c.dropbtn}>{currentSortType.length ? `Sort by: ${currentSortType}` : 'Select sort'}</button>
         <div className={c.dropdown_content}>
@@ -34,6 +41,7 @@ function SortDevicesBar({currentSortType}: SortDevicesBarProps) {
         </div>
       </div>
     </div>
+
   )
 }
 

@@ -12,11 +12,18 @@ interface BrandsCheckListProps {
 }
 
 
-export default function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
+
+
+
+export default function BrandsCheckList() {
+
+
+    const brandsStore = useAppSelector(state => state.brandReducer)
 
     const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
 
     const dispacth = useAppDispatch()
+
 
     function handleSelect(event: any) {
         const value = event.target.value;
@@ -25,7 +32,7 @@ export default function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
         if (isChecked) {
 
             setCheckedList([...checkedList, value]);
-            
+
 
         } else {
 
@@ -36,15 +43,15 @@ export default function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
 
     };
 
-    //without useEffect => Warning: Cannot update a component (`SortbyBrandsLeftBar`) while rendering a different component (`BrandsCheckList`). 
-    React.useEffect(() => {
-        dispacth(addSelectedBrands(checkedList))
-        
-        //reset page
-        dispacth(setCurrentPage(1))
-    }, [checkedList])
+    console.log(brandsStore,'wadwadawd')
 
 
+React.useEffect(() => {
+    dispacth(addSelectedBrands(checkedList))
+    
+    //reset page
+    dispacth(setCurrentPage(1))
+}, [checkedList])
 
     return (
         <div className="container">
@@ -53,19 +60,22 @@ export default function BrandsCheckList({ brandsArray }: BrandsCheckListProps) {
                     <p className="title">Select Brand</p>
                 </div>
                 <div className="card-body">
-                    {brandsArray?.map((item, index) =>
+                    {brandsStore.loading ?
+                        null
+                        :
+                        brandsStore.currentType.brands?.map((item, index) =>
 
-                        <div key={item + index} className="checkbox-container">
-                            <input
-                                type="checkbox"
-                                name="languages"
-                                value={item}
-                                onClick={handleSelect}
-                            />
-                            <label>{item}</label>
-                        </div>
+                            <div key={item} className="checkbox-container">
+                                <input
+                                    type="checkbox"
+                                    name="languages"
+                                    value={item}
+                                    onClick={handleSelect}
+                                />
+                                <label>{item}</label>
+                            </div>
 
-                    )}
+                        )}
                 </div>
             </div>
         </div>

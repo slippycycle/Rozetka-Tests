@@ -52,6 +52,10 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
 
         console.log(localStorage.getItem('backet'))
+        // {/* <div className={true ? c.price__backet__conatiner : c.a}>
+        //     <p>{device.price}</p>
+        //     <button className={currentBcket.find((el: string) => el == device.id) ? c.backet_button_added : c.backet_button} onClick={handleDevicebacket}>Add</button>
+        // </div> */}
     }
 
     let navigate = useNavigate()
@@ -62,11 +66,15 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
             <div className={c.image_container} onClick={() => { navigate(`/${device.type}/${device.id}`) }}>
                 <img src={device.colors ? device.images[device.colors[0]][0] as string : 'image'} />
             </div>
+
             <div className={c.device_item_info_block}>
-                <p className={c.name_header}>
-                    {device.faceDescription?.length > 50 ? device.faceDescription.slice(0,49): 'a'}
-                </p>
-                <div className={true ? c.price__backet__conatiner : c.a}>
+                <div className={c.device__text__block}>
+                    <p className={c.name_header}>
+                        {device.faceDescription?.length > 40 ? device.faceDescription.slice(0, 40) : device?.faceDescription}
+                    </p>
+                </div>
+                <div className={c.deivce__item__button__block}>
+                    
                     <p>{device.price}</p>
                     <button className={currentBcket.find((el: string) => el == device.id) ? c.backet_button_added : c.backet_button} onClick={handleDevicebacket}>Add</button>
                 </div>

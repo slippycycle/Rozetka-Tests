@@ -1,0 +1,44 @@
+.menu {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.283);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    transform: translateX(-120%);
+    transition: all 0.4s;
+}
+
+.menu_active {
+    transform: translateX(0%);
+    display: block;
+    background-color: rgba(0, 0, 0, 0.283);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    transition: all 0.4s;
+    backdrop-filter: blur(2px);
+
+    .content {
+        width: 30%;
+        position: relative;
+        height: 100%;
+        background-color: white;
+        .close__button {
+            width: 40px;
+            height: 40px;
+            right: 0px;
+            position: absolute;
+            color: rgb(73, 73, 172);
+            background-color: rgb(255, 255, 255);
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .menu_active { 
+        .content {
+            width: 50%;
+        }
+    }
+}

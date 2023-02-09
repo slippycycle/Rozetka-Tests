@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchBrands } from '../store/features/Brands.Slice'
+import { fetchBrands, setAvailableBrands } from '../store/features/Brands.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SortbyBrandsLeftBar.module.scss'
 import BrandsCheckList from './BrandsCheckList'
@@ -21,11 +21,12 @@ export default function SortbyBrandsLeftBar() {
     dispacth(fetchBrands(takeCurrentType))
   }, [])
 
+  
 
   return (
     <div className={c.container}>
       {getCurrentType.loading ? <h2>loading</h2> :
-        <BrandsCheckList brandsArray={getCurrentType.currentType.brands} />
+        <BrandsCheckList  />
       }
     </div>
   )
