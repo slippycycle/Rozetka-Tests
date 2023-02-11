@@ -17,9 +17,14 @@ interface DeviceItemProps {
 export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceItemProps) {
 
 
-    const {devices} = useAppSelector(state => state.backetReducer)
+    
+    let currentBcket = JSON.parse(localStorage.getItem('backet') as string)
 
+    const {devices,devicesId} = useAppSelector(state => state.backetReducer)
+
+    const [active,setActive] = React.useState(currentBcket?.length > 0 ? currentBcket.find((el : string | number) => el == device.id): false)
    
+    console.log(active, )
 
     function handleDevicebacket() {
 
@@ -40,19 +45,22 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 dispatch(handleBacket())
             }
             else {
+                //on success
+
                 let result = currentBcket
                 result.push(device.id)
                 localStorage.setItem('backet', JSON.stringify(result))
+                console.log(devicesId)
+                setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
+
+               
             }
 
         }
 
 
         console.log(localStorage.getItem('backet'))
-        // {/* <div className={true ? c.price__backet__conatiner : c.a}>
-        //     <p>{device.price}</p>
-        //     <button className={currentBcket.find((el: string) => el == device.id) ? c.backet_button_added : c.backet_button} onClick={handleDevicebacket}>Add</button>
-        // </div> */}
+       
     }
 
     let navigate = useNavigate()
@@ -73,7 +81,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 <div className={c.deivce__item__button__block}>
                     
                     <p>{device.price}</p>
-                    <button  className={devices.find((el: DeviceI) => el.id == device.id) ? c.backet_button_added : c.backet_button} onClick={handleDevicebacket}>Add</button>
+                    <button  type='button' className={active ?c.backet_button_active :c.backet_button} onClick={handleDevicebacket}>Add</button>
                 </div>
             </div>
         </div>

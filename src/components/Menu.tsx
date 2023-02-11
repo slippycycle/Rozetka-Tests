@@ -4,6 +4,7 @@ import { Types } from '../models/models'
 import { fetchTypes } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'
+import MenuCategoryContentComponents from './MenuCategoryContentComponents'
 
 export default function Menu() {
 
@@ -31,28 +32,25 @@ export default function Menu() {
                     </span>
                 </button>
                 <div className={c.menu__header__block}>
-                    <h2>SRKIX DEVICES</h2>
+                    <h2>SKRIX Devices</h2>
                 </div>
-                <div className={c.menu__baner}>
+
+
+                <div className={c.menu__category}>
                     <span className="material-symbols-outlined">
                         category
                     </span>
                     Category
                     <div onClick={() => setActive(prev => !prev)} className={c.arrow__container}>
                         <span className="material-symbols-outlined">
-                            {active ? 'expand_more' : 'expand_less'}
+                            {active ? 'expand_less' : 'expand_more'}
                         </span>
                     </div>
                 </div>
-                <div className={active ? c.category__content : c.category__content__active}>
-                    {error && !loading ?
-                        <p>{error ? error : loading}</p>
-                        :
-                        <ul className={c.category_list_container}>
-                          {types.map((tp : Types) => <li>{tp.fullTypeName}</li>)}
-                        </ul>
-                    }
-                </div>
+
+                <MenuCategoryContentComponents types={types} loading={loading} error={error} active={active} />
+
+
                 <ul className={c.ul_list}>
                     <li>HOME <span className="material-symbols-outlined">
                         home

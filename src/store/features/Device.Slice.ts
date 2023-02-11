@@ -14,12 +14,14 @@ export interface DeviceState {
 }
 
 interface Params {
-    brand: Brands
-    type: string
+    brand?: Brands
+    type?: string
     _sort?: string
     _order?: string
-    _page: number
-    _limit: number
+    _page?: number
+    _limit?: number
+    name_like?: string
+    q?:string
 }
 
 const initialState = {
@@ -44,7 +46,7 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts',
 
             console.log(response?.data?.length)
 
-            console.log(response)
+            console.log(response,'DEVICES RESPONSE')
 
             return response 
 

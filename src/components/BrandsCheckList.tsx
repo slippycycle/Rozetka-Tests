@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux';
 import { Brands } from '../models/models';
-import { fetchBrands } from '../store/features/Brands.Slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import c from '../styles/BrandsCheckList.module.scss'
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Device.Slice';
 
@@ -43,25 +40,25 @@ export default function BrandsCheckList() {
 
     };
 
-  
 
 
-React.useEffect(() => {
-    dispacth(addSelectedBrands(checkedList))
-    
-    //reset page
-    dispacth(setCurrentPage(1))
-}, [checkedList])
+
+    useEffect(() => {
+        dispacth(addSelectedBrands(checkedList))
+
+        //reset page
+        dispacth(setCurrentPage(1))
+    }, [checkedList])
 
 
-  
+
 
 
     return (
         <div >
             <div>
                 <div>
-                   
+                    <h2>Select Brands</h2>
                 </div>
                 <div>
                     {brandsStore.loading ?
@@ -69,7 +66,7 @@ React.useEffect(() => {
                         :
                         brandsStore.currentType.brands?.map((item, index) =>
 
-                            <div  key={item} >
+                            <div key={item} >
                                 <input
                                     type="checkbox"
                                     name="languages"

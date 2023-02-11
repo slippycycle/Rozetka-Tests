@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { MenuContext } from '../context'
 import { handleBacket } from '../store/features/Backet.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -31,19 +32,49 @@ export default function TopNavbar() {
         menuState.menuHandle()
     }
 
+
+
+    const [value, setValue] = React.useState<string>('')
+
+    let navigate = useNavigate()
+
+    function handleKeyDown(event : React.KeyboardEvent<HTMLInputElement>) {
+
+        if (event.key === 'Enter') {
+
+            navigate(`/search/${value.replace(/ /g,'').toLowerCase()}`)
+            window.location.reload();
+        }
+    }
+
+
+
+    function navigateBySearchItem() {
+
+        navigate(`/search/${value}`)
+    }
+
     return (
         <>
+
             <div className={c.top_navbar}>
                 <div onClick={menuHandle} className={c.varenya_s_pomidorammi}>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <button  className={c.backet__button} onClick={handleBacketVisible}>
+
+                <div className={c.search__container}>
+                    <input type='text' onKeyDown={handleKeyDown} onChange={(e) => { setValue(e.target.value) }} className={c.search_input} placeholder='i am looking for...'></input>
+                    <button onClick={navigateBySearchItem} className={c.find__button}>Find</button>
+                </div>
+
+                <button className={c.backet__button} onClick={handleBacketVisible}>
                     <span className="material-symbols-outlined">
                         shopping_basket
                     </span>
                 </button>
+             
             </div>
 
         </>

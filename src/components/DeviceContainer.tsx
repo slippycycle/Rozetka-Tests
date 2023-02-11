@@ -46,7 +46,7 @@ export default function DeviceContainer({ devicesArray }: DeviceContainerProps) 
                         :
                         <button className={c.page__button__next} onClick={() => { dispacth(setNextPage()) }}>Next page</button>
                 }
-
+           
             </div>
         </>
     )

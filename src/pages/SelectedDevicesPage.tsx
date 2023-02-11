@@ -1,5 +1,6 @@
 import React from 'react'
 import Backet from '../components/Backet'
+import ComponentsCategory from '../components/ComponentsCategory'
 import DevicesComponents from '../components/ComponentsCategory'
 import LeftMobileFilter from '../components/LeftMobileFilter'
 import { MobileSortActive } from '../context'
@@ -18,7 +19,7 @@ export default function SelectedDevicesPage() {
         <div style={{ display: 'flex', justifyContent: 'center', position: 'relative', alignItems: 'center', overflow: 'hidden', height: '92vh' }}>
 
             <MobileSortActive.Provider value={{ active, handleMenuState}} >
-                <DevicesComponents />
+                <ComponentsCategory />
                 <LeftMobileFilter />
             </MobileSortActive.Provider>
 

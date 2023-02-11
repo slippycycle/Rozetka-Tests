@@ -18,7 +18,7 @@
 
 
 .dropbtn {
-  background-color: #3b87d2;
+  background-color: #1f1f1f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +69,7 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #367ae0;
+  background-color: #6f36e0;
 }
 
 

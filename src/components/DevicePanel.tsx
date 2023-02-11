@@ -1,4 +1,5 @@
 import React from 'react'
+import { Types } from '../models/models'
 import { fetchProducts } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
@@ -54,7 +55,7 @@ export default function DevicePanel() {
 
     return (
         <div className={c.wrap}>
-            <CategoryHeader category={takeCurrentType} />
+            <CategoryHeader brands={selectedBrands} category={takeCurrentType} />
             <SortDevicesBar currentSortType={currentSortType} />
             {error ? <h2>{error}</h2> : null}
             {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}

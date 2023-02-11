@@ -10,7 +10,7 @@ interface BacketListProps {
 
 export default function BacketList({ devicesidArray }: BacketListProps) {
 
-    const dispatch = useAppDispatch()
+    
 
 
     return (
