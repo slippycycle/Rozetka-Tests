@@ -8,6 +8,7 @@ export interface TypeState {
     types: Types[] | []
     loading: boolean
     error: null | string
+   
     
 }
 
@@ -45,6 +46,7 @@ export const typeSlice = createSlice({
         setTypes(state, action: PayloadAction<Types[]>) {
             state.types = action.payload
         },
+        
        
         
     },
@@ -67,5 +69,5 @@ export const typeSlice = createSlice({
 
 export default typeSlice.reducer
 
-export const { setTypes } = typeSlice.actions
+export const { setTypes} = typeSlice.actions
 

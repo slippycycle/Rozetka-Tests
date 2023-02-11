@@ -7,13 +7,54 @@
     transform: translateX(0);
     background-color: rgba(0, 0, 0, 0.514);
 
+
+
     .menu_content {
         width: 25%;
+        overflow-y: scroll;
+        overflow-x: hidden;
         background-color: white;
         position: relative;
         height: 100%;
         position: relative;
         z-index: 190;
+
+
+
+        .category__content {
+            width: 100%;
+            background-color: white;
+            height: auto;
+            display: none;
+
+        }
+
+        .category__content__active {
+            display: flex;
+            width: 100%;
+            background-color: white;
+
+            .category_list_container {
+                width: 100%;
+                padding: 20px;
+
+                li {
+                    border-bottom: 1px solid #8080804d;
+                    padding: 15px;
+                    font-size: 1.1rem;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    color: rgb(153, 153, 246);
+
+                    &:hover {
+                        color: #1d4bc8;
+                    }
+
+                }
+            }
+
+        }
 
         .menu__baner {
             width: 100%;
@@ -22,9 +63,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgb(37, 186, 47);
+            background-color: rgb(82, 152, 251);
             color: white;
             cursor: pointer;
+
+            .arrow__container {
+                width: 30px;
+                height: 30px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+            }
+
         }
 
         .close__button {
@@ -41,7 +93,7 @@
             width: 100%;
             background-color: rgb(255, 255, 255);
             padding: 10px;
-           
+
             li {
                 margin-top: 2px;
                 color: #000000;
@@ -50,13 +102,13 @@
                 border-bottom: 1px solid rgba(128, 128, 128, 0.511);
                 padding: 10px;
                 cursor: pointer;
-              
-                 &:hover{
+
+                &:hover {
                     border-bottom: 1px solid rgba(255, 255, 255, 0.511);
                     border-radius: 10px;
                     background-color: rgba(0, 85, 255, 0.202);
                     transition: all 0.2s;
-                 }
+                }
             }
         }
 

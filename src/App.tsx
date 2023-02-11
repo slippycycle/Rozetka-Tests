@@ -24,8 +24,8 @@ function App() {
       <div className='app-wrapp'>
          <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
             <Menu />
-            <TopNavbar />
             <Backet />
+            <TopNavbar />
             <BrowserRouter>
                <Routes>
                   <Route element={<HomePage />} path='/'></Route>

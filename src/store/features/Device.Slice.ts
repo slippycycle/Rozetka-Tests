@@ -29,7 +29,7 @@ const initialState = {
     currentPage: 1,
     currentSortType: '',
     error: null,
-    limit: 3,
+    limit: 6,
 }
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts',

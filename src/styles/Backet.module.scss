@@ -5,21 +5,33 @@
     position: absolute;
     background-color: rgba(0, 0, 0, 0.315);
     width: 100vw;
-    height: 92vh;
+    height: 100vh;
     overflow: hidden;
-    padding: 5px;
     z-index: 120;
 
     .backet_container {
         display: flex;
-        position: absolute;
+        position: relative;
         z-index: 121;
-        width: 70%;
-        background-color: aliceblue;
+        width: 80%;
+        background-color: rgb(255, 255, 255);
         flex-direction: column;
         padding: 10px;
-        height: 90%;
+        height: 100%;
         border-radius: 30px;
+
+        .close__button {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            right: 2%;
+            justify-content: center;
+            background-color: rgb(255, 255, 255);
+            color: #7b7b7b;
+
+        }
 
         .header_conatiner {
             font-size: 1.8rem;
@@ -46,6 +58,20 @@
             }
 
 
+
+        }
+
+        .oreder__button {
+            position: absolute;
+            bottom: 2%;
+            right: 4%;
+            text-align: center;
+            height: auto;
+            width: auto;
+            padding: 10px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: rgb(0, 123, 255);
 
         }
 

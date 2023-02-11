@@ -6,13 +6,17 @@ import { DeviceI } from "../../models/models"
 type deviceId = string | number
 
 interface BacketState {
-    devicesArray: DeviceI[] | []
+    devicesId: [] | number[] | string[] 
     backetActive: boolean
+    totalSum: number
+    devices: DeviceI[]
 }
 
 export const initialState:BacketState = {
-    devicesArray: [],
+    devicesId: [],
     backetActive: false,
+    totalSum: 0,
+    devices: []
    
 }
 
@@ -44,7 +48,13 @@ const basketSlice = createSlice({
            state.backetActive = !state.backetActive
         },
         setDevicesFromBacket(state, actions) {
-            state.devicesArray = actions.payload
+            state.devicesId = actions.payload
+        },
+        pushDevice(state, actions) {
+            state.devices.push(actions.payload)
+        },
+        deleteDevice(state, actions) {
+            state.devices = state.devices.filter((dev) => dev.id !== actions.payload)
         }
 
     },
@@ -52,4 +62,4 @@ const basketSlice = createSlice({
 
 export default  basketSlice.reducer
 
-export const {handleBacket,setDevicesFromBacket} = basketSlice.actions
+export const {handleBacket,setDevicesFromBacket,pushDevice,deleteDevice} = basketSlice.actions

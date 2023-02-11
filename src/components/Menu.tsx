@@ -1,11 +1,25 @@
 import React from 'react'
 import { MenuContext } from '../context'
+import { Types } from '../models/models'
+import { fetchTypes } from '../store/features/Types.Slice'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'
 
 export default function Menu() {
 
+    const [active, setActive] = React.useState<boolean>(false)
 
     const menuState = React.useContext(MenuContext)
+
+    console.log('menu active')
+
+    const { types, loading, error } = useAppSelector(state => state.typeReducer)
+
+    const dispatch = useAppDispatch()
+
+    React.useEffect(() => {
+        dispatch(fetchTypes())
+    }, [])
 
     return (
 
@@ -24,8 +38,21 @@ export default function Menu() {
                         category
                     </span>
                     Category
+                    <div onClick={() => setActive(prev => !prev)} className={c.arrow__container}>
+                        <span className="material-symbols-outlined">
+                            {active ? 'expand_more' : 'expand_less'}
+                        </span>
+                    </div>
                 </div>
-
+                <div className={active ? c.category__content : c.category__content__active}>
+                    {error && !loading ?
+                        <p>{error ? error : loading}</p>
+                        :
+                        <ul className={c.category_list_container}>
+                          {types.map((tp : Types) => <li>{tp.fullTypeName}</li>)}
+                        </ul>
+                    }
+                </div>
                 <ul className={c.ul_list}>
                     <li>HOME <span className="material-symbols-outlined">
                         home

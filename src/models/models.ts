@@ -1,7 +1,10 @@
+type UrlIcon = string
 
 export type Types = {
     type: string
     brands: string[]
+    fullTypeName: string
+    icon: UrlIcon
 }
 
 export type Brands = string[]

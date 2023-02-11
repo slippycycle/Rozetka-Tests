@@ -3,6 +3,7 @@ import { fetchProducts } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import { getPages } from '../utils/pagination'
+import CategoryHeader from './CategoryHeader'
 import DeviceContainer from './DeviceContainer'
 import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
@@ -20,7 +21,7 @@ export default function DevicePanel() {
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
-  
+
 
     React.useEffect(() => {
         //_sort:'rating',_order:'desc'
@@ -53,6 +54,7 @@ export default function DevicePanel() {
 
     return (
         <div className={c.wrap}>
+            <CategoryHeader category={takeCurrentType} />
             <SortDevicesBar currentSortType={currentSortType} />
             {error ? <h2>{error}</h2> : null}
             {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}

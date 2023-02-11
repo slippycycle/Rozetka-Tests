@@ -13,28 +13,34 @@
     "types": [
         {
             "type": "phone",
+            "fullTypeName":"Mobile\nPhones",
             "brands": [
                 "apple",
                 "samsung",
                 "redmi"
-            ]
+            ],
+            "icon":"https://cdn-icons-png.flaticon.com/512/65/65680.png"
         },
         {
             "type": "consoles",
+            "fullTypeName": "Game\nConsoles",
             "brands": [
                 "SONY",
                 "XBOX",
                 "nintendo"
-            ]
+            ],
+            "icon":"https://cdn-icons-png.flaticon.com/512/65/65680.png"
         },
         {
             "type": "laptops",
+            "fullTypeName":"Laptops",
             "brands": [
                 "samsung",
                 "apple",
                 "ASUS",
                 "razer"
-            ]
+            ],
+            "icon":"https://cdn-icons-png.flaticon.com/512/65/65680.png"
         }
     ],
     "products": [
@@ -49,8 +55,8 @@
                 "blue"
             ],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "5",
-            "faceDescription": "Mobile phone Iphone 12 256GB/32MGPX cool awdwad wawad wad wwadddawddddddad dawdw ad wad wad",
+            "rating": "4.8",
+            "faceDescription": "Mobile phone Iphone 12 256GB/32MGPX cool awdwad wawad wad wwadddawddddddad dawdw adcawwwwwwwwadddddwad wad",
             "images": {
                 "purple": [
                     "https://content1.rozetka.com.ua/goods/images/big/173867779.jpg",
@@ -97,7 +103,7 @@
             ],
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": "4.9",
-            "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB",
+            "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
             "images": {
                 "black": [
                     "https://content.rozetka.com.ua/goods/images/big/253281460.jpg",
@@ -121,6 +127,7 @@
             "type": "phone",
             "price": "27,00",
             "description": "bla bla bla bla bla bla bla bla ",
+            "faceDescription": "iphone 12 d                                                                d                       d",
             "rating": "4.7"
         },
         {

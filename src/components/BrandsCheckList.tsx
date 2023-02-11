@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Brands } from '../models/models';
 import { fetchBrands } from '../store/features/Brands.Slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-// import c from '../styles/BrandsCheckList.module.scss'
+import c from '../styles/BrandsCheckList.module.scss'
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Device.Slice';
 
@@ -53,19 +53,23 @@ React.useEffect(() => {
     dispacth(setCurrentPage(1))
 }, [checkedList])
 
+
+  
+
+
     return (
-        <div className="container">
-            <div className="card">
-                <div className="card-header">
-                    <p className="title">Select Brand</p>
+        <div >
+            <div>
+                <div>
+                   
                 </div>
-                <div className="card-body">
+                <div>
                     {brandsStore.loading ?
                         null
                         :
                         brandsStore.currentType.brands?.map((item, index) =>
 
-                            <div key={item} className="checkbox-container">
+                            <div  key={item} >
                                 <input
                                     type="checkbox"
                                     name="languages"

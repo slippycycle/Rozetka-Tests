@@ -75,7 +75,7 @@ $device-hght: 450px;
             height: $device-hght;
             background-color: white;
             display: block;
-            box-shadow: rgba(149, 157, 165, 0.378) 0px 8px 24px;
+            box-shadow: rgba(149, 157, 165, 0.152) 0px 8px 24px;
 
 
             .image_container {
@@ -105,13 +105,15 @@ $device-hght: 450px;
 
                 .device__text__block {
                     width: 100%;
+                    display: flex;
                     overflow-wrap: break-word;
-                    padding: 2px;
+                    justify-content: center;
+                    padding: 0px 5px 0px 5px;
                     height: 50%;
-                    background-color: rgb(255, 255, 255);
+                    background-color: rgb(139, 132, 132);
 
                     .name_header {
-                        font-size: 1rem;
+                        font-size: 0.9rem;
                         color: black;
                         overflow-wrap: break-word;
                         cursor: pointer;
@@ -192,11 +194,11 @@ $device-hght: 450px;
         }
     }
 
-    @media (min-width: 950px) and (max-width: 1250px) {
+    @media (min-width: 1150px) and (max-width: 1250px) {
         .content {
 
             .device_item {
-                width: $device-wdth + 13%;
+                width: $device-wdth + 5%;
                 height: $device-hght - 10px;
                 ;
             }
@@ -211,8 +213,8 @@ $device-hght: 450px;
         .content {
             .device_item {
                 background-color: rgb(255, 255, 255);
-                height: $device-hght - 100px;
-                width: $device-wdth ;
+                height: $device-hght - 50px;
+                width: $device-wdth  + 5%;
 
                 img {
                     object-fit: cover;
@@ -224,7 +226,7 @@ $device-hght: 450px;
         }
     }
 
-    @media (min-width: 610px) and (max-width: 950px) {
+    @media (min-width: 740px) and (max-width: 950px) {
         .content {
 
             .device_item {
@@ -248,7 +250,7 @@ $device-hght: 450px;
 
                 width: $device-wdth +13%;
 
-                height: $device-hght - 110px;
+                height: $device-hght - 50px;
 
                 img {
                     object-fit: cover;
@@ -259,7 +261,7 @@ $device-hght: 450px;
         }
     }
 
-    @media (min-width: 435px) and (max-width: 610px) {
+    @media (min-width: 570px) and (max-width: 740px) {
         .content {
             .device_item {
                 .image_container {
@@ -291,7 +293,7 @@ $device-hght: 450px;
                 }
 
 
-                width: $device-wdth +29%;
+                width: $device-wdth +13%;
                 height: $device-hght - 110px;
 
 
@@ -299,7 +301,7 @@ $device-hght: 450px;
         }
     }
 
-    @media (min-width: 390px) and (max-width:435px) {
+    @media (min-width: 390px) and (max-width:570px) {
         .content {
             padding: 0px;
 
