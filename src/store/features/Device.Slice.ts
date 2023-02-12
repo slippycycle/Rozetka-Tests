@@ -2,15 +2,20 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import axios, { AxiosError, AxiosHeaders } from "axios"
 import { Brand, Brands, DeviceI, sortDevicestypes } from "../../models/models"
 
+type RangeType =  {
+    max: number,
+    min: number
+}
 
 export interface DeviceState {
     devices: [] | DeviceI[]
     loading: boolean
-    error: AxiosError | null
+    error: AxiosError | null | string
     currentSortType: sortDevicestypes
     currentPage: number
     tottalItems: number
     limit: number
+    priceRange: RangeType
 }
 
 interface Params {
@@ -21,10 +26,12 @@ interface Params {
     _page?: number
     _limit?: number
     name_like?: string
-    q?:string
+    q?: string
+    _gte?: number
+    _lte?: number
 }
 
-const initialState = {
+const initialState : DeviceState = {
     devices: [],
     loading: false,
     tottalItems: 0,
@@ -32,6 +39,10 @@ const initialState = {
     currentSortType: '',
     error: null,
     limit: 6,
+    priceRange:  {
+        max: 0,
+        min: 0
+    }
 }
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts',
@@ -46,9 +57,9 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts',
 
             console.log(response?.data?.length)
 
-            console.log(response,'DEVICES RESPONSE')
+            console.log(response, 'DEVICES RESPONSE')
 
-            return response 
+            return response
 
 
         } catch (e) {
@@ -85,7 +96,7 @@ const productsSlice = createSlice({
             },)
             .addCase(fetchProducts.fulfilled, (state, action) => {
                 state.loading = false
-                state.tottalItems = action.payload.headers['x-total-count'] as number 
+                state.tottalItems = action.payload.headers['x-total-count'] as number
                 state.devices = action.payload.data as []
             },)
             .addCase(fetchProducts.rejected, (state, action) => {
@@ -99,4 +110,4 @@ const productsSlice = createSlice({
 export default productsSlice.reducer
 
 
-export const { setSortType,setCurrentPage,setNextPage} = productsSlice.actions
+export const { setSortType, setCurrentPage, setNextPage } = productsSlice.actions

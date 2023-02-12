@@ -1,5 +1,5 @@
 import React from 'react'
-import { Types } from '../models/models'
+import { sortDevicestypes, Types } from '../models/models'
 import { fetchProducts } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
@@ -29,6 +29,8 @@ export default function DevicePanel() {
         //_sort=rating&_order=desc
         //{ type: 'phone', brand: ['apple','samsung'],_sort:'rating',_order:'desc'}
         //{ type: 'phone', brand: [], _sort: 'rating', _order: 'desc',_page: '1',_limit:3 }
+        //http://localhost:3001/products?price_gte=40000&price_lte=90000 //by range
+
 
         switch (currentSortType) {
             case 'rating':
@@ -41,7 +43,7 @@ export default function DevicePanel() {
                 dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _page: currentPage, _limit: limit }))
                 break;
             default:
-                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
+                dispatch(fetchProducts({  type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
         }
 
     }, [selectedBrands, currentSortType, currentPage, limit])
@@ -56,8 +58,8 @@ export default function DevicePanel() {
     return (
         <div className={c.wrap}>
             <CategoryHeader brands={selectedBrands} category={takeCurrentType} />
-            <SortDevicesBar currentSortType={currentSortType} />
-            {error ? <h2>{error}</h2> : null}
+            <SortDevicesBar currentSortType={currentSortType as string} />
+            {error ? <h2>{error as string}</h2> : null}
             {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}
         </div>
     )

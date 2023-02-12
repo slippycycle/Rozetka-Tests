@@ -49,7 +49,7 @@
             "name": "iphone12",
             "brand": "apple",
             "type": "phone",
-            "price": "24,000",
+            "price": 24000,
             "colors": [
                 "purple",
                 "blue"
@@ -78,7 +78,7 @@
             "name": "samsungA51",
             "brand": "samsung",
             "type": "phone",
-            "price": "13,000",
+            "price": 13000,
             "colors": [
                 "teal"
             ],
@@ -96,7 +96,7 @@
             "name": "galaxy12S22",
             "brand": "samsung",
             "type": "phone",
-            "price": "24,000",
+            "price": 24000,
             "colors": [
                 "black",
                 "green"
@@ -125,7 +125,7 @@
             "name": "iphone13",
             "brand": "apple",
             "type": "phone",
-            "price": "32,999",
+            "price": 32999,
             "colors": [
                 "black",
                 "white"
@@ -153,7 +153,7 @@
             "name": "iphone14",
             "brand": "apple",
             "type": "phone",
-            "price": "41,999",
+            "price": 41999,
             "colors": [
                 "red",
                 "purple"
@@ -190,7 +190,7 @@
             "name": "iphone14pro",
             "brand": "apple",
             "type": "phone",
-            "price": "74,999",
+            "price": 74999,
             "colors": [
                 "black",
                 "purple"

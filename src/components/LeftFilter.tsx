@@ -1,12 +1,13 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { fetchBrands, setAvailableBrands } from '../store/features/Brands.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import c from '../styles/SortbyBrandsLeftBar.module.scss'
+import c from '../styles/LeftFilter.module.scss'
 import BrandsCheckList from './BrandsCheckList'
+import RangeSlider from './RangeSlider'
 
 
-export default React.memo(function SortbyBrandsLeftBar() {
+
+export default React.memo(function LeftFilter() {
 
 
   const takeCurrentType = window.location.pathname.slice(1, 100)
@@ -22,12 +23,15 @@ export default React.memo(function SortbyBrandsLeftBar() {
     dispacth(setAvailableBrands(getCurrentType.currentType.brands))
   }, [])
 
+  {
 
+  }
   return (
     <div className={c.container}>
       {getCurrentType.loading ? <h2>loading</h2> :
-        <BrandsCheckList  />
+        <BrandsCheckList />
       }
+      <RangeSlider />
     </div>
   )
 });

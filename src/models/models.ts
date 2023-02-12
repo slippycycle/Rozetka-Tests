@@ -24,7 +24,7 @@ interface imagesI {
 
 export type colors = 'blue' | 'purple' | 'green' | 'red' | 'pink' | 'black'
 
-export type sortDevicestypes = 'expensive' | 'rating' | 'cheap'
+export type sortDevicestypes = 'expensive' | 'rating' | 'cheap' | null | '' | undefined
 
 export interface DeviceI {
     name: string
