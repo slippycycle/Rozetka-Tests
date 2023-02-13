@@ -32,6 +32,7 @@ export default React.memo(function LeftFilter() {
         <BrandsCheckList />
       }
       <RangeSlider />
+     
     </div>
   )
 });

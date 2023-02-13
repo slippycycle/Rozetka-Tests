@@ -1,31 +1,40 @@
 .range__container {
-    display: block;
-    width: 100%;
-    height: 200px;
-    background-color: aqua;
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background-color: rgb(9, 9, 9);
     display: flex;
-    align-items: center;
-    justify-self: center;
 
-   
+
     .range__line {
         height: 2px;
-        position: relative;
-        width: 100%;
-        background-color: rgb(139, 63, 253);
-        display: flex;
-     .slider {
+        margin-top: 40px;
+        width: 150px;
+        background-color: rgb(168, 168, 168);
+
+        .range__fild {
+            width: 0%;
+            height: 2px;
+            background-color: rgb(160, 27, 255);
+        }
+
+    }
+
+    .slider {
+
         position: absolute;
-        top: 0;
+        cursor: pointer;
+        display: inline-block;
+        top: 33px;
         left: 0;
         right: 0;
         bottom: 0;
-        width: 10px;
-        height: 10px;
-        display: block;
-        background-color: red;
-     }
-
+        width: 20px;
+        height: 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        border: 1px solid rgb(72, 72, 72);
+        z-index: 20;
     }
 
 

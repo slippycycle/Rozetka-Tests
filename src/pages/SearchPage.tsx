@@ -81,10 +81,9 @@ export default function SearchPage() {
   return (
     <>
    
-    <div className={c.wrap}>
-      {error ? <h2>{error as string}</h2> : null}
-      {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}
-    </div>
+    <h2>
+      wadwad
+    </h2>
     </>
   )
 }
