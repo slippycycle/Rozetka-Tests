@@ -1,8 +1,10 @@
 import React from 'react'
+import { RangePriceContext } from '../context'
 import { fetchBrands, setAvailableBrands } from '../store/features/Brands.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/LeftFilter.module.scss'
 import BrandsCheckList from './BrandsCheckList'
+import RangeContainer from './RangeContainer'
 import RangeSlider from './RangeSlider'
 
 
@@ -23,18 +25,19 @@ export default React.memo(function LeftFilter() {
     dispacth(setAvailableBrands(getCurrentType.currentType.brands))
   }, [])
 
-  {
+  
+ 
 
-  }
   return (
     <div className={c.container}>
       {getCurrentType.loading ? <h2>loading</h2> :
         <BrandsCheckList />
       }
-      <h2>Start Price</h2>
-      <RangeSlider maxSum={100000}/>
-      <h2>Max Price</h2>
-      <RangeSlider maxSum={100000}/>
+
+
+     <RangeContainer/>
+  
+      
     </div>
   )
 });

@@ -8,3 +8,5 @@ type MobileSortActiveType = {
 export const MobileSortActive = React.createContext<any>(null)
 
 export const MenuContext = React.createContext<any>(null)
+
+export const RangePriceContext = React.createContext<any>(null)
