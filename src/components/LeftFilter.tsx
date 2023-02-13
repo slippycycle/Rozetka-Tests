@@ -31,8 +31,10 @@ export default React.memo(function LeftFilter() {
       {getCurrentType.loading ? <h2>loading</h2> :
         <BrandsCheckList />
       }
-      <RangeSlider />
-     
+      <h2>Start Price</h2>
+      <RangeSlider maxSum={100000}/>
+      <h2>Max Price</h2>
+      <RangeSlider maxSum={100000}/>
     </div>
   )
 });
