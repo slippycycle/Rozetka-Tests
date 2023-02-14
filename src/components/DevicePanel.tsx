@@ -10,7 +10,7 @@ import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
 
 
-export default function DevicePanel() {
+export default  React.memo( function DevicePanel() {
 
 
     const takeCurrentType = window.location.pathname.slice(1, 100)
@@ -84,4 +84,4 @@ console.log(maxPrice,minPrice)
             {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}
         </div>
     )
-}
+})

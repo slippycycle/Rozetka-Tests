@@ -3,6 +3,7 @@ import c from '../styles/DoubleRangeSlider.module.scss'
 import React, { useRef, useState } from 'react'
 import { useAppDispatch } from '../store/hooks'
 import { setMaxRangePrice, setMinRangePrice } from '../store/features/Device.Slice'
+import { detectMob } from '../utils/detectMobile'
 
 
 
@@ -80,7 +81,9 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             if (!isClicked.current || !isClicked.current) return;
 
-            const nextX = event.clientX - cords.current.startX + cords.current.lastX
+           
+
+            const nextX = Math.floor(event.touches[0].clientX) - cords.current.startX + cords.current.lastX
 
             let procents = Math.ceil(nextX * 100 / staticRangePxWidth)
 
@@ -107,7 +110,7 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             if (!secondIsClicked.current || secondIsClicked.current == false) return;
 
-            const nextX = event.clientX - secondCords.current.startX + secondCords.current.lastX
+            const nextX = Math.floor(event.touches[0].clientX) - secondCords.current.startX + secondCords.current.lastX
 
             let procents = Math.ceil(nextX * 100 / staticRangePxWidth)
 
@@ -133,17 +136,16 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
 
         const onMouseDown = (event: MouseEvent) => {
-            cords.current.startX = event.clientX
+            cords.current.startX = Math.floor(event.touches[0].clientX)
             isClicked.current = true
 
         }
 
         const onSecondMouseDown = (event: MouseEvent) => {
-            secondCords.current.startX = event.clientX
+            secondCords.current.startX = Math.floor(event.touches[0].clientX)
             secondIsClicked.current = true
 
         }
-
 
         const onMouseUp = (event: MouseEvent) => {
             cords.current.lastX = slider.offsetLeft;
@@ -154,7 +156,6 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
         const onSecondMouseUp = (event: MouseEvent) => {
             secondCords.current.lastX = secondSlider.offsetLeft;
             secondIsClicked.current = false
-
 
         }
 
@@ -168,25 +169,59 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
         onSecondMouseUp()
         onMouseUp()
 
-        slider.addEventListener('mousedown', onMouseDown)
-        secondSlider.addEventListener('mousedown', onSecondMouseDown)
+        // onTouchStart()
+        // onSecondTouchStart()
+        //'touchmove'
+        //touchstart
+        //
 
-        container.addEventListener('mouseup', onMouseUp)
-        container.addEventListener('mousemove', onMouseMove)
-        container.addEventListener('mouseleave', MouseLeave)
 
-        container.addEventListener('mouseup', onSecondMouseUp)
-        container.addEventListener('mousemove', onSecondMouseMove)
-        container.addEventListener('mouseleave', onSecondMouseMove)
+            slider.addEventListener('touchstart', onMouseDown)
+            secondSlider.addEventListener('touchstart', onSecondMouseDown)
+    
+            container.addEventListener('touchend', onMouseUp)
+            container.addEventListener('touchmove', onMouseMove)
+            container.addEventListener('touchcancel', MouseLeave)
+    
+            container.addEventListener('touchend', onSecondMouseUp)
+            container.addEventListener('touchmove', onSecondMouseMove)
+            container.addEventListener('touchcancel', onSecondMouseMove)
+
+            
+       
+
+            slider.addEventListener('mousedown', onMouseDown)
+            secondSlider.addEventListener('mousedown', onSecondMouseDown)
+    
+            container.addEventListener('mouseup', onMouseUp)
+            container.addEventListener('mousemove', onMouseMove)
+            container.addEventListener('mouseleave', MouseLeave)
+    
+            container.addEventListener('mouseup', onSecondMouseUp)
+            container.addEventListener('mousemove', onSecondMouseMove)
+            container.addEventListener('mouseleave', onSecondMouseMove)
+        
+
+
+
+
+        // slider.addEventListener('touchstart', onMouseDown)
+        // secondSlider.addEventListener('touchstart', onSecondMouseDown)
+
+        // container.addEventListener('touchend', onMouseUp)
+        // container.addEventListener('touchmove', onMouseMove)
+        // container.addEventListener('touchcancel', MouseLeave)
+
+        // container.addEventListener('touchend', onSecondMouseUp)
+        // container.addEventListener('touchmove', onSecondMouseMove)
+        // container.addEventListener('touchcancel', onSecondMouseMove)
 
         const cleanUp = () => {
-            // slider.removeEventListener('mousedown', onMouseDown)
-            // slider.removeEventListener('mouseup', onMouseUp)
 
+            // slider.removeEventListener('mouseup', onMouseUp)
+            // slider.removeEventListener('mousedown', onMouseDown)
             // container.removeEventListener('mousemove', onMouseMove)
             // container.removeEventListener('mouseleave', onMouseMove)
-
-
 
         }
 
@@ -197,13 +232,13 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
     const maxInputRef = React.useRef(null)
     const minInputRef = React.useRef(null)
 
-
     const dispatch = useAppDispatch()
 
     function handleStroePrice() {
         dispatch(setMaxRangePrice(currentMaxSum))
         dispatch(setMinRangePrice(currentMinSum))
     }
+
 
     return (
         <>
