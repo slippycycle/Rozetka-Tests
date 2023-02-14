@@ -12,8 +12,7 @@ export interface DeviceState {
     currentPage: number
     tottalItems: number
     limit: number
-    maxPrice: number,
-    minPrice: number
+    
 }
 
 interface Params {
@@ -36,9 +35,8 @@ const initialState : DeviceState = {
     currentPage: 1,
     currentSortType: '',
     error: null,
-    limit: 6,
-    maxPrice: 100000,
-    minPrice: 0,
+    limit: 3,
+  
 }
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts',
@@ -82,13 +80,8 @@ const productsSlice = createSlice({
         },
         setNextPage(state) {
             state.currentPage = state.currentPage + 1
-        },
-        setMaxRangePrice(state,action) {
-            state.maxPrice = action.payload
-        },
-        setMinRangePrice(state,action) {
-            state.minPrice = action.payload
         }
+     
     },
     extraReducers: (builder) => {
         builder
@@ -112,4 +105,4 @@ const productsSlice = createSlice({
 export default productsSlice.reducer
 
 
-export const { setSortType, setCurrentPage, setNextPage,setMaxRangePrice, setMinRangePrice} = productsSlice.actions
+export const { setSortType, setCurrentPage, setNextPage} = productsSlice.actions

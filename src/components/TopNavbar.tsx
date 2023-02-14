@@ -55,7 +55,8 @@ export default function TopNavbar() {
     }
 
     return (
-        <>
+        
+        <div className={c.menu__container}>
 
             <div className={c.top_navbar}>
                 <div onClick={menuHandle} className={c.varenya_s_pomidorammi}>
@@ -76,7 +77,8 @@ export default function TopNavbar() {
                 </button>
              
             </div>
+        </div>
 
-        </>
+        
     )
 }
