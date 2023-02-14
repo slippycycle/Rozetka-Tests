@@ -39,37 +39,28 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
         if (!sliderRef.current || !conatinerRef.current || !secondSliderRef.current) return;
 
-        const staticRangePxWidth = 130
+        const staticRangePxWidth = 150
 
         const slider = sliderRef.current
         const secondSlider = secondSliderRef.current
 
         const container = conatinerRef.current
 
-        // let procents = Math.ceil(nextX * 100 / staticRangePxWidth)
-
-        // const PriceRange = maxSum * procents / 100
-
-        // setCurrentMinSum(PriceRange)
-
-        // rangeLineFild.current.style.paddingLeft = nextX + 'px'
-
-        // slider.style.left = nextX + 'px'
-
-
-        //  rangeLineFild.current.style.paddingRight
-
-        console.log('slidEER', slider.clientLeft)
 
 
 
         setCurrentMinSum(startSum)
         setCurrentMaxSum(endSum)
 
+        // (20 * 100 / 200) => 10 // 200 as main sum // 20 as subSum 
 
         let defaultSumProcentFromMinSum = Math.ceil(startSum * 100 / maxSum)
+        
+        //( 130 * 20% / 100 )  => 26px
 
         let takePxbyProcentsMinSum = staticRangePxWidth * defaultSumProcentFromMinSum / 100
+
+    
 
         slider.style.left = takePxbyProcentsMinSum + 'px'
 
@@ -98,14 +89,11 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             const PriceRange = maxSum * procents / 100
 
-            if (PriceRange > maxSum || PriceRange < 0) {
+            if (PriceRange > maxSum || PriceRange < 0  || (staticRangePxWidth *  Math.ceil(PriceRange * 100 / maxSum) / 100 )  + 5 > secondCords.current.lastX ) {
                 //dont allow slider gets out of range
             }
             else {
                 //
-                let procents = Math.ceil(nextX * 100 / staticRangePxWidth)
-
-                const PriceRange = maxSum * procents / 100
 
                 setCurrentMinSum(PriceRange)
 
@@ -113,6 +101,7 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
                 slider.style.left = nextX + 'px'
 
+               
 
 
             }
@@ -130,14 +119,15 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             const PriceRange = maxSum * procents / 100
 
-            if (PriceRange > maxSum || PriceRange < 0) {
+            if (PriceRange > maxSum || PriceRange < 0 ||  ( (staticRangePxWidth *  Math.ceil( PriceRange * 100 / maxSum)) / 100 ) - 5 < cords.current.lastX ) {
                 //dont allow slider gets out of range
             }
             else {
-                //
-                let procents = Math.ceil(nextX * 100 / staticRangePxWidth)
+                //cords.current.lastX as px wdth
+                //122 140 =>  
+                //(20 * 100 / 200)
 
-                const PriceRange = maxSum * procents / 100
+               console.log(  (staticRangePxWidth *  Math.ceil( PriceRange * 100 / maxSum)) / 100  ) ;
 
                 setCurrentMaxSum(PriceRange)
 
@@ -165,7 +155,6 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
         const onMouseUp = (event: MouseEvent) => {
             cords.current.lastX = slider.offsetLeft;
-            console.log('d')
             isClicked.current = false
 
 
