@@ -2,10 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import axios, { AxiosError, AxiosHeaders } from "axios"
 import { Brand, Brands, DeviceI, sortDevicestypes } from "../../models/models"
 
-type RangeType =  {
-    max: number,
-    min: number
-}
+
 
 export interface DeviceState {
     devices: [] | DeviceI[]
@@ -15,7 +12,8 @@ export interface DeviceState {
     currentPage: number
     tottalItems: number
     limit: number
-    priceRange: RangeType
+    maxPrice: number,
+    minPrice: number
 }
 
 interface Params {
@@ -27,8 +25,8 @@ interface Params {
     _limit?: number
     name_like?: string
     q?: string
-    _gte?: number
-    _lte?: number
+    price_gte?: number
+    price_lte?: number
 }
 
 const initialState : DeviceState = {
@@ -39,10 +37,8 @@ const initialState : DeviceState = {
     currentSortType: '',
     error: null,
     limit: 6,
-    priceRange:  {
-        max: 0,
-        min: 0
-    }
+    maxPrice: 100000,
+    minPrice: 0,
 }
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts',
@@ -86,6 +82,12 @@ const productsSlice = createSlice({
         },
         setNextPage(state) {
             state.currentPage = state.currentPage + 1
+        },
+        setMaxRangePrice(state,action) {
+            state.maxPrice = action.payload
+        },
+        setMinRangePrice(state,action) {
+            state.minPrice = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -110,4 +112,4 @@ const productsSlice = createSlice({
 export default productsSlice.reducer
 
 
-export const { setSortType, setCurrentPage, setNextPage } = productsSlice.actions
+export const { setSortType, setCurrentPage, setNextPage,setMaxRangePrice, setMinRangePrice} = productsSlice.actions

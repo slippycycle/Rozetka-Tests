@@ -17,7 +17,7 @@ export default function DevicePanel() {
 
     const dispatch = useAppDispatch()
 
-    const { error, loading, devices, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
+    const { error, loading, devices, currentSortType, currentPage, limit, maxPrice, minPrice } = useAppSelector((state) => state.productReducer)
 
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
@@ -31,27 +31,48 @@ export default function DevicePanel() {
         //{ type: 'phone', brand: [], _sort: 'rating', _order: 'desc',_page: '1',_limit:3 }
         //http://localhost:3001/products?price_gte=40000&price_lte=90000 //by range
 
+        if (maxPrice !== 200000 || minPrice > 0) {
 
-        switch (currentSortType) {
-            case 'rating':
-                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc', _page: currentPage, _limit: limit }))
-                break;
-            case 'expensive':
-                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc', _page: currentPage, _limit: limit }))
-                break;
-            case 'cheap':
-                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _page: currentPage, _limit: limit }))
-                break;
-            default:
-                dispatch(fetchProducts({  type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
+            switch (currentSortType) {
+                case 'rating':
+                    dispatch(fetchProducts({price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc', _page: currentPage, _limit: limit }))
+                    break;
+                case 'expensive':
+                    dispatch(fetchProducts({ price_gte: minPrice, price_lte: maxPrice,type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc', _page: currentPage, _limit: limit }))
+                    break;
+                case 'cheap':
+                    dispatch(fetchProducts({ price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _sort: 'price', _page: currentPage, _limit: limit }))
+                    break;
+                default:
+                    dispatch(fetchProducts({  price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
+            }
+
+            return;
+        } 
+
+            switch (currentSortType) {
+                case 'rating':
+                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc', _page: currentPage, _limit: limit }))
+                    break;
+                case 'expensive':
+                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc', _page: currentPage, _limit: limit }))
+                    break;
+                case 'cheap':
+                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _page: currentPage, _limit: limit }))
+                    break;
+                default:
+                    dispatch(fetchProducts({  type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
+            
         }
 
-    }, [selectedBrands, currentSortType, currentPage, limit])
+
+
+    }, [selectedBrands, currentSortType, currentPage, limit,maxPrice,minPrice])
 
 
 
 
-
+console.log(maxPrice,minPrice)
 
 
 

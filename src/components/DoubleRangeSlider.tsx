@@ -1,6 +1,8 @@
 // @ts-nocheck
 import c from '../styles/DoubleRangeSlider.module.scss'
 import React, { useRef, useState } from 'react'
+import { useAppDispatch } from '../store/hooks'
+import { setMaxRangePrice, setMinRangePrice } from '../store/features/Device.Slice'
 
 
 
@@ -39,22 +41,18 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
         if (!sliderRef.current || !conatinerRef.current || !secondSliderRef.current) return;
 
-        const staticRangePxWidth = 130
+        const staticRangePxWidth = 200
 
         const slider = sliderRef.current
         const secondSlider = secondSliderRef.current
 
         const container = conatinerRef.current
 
-
-
-
         setCurrentMinSum(startSum)
         setCurrentMaxSum(endSum)
 
 
         let defaultSumProcentFromMinSum = Math.ceil(startSum * 100 / maxSum)
-
 
         let takePxbyProcentsMinSum = staticRangePxWidth * defaultSumProcentFromMinSum / 100
 
@@ -88,13 +86,14 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             const PriceRange = maxSum * procents / 100
 
-            if (PriceRange > maxSum || PriceRange < 0 || (staticRangePxWidth * Math.ceil(PriceRange * 100 / maxSum) / 100) + 5 > secondCords.current.lastX) {
-                
+            if (PriceRange > maxSum || PriceRange < 0 || !minInputRef.current || (staticRangePxWidth * Math.ceil(PriceRange * 100 / maxSum) / 100) + 5 > secondCords.current.lastX) {
+
             }
             else {
-            
+
                 setCurrentMinSum(PriceRange)
 
+                minInputRef.current.value = PriceRange
 
                 slider.style.left = nextX + 'px'
 
@@ -114,12 +113,14 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             const PriceRange = maxSum * procents / 100
 
-            if (PriceRange > maxSum || PriceRange < 0 || ((staticRangePxWidth * Math.ceil(PriceRange * 100 / maxSum)) / 100) - 5 < cords.current.lastX) {
+            if (PriceRange > maxSum || PriceRange < 0 || !maxInputRef.current || ((staticRangePxWidth * Math.ceil(PriceRange * 100 / maxSum)) / 100) - 5 < cords.current.lastX) {
                 //dont allow slider gets out of range
             }
             else {
 
                 setCurrentMaxSum(PriceRange)
+
+                maxInputRef.current.value = PriceRange
 
                 secondSlider.style.left = nextX + 'px'
 
@@ -193,13 +194,34 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
     }, [])
 
-    //
+    const maxInputRef = React.useRef(null)
+    const minInputRef = React.useRef(null)
+
+
+    const dispatch = useAppDispatch()
+
+    function handleStroePrice() {
+        dispatch(setMaxRangePrice(currentMaxSum))
+        dispatch(setMinRangePrice(currentMinSum))
+    }
 
     return (
         <>
+            {secondSliderRef.current && sliderRef.current ?
+                <div className={c.price__handle}>
+                    <h2>
+                        Price
+                    </h2>
+                    <div className={c.input__container}>
+                        <input ref={minInputRef} defaultValue={currentMinSum}></input>
+                        <input ref={maxInputRef} defaultValue={currentMaxSum}></input>
+                        <button onClick={handleStroePrice} >OK</button>
+                    </div>
 
-            <h2>Max sum{currentMaxSum}</h2>
-            <h2>Min sum{currentMinSum}</h2>
+                </div>
+                :
+                null
+            }
             <div ref={conatinerRef} className={c.container}>
 
                 <div className={c.range__container}>
