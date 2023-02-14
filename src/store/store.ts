@@ -4,6 +4,7 @@ import typeReducer from './features/Types.Slice'
 import brandReducer from './features/Brands.Slice'
 import productReducer from './features/Device.Slice'
 import backetReducer from './features/Backet.Slice'
+import rangeReducer from './features/PriceRange'
 
 
 
@@ -12,7 +13,10 @@ const rootReducer = combineReducers({
   typeReducer,
   brandReducer,
   productReducer,
-  backetReducer,  
+  backetReducer,
+  rangeReducer,
+
+   
 })
 
 export const setupStore = () => {

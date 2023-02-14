@@ -17,8 +17,9 @@ export default  React.memo( function DevicePanel() {
 
     const dispatch = useAppDispatch()
 
-    const { error, loading, devices, currentSortType, currentPage, limit, maxPrice, minPrice } = useAppSelector((state) => state.productReducer)
+    const { error, loading, devices, currentSortType, currentPage, limit} = useAppSelector((state) => state.productReducer)
 
+    const {maxPrice,minPrice } = useAppSelector((state) => state.rangeReducer)
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 

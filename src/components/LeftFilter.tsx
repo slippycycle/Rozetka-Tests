@@ -33,11 +33,7 @@ export default React.memo(function LeftFilter() {
       {getCurrentType.loading ? <h2>loading</h2> :
         <BrandsCheckList />
       }
-
-
      <RangeContainer/>
-  
-      
     </div>
   )
 });
