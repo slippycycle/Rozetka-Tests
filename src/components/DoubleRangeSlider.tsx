@@ -39,7 +39,7 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
         if (!sliderRef.current || !conatinerRef.current || !secondSliderRef.current) return;
 
-        const staticRangePxWidth = 150
+        const staticRangePxWidth = 130
 
         const slider = sliderRef.current
         const secondSlider = secondSliderRef.current
@@ -52,19 +52,17 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
         setCurrentMinSum(startSum)
         setCurrentMaxSum(endSum)
 
-        // (20 * 100 / 200) => 10 // 200 as main sum // 20 as subSum 
 
         let defaultSumProcentFromMinSum = Math.ceil(startSum * 100 / maxSum)
-        
-        //( 130 * 20% / 100 )  => 26px
+
 
         let takePxbyProcentsMinSum = staticRangePxWidth * defaultSumProcentFromMinSum / 100
 
-    
+
 
         slider.style.left = takePxbyProcentsMinSum + 'px'
 
-        rangeLineFild.current.style.paddingLeft = takePxbyProcentsMinSum + 'px'
+        rangeLineFild.current.style.paddingLeft = defaultSumProcentFromMinSum + '%'
 
 
 
@@ -74,14 +72,15 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
         secondSlider.style.left = takePxbyProcentsMaxSum + 'px'
 
-        rangeLineFild.current.style.paddingRight = takePxbyProcentsMaxSum + 'px'
+
+
+        rangeLineFild.current.style.paddingRight = 100 - defaultSumProcentFromMaxSum + '%'
 
 
         const onMouseMove = (event: MouseEvent) => {
 
 
-
-            if (!isClicked.current || isClicked.current == false) return;
+            if (!isClicked.current || !isClicked.current) return;
 
             const nextX = event.clientX - cords.current.startX + cords.current.lastX
 
@@ -89,21 +88,17 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             const PriceRange = maxSum * procents / 100
 
-            if (PriceRange > maxSum || PriceRange < 0  || (staticRangePxWidth *  Math.ceil(PriceRange * 100 / maxSum) / 100 )  + 5 > secondCords.current.lastX ) {
-                //dont allow slider gets out of range
+            if (PriceRange > maxSum || PriceRange < 0 || (staticRangePxWidth * Math.ceil(PriceRange * 100 / maxSum) / 100) + 5 > secondCords.current.lastX) {
+                
             }
             else {
-                //
-
+            
                 setCurrentMinSum(PriceRange)
 
-                rangeLineFild.current.style.paddingLeft = nextX + 'px'
 
                 slider.style.left = nextX + 'px'
 
-               
-
-
+                rangeLineFild.current.style.paddingLeft = nextX + 'px'
             }
 
         }
@@ -119,19 +114,15 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
 
             const PriceRange = maxSum * procents / 100
 
-            if (PriceRange > maxSum || PriceRange < 0 ||  ( (staticRangePxWidth *  Math.ceil( PriceRange * 100 / maxSum)) / 100 ) - 5 < cords.current.lastX ) {
+            if (PriceRange > maxSum || PriceRange < 0 || ((staticRangePxWidth * Math.ceil(PriceRange * 100 / maxSum)) / 100) - 5 < cords.current.lastX) {
                 //dont allow slider gets out of range
             }
             else {
-                //cords.current.lastX as px wdth
-                //122 140 =>  
-                //(20 * 100 / 200)
-
-               console.log(  (staticRangePxWidth *  Math.ceil( PriceRange * 100 / maxSum)) / 100  ) ;
 
                 setCurrentMaxSum(PriceRange)
 
                 secondSlider.style.left = nextX + 'px'
+
 
                 rangeLineFild.current.style.paddingRight = (staticRangePxWidth - nextX) + 'px'
             }
@@ -161,7 +152,6 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
         }
         const onSecondMouseUp = (event: MouseEvent) => {
             secondCords.current.lastX = secondSlider.offsetLeft;
-
             secondIsClicked.current = false
 
 
@@ -172,6 +162,7 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
             isClicked.current = false
 
         }
+
 
         onSecondMouseUp()
         onMouseUp()
@@ -188,11 +179,14 @@ export default function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRa
         container.addEventListener('mouseleave', onSecondMouseMove)
 
         const cleanUp = () => {
-            slider.removeEventListener('mousedown', onMouseDown)
-            slider.removeEventListener('mouseup', onMouseUp)
+            // slider.removeEventListener('mousedown', onMouseDown)
+            // slider.removeEventListener('mouseup', onMouseUp)
 
-            container.removeEventListener('mousemove', onMouseMove)
-            container.removeEventListener('mouseleave', onMouseMove)
+            // container.removeEventListener('mousemove', onMouseMove)
+            // container.removeEventListener('mouseleave', onMouseMove)
+
+
+
         }
 
         return cleanUp

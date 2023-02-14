@@ -15,7 +15,7 @@ export default function RangeContainer() {
     return (
         <>
             <RangeContext.Provider value={{maxPrice,minPrice}}>
-             <DoubleRangeSlider maxSum={200} startSum={0} endSum={100}/>
+             <DoubleRangeSlider maxSum={100000} startSum={20000} endSum={100000}/>
             </RangeContext.Provider>
         </>
 
