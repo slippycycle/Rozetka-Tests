@@ -1,22 +1,29 @@
 import React from 'react'
 import DoubleRangeSlider from './DoubleRangeSlider'
+import DoubleRangeSliderMobile from './DoubleRangeSliderMobile'
 import RangeSlider from './RangeSlider'
+import c from '../styles/RangeContainer.module.scss'
 
 export default function RangeContainer() {
-   
-   
-   const [maxPrice, setMaxPrice] = React.useState(100000)
-   const [minPrice, setMinPrice] = React.useState(0)
 
-   const RangeContext = React.createContext<any>(null)
 
-    
+   
+
 
     return (
         <>
-            <RangeContext.Provider value={{maxPrice,minPrice}}>
-             <DoubleRangeSlider maxSum={100000} startSum={20000} endSum={100000}/>
-            </RangeContext.Provider>
+        
+
+                <div className={c.range__slider__conatiner}>
+                    {/* if device has a touch screen */}
+                    <DoubleRangeSlider maxSum={100000} startSum={20000} endSum={100000} />
+                </div>
+                <div className={c.range__mobile__slider__conatiner} >
+                    {/* if device has no touch screen */}
+                    <DoubleRangeSliderMobile maxSum={100000} startSum={20000} endSum={100000} />
+                </div>
+
+            
         </>
 
     )

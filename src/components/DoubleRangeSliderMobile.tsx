@@ -82,7 +82,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
 
 
-            const nextX = Math.floor(event.clientX) - cords.current.startX + cords.current.lastX
+            const nextX = Math.floor(event.touches[0].clientX) - cords.current.startX + cords.current.lastX
 
             let procents = Math.ceil(nextX * 100 / staticRangePxWidth)
 
@@ -109,7 +109,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
             if (!secondIsClicked.current || secondIsClicked.current == false) return;
 
-            const nextX = Math.floor(event.clientX) - secondCords.current.startX + secondCords.current.lastX
+            const nextX = Math.floor(event.touches[0].clientX) - secondCords.current.startX + secondCords.current.lastX
 
             let procents = Math.ceil(nextX * 100 / staticRangePxWidth)
 
@@ -135,13 +135,13 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
 
         const onMouseDown = (event: MouseEvent) => {
-            cords.current.startX = event.clientX
+            cords.current.startX = event.touches[0].clientX
             isClicked.current = true
 
         }
 
         const onSecondMouseDown = (event: MouseEvent) => {
-            secondCords.current.startX = event.clientX
+            secondCords.current.startX = event.touches[0].clientX
             secondIsClicked.current = true
 
         }
@@ -184,30 +184,20 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
         //MouseLeave                ==== TouchCancel
 
 
-        //
-        // slider.addEventListener('touchstart', onMouseDown)
-        // secondSlider.addEventListener('touchstart', onSecondMouseDown)
+        
+        slider.addEventListener('touchstart', onMouseDown)
+        secondSlider.addEventListener('touchstart', onSecondMouseDown)
 
-        // container.addEventListener('touchend', onMouseUp)
-        // container.addEventListener('touchmove', onMouseMove)
-        // container.addEventListener('touchcancel', MouseLeave)
+        container.addEventListener('touchend', onMouseUp)
+        container.addEventListener('touchmove', onMouseMove)
+        container.addEventListener('touchcancel', MouseLeave)
 
-        // container.addEventListener('touchend', onSecondMouseUp)
-        // container.addEventListener('touchmove', onSecondMouseMove)
-        // container.addEventListener('touchcancel', onSecondMouseMove)
+        container.addEventListener('touchend', onSecondMouseUp)
+        container.addEventListener('touchmove', onSecondMouseMove)
+        container.addEventListener('touchcancel', onSecondMouseMove)
 
         
-        slider.addEventListener('mousedown', onMouseDown)
-        secondSlider.addEventListener('mousedown', onSecondMouseDown)
-
-        container.addEventListener('mouseup', onMouseUp)
-        container.addEventListener('mousemove', onMouseMove)
-        container.addEventListener('mouseleave', MouseLeave)
-
-        container.addEventListener('mouseup', onSecondMouseUp)
-        container.addEventListener('mousemove', onSecondMouseMove)
-        container.addEventListener('mouseleave', onSecondMouseMove)
-
+  
 
 
         const cleanUp = () => {
