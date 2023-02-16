@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { Brands } from '../models/models';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
@@ -17,60 +17,59 @@ interface BrandsCheckListProps {
 export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
 
-  
+
 
     let list = []
 
     const brandsStore = useAppSelector(state => state.brandReducer)
-    
+
     if (brandsList) {
-        list = brandsList 
-        console.log(brandsList)   
+        list = brandsList
+        console.log(brandsList)
     }
 
-    
+
     else {
-        
-        list = brandsStore.currentType.brands
-        
-    }
-    
-    
 
-    const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
+        list = brandsStore.currentType.brands
+
+    }
+
 
     const dispacth = useAppDispatch()
 
-
     function handleSelect(event: any) {
+
         const value = event.target.value;
         const isChecked = event.target.checked;
 
         if (isChecked) {
 
-            setCheckedList([...checkedList, value]);
+            dispacth(addSelectedBrands([...brandsStore.selectedBrands, value]))
 
 
         } else {
 
-            const filteredList = checkedList.filter((item) => item !== value);
-            setCheckedList(filteredList);
+            const filteredList = brandsStore.selectedBrands.filter((item) => item !== value);
+            dispacth(addSelectedBrands(filteredList))
 
         }
 
     };
 
+    const listRef = useRef<HTMLDivElement | null>(null)
+
+    const listElRef = useRef<HTMLDivElement | null>(null)
 
 
 
-    useEffect(() => {
-        dispacth(addSelectedBrands(checkedList))
-        //reset page
-        dispacth(setCurrentPage(1))
-    }, [checkedList])
 
 
-
+    function handleAtStart(event: any) {
+        const value = event.target.value;
+        const isChecked = event.target.checked;
+        console.log('INSIDE LIST BEACH,', value, isChecked)
+    }
 
 
     return (
@@ -79,24 +78,42 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
             <div>
                 <h2>Select Brands</h2>
             </div>
-            <div>
+            <div ref={listRef}>
                 {brandsStore.loading ?
                     null
                     :
                     list?.map((item, index) =>
                         <div key={item} >
                             <label className={c.container}>{item}
-                                <input
-                                    name="brands"
-                                    value={item}
-                                    onClick={handleSelect}
-                                    type="checkbox" />
+
+                                {brandsStore.selectedBrands.includes(item) ?
+                                    <input
+                                        checked={true}
+                                        onChange={() => {   }}
+                                        name="brands"
+                                        value={item}
+                                        onClick={handleSelect}
+                                        type="checkbox">
+                                    </input>
+                                    :
+                                    <input
+                                        checked={false}
+                                        onChange={() => {  }}
+                                        name="brands"
+                                        value={item}
+                                        onClick={handleSelect}
+                                        type="checkbox">
+                                    </input>
+
+                                }
+
                                 <span className={c.checkmark}></span>
                             </label>
                         </div>
 
 
                     )}
+                
             </div>
 
         </div>

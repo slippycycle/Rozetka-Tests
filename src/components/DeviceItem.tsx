@@ -24,7 +24,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
     const [active,setActive] = React.useState(currentBcket?.length > 0 ? currentBcket.find((el : string | number) => el == device.id): false)
    
-    console.log(active, )
+   
 
     function handleDevicebacket() {
 
@@ -59,7 +59,6 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
         }
 
 
-        console.log(localStorage.getItem('backet'))
        
     }
 
