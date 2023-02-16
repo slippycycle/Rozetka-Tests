@@ -16,7 +16,7 @@ export default function SelectedDevicesPage() {
 
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', position: 'relative', alignItems: 'center', overflow: 'hidden', height: '94vh' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
 
             <MobileSortActive.Provider value={{ active, handleMenuState}} >
                 <ComponentsCategory />

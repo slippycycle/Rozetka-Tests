@@ -10,10 +10,11 @@ interface DoubleRangeSliderProps {
     maxSum: number
     startSum: number
     endSum: number
+    pxWidth?: number
 }
 
 
-export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRangeSliderProps) {
+export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum,pxWidth }: DoubleRangeSliderProps) {
 
 
 
@@ -25,6 +26,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
     const secondSliderRef = useRef<HTMLDivElement>(null)
     const conatinerRef = useRef<HTMLDivElement>(null)
     const rangeLineFild = useRef<HTMLDivElement>(null)
+
 
     const isClicked = useRef<boolean>(false)
     const secondIsClicked = useRef<boolean>(false)
@@ -39,9 +41,11 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
     React.useEffect(() => {
 
 
-        if (!sliderRef.current || !conatinerRef.current || !secondSliderRef.current) return;
+        if (!sliderRef.current || !conatinerRef.current || !secondSliderRef.current ) return;
+        
 
         const staticRangePxWidth = 200
+       
 
         const slider = sliderRef.current
         const secondSlider = secondSliderRef.current
@@ -169,33 +173,6 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
         onSecondMouseUp()
         onMouseUp()
 
-        //'touchmove'
-        //touchstart
-        //
-        //Math.floor(event.touches[0].clientX)
-        //
-
-        //onMouseDown               ==== touchStart
-        //onSecondMouseDown         ==== secondTouchstart
-        //onMouseUp                 ==== onTouchend
-        //onSecondMouseDown         ==== secondTouchStart
-        //onMouseMove               ==== onTouchmove
-        //onSecondMouseMove         ==== onSecondTouchMove
-        //MouseLeave                ==== TouchCancel
-
-
-        //
-        // slider.addEventListener('touchstart', onMouseDown)
-        // secondSlider.addEventListener('touchstart', onSecondMouseDown)
-
-        // container.addEventListener('touchend', onMouseUp)
-        // container.addEventListener('touchmove', onMouseMove)
-        // container.addEventListener('touchcancel', MouseLeave)
-
-        // container.addEventListener('touchend', onSecondMouseUp)
-        // container.addEventListener('touchmove', onSecondMouseMove)
-        // container.addEventListener('touchcancel', onSecondMouseMove)
-
         
         slider.addEventListener('mousedown', onMouseDown)
         secondSlider.addEventListener('mousedown', onSecondMouseDown)
@@ -256,7 +233,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
             }
             <div ref={conatinerRef} className={c.container}>
 
-                <div className={c.range__container}>
+                <div  className={c.range__container}>
                     <div ref={rangeLineFild} className={c.range__line}>
                         <div className={c.range__fild}></div>
                     </div>

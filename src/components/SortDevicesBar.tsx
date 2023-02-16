@@ -32,7 +32,9 @@ function SortDevicesBar({ currentSortType }: SortDevicesBarProps) {
 
     <div className={c.container}>
       <button className={c.filter__button} onClick={handleMenuState}>filter</button>
+    
       <div className={c.dropdown}>
+       
         <button className={c.dropbtn}>{currentSortType.length ? `Sort by: ${currentSortType}` : 'Select sort'}</button>
         <div className={c.dropdown_content}>
           <a onClick={() => handleSortType('rating')} >sort by rating</a>
@@ -40,6 +42,7 @@ function SortDevicesBar({ currentSortType }: SortDevicesBarProps) {
           <a onClick={() => handleSortType('cheap')} >from cheap to expensive</a>
         </div>
       </div>
+       
     </div>
 
   )

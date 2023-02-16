@@ -6,6 +6,22 @@
     height: 100%;
     transform: translateX(-120%);
     transition: all 0.4s;
+
+     .content {
+        width: 35%;
+        position: relative;
+        height: 100%;
+        background-color: white;
+        .close__button {
+            width: 40px;
+            height: 40px;
+            right: 0px;
+            position: absolute;
+            color: rgb(124, 73, 172);
+            background-color: rgb(255, 255, 255);
+        }
+    }
+
 }
 
 .menu_active {
@@ -18,7 +34,8 @@
     transition: all 0.4s;
    
     .content {
-        width: 30%;
+        width: 35%;
+        padding: 5px 10px 0px 3px;
         position: relative;
         height: 100%;
         background-color: white;
@@ -33,8 +50,40 @@
     }
 }
 
+
+.range__slider__conatiner {
+    display: none;
+}
+
+.range__mobile__slider__conatiner {
+    display: none;
+}
+
+/* if device has a touch screen */
+@media (any-pointer: coarse) {
+
+    .range__mobile__slider__conatiner {
+        display: block;
+        transition: all 0.4s;
+    
+    }
+}
+
+/* if device has no touch screen */
+@media (any-pointer: fine) {
+
+  
+    .range__slider__conatiner {
+        display: block;
+        transition: all 0.4s;
+    
+    }
+
+}
+
 @media (max-width: 640px) {
     .menu_active { 
+        transition: all 0.4s;
         .content {
             width: 50%;
         }
@@ -42,6 +91,8 @@
 }
 @media (min-width: 900px) {
     .menu_active { 
+        transition: all 0.4s;
       display: none;
+      
     }
 }

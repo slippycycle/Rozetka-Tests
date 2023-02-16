@@ -5,7 +5,7 @@ import { useAppSelector } from '../store/hooks'
 import c from '../styles/CategoryHeader.module.scss'
 
 interface CategoryHeaderProps {
-    brands: Brand[]
+    brands?: Brand[]
     category: string
 }
 

@@ -23,6 +23,7 @@ interface Params {
     _page?: number
     _limit?: number
     name_like?: string
+    faceDescription_like?:string
     q?: string
     price_gte?: number
     price_lte?: number

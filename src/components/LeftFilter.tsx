@@ -13,14 +13,14 @@ import RangeSlider from './RangeSlider'
 export default React.memo(function LeftFilter() {
 
 
-  
-  
- 
+
+
+
 
   return (
     <div className={c.container}>
-     <BrandsCheckListContainer/>
-     <RangeContainer/>
+      <BrandsCheckListContainer />
+      <RangeContainer />  
     </div>
   )
 });

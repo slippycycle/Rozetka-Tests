@@ -3,6 +3,7 @@ import { Brands } from '../models/models';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Device.Slice';
+import c from '../styles/BrandsCheckList.module.scss'
 
 interface BrandsCheckListProps {
     brandsArray: Brands | string[]
@@ -45,7 +46,6 @@ export default function BrandsCheckList() {
 
     useEffect(() => {
         dispacth(addSelectedBrands(checkedList))
-
         //reset page
         dispacth(setCurrentPage(1))
     }, [checkedList])
@@ -55,8 +55,8 @@ export default function BrandsCheckList() {
 
 
     return (
-        <div >
-            <div>
+        <div className={c.cheklist_container}>
+            
                 <div>
                     <h2>Select Brands</h2>
                 </div>
@@ -65,20 +65,21 @@ export default function BrandsCheckList() {
                         null
                         :
                         brandsStore.currentType.brands?.map((item, index) =>
-
                             <div key={item} >
-                                <input
-                                    type="checkbox"
-                                    name="languages"
-                                    value={item}
-                                    onClick={handleSelect}
-                                />
-                                <label>{item}</label>
+                                <label className={c.container}>{item}
+                                    <input
+                                        name="brands"
+                                        value={item}
+                                        onClick={handleSelect}
+                                        type="checkbox" />
+                                    <span className={c.checkmark}></span>
+                                </label>
                             </div>
+
 
                         )}
                 </div>
-            </div>
+           
         </div>
 
     )

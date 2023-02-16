@@ -1,5 +1,7 @@
 type UrlIcon = string
 
+export type brand = string
+
 export type Types = {
     type: string
     brands: string[]

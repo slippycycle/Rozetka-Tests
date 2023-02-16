@@ -170,6 +170,17 @@ $device-hght: 450px;
 
     }
 
+
+    @media (min-width: 1700px) {
+  
+        .wrap {
+          background-color: rgb(66, 35, 222);
+          width: 1700px;
+        }
+        
+      }
+
+
     @media (min-width: 1320px) and (max-width: 1500px) {
         .content {
 
