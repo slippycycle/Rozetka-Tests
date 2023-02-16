@@ -6,17 +6,30 @@ import { setCurrentPage } from '../store/features/Device.Slice';
 import c from '../styles/BrandsCheckList.module.scss'
 
 interface BrandsCheckListProps {
-    brandsArray: Brands | string[]
+    brandsList?: Brands | string[]
 }
 
 
 
 
 
-export default function BrandsCheckList() {
+export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
+
+    let list = []
 
     const brandsStore = useAppSelector(state => state.brandReducer)
+    
+    if (brandsList) {
+        list = brandsList 
+        console.log(brandsList)   
+    }
+    else {
+
+        list = brandsStore.currentType.brands
+
+    }
+
 
     const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
 
@@ -56,30 +69,30 @@ export default function BrandsCheckList() {
 
     return (
         <div className={c.cheklist_container}>
-            
-                <div>
-                    <h2>Select Brands</h2>
-                </div>
-                <div>
-                    {brandsStore.loading ?
-                        null
-                        :
-                        brandsStore.currentType.brands?.map((item, index) =>
-                            <div key={item} >
-                                <label className={c.container}>{item}
-                                    <input
-                                        name="brands"
-                                        value={item}
-                                        onClick={handleSelect}
-                                        type="checkbox" />
-                                    <span className={c.checkmark}></span>
-                                </label>
-                            </div>
+
+            <div>
+                <h2>Select Brands</h2>
+            </div>
+            <div>
+                {brandsStore.loading ?
+                    null
+                    :
+                    list?.map((item, index) =>
+                        <div key={item} >
+                            <label className={c.container}>{item}
+                                <input
+                                    name="brands"
+                                    value={item}
+                                    onClick={handleSelect}
+                                    type="checkbox" />
+                                <span className={c.checkmark}></span>
+                            </label>
+                        </div>
 
 
-                        )}
-                </div>
-           
+                    )}
+            </div>
+
         </div>
 
     )

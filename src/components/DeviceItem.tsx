@@ -6,7 +6,7 @@ import { handleBacket } from '../store/features/Backet.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { AppDispatch } from '../store/store'
 
-import c from '../styles/DevicePanel.module.scss'
+import c from '../styles/DeviceItem.module.scss'
 
 interface DeviceItemProps {
     device: DeviceI,

@@ -4,27 +4,26 @@ import { fetchBrands, setAvailableBrands } from '../store/features/Brands.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import BrandsCheckList from './BrandsCheckList'
 
-interface  BrandsCheckListContainerProps {
-    brandsList?: brand[]
-}
 
 
-export default function BrandsCheckListContainer({brandsList}:BrandsCheckListContainerProps) {
+export default function BrandsCheckListContainer() {
 
 
 
-    
+
     const getCurrentType = useAppSelector((state) => state.brandReducer)
-    
+
     console.log('render sortbybrandsleftBar as left bar')
 
-    
+    const takeCurrentType = window.location.pathname.slice(1, 100)
+
     const dispacth = useAppDispatch()
-    
+
     React.useEffect(() => {
-        const takeCurrentType = window.location.pathname.slice(1, 100)
-        dispacth(fetchBrands(takeCurrentType))
+
+
         dispacth(setAvailableBrands(getCurrentType.currentType.brands))
+        dispacth(fetchBrands(takeCurrentType))
     }, [])
 
     return (

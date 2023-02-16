@@ -12,7 +12,6 @@ export default function ComponentsCategory() {
     <div className={c.wrap}>
       <LeftFilter />
       <DevicePanel />
-
     </div>
   )
 }

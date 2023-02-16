@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import axios, { AxiosError, AxiosHeaders } from "axios"
-import { Brand, Brands, DeviceI, sortDevicestypes } from "../../models/models"
+import { brand, Brand, Brands, DeviceI, sortDevicestypes } from "../../models/models"
 
 
 
@@ -16,7 +16,7 @@ export interface DeviceState {
 }
 
 interface Params {
-    brand?: Brands
+    brand?: Brands | brand[] | [] | any
     type?: string
     _sort?: string
     _order?: string
