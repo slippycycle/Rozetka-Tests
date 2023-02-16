@@ -1,5 +1,5 @@
 import React from 'react'
-import { MobileSortActive } from '../context'
+import { AllBrandsContex, MobileSortActive } from '../context'
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Device.Slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
@@ -12,46 +12,10 @@ import DoubleRangeSliderMobile from './DoubleRangeSliderMobile';
 
 export default function LeftMobileFilter() {
 
-    const brandsStore = useAppSelector(state => state.brandReducer)
+  
 
     const menuState = React.useContext(MobileSortActive)
-
-    
-
-    const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
-
-    const dispacth = useAppDispatch()
-
-    function handleSelect(event: any) {
-        const value = event.target.value;
-        const isChecked = event.target.checked;
-
-       if (brandsStore.currentType.brands) {
-
-       }
-
-        if (isChecked) {
-
-            setCheckedList([...checkedList, value]);
-
-
-        } else {
-
-            const filteredList = checkedList.filter((item) => item !== value);
-            setCheckedList(filteredList);
-
-        }
-
-    };
-
-
-    React.useEffect(() => {
-        dispacth(addSelectedBrands(checkedList))
-
-        //reset page
-        dispacth(setCurrentPage(1))
-    }, [checkedList])
-
+  
 
 
     return (
@@ -63,7 +27,7 @@ export default function LeftMobileFilter() {
                         close
                     </span>
                 </button>
-                <BrandsCheckListContainer/>
+                <BrandsCheckListContainer />
                 <div className={c.range__slider__conatiner}>
                     {/* if device has a touch screen */}
                     <DoubleRangeSlider maxSum={100000} startSum={20000} endSum={100000} />

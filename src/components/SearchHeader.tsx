@@ -1,15 +1,20 @@
 import React from 'react'
-import c from '../styles/SearchPage.module.css'
+import { useAppSelector } from '../store/hooks'
+import c from '../styles/SearchPage.module.scss'
+import SortDevicesBar from './SortDevicesBar'
 
 interface SearchHeaderProps {
-    count: number
     searchQuerry: string
 }
 
-export default function SearchHeader({count,searchQuerry}:SearchHeaderProps) {
+export default function SearchHeader({searchQuerry}:SearchHeaderProps) {
+ 
+  const {currentSortType} = useAppSelector(state => state.productReducer)
+
   return (
-   <div className={c.heder}>
-      <h1>{`Was founded ${count} items by querry ${searchQuerry} `}</h1>
+   <div className={c.header}>
+      <h1>{`"${searchQuerry}"`}</h1>
+      <SortDevicesBar currentSortType={currentSortType as string} />
    </div>
   )
 }

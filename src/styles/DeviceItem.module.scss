@@ -101,3 +101,203 @@ $device-hght: 450px;
 }
 
 
+
+
+@media (min-width: 1320px) and (max-width: 1500px) {
+  
+
+        .device_item {
+            background-color: rgb(255, 255, 255);
+            height: $device-hght - 50px;
+            ;
+        }
+
+    }
+
+
+@media (min-width: 1250px) and (max-width: 1330px) {
+   
+
+        .device_item {
+            background-color: rgb(255, 255, 255);
+            height: $device-hght - 60px;
+            ;
+        }
+
+    
+}
+
+@media (min-width: 1150px) and (max-width: 1250px) {
+ 
+
+        .device_item {
+            width: $device-wdth + 5%;
+            height: $device-hght - 10px;
+            ;
+        }
+
+
+
+   
+}
+
+
+@media (min-width: 950px) and (max-width: 1150px) {
+    
+        .device_item {
+            background-color: rgb(255, 255, 255);
+            height: $device-hght - 50px;
+            width: $device-wdth  + 5%;
+
+            img {
+                object-fit: cover;
+                max-width: 80%;
+
+            }
+
+        }
+    
+}
+
+@media (min-width: 740px) and (max-width: 950px) {
+    
+
+        .device_item {
+            .device_item_info_block {
+
+                .device__text__block {
+
+                    padding: 5px;
+
+                    .name_header {
+                        font-size: 0.9rem;
+                        color: rgb(0, 0, 0);
+                    }
+
+                    p {
+                        font-size: 0.1rem;
+                        color: rgb(82, 82, 82);
+                    }
+                }
+            }
+
+            width: $device-wdth +13%;
+
+            height: $device-hght - 50px;
+
+            img {
+                object-fit: cover;
+                max-width: 80%;
+
+            }
+        }
+    
+}
+
+@media (min-width: 570px) and (max-width: 740px) {
+   
+        .device_item {
+            .image_container {
+                img {
+                    object-fit: cover;
+                     max-width: 70%;
+                   
+
+                }
+            }
+
+            .device_item_info_block {
+
+
+                .device__text__block {
+
+                    padding: 5px;
+
+                    .name_header {
+                        font-size: 0.9rem;
+                        color: rgb(0, 0, 0);
+                    }
+
+                    p {
+                        font-size: 0.1rem;
+                        color: rgb(82, 82, 82);
+                    }
+                }
+            }
+
+
+            width: $device-wdth +13%;
+            height: $device-hght - 110px;
+
+
+        }
+    }
+
+
+@media (min-width: 390px) and (max-width:570px) {
+   
+
+        .device_item {
+            width: $device-wdth + 29%;
+            margin: 1px;
+            height: $device-hght - 110px;
+            margin-left: 1px;
+            box-shadow: none;
+
+
+            .image_container {
+
+                img {
+                    object-fit: cover;
+                    // max-width: 100%;
+                    max-height: 70%;
+
+
+                }
+            }
+
+        }
+    }
+
+
+@media (min-width: 320px) and (max-width:390px) {
+  
+        .device_item {
+            width: $device-wdth + 29%;
+            margin: 1px;
+            height: $device-hght - 130px;
+
+
+
+            .device_item_info_block {
+
+                .device__text__block {
+
+                    padding: 5px;
+
+                    .name_header {
+                        font-size: 0.8rem;
+                        color: rgb(0, 0, 0);
+                    }
+
+                    p {
+                        font-size: 0.1rem;
+                        color: rgb(82, 82, 82);
+                    }
+                }
+            }
+
+            .image_container {
+
+                img {
+
+                    max-height: 60%;
+
+
+                }
+            }
+
+        }
+    
+}
+

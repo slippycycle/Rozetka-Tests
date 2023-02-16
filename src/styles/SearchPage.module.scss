@@ -1,0 +1,42 @@
+.header {
+ width: 100%;
+ font-size: 2rem;
+ padding: 20px;
+ border-bottom: 1px solid rgba(128, 128, 128, 0.139);
+}
+.wrap {
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+ 
+   
+
+        .devices__list__container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            width: 100%;
+        }
+        
+    
+       
+       
+    }   
+
+       
+    @media (min-width: 1700px) {
+  
+        .wrap {
+          background-color: rgb(66, 35, 222);
+          width: 1700px;
+        }
+        
+      }
+
+      @media (max-width: 880px) {
+  
+        .container {
+         display: none;
+        }
+        
+      }

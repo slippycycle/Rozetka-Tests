@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { handleBacket } from '../store/features/Backet.Slice'
 import { fetchProducts } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import c from '../styles/SearchPage.module.css'
+import c from '../styles/SearchPage.module.scss'
 import DeviceContainer from './DeviceContainer'
 import DeviceItem from './DeviceItem'
 import Loader from './Loader'
@@ -27,7 +27,7 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
-    const selectedBrandsRef = useRef(null)
+
 
 
 
@@ -80,13 +80,11 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
                 <Loader />
                 :
                 <div className={c.devices__list__container}>
-                    <SearchHeader searchQuerry={query} count={devices.length} />
-                    <SerchedDevices />
-                    <div className={c.contant}>
-                        <div className={c.content}>
+                    
+                        
                             {devices?.map((dev) => <DeviceItem handleBacketFn={handleBacket} dispatch={dispatch} device={dev} />)}
-                        </div>
-                    </div>
+                        
+                    
                 </div>
 
             }

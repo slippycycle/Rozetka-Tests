@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { MenuContext } from '../context'
 import { handleBacket } from '../store/features/Backet.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -38,11 +38,13 @@ export default function TopNavbar() {
 
     let navigate = useNavigate()
 
-    function handleKeyDown(event : React.KeyboardEvent<HTMLInputElement>) {
+    let location = useLocation()
+
+    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
 
         if (event.key === 'Enter') {
 
-            navigate(`/search/${value.replace(/ /g,'').toLowerCase()}`)
+            navigate(`/search/${value.replace(/ /g, '').toLowerCase()}`)
             window.location.reload();
         }
     }
@@ -51,11 +53,12 @@ export default function TopNavbar() {
 
     function navigateBySearchItem() {
 
-        navigate(`/search/${value}`)
+        navigate(`/search/${value.replace(/ /g, '').toLowerCase()}`)
+        window.location.reload();
     }
 
     return (
-        
+
         <div className={c.menu__container}>
 
             <div className={c.top_navbar}>
@@ -75,10 +78,10 @@ export default function TopNavbar() {
                         shopping_basket
                     </span>
                 </button>
-             
+
             </div>
         </div>
 
-        
+
     )
 }

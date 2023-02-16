@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Brands } from '../models/models';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Device.Slice';
 import c from '../styles/BrandsCheckList.module.scss'
+import { AllBrandsContex } from '../context';
 
 interface BrandsCheckListProps {
     brandsList?: Brands | string[]
@@ -16,6 +17,8 @@ interface BrandsCheckListProps {
 export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
 
+  
+
     let list = []
 
     const brandsStore = useAppSelector(state => state.brandReducer)
@@ -24,12 +27,15 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
         list = brandsList 
         console.log(brandsList)   
     }
+
+    
     else {
-
+        
         list = brandsStore.currentType.brands
-
+        
     }
-
+    
+    
 
     const [checkedList, setCheckedList] = React.useState<[] | string[]>([]);
 
