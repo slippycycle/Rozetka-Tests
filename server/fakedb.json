@@ -13,6 +13,9 @@
     "questions":[
 
     ],
+    
+    
+
     "types": [
         {
             "type": "phone",
@@ -46,9 +49,14 @@
             "icon": "https://cdn-icons-png.flaticon.com/512/114/114734.png"
         }
     ],
+
+
+    
+
     "products": [
         {
             "id": 1,
+            "questionsId": 1,
             "name": "iphone12",
             "brand": "apple",
             "type": "phone",
@@ -79,6 +87,7 @@
         {
             "id": 2,
             "name": "samsungA51",
+            "questionsId": 2,
             "brand": "samsung",
             "type": "phone",
             "price": 13000,
@@ -97,6 +106,7 @@
         {
             "id": 3,
             "name": "galaxy12S22",
+            "questionsId": 3,
             "brand": "samsung",
             "type": "phone",
             "price": 24000,
@@ -126,6 +136,7 @@
         {
             "id": 4,
             "name": "iphone13",
+            "questionsId": 4,
             "brand": "apple",
             "type": "phone",
             "price": 32999,
@@ -155,6 +166,7 @@
             "id": 5,
             "name": "iphone14",
             "brand": "apple",
+            "questionsId": 5,
             "type": "phone",
             "price": 41999,
             "colors": [
@@ -163,7 +175,7 @@
             ],
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": 5,
-            "faceDescription": "Mobile phone Aplle Iphone 14 128GB ",
+            "faceDescription": "Artem pidor Mobile phone Aplle Iphone 14 128GB ",
             "images": {
                 "red": [
                     "https://content2.rozetka.com.ua/goods/images/big/284913542.jpg",
@@ -182,6 +194,7 @@
         {
             "id": 6,
             "name": "ps4",
+            "questionsId": 6,
             "brand": "SONY",
             "type": "consoles",
             "price": "17,00",
@@ -190,6 +203,7 @@
         },
         {
             "id": 7,
+            "questionsId": 7,
             "name": "iphone14pro",
             "brand": "apple",
             "type": "phone",

@@ -6,14 +6,14 @@ export default  React.memo( function SubPagesVariatyList() {
    
    console.log('sub page list render ')
 
-   const {changeCurrentSubPage} = useContext(SelectedSubPageContext)
+   const {changeCurrentSubPage,selected} = useContext(SelectedSubPageContext)
 
     return (
         <div className={c.subpages_list_container}>
             <ul className={c.subpages_variaty_list}>
-                <li onClick={() => changeCurrentSubPage('All information')}>All information</li>
-                <li onClick={() => changeCurrentSubPage('characteristics')}>characteristics</li>
-                <li onClick={() => changeCurrentSubPage('Questions')} >Questions</li>
+                <li className={selected == 'All information' ? c.li_active : ''} onClick={() => changeCurrentSubPage('All information')}>All information</li>
+                <li className={selected == 'characteristics' ? c.li_active : ''} onClick={() => changeCurrentSubPage('characteristics')}>characteristics</li>
+                <li className={selected == 'Questions' ? c.li_active : ''} onClick={() => changeCurrentSubPage('Questions')} >Questions</li>
             </ul>
         </div>
     )

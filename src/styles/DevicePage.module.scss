@@ -5,26 +5,26 @@
         width: 100%;
         height: auto;
     }
-    
+
     .device_top_conatiner {
         width: 100%;
-        height: 130px;
+        height: auto;
+
         background-color: rgb(255, 255, 255);
         border-bottom: 1px solid #e2e2e268;
-        padding: 10px;
+        padding: 25px 10px 25px 10px;
+
         h1 {
-             font-family: 'Roboto', sans-serif;
-             font-size: 3rem;
-             font-weight: 300;
+            font-family: 'Roboto', sans-serif;
+            font-size: 3rem;
+            font-weight: 300;
         }
     }
-    
+
     .subpages_list_container {
         width: 100%;
         height: auto;
-        padding: 10px;
         background-color: rgba(212, 212, 212, 0.323);
-    
         .subpages_variaty_list {
             display: flex;
             font-size: 1rem;
@@ -32,44 +32,55 @@
             flex-direction: row;
             cursor: pointer;
             height: 100%;
+            padding: 5px;
             width: 60%;
             justify-content: space-around;
-    
+
+            li {
+               
+                padding: 15px;  
+            }
+
+            .li_active {
+                border-bottom: 2px solid  rgb(106, 136, 255);
+              
+            }
+
         }
     }
-    
-    
+
+
     .wrap {
         width: 100%;
         display: flex;
         background-color: rgb(153, 233, 233);
+        flex-direction: row;
         justify-content: space-between;
-    
+
         .info__panel {
             width: 50%;
             padding: 5px;
             display: block;
-            height: 800px;
             background-color: white;
-    
-    
+
+
             .color__block {
                 width: 100%;
                 height: 100px;
                 background-color: rgb(255, 255, 255);
                 padding: 20px;
                 font-size: 1.1rem;
-    
+
                 .cloror__container__text {
                     display: flex;
                     font-display: row;
                 }
-    
+
                 h3 {
                     color: rgb(147, 147, 147);
                     cursor: pointer;
                 }
-    
+
                 .colors__container {
                     display: flex;
                     margin-top: 5px;
@@ -78,9 +89,9 @@
                     max-height: 100px;
                     flex-wrap: wrap;
                 }
-    
+
             }
-    
+
             .order__price__block {
                 width: 100%;
                 height: 30%;
@@ -90,30 +101,30 @@
                 padding: 15px;
                 display: flex;
                 flex-direction: column;
-            
-    
+
+
                 h2 {
                     font-size: 2rem;
                     color: red;
-    
+
                     &::after {
                         content: '₴';
                         font-size: 1.1rem;
                     }
                 }
-    
+
                 .order__butons {
-                    width: 250px;
+                    width: min-content;
                     margin-top: 20px;
                     height: max-content;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: nowrap;
                     justify-content: space-between;
-                    
-                    $btn_wdth: 48%; 
+
+                    $btn_wdth: 120px;
                     $btn_borr: 7px;
-    
+
                     button {
                         width: $btn_wdth;
                         height: auto;
@@ -122,27 +133,28 @@
                         border-radius: $btn_borr;
                         padding: 8px 4px 8px 4px;
                         background-color: rgb(64, 64, 255);
-    
+
                     }
-    
+
                     .credit__buton {
-                        width: $btn_wdth;
+                        width: $btn_wdth + 30px;
                         height: auto;
                         color: white;
                         text-align: center;
                         border-radius: $btn_borr;
                         padding: 8px 4px 8px 4px;
                         background-color: rgb(115, 115, 255);
+                        margin-left: 10px;
                     }
-    
+
                 }
-    
-    
+
+
             }
-    
-    
+
+
         }
-    
+
     }
 }
 
@@ -176,8 +188,8 @@ $red: red;
     margin: 1px;
     display: block;
     border-radius: 3px;
-     margin: 0px 3px 0px 3px;
-            
+    margin: 0px 3px 0px 3px;
+
 
 }
 
@@ -185,7 +197,6 @@ $red: red;
     background-color: $purple;
     border: 2px solid rgb(90, 0, 90);
     @extend %color__item
-    
 }
 
 .color__item__red {
@@ -235,5 +246,22 @@ $red: red;
     .main_wrap {
         width: 1700px;
         margin: 0% auto;
+    }
+}
+
+@media (max-width: 800px) {
+    .main_wrap {
+        .wrap {
+            flex-direction: column;
+            align-items: center;
+
+            .info__panel {
+                width: 100%;
+            }
+
+            .subpages_list_container {
+                width: 100%;
+            }
+        }
     }
 }

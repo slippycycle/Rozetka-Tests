@@ -12,7 +12,7 @@ export default function DevicePage() {
 
   const [device, setDevicd] = React.useState<DeviceI | null>(null)
   const [loading, setLoading] = React.useState<boolean>(true)
-  const [error, setError] = React.useState()
+ 
 
 
 
@@ -20,9 +20,7 @@ export default function DevicePage() {
 
     try {
       const deviceId = window.location.pathname.replaceAll('/phone/', '').replaceAll('/laptops/', '').replaceAll('/consoles/', '')
-
       const response = await axios.get(`http://localhost:3001/products?id=${deviceId}`)
-
       return await response.data[0] as DeviceI
     } catch (error) {
       return error

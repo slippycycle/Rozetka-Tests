@@ -33,6 +33,22 @@
 }
 
 
+.slider-img-container {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.slider-img-container img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
 
 /* device slider */
 

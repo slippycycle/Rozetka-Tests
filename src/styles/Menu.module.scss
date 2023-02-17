@@ -7,18 +7,17 @@
     transform: translateX(0);
     background-color: rgba(0, 0, 0, 0.514);
     .menu_content {
-        width: 35%;
+        width: 300px;
         overflow-y: scroll;
         overflow-x: hidden;
-        background-color: white;
+        background-color: rgb(207, 46, 46);
         position: relative;
         height: 100%;
         position: relative;
         z-index: 190;
 
-
-
         .category__content {
+           
             width: 100%;
             background-color: white;
             height: auto;
@@ -28,11 +27,11 @@
 
         .category__content__active {
             display: flex;
-            width: 100%;
+            width: 200px;
             background-color: white;
 
             .category_list_container {
-                width: 100%;
+                width: 300px;
                 padding: 20px;
                
                 li {
@@ -117,7 +116,7 @@
                 &:hover {
                     border-bottom: 1px solid rgba(255, 255, 255, 0.511);
                     border-radius: 10px;
-                    background-color: rgba(0, 85, 255, 0.202);
+                    background-color: rgb(8, 61, 168);
                     transition: all 0.2s;
                 }
             }

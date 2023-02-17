@@ -6,7 +6,7 @@ import SubPage, { SelectedSubPageType } from '../pages/SubPage'
 import c from '../styles/DevicePage.module.scss'
 import DeviceInfoPanel from './DeviceInfoPanel'
 import DeviceSliderSubPage from './DeviceSliderSubPage'
-import DeviceSlider from './Slider'
+import DeviceSlider from './DevicSlider'
 import SubPagesVariatyList from './SubPagesVariatyList'
 
 
