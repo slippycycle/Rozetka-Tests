@@ -20,18 +20,20 @@ $navbar-hgt: 50px;
             height: 100%;
             display: flex;
             align-items: center;
-
             margin: 0% auto;
+
 
             .search_input {
                 display: flex;
-                border-bottom: 1px solid rgb(59, 59, 59);
+                border: 1px solid rgb(59, 59, 59);
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
                 width: 75%;
-                height: auto;
+                height: 40px;
                 padding: 10px;
 
                 &:focus {
-                    border-bottom: 1px solid #00ff40;
+                    border: 1px solid #747474;
                 }
 
                 color: white;
@@ -41,10 +43,12 @@ $navbar-hgt: 50px;
             .find__button {
                 color: white;
                 width: auto;
-                height: auto;
+                height: 40px;
                 padding: 7px 30px 7px 30px;
-                background-color: #00ff40;
-                border-radius: 10px;
+                background-color: #0cc53a;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+
             }
 
             @media (max-width: 600px) {

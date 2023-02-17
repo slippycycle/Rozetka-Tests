@@ -10,16 +10,16 @@ import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
 
 
-export default  React.memo( function DevicePanel() {
+export default React.memo(function DevicePanel() {
 
 
     const takeCurrentType = window.location.pathname.slice(1, 100)
 
     const dispatch = useAppDispatch()
 
-    const { error, loading, devices, currentSortType, currentPage, limit} = useAppSelector((state) => state.productReducer)
+    const { error, loading, devices, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
 
-    const {maxPrice,minPrice } = useAppSelector((state) => state.rangeReducer)
+    const { maxPrice, minPrice } = useAppSelector((state) => state.rangeReducer)
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
@@ -36,47 +36,40 @@ export default  React.memo( function DevicePanel() {
 
             switch (currentSortType) {
                 case 'rating':
-                    dispatch(fetchProducts({price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc', _page: currentPage, _limit: limit }))
+                    dispatch(fetchProducts({ price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc', _page: currentPage, _limit: limit }))
                     break;
                 case 'expensive':
-                    dispatch(fetchProducts({ price_gte: minPrice, price_lte: maxPrice,type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc', _page: currentPage, _limit: limit }))
+                    dispatch(fetchProducts({ price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc', _page: currentPage, _limit: limit }))
                     break;
                 case 'cheap':
                     dispatch(fetchProducts({ price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _sort: 'price', _page: currentPage, _limit: limit }))
                     break;
                 default:
-                    dispatch(fetchProducts({  price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
+                    dispatch(fetchProducts({ price_gte: minPrice, price_lte: maxPrice, type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
             }
 
             return;
-        } 
-
-            switch (currentSortType) {
-                case 'rating':
-                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc', _page: currentPage, _limit: limit }))
-                    break;
-                case 'expensive':
-                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc', _page: currentPage, _limit: limit }))
-                    break;
-                case 'cheap':
-                    dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _page: currentPage, _limit: limit }))
-                    break;
-                default:
-                    dispatch(fetchProducts({  type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
-            
         }
 
+        switch (currentSortType) {
+            case 'rating':
+                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'rating', _order: 'desc', _page: currentPage, _limit: limit }))
+                break;
+            case 'expensive':
+                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _order: 'desc', _page: currentPage, _limit: limit }))
+                break;
+            case 'cheap':
+                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _sort: 'price', _page: currentPage, _limit: limit }))
+                break;
+            default:
+                dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
+
+        }
+
+    }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice])
 
 
-    }, [selectedBrands, currentSortType, currentPage, limit,maxPrice,minPrice])
-
-
-
-
-console.log(maxPrice,minPrice)
-
-
-
+ 
     return (
         <div className={c.wrap}>
             <CategoryHeader brands={selectedBrands} category={takeCurrentType} />

@@ -30,11 +30,11 @@ export default function LeftMobileFilter() {
                 <BrandsCheckListContainer />
                 <div className={c.range__slider__conatiner}>
                     {/* if device has a touch screen */}
-                    <DoubleRangeSlider maxSum={100000} startSum={20000} endSum={100000} />
+                    <DoubleRangeSlider maxSum={100000} startSum={0} endSum={80000} />
                 </div>
                 <div className={c.range__mobile__slider__conatiner} >
                     {/* if device has no touch screen */}
-                    <DoubleRangeSliderMobile maxSum={100000} startSum={20000} endSum={100000} />
+                    <DoubleRangeSliderMobile maxSum={200000} startSum={20000} endSum={80000} />
                 </div>
 
 

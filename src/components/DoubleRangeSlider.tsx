@@ -189,14 +189,6 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
         const cleanUp = () => {
 
-            // slider.removeEventListener('mouseup', onMouseUp)
-            // slider.removeEventListener('mousedown', onMouseDown)
-            // container.removeEventListener('mousemove', onMouseMove)
-            // container.removeEventListener('mouseleave', onMouseMove)
-
-
-
-
         }
 
         return cleanUp
@@ -215,7 +207,8 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
 
     return (
-        <>
+        <>  
+        
             {secondSliderRef.current && sliderRef.current ?
                 <div className={c.price__handle}>
                     <h2>

@@ -61,17 +61,6 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
     const listElRef = useRef<HTMLDivElement | null>(null)
 
-
-
-
-
-    function handleAtStart(event: any) {
-        const value = event.target.value;
-        const isChecked = event.target.checked;
-        console.log('INSIDE LIST BEACH,', value, isChecked)
-    }
-
-
     return (
         <div className={c.cheklist_container}>
 
@@ -82,15 +71,15 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
                 {brandsStore.loading ?
                     null
                     :
-                    list?.map((item, index) =>
+                    list?.map((item: string) =>
                         <div key={item} >
                             <label className={c.container}>{item}
 
-                                {brandsStore.selectedBrands.includes(item) ?
+                                {(brandsStore.selectedBrands as string[] ).includes(item) ?
                                     <input
                                         checked={true}
-                                        onChange={() => {   }}
                                         name="brands"
+                                        onChange={() => {}}
                                         value={item}
                                         onClick={handleSelect}
                                         type="checkbox">
@@ -98,8 +87,8 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
                                     :
                                     <input
                                         checked={false}
-                                        onChange={() => {  }}
                                         name="brands"
+                                        onChange={() => {}}
                                         value={item}
                                         onClick={handleSelect}
                                         type="checkbox">
@@ -120,3 +109,5 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
     )
 }
+
+

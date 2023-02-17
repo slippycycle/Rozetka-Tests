@@ -11,6 +11,11 @@ export type Types = {
 
 export type Brands = string[]
 
+
+
+
+export type urlImg = string
+
 export type Brand = string
 
 interface DeviceImagesArray {

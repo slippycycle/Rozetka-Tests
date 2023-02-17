@@ -55,7 +55,7 @@
                 "blue"
             ],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "4.8",
+            "rating": 4.8,
             "faceDescription": "Mobile phone Iphone 12 256GB/32MGPX cool awdwad wawad wad wwadddawddddddad dawdw adcawwwwwwwwadddddwad wad",
             "images": {
                 "purple": [
@@ -84,7 +84,7 @@
             ],
             "faceDescription": " Mobile phone A51 56GB/32MGPX cool to",
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "3.7",
+            "rating": 3.7,
             "images": {
                 "teal": [
                     "https://content2.rozetka.com.ua/goods/images/big/266876325.jpg"
@@ -102,7 +102,7 @@
                 "green"
             ],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "4.9",
+            "rating": 4.9,
             "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
             "images": {
                 "black": [
@@ -131,7 +131,7 @@
                 "white"
             ],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "5",
+            "rating": 4.8,
             "faceDescription": "Mobile phone Aplle Iphone 13 128GB ",
             "images": {
                 "black": [
@@ -159,7 +159,7 @@
                 "purple"
             ],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "5",
+            "rating": 5,
             "faceDescription": "Mobile phone Aplle Iphone 14 128GB ",
             "images": {
                 "red": [
@@ -186,7 +186,7 @@
             "rating": "4.7"
         },
         {
-            "id": 5,
+            "id": 7,
             "name": "iphone14pro",
             "brand": "apple",
             "type": "phone",
@@ -196,7 +196,7 @@
                 "purple"
             ],
             "description": "bla bla bla bla bla bla bla bla ",
-            "rating": "5",
+            "rating": 4.9,
             "faceDescription": "Mobile phone Aplle Iphone 14 PRO 1TB ",
             "images": {
                 "black": [

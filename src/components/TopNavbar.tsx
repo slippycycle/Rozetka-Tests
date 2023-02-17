@@ -38,8 +38,6 @@ export default function TopNavbar() {
 
     let navigate = useNavigate()
 
-    let location = useLocation()
-
     function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
 
         if (event.key === 'Enter') {

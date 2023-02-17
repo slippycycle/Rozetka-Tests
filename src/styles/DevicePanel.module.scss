@@ -11,16 +11,14 @@ $device-hght: 450px;
     overflow-y: scroll;
 
     .pages_conatiner {
-
         width: 100%;
-        height: 100px;
-        padding: 10px;
+        height: 40px;
+        padding: 1px;
         align-items: center;
         justify-content: center;
         background: rgb(255, 255, 255);
         display: flex;
         flex-direction: row;
-
 
         .page__button {
             height: 30px;
