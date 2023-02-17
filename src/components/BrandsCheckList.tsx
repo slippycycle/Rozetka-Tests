@@ -55,6 +55,8 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
         }
 
+        dispacth(setCurrentPage(1))
+
     };
 
     const listRef = useRef<HTMLDivElement | null>(null)

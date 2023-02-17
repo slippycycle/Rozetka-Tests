@@ -3,11 +3,18 @@ import { DeviceI } from '../models/models'
 import c from '../styles/DevicePage.module.scss'
 
 interface DevicePageTopComponentProps {
-    device : DeviceI
+    device: DeviceI
 }
 
-export default function DevicePageTopComponent({device}:DevicePageTopComponentProps) {
+export default function DevicePageTopComponent({ device }: DevicePageTopComponentProps) {
+
+    console.log('TOP DEVICE PAGE')
+
     return (
-        <div className={c.device_top_conatiner}>{device?.faceDescription}</div>
+        <div className={c.device_top_conatiner}>
+            <h1>
+                {device?.faceDescription}
+            </h1>
+        </div>
     )
 }

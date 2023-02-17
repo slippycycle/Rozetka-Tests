@@ -35,7 +35,7 @@ export default function DevicePage() {
   }, [])
 
   return (
-    <>
+    <div className={c.main_wrap}>
       {loading ?
         <Loader />
         :
@@ -44,7 +44,7 @@ export default function DevicePage() {
           <DevicePageContent device={device as DeviceI} />
         </>
       }
-    </>
+    </div>
   )
 
 }

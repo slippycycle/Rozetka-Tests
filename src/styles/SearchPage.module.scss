@@ -1,3 +1,7 @@
+.main_wrap {
+  position: relative;
+
+
 .header {
  width: 100%;
  font-size: 2rem;
@@ -22,16 +26,9 @@
        
        
     }   
-
+  }
        
-    @media (min-width: 1700px) {
-  
-        .wrap {
-          background-color: rgb(66, 35, 222);
-          width: 1700px;
-        }
-        
-      }
+
 
       @media (max-width: 880px) {
   
@@ -39,5 +36,15 @@
          display: none;
         }
         
-        
       }
+      
+      
+      @media (min-width: 1700px) {
+
+        .main_wrap {
+          
+          width: 1700px;
+          margin: 0% auto;
+        }
+      
+    }

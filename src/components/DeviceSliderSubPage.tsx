@@ -1,17 +1,17 @@
 import React from 'react'
 import { urlImg } from '../models/models'
 import DeviceSlider from './Slider'
-import c from '../styles/DeviceSliderSubPage.module.scss'
+import c from '../styles/DeviceSubPages.module.scss'
 
 
-interface DeviceSliderSubPageProps  { 
-    src: urlImg[]
+interface DeviceSliderSubPageProps {
+  src: urlImg[]
 }
 
-export default function DeviceSliderSubPage({src}:DeviceSliderSubPageProps) {
+export default function DeviceSliderSubPage({ src }: DeviceSliderSubPageProps) {
   return (
     <div className={c.device__slider}>
-           <DeviceSlider src={src} />
+      <DeviceSlider src={src} />
     </div>
   )
 }

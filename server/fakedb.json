@@ -10,6 +10,9 @@
         "steel series",
         "nintendo"
     ],
+    "questions":[
+
+    ],
     "types": [
         {
             "type": "phone",
@@ -56,7 +59,7 @@
             ],
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": 4.8,
-            "faceDescription": "Mobile phone Iphone 12 256GB/32MGPX cool awdwad wawad wad wwadddawddddddad dawdw adcawwwwwwwwadddddwad wad",
+            "faceDescription": "Mobile phone Iphone 12 256GB/32MGPX cool",
             "images": {
                 "purple": [
                     "https://content1.rozetka.com.ua/goods/images/big/173867779.jpg",
@@ -103,7 +106,7 @@
             ],
             "description": "bla bla bla bla bla bla bla bla ",
             "rating": 4.9,
-            "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+            "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB",
             "images": {
                 "black": [
                     "https://content.rozetka.com.ua/goods/images/big/253281460.jpg",

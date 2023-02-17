@@ -29,7 +29,7 @@ export default function SearchPage() {
 
   return (
 
-    <div style={{ position: 'relative', height: '100%'}}>
+    <div  className={c.main_wrap}>
       <MobileSortActive.Provider value={{ active, handleMenuState }} >
         <AllBrandsContex.Provider value={{ brands }}>
 
