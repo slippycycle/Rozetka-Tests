@@ -36,6 +36,7 @@ export type sortDevicestypes = 'expensive' | 'rating' | 'cheap' | null | '' | un
 export interface DeviceI {
     name: string
     colors: string[]
+    questionsId: number
     images: { [key: string] :string[]}
     id: string | number
     brand: string
@@ -44,6 +45,18 @@ export interface DeviceI {
     faceDescription: string
     description: string
     rating: number
+}
+
+export type ReplyMessage =  Omit<Message, "replies">
+
+export interface Message {
+
+    data: string
+    messageId: number
+    from: string
+    message: string
+    replies: ReplyMessage[] 
+
 }
 
 

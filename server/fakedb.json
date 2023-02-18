@@ -10,12 +10,108 @@
         "steel series",
         "nintendo"
     ],
-    "questions":[
-
+    "questions": [
+        {
+            "chatId": 7,
+            "messages": [
+                {
+                    "date": "12:30",
+                    "messageId":1,
+                    "from": "Tolik Massa",
+                    "message": "Can i bring my machine gun ?",
+                    "replies": [
+                        {
+                            "date": "12:35",
+                            "messageId":2,
+                            "from": "Tolik Strelok",
+                            "message": "yes u can"
+                            
+                        }
+                    ]
+                },  {
+                    "date": "10:30",
+                    "messageId":3,
+                    "from": "Tolik Masson",
+                    "message": "Can i bring my gun ?",
+                    "replies": [
+                        {
+                            "date": "12:35",
+                            "messageId":4,
+                            "from": "Tolik Strelok",
+                            "message": "yes u can"
+                            
+                        }
+                    ]
+                },
+                {
+                    "date": "12:30",
+                    "messageId":6,
+                    "from": "Massa ne tolya",
+                    "message": "Hiaw ddddddd wadubooooooooooooooooo feniowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifweuiooojwe ifweuiooooooooooo wwwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifweuiooofeniowwwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifweuiooooooooooo feniowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifwesiofaoufois oe qoe gqrehg qegeg prg pwg oedddddddddddddddddd ?",
+                    "replies": [
+                    ]
+                },
+                {
+                    "date": "12:30",
+                    "messageId":6,
+                    "from": "Masswda    a ne tolya",
+                    "message": "Hiawd awd woooooooooooo feniowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifweuiooojwe ifweuiooooooooooo wwwwwwwwwwwwwwwwwwwwwwad wad wooooowwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifweuiooojwe ifweuiooooooooooo wwwwwwwwwwwwwwwwwwwwwwad woowwwwwwwwwwwwweoih we bwoefjwe ifweuiooojwe ifweuiooooooooooo wwwwwwwwwwwwwwwwwwwwwwadoooooooo feniowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifweuiooojwe ifweuiooooooooooo wwwwwwwwwwwwwwwwwwwwwwwwwweoih we bwoefjwe ifwad awd wad wad awd wad awd awd ?",
+                    "replies": [
+                    ]
+                },
+                {
+                    "date": "12:30",
+                    "messageId":7,
+                    "from": "Massa ne twad wad wadolya",
+                    "message": "Hi wa dwa dawddddddddddddddawd awd aw d?",
+                    "replies": [
+                    ]
+                }
+            ]
+        },
+        {
+            "chatId": 6,
+            "messages": [
+                {
+                    "date": "12:30",
+                    "messageId":1,
+                    "from": "Tolik Massa",
+                    "message": "Can i bring my machine gun ?",
+                    "replies": [
+                        {
+                            "date": "12:35",
+                            "messageId":2,
+                            "from": "Tolik Strelok",
+                            "message": "yes u can"
+                            
+                        }
+                    ]
+                },  {
+                    "date": "10:30",
+                    "messageId":3,
+                    "from": "Tolik Masson",
+                    "message": "Can i bring my gun ?",
+                    "replies": [
+                        {
+                            "date": "12:35",
+                            "messageId":4,
+                            "from": "Tolik Strelok",
+                            "message": "yes u can"
+                            
+                        }
+                    ]
+                },
+                {
+                    "date": "12:30",
+                    "messageId":5,
+                    "from": "Massa ne tolya",
+                    "message": "Hi ?",
+                    "replies": [
+                    ]
+                }
+            ]
+        }
     ],
-    
-    
-
     "types": [
         {
             "type": "phone",
@@ -49,10 +145,6 @@
             "icon": "https://cdn-icons-png.flaticon.com/512/114/114734.png"
         }
     ],
-
-
-    
-
     "products": [
         {
             "id": 1,
@@ -220,7 +312,6 @@
                     "https://content1.rozetka.com.ua/goods/images/big/284920829.jpg",
                     "https://content.rozetka.com.ua/goods/images/big/284920837.jpg",
                     "https://content.rozetka.com.ua/goods/images/big/284920843.jpg"
-                   
                 ],
                 "purple": [
                     "https://content1.rozetka.com.ua/goods/images/big/284920852.jpg",

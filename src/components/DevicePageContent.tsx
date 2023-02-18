@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Swiper from 'swiper'
 import { SelectedSubPageContext } from '../context'
 import { colors, DeviceI } from '../models/models'
+import SubPages from '../pages/SubPage'
 import SubPage, { SelectedSubPageType } from '../pages/SubPage'
 import c from '../styles/DevicePage.module.scss'
 import DeviceInfoPanel from './DeviceInfoPanel'
@@ -38,7 +39,7 @@ export default function DevicePageContent({ device }: DevicePageContent) {
             <SelectedSubPageContext.Provider value={{ selected: currentSubPage, changeCurrentSubPage, currentColor, setCurrentColor }}>
                 <SubPagesVariatyList />
                 <div className={c.wrap}>
-                    <SubPage currentImgs={currentImgs} device={device} />
+                    <SubPages currentImgs={currentImgs} device={device} />
                     <DeviceInfoPanel device={device} currentSubPage={currentSubPage} />
                 </div>
             </SelectedSubPageContext.Provider>

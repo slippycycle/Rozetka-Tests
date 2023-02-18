@@ -14,7 +14,7 @@ interface SubPageProps {
     
 }
 
-export default  function SubPage({currentImgs,device}:SubPageProps) {
+export default  function SubPages({currentImgs,device}:SubPageProps) {
 
     const {selected} = React.useContext(SelectedSubPageContext)
 
@@ -30,7 +30,7 @@ export default  function SubPage({currentImgs,device}:SubPageProps) {
           break;
         case  'Questions' :
             return (
-                <DeviceQuestionsSubPage/>
+                <DeviceQuestionsSubPage questionsId={device.questionsId}/>
             )
           break;
         case 'All information' :
