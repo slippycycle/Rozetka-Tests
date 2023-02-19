@@ -2,7 +2,7 @@ import axios, { Axios, AxiosError } from 'axios'
 import React, { useState } from 'react'
 import uuid from 'react-uuid'
 import { MessageContext } from '../context'
-import { Message } from '../models/models'
+import { Chat, Message } from '../models/models'
 import c from '../styles/DeviceSubPages.module.scss'
 import ChatComponent from './ChatComponent'
 import Loader from './Loader'
@@ -42,7 +42,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         let updatedMessagse: any = chat[0]
 
-        const current = updatedMessagse.messages.findIndex((mes) => mes.id == replyYarget?.id)
+        const current = updatedMessagse.messages.findIndex((mes : Message) => mes.id == replyYarget?.id)
         
         updatedMessagse.messages?.[current]?.replies?.push( {
             from: "Azbek",
@@ -61,15 +61,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             console.log(error);
         });
 
-      
-
-      
-
     }
-
-
-
-
 
     async function PostQuestion() {
 
@@ -83,9 +75,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             
         })
 
-        console.log(
-            updatedMessagse
-        )
+      
 
         axios.put(`http://localhost:3001/chats/${questionsId}`,
             updatedMessagse
@@ -101,6 +91,33 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     }
 
 
+    async function DeleteQuestion(id: string) {
+
+        let updatedMessagse: any = (chat[0] as Chat).messages.filter((mes: Message) => mes.id !== id)
+
+        let newObject: Chat = chat[0]
+
+        newObject.messages = updatedMessagse
+
+        console.log(
+            updatedMessagse,'DELETED'
+        )
+
+        axios.put(`http://localhost:3001/chats/${questionsId}`,
+        newObject
+
+        )
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
+
+
     React.useEffect(() => {
 
         fetchQuestions().then(response => setChat(response)).catch(er => setError(er)).then(res => setLoading(false))
@@ -111,11 +128,11 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     const [isReplyMessage, setIsReplyMessage] = useState<boolean>(false)
     const [replyYarget, setReplyTarget] = useState<Message | null>(null)
-
+  
 
     return (
         <div className={c.quastions__wrap}>
-            <MessageContext.Provider value={{ isReplyMessage, setIsReplyMessage, setReplyTarget }}>
+            <MessageContext.Provider value={{ isReplyMessage, setIsReplyMessage, setReplyTarget,DeleteQuestion }}>
                 <div className={c.questions__container}>
                     {loading ?
                         <Loader />

@@ -49,10 +49,14 @@ export interface DeviceI {
 
 export type ReplyMessage =  Omit<Message, "replies">
 
-export interface Message {
+export interface Chat {
+    id: string
+    messages: Message[]
+} 
 
+export interface Message {
     data: string
-    id: number
+    id: string
     from: string
     message: string
     replies: ReplyMessage[] 

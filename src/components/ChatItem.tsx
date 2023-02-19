@@ -13,7 +13,9 @@ export default function ChatItem({ message }: ChatItemProsp) {
     const [replyesVisible, setReplyesVisible] = React.useState(false)
 
 
-    const { isReplyMessage, setIsReplyMessage,setReplyTarget } = React.useContext(MessageContext)
+    const { isReplyMessage, setIsReplyMessage,setReplyTarget,DeleteQuestion } = React.useContext(MessageContext)
+
+ 
 
     return (
         <>
@@ -28,6 +30,11 @@ export default function ChatItem({ message }: ChatItemProsp) {
                 <div className={c.body__container}>
                     {message.message}
                 </div>
+                {
+                message.from === 'Azbek'?
+                <button onClick={() => {DeleteQuestion(message.id)}} >delete</button>
+                : null
+                }
                 {
                     message?.replies?.length > 0 && !replyesVisible ?
                         <p onClick={() => { setReplyesVisible(true) }}>{`replyes ${message.replies.length}`}</p>
@@ -53,7 +60,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                     </div>
                     :
                     null
-
+               
             }
         </>
     )
