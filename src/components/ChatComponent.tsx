@@ -14,7 +14,7 @@ export default function ChatComponent({chat}:ChatComponentProps) {
     return (
     <div className={c.chat__container}>
         {
-            chat[0].messages.map((mes: Message ) => <ChatItem message={mes}/>  )
+            chat[0].messages.map((mes: Message ) => <ChatItem  message={mes}/>  )
         }
     </div>
   )

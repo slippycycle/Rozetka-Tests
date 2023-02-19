@@ -14,3 +14,5 @@ export const RangePriceContext = React.createContext<any>(null)
 export const AllBrandsContex = React.createContext<any>(null)
 
 export const SelectedSubPageContext = React.createContext<any>(null)
+
+export const MessageContext = React.createContext<any>(null)

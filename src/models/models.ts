@@ -52,7 +52,7 @@ export type ReplyMessage =  Omit<Message, "replies">
 export interface Message {
 
     data: string
-    messageId: number
+    id: number
     from: string
     message: string
     replies: ReplyMessage[] 
