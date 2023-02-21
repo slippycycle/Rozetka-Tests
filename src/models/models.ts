@@ -33,9 +33,15 @@ export type colors = 'blue' | 'purple' | 'green' | 'red' | 'pink' | 'black'
 
 export type sortDevicestypes = 'expensive' | 'rating' | 'cheap' | null | '' | undefined
 
+export type Characteristic = {
+    header: string
+    body: string
+}
+
 export interface DeviceI {
     name: string
     colors: string[]
+    characteristics: Characteristic[]
     questionsId: number
     images: { [key: string] :string[]}
     id: string | number
@@ -54,6 +60,7 @@ export interface Chat {
     messages: Message[]
 } 
 
+
 export interface Message {
     data: string
     id: string
@@ -62,5 +69,4 @@ export interface Message {
     replies: ReplyMessage[] 
 
 }
-
 

@@ -58,7 +58,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
         }
 
-
+        setActive(true)
        
     }
 

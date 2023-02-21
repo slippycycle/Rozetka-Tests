@@ -25,7 +25,7 @@ export default  function SubPages({currentImgs,device}:SubPageProps) {
     switch (selected) {
         case 'characteristics':
             return (
-              <DeviceCharacteristicsSubPage/>   
+              <DeviceCharacteristicsSubPage deviceCharacteristics={device.characteristics}  />   
           )
           break;
         case  'Questions' :

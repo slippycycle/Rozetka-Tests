@@ -14,6 +14,7 @@ export default function BacketList({ devicesidArray }: BacketListProps) {
 
 
     return (
+        
         <div className={c.backet_list}>
             {devicesidArray?.map((id) => <DeviceItemFromBacket key={id} id={id} />)}
         </div>

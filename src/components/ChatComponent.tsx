@@ -9,7 +9,7 @@ interface ChatComponentProps {
 
 export default function ChatComponent({chat}:ChatComponentProps) {
   
-    console.log(chat,"AAAAAAAAAAAAA")
+   
   
     return (
     <div className={c.chat__container}>

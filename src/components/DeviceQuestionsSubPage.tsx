@@ -130,6 +130,15 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     const [replyYarget, setReplyTarget] = useState<Message | null>(null)
   
 
+
+
+
+
+
+
+
+
+    
     return (
         <div className={c.quastions__wrap}>
             <MessageContext.Provider value={{ isReplyMessage, setIsReplyMessage, setReplyTarget,DeleteQuestion }}>

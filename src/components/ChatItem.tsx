@@ -13,9 +13,9 @@ export default function ChatItem({ message }: ChatItemProsp) {
     const [replyesVisible, setReplyesVisible] = React.useState(false)
 
 
-    const { isReplyMessage, setIsReplyMessage,setReplyTarget,DeleteQuestion } = React.useContext(MessageContext)
+    const { isReplyMessage, setIsReplyMessage, setReplyTarget, DeleteQuestion } = React.useContext(MessageContext)
 
- 
+    const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
     return (
         <>
@@ -30,17 +30,31 @@ export default function ChatItem({ message }: ChatItemProsp) {
                 <div className={c.body__container}>
                     {message.message}
                 </div>
-                {
-                message.from === 'Azbek'?
-                <button onClick={() => {DeleteQuestion(message.id)}} >delete</button>
-                : null
-                }
-                {
-                    message?.replies?.length > 0 && !replyesVisible ?
-                        <p onClick={() => { setReplyesVisible(true) }}>{`replyes ${message.replies.length}`}</p>
-                        :
-                        null
-                }
+                <div className={c.message__control__block}>
+                 
+                    <span onClick={() => { setmessControllVisible(prev => !prev) }} className="material-symbols-outlined">
+                        more_vert
+                    </span>
+                        {
+                            messControllVisible ?
+                                <div className={c.message__controll}>
+                                    {
+                                        message.from === 'Azbek' ?
+                                            <button onClick={() => { DeleteQuestion(message.id) }} >delete</button>
+                                            : null
+                                    }
+                                    {
+                                        message?.replies?.length > 0 && !replyesVisible ?
+                                            <p onClick={() => { setReplyesVisible(true) }}>{`replyes ${message.replies.length}`}</p>
+                                            :
+                                            null
+                                    }
+                                </div>
+                                :
+                                null
+                        }
+
+                </div>
 
             </div>
             {
@@ -60,7 +74,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                     </div>
                     :
                     null
-               
+
             }
         </>
     )

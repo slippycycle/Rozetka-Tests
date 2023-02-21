@@ -22,7 +22,6 @@ export default function Backet() {
       setTotalSum(prev => prev + devices[i].price )
     }
 
-
   },[devices])
 
   const dispatch = useAppDispatch()

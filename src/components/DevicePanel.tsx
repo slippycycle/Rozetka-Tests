@@ -10,20 +10,23 @@ import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
 
 
-export default React.memo(function DevicePanel() {
+export default function DevicePanel() {
 
 
     const takeCurrentType = window.location.pathname.slice(1, 100)
+
+
 
     const dispatch = useAppDispatch()
 
     const { error, loading, devices, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
 
-    const { maxPrice, minPrice } = useAppSelector((state) => state.rangeReducer)
+    const { maxPrice, minPrice, defaultMaxPrice, defaultminPrice} = useAppSelector((state) => state.rangeReducer)
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
 
+    const backet = useAppSelector(s => s.backetReducer)
 
     React.useEffect(() => {
         //_sort:'rating',_order:'desc'
@@ -32,7 +35,10 @@ export default React.memo(function DevicePanel() {
         //{ type: 'phone', brand: [], _sort: 'rating', _order: 'desc',_page: '1',_limit:3 }
         //http://localhost:3001/products?price_gte=40000&price_lte=90000 //by range
 
-        if (maxPrice !== 200000 || minPrice > 0) {
+
+
+        //as we dont need inculde range verify in default range
+        if (maxPrice !== defaultMaxPrice || minPrice > defaultminPrice) {
 
             switch (currentSortType) {
                 case 'rating':
@@ -65,8 +71,9 @@ export default React.memo(function DevicePanel() {
                 dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
 
         }
+        console.log('render device fetch block')
 
-    }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice])
+    }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice, backet.devices])
 
 
  
@@ -78,4 +85,4 @@ export default React.memo(function DevicePanel() {
             {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}
         </div>
     )
-})
+}

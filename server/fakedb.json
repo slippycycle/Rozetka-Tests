@@ -12,6 +12,43 @@
   ],
   "chats": [
     {
+      "id": "1",
+      "messages": []
+    },
+    {
+      "id": "2",
+      "messages": []
+    },
+    {
+      "id": "3",
+      "messages": []
+    },
+    {
+      "id": "4",
+      "messages": []
+    },
+    {
+      "id": "5",
+      "messages": [
+        {
+          "from": "Azbek",
+          "message": "HEllo",
+          "id": "c07f3424-26c9-51a9-ca5a-6ac52ed938cd",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "HEY ",
+              "id": "7400cec8-4582-e31d-eeac-a7c0e2e4e2dd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "messages": []
+    },
+    {
       "id": "7",
       "messages": [
         {
@@ -76,7 +113,13 @@
           "from": "Azbek",
           "message": "heloo",
           "id": "5e7197d2-9db0-ddf8-b1fb-34a52263f5ef",
-          "replies": []
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "HHEY BITCH",
+              "id": "885bcf1b-8752-71f0-0a8f-fe24f129b05f"
+            }
+          ]
         }
       ]
     },
@@ -88,23 +131,11 @@
           "id": 1,
           "from": "Massa ne twad wad wadolya",
           "message": "Hi wa dwa dawddddddddddddddawd awd aw d?",
-          "replies": []
-        },
-        {
-          "from": "Azbek",
-          "date": "12:30",
-          "message": "wdawad",
-          "id": "07ef3fc4-08da-043c-70b0-f67b9ae7f99b",
           "replies": [
             {
               "from": "Azbek",
-              "message": "Yooo u too wad wd wd wa?",
-              "id": "5e34e05a-4e94-9ae2-64c6-2bec4febd8c4"
-            },
-            {
-              "from": "Azbek",
-              "message": "I from dagistan ",
-              "id": "fab0a798-2068-8a38-77c9-2cd4b7c179a4"
+              "message": "What ? ",
+              "id": "cd769da3-24b2-3cef-526d-97ecc60fb263"
             }
           ]
         },
@@ -115,6 +146,11 @@
               "from": "Azbek",
               "message": "What next ?",
               "id": "1a2d47f8-c8c3-4ac7-851f-8fde3d4386cc"
+            },
+            {
+              "from": "Azbek",
+              "message": "QUERY",
+              "id": "b7b84793-3e98-647c-a208-305cb61b6f7e"
             }
           ],
           "date": "12:30",
@@ -160,8 +196,26 @@
   "products": [
     {
       "id": 1,
-      "questionsId": 1,
+      "questionsId": "1",
       "name": "iphone12",
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 38 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM 13"
+        },
+        {
+          "header": "memory",
+          "body": "256Gb"
+        }
+      ],
       "brand": "apple",
       "type": "phone",
       "price": 24000,
@@ -191,7 +245,25 @@
     {
       "id": 2,
       "name": "samsungA51",
-      "questionsId": 2,
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 8 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "SPEX M"
+        },
+        {
+          "header": "memory",
+          "body": "28Gb"
+        }
+      ],
+      "questionsId": "2",
       "brand": "samsung",
       "type": "phone",
       "price": 13000,
@@ -210,7 +282,25 @@
     {
       "id": 3,
       "name": "galaxy12S22",
-      "questionsId": 3,
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 282 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "SNAP 234"
+        },
+        {
+          "header": "memory",
+          "body": "256GBBb"
+        }
+      ],
+      "questionsId": "3",
       "brand": "samsung",
       "type": "phone",
       "price": 24000,
@@ -240,7 +330,25 @@
     {
       "id": 4,
       "name": "iphone13",
-      "questionsId": 4,
+      "questionsId": "4",
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 287 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM 11"
+        },
+        {
+          "header": "memory",
+          "body": "128Gb"
+        }
+      ],
       "brand": "apple",
       "type": "phone",
       "price": 32999,
@@ -269,8 +377,26 @@
     {
       "id": 5,
       "name": "iphone14",
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 28 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM 11"
+        },
+        {
+          "header": "memory",
+          "body": "128Gb"
+        }
+      ],
       "brand": "apple",
-      "questionsId": 5,
+      "questionsId": "5",
       "type": "phone",
       "price": 41999,
       "colors": [
@@ -298,7 +424,7 @@
     {
       "id": 6,
       "name": "ps4",
-      "questionsId": 6,
+      "questionsId": "6",
       "brand": "SONY",
       "type": "consoles",
       "price": "17,00",
@@ -307,7 +433,25 @@
     },
     {
       "id": 7,
-      "questionsId": 7,
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 228 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM 14"
+        },
+        {
+          "header": "memory",
+          "body": "1TB wad aw dwaaaaaaw daw d  "
+        }
+      ],
+      "questionsId": "7",
       "name": "iphone14pro",
       "brand": "apple",
       "type": "phone",
