@@ -18,30 +18,30 @@ function App() {
    const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
 
- 
+
 
    function menuHandle() {
       setMenuActive(prev => !prev)
    }
 
    return (
-      <div className='app-wrapp'>
-         <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
-            <Menu />
-            <Backet />
-            <BrowserRouter>
+      <BrowserRouter>
+         <div className='app-wrapp'>
+            <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
+               <Menu />
+               <Backet />
                <TopNavbar />
                <Routes>
-             
+
                   <Route element={<HomePage />} path='/'></Route>
                   <Route element={<SelectedDevicesPage />} path='/:id'></Route>
                   <Route element={<DevicePage />} path='/:deviceType/:id'></Route>
                   <Route element={<SearchPage />} path='/search/:id'></Route>
-            
+
                </Routes>
-            </BrowserRouter>
-         </MenuContext.Provider>
-      </div>
+            </MenuContext.Provider>
+         </div>
+      </BrowserRouter>
    );
 }
 

@@ -34,12 +34,18 @@ export default function DeviceContainer({ devicesArray }: DeviceContainerProps) 
                 {devicesArray?.map((dev) => <DeviceItem handleBacketFn={handleBacket} dispatch={dispacth} device={dev} />)}
             </div>
             <div className={c.pages_conatiner}>
-
+               {pagesArray.length > 1 ?
+               <> 
                 {pagesArray.map((el) =>
                     <button className={el == currentPage ? c.page__button_active : c.page__button} onClick={() => { dispacth(setCurrentPage(el)) }} >
                         {el}
                     </button>
                 )}
+               </>
+               : 
+               null
+
+               }
                 {
                     currentPage == pagesArray[pagesArray.length - 1] ?
                         null

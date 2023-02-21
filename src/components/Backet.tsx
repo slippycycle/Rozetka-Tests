@@ -6,7 +6,7 @@ import BacketList from './BacketList'
 
 export default function Backet() {
 
-  const { backetActive, devices} = useAppSelector(state => state.backetReducer)
+  const { backetActive, devices } = useAppSelector(state => state.backetReducer)
 
   let DevicesId: any[] = JSON.parse(localStorage.getItem('backet') as string)
 
@@ -14,24 +14,27 @@ export default function Backet() {
 
   const [totalSum, setTotalSum] = React.useState(0)
 
-  console.log(devices,'DEVICES')
+  console.log(devices, 'DEVICES')
 
   React.useEffect(() => {
 
     for (let i = 0; i < devices?.length; i++) {
-      setTotalSum(prev => prev + devices[i].price )
+      setTotalSum(prev => prev + devices[i].price)
     }
 
-  },[devices])
+  }, [devices])
 
   const dispatch = useAppDispatch()
 
   return (
     <div className={backetActive ? c.backet_bloor : c.hide}>
       <div className={c.backet_container} >
-      <button className={c.close__button} onClick={() => dispatch(handleBacket())}>
-        X
-      </button>
+       
+        <button className={c.close__button} onClick={() => dispatch(handleBacket())}>
+          <span className="material-symbols-outlined">
+            close
+          </span>
+        </button>
 
         <div className={c.header_conatiner}>
           <p>Backet</p>
