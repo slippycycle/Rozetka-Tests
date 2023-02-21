@@ -36,7 +36,7 @@ const initialState : DeviceState = {
     currentPage: 1,
     currentSortType: '',
     error: null,
-    limit: 3,
+    limit: 10,
   
 }
 

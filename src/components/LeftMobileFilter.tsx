@@ -17,6 +17,9 @@ export default function LeftMobileFilter() {
     const menuState = React.useContext(MobileSortActive)
   
 
+    const {defaultMaxPrice,defaultminPrice,maxPrice,minPrice} = useAppSelector(state => state.rangeReducer)
+
+    console.log(maxPrice,minPrice,'MAXXXX PRICES MIN PRICES')
 
     return (
         <div className={menuState.active ? c.menu_active : c.menu}>
@@ -30,11 +33,11 @@ export default function LeftMobileFilter() {
                 <BrandsCheckListContainer />
                 <div className={c.range__slider__conatiner}>
                     {/* if device has a touch screen */}
-                    <DoubleRangeSlider maxSum={100000} startSum={0} endSum={80000} />
+                    <DoubleRangeSlider maxSum={maxPrice} startSum={minPrice} endSum={maxPrice} />
                 </div>
                 <div className={c.range__mobile__slider__conatiner} >
                     {/* if device has no touch screen */}
-                    <DoubleRangeSliderMobile maxSum={200000} startSum={20000} endSum={80000} />
+                    <DoubleRangeSliderMobile maxSum={maxPrice} startSum={minPrice} endSum={maxPrice} />
                 </div>
 
 
