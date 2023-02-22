@@ -11,12 +11,18 @@ import Backet from './components/Backet';
 import Menu from './components/Menu';
 import { MenuContext, MobileSortActive } from './context';
 import SearchPage from './pages/SearchPage';
+import LeftMobileFilter from './components/LeftMobileFilter';
 
 
 function App() {
 
    const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
+   const [active, setActive] = React.useState(false)
+
+   function handleMenuState() {
+       setActive(active => !active)
+   }
 
 
 
@@ -28,17 +34,20 @@ function App() {
       <BrowserRouter>
          <div className='app-wrapp'>
             <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
+               <MobileSortActive.Provider value={{ active, handleMenuState}} >
                <Menu />
-               <Backet />
                <TopNavbar />
+               <Backet />
+               <LeftMobileFilter/>
                <Routes>
 
                   <Route element={<HomePage />} path='/'></Route>
-                  <Route element={<SelectedDevicesPage />} path='/:id'></Route>
-                  <Route element={<DevicePage />} path='/:deviceType/:id'></Route>
-                  <Route element={<SearchPage />} path='/search/:id'></Route>
+                  <Route element={<SelectedDevicesPage />} path=':id/'></Route>
+                  <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
+                  <Route element={<SearchPage />} path='/search/:id/'></Route>
 
                </Routes>
+               </MobileSortActive.Provider>
             </MenuContext.Provider>
          </div>
       </BrowserRouter>

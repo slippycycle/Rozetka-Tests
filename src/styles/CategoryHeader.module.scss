@@ -2,10 +2,14 @@
     width: 100%;
     height: auto;
     padding: 15px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    height: 190px;
     display: flex;
+    align-items: end;
+  
     h2 {
-        font-size: 30px;
+        font-size: 40px;
+        margin: 20px;
        
     }
 

@@ -21,24 +21,15 @@ export const initialState:BacketState = {
 }
 
 // export const fetchBasketDevice = createAsyncThunk('backet/fetchBasketDevices',
-
 // async function (id: any ,{ rejectWithValue }) {
 //     try { 
-
 //         const responose = await axios.get(`http://localhost:3001/products?id=${id}`)
-
 //         return responose.data as DeviceI[]
-
-
 //     }  catch (e) {
 //         return rejectWithValue((e as AxiosError).message)
 //     } 
 // }
-
-
-
 // )
-
 
 const basketSlice = createSlice({
     name:'backet',
@@ -55,6 +46,10 @@ const basketSlice = createSlice({
         },
         deleteDevice(state, actions) {
             state.devices = state.devices.filter((dev) => dev.id !== actions.payload)
+        },
+        addToTotalSum(state, actions) {
+            
+            state.totalSum += actions.payload
         }
 
     },
@@ -62,4 +57,4 @@ const basketSlice = createSlice({
 
 export default  basketSlice.reducer
 
-export const {handleBacket,setDevicesFromBacket,pushDevice,deleteDevice} = basketSlice.actions
+export const {handleBacket,setDevicesFromBacket,pushDevice,deleteDevice,addToTotalSum} = basketSlice.actions

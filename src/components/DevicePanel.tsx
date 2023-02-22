@@ -9,19 +9,17 @@ import DeviceContainer from './DeviceContainer'
 import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
 
+interface DevicePanelProps {
+    takeCurrentType: string
+}
 
-export default function DevicePanel() {
-
-
-    const takeCurrentType = window.location.pathname.slice(1, 100)
-
-
-
+export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
+ 
     const dispatch = useAppDispatch()
 
     const { error, loading, devices, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
 
-    const { maxPrice, minPrice, defaultMaxPrice, defaultminPrice} = useAppSelector((state) => state.rangeReducer)
+    const { maxPrice, minPrice, defaultMaxPrice, defaultminPrice } = useAppSelector((state) => state.rangeReducer)
 
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
@@ -76,10 +74,10 @@ export default function DevicePanel() {
     }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice, backet.devices])
 
 
- 
+
     return (
         <div className={c.wrap}>
-            <CategoryHeader brands={selectedBrands} category={takeCurrentType} />
+
             <SortDevicesBar currentSortType={currentSortType as string} />
             {error ? <h2>{error as string}</h2> : null}
             {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}

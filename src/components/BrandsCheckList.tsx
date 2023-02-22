@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Brands } from '../models/models';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Device.Slice';
 import c from '../styles/BrandsCheckList.module.scss'
 import { AllBrandsContex } from '../context';
+import axios from 'axios';
 
 interface BrandsCheckListProps {
     brandsList?: Brands | string[]
@@ -14,26 +15,58 @@ interface BrandsCheckListProps {
 
 
 
-export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
+export default  React.memo( function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
 
 
 
-    let list = []
+    const [list, setList] = React.useState([])
 
     const brandsStore = useAppSelector(state => state.brandReducer)
 
-    if (brandsList) {
-        list = brandsList
-        console.log(brandsList)
+    const takeCurrentUtrl = window.location.pathname.replaceAll('/','')
+
+    console.log(takeCurrentUtrl,'URL')
+    
+    const [types, setTypes] = React.useState([])
+    
+    async function takeType () {
+        const response = await axios.get(`http://localhost:3001/types?type=${takeCurrentUtrl}`)
+
+        return response.data
     }
 
+    
+    const [loading, setLoading] = React.useState(true)
+ 
+    React.useEffect(() => {
 
-    else {
+        takeType().then(res => setList(res[0].brands))
 
-        list = brandsStore.currentType.brands
+    },[takeCurrentUtrl, ])
 
-    }
+
+
+
+    // if (brandsList) {
+    //     list = brandsList
+    //     console.log(brandsList)
+    // }
+
+    // if (brandsStore?.currentType?.brands) {
+
+    //     list = brandsStore.currentType.brands
+    // }
+
+    // else {
+
+    //     list = ['s']
+
+    //     useEffect(() => {
+
+    //     },[])
+
+    // }
 
 
     const dispacth = useAppDispatch()
@@ -77,11 +110,11 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
                         <div key={item} >
                             <label className={c.container}>{item}
 
-                                {(brandsStore.selectedBrands as string[] ).includes(item) ?
+                                {(brandsStore.selectedBrands as string[]).includes(item) ?
                                     <input
                                         checked={true}
                                         name="brands"
-                                        onChange={() => {}}
+                                        onChange={() => { }}
                                         value={item}
                                         onClick={handleSelect}
                                         type="checkbox">
@@ -90,7 +123,7 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
                                     <input
                                         checked={false}
                                         name="brands"
-                                        onChange={() => {}}
+                                        onChange={() => { }}
                                         value={item}
                                         onClick={handleSelect}
                                         type="checkbox">
@@ -104,12 +137,12 @@ export default function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
 
 
                     )}
-                
+
             </div>
 
         </div>
 
     )
-}
+})
 
 

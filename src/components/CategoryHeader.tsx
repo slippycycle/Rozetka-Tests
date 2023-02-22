@@ -39,7 +39,7 @@ export default function CategoryHeader({ brands,category }: CategoryHeaderProps)
         fetchInfoAboutCurrentCategory()
     }, [])
 
-    console.log(brands)
+ 
 
     return (
         <div className={c.category}>

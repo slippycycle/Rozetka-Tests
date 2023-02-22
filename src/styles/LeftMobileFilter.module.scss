@@ -4,7 +4,7 @@
     width: 100%;
     position: absolute;
     z-index: 100;
-    height: auto;
+    height: 100vh;
     transform: translateX(-120%);
     transition: all 0.4s;
 
@@ -29,11 +29,11 @@
 .menu_active {
     transform: translateX(0%);
     display: block;
-    z-index: 100;
+    z-index: 120;
     background-color: rgba(0, 0, 0, 0.283);
     width: 100%;
-    position: absolute;
-    height: 93vh;
+    position: fixed;
+    height: 100vh;
     transition: all 0.4s;
    
     .content {
@@ -49,7 +49,7 @@
             z-index: 100;
             right: 0px;
             position: absolute;
-            color: rgb(124, 73, 172);
+            color: rgb(31, 255, 132);
             background-color: rgb(255, 255, 255);
         }
     }

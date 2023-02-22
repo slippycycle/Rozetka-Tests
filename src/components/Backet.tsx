@@ -10,19 +10,12 @@ export default function Backet() {
 
   let DevicesId: any[] = JSON.parse(localStorage.getItem('backet') as string)
 
-  console.log('backet render', DevicesId)
+  console.log('backet render')
 
-  const [totalSum, setTotalSum] = React.useState(0)
+  const {totalSum} = useAppSelector(state => state.backetReducer)
 
-  console.log(devices, 'DEVICES')
 
-  React.useEffect(() => {
-
-    for (let i = 0; i < devices?.length; i++) {
-      setTotalSum(prev => prev + devices[i].price)
-    }
-
-  }, [devices])
+  
 
   const dispatch = useAppDispatch()
 

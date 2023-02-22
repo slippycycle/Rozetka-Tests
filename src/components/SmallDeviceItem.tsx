@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { DeviceI } from '../models/models'
-import { handleBacket, setDevicesFromBacket } from '../store/features/Backet.Slice'
+import { addToTotalSum, handleBacket, setDevicesFromBacket } from '../store/features/Backet.Slice'
 import { useAppDispatch } from '../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
+import CountInput from './CountInput'
 
 interface SmallDeviceItemProps {
     device: DeviceI
 }
 
 export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
+    const [number, setNumber] = React.useState<number>(1)
 
     const dispatch = useAppDispatch()
+
 
     function deleteHandleBacket() {
         let takeCurrentBasket = JSON.parse(localStorage.getItem('backet') as string)
@@ -21,6 +24,8 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
         localStorage.setItem('backet', JSON.stringify(result))
 
         dispatch(setDevicesFromBacket(result))
+
+      
 
 
     }
@@ -32,9 +37,6 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
 
     let navigate = useNavigate()
-
-
-
 
     function handleCLikDevice() {
 
@@ -48,6 +50,32 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     }
 
+    const inputRef = React.useRef(null)
+
+    function handleNumber(polus: boolean) {
+
+        if( polus ) {
+            setNumber(prev => prev + 1)
+            dispatch( addToTotalSum(device.price ))
+            
+        } 
+        else {
+            setNumber(prev => prev - 1)
+            dispatch( addToTotalSum( -device.price ))
+        }
+
+    }
+
+  
+
+  useEffect(() => {
+   
+    return () => {
+        dispatch( addToTotalSum(  -device.price * number )) 
+    }
+
+  },[number])
+
     return (
         <div className={c.item_wrap}>
             <div className={c.img__container} onClick={handleCLikDevice}>
@@ -57,22 +85,28 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
                 <div className={c.info__container}>
                     <p onClick={handleCLikDevice} >{device.faceDescription}</p>
-                    <h2>{device.price}</h2>
+                    <h2>{device.price * number}</h2>
                 </div>
 
-               <div className={c.count__container}>
-                  <div className={c.count}>
-                      <p>-</p>
-                      <input type={'number'} defaultValue={1}></input> 
-                      <p>+</p>
-                  </div>
-               </div>
+
+
+                <div className={c.count__container}>
+                    <div className={c.count}>
+                        <button onClick={() => { handleNumber(false) }}>
+                            <p>-</p>
+                        </button>
+                        <CountInput defaultVal={number} ></CountInput>
+                        <button onClick={() => { handleNumber(true) }}>
+                            <p >+</p>
+                        </button>
+                    </div>
+                </div>
 
             </div>
 
 
             <div className={c.more__block}>
-                {/* <button onClick={deleteHandleBacket} >delete</button> */}
+
                 <span onClick={() => setMoreVisible(true)} className="material-symbols-outlined">
                     more_vert
                 </span>

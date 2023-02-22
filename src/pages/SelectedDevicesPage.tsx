@@ -1,28 +1,32 @@
 import React from 'react'
 import Backet from '../components/Backet'
+import CategoryHeader from '../components/CategoryHeader'
 import ComponentsCategory from '../components/ComponentsCategory'
 import DevicesComponents from '../components/ComponentsCategory'
 import LeftMobileFilter from '../components/LeftMobileFilter'
 import { MobileSortActive } from '../context'
+import { useAppSelector } from '../store/hooks'
 
 export default function SelectedDevicesPage() {
 
+    const takeCurrentType = window.location.pathname.replaceAll('/', '')
 
-    const [active, setActive] = React.useState(false)
+    console.log(takeCurrentType, 'CU')
 
-    function handleMenuState() {
-        setActive(active => !active)
-    }
+    const { selectedBrands } = useAppSelector((state) => state.brandReducer)
+
 
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
-
-            <MobileSortActive.Provider value={{ active, handleMenuState}} >
+        <>
+            <CategoryHeader brands={selectedBrands} category={takeCurrentType} />
+            <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+              
                 <ComponentsCategory />
-                <LeftMobileFilter />
-            </MobileSortActive.Provider>
-
-        </div>
+                
+                
+            
+            </div>
+        </>
     )
 }

@@ -22,20 +22,7 @@ export default function BrandsCheckListContainer() {
 
     const [isBrandsFromContetx, setIsBrandsFromContetx] = React.useState(false)
 
-    React.useEffect(() => {
-
-        //if we push brandsList in contex we will use it instead fetch avable Brands by selected type 
-        if (brands?.brands) {
-            setIsBrandsFromContetx(true)
-            return
-        }
-       
-            const takeCurrentType = window.location.pathname.slice(1, 100)
-            dispacth(setAvailableBrands(getCurrentType.currentType.brands))
-            dispacth(fetchBrands(takeCurrentType))
-
-        
-    }, [])
+   
 
 
 

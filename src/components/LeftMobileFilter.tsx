@@ -12,14 +12,13 @@ import DoubleRangeSliderMobile from './DoubleRangeSliderMobile';
 
 export default function LeftMobileFilter() {
 
-  
 
     const menuState = React.useContext(MobileSortActive)
   
 
     const {defaultMaxPrice,defaultminPrice,maxPrice,minPrice} = useAppSelector(state => state.rangeReducer)
 
-    console.log(maxPrice,minPrice,'MAXXXX PRICES MIN PRICES')
+   
 
     return (
         <div className={menuState.active ? c.menu_active : c.menu}>

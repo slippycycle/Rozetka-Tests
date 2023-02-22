@@ -10,9 +10,6 @@ interface BacketListProps {
 
 export default function BacketList({ devicesidArray }: BacketListProps) {
 
-    
-
-
     return (
         
         <div className={c.backet_list}>
