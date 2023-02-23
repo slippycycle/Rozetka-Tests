@@ -1,11 +1,11 @@
 .menu {
+    transform: translateX(-120%);
     display: block;
+    z-index: 130;
     background-color: rgba(0, 0, 0, 0.283);
     width: 100%;
-    position: absolute;
-    z-index: 100;
+    position: fixed;
     height: 100vh;
-    transform: translateX(-120%);
     transition: all 0.4s;
 
      .content {
@@ -29,7 +29,7 @@
 .menu_active {
     transform: translateX(0%);
     display: block;
-    z-index: 120;
+    z-index: 130;
     background-color: rgba(0, 0, 0, 0.283);
     width: 100%;
     position: fixed;
@@ -40,7 +40,7 @@
         width: max-content;
         padding: 5px 5px 0px 5px;
         position: relative;
-        z-index: 100;
+        z-index: 10;
         height: 100%;
         background-color: white;
         .close__button {
@@ -95,7 +95,7 @@
 @media (min-width: 900px) {
     .menu_active { 
         transition: all 0.4s;
-      display: none;
+        display: none;
       
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { sortDevicestypes } from '../models/models'
-import { fetchProducts, setSortType } from '../store/features/Device.Slice'
+import { fetchProducts, setLimit, setSortType } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SortDevicesBar.module.css'
 import { memo } from 'react'
@@ -25,6 +25,7 @@ function SortDevicesBar({ currentSortType }: SortDevicesBarProps) {
 
   }
 
+  const {limit } = useAppSelector(state => state.productReducer)
 
   let { handleMenuState } = React.useContext(MobileSortActive)
 
@@ -32,9 +33,20 @@ function SortDevicesBar({ currentSortType }: SortDevicesBarProps) {
 
     <div className={c.container}>
       <button className={c.filter__button} onClick={handleMenuState}>filter</button>
-    
+
+      <div className={c.dropdown_limit}>
+
+        <button className={c.dropbtn_limit}>{`Show by: ${limit}`}</button>
+        <div className={c.dropdown_content_limit}>
+          <a onClick={() => dispatch(setLimit(5)) } >5</a>
+          <a onClick={() => dispatch(setLimit(10))} >10</a>
+          <a onClick={() => dispatch(setLimit(20)) } >20</a>
+          <a onClick={() => dispatch(setLimit(30)) } >30</a>
+        </div>
+      </div>
+
       <div className={c.dropdown}>
-       
+
         <button className={c.dropbtn}>{currentSortType.length ? `Sort by: ${currentSortType}` : 'Select sort'}</button>
         <div className={c.dropdown_content}>
           <a onClick={() => handleSortType('rating')} >sort by rating</a>
@@ -42,7 +54,7 @@ function SortDevicesBar({ currentSortType }: SortDevicesBarProps) {
           <a onClick={() => handleSortType('cheap')} >from cheap to expensive</a>
         </div>
       </div>
-       
+
     </div>
 
   )

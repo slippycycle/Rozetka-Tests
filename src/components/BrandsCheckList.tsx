@@ -6,21 +6,18 @@ import { setCurrentPage } from '../store/features/Device.Slice';
 import c from '../styles/BrandsCheckList.module.scss'
 import { AllBrandsContex } from '../context';
 import axios from 'axios';
-
-interface BrandsCheckListProps {
-    brandsList?: Brands | string[]
-}
+import { fetchBrands } from '../API/fetchBrands';
 
 
 
 
 
-export default  React.memo( function BrandsCheckList({ brandsList }: BrandsCheckListProps) {
+export default  React.memo( function BrandsCheckList() {
 
 
 
 
-    const [list, setList] = React.useState([])
+    const [list, setList] = React.useState<string[] | []  >([])
 
     const brandsStore = useAppSelector(state => state.brandReducer)
 
@@ -41,6 +38,12 @@ export default  React.memo( function BrandsCheckList({ brandsList }: BrandsCheck
  
     React.useEffect(() => {
 
+        if (takeCurrentUtrl.includes('search')) {
+            
+            fetchBrands().then( res   => setList(res as string[] | [] ))
+            return; 
+        }
+
         takeType().then(res => setList(res[0].brands))
 
     },[takeCurrentUtrl, ])
@@ -48,26 +51,7 @@ export default  React.memo( function BrandsCheckList({ brandsList }: BrandsCheck
 
 
 
-    // if (brandsList) {
-    //     list = brandsList
-    //     console.log(brandsList)
-    // }
-
-    // if (brandsStore?.currentType?.brands) {
-
-    //     list = brandsStore.currentType.brands
-    // }
-
-    // else {
-
-    //     list = ['s']
-
-    //     useEffect(() => {
-
-    //     },[])
-
-    // }
-
+   
 
     const dispacth = useAppDispatch()
 

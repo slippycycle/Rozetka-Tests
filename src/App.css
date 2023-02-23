@@ -7,9 +7,8 @@
   display: block;
   background-color: rgb(255, 255, 255);
   height: 100%;
- 
+
   
- 
 }
 
 /* device slider */
@@ -31,8 +30,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  
+
+
 }
 
 
@@ -122,12 +121,12 @@
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.container:hover input~.checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
   background-color: #2196F3;
 }
 
@@ -139,7 +138,7 @@
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container input:checked~.checkmark:after {
   display: block;
 }
 
@@ -227,6 +226,7 @@
   width: 25px;
   background-color: #eee;
 }
+
 /* Reset and base styles  */
 * {
   padding: 0px;
@@ -278,20 +278,19 @@
 .material-symbols-outlined {
   cursor: pointer;
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
-  
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }
 
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }
 
 

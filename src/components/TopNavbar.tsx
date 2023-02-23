@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { MenuContext } from '../context'
 import { handleBacket } from '../store/features/Backet.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -55,9 +55,15 @@ export default function TopNavbar() {
         window.location.reload();
     }
 
+    const containerRef = React.useRef<HTMLDivElement>(null)
+
+    if (containerRef.current) {
+        console.log(containerRef.current?.offsetHeight , 'HEGHT', window.pageYOffset)
+    }
+
     return (
 
-        <div className={c.menu__container}>
+        <div ref={containerRef} className={c.menu__container}>
 
             <div className={c.top_navbar}>
                 <div onClick={menuHandle} className={c.varenya_s_pomidorammi}>
@@ -70,6 +76,7 @@ export default function TopNavbar() {
                     <input type='text' onKeyDown={handleKeyDown} onChange={(e) => { setValue(e.target.value) }} className={c.search_input} placeholder='i am looking for...'></input>
                     <button onClick={navigateBySearchItem} className={c.find__button}>Find</button>
                 </div>
+             
 
                 <button className={c.backet__button} onClick={handleBacketVisible}>
                     <span className="material-symbols-outlined">

@@ -1,7 +1,7 @@
 import React from 'react'
 import { typeSlice } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import c from '../styles/LeftProductsNavbar.module.scss'
+import c from '../styles/HomePage.module.scss'
 import Loader from './Loader'
 import TypesComponent from './TypesComponent'
 import { setTypes } from '../store/features/Types.Slice'

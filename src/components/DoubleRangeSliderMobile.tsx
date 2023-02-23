@@ -13,7 +13,7 @@ interface DoubleRangeSliderProps {
 }
 
 
-export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRangeSliderProps) {
+export default React.memo(function DoubleRangeSlider({ maxSum, startSum, endSum }: DoubleRangeSliderProps) {
 
 
 
@@ -33,7 +33,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
     const secondCords = useRef({ startX: maxSum, lastX: maxSum })
 
 
-
+  
 
 
     React.useEffect(() => {
@@ -41,7 +41,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
         if (!sliderRef.current || !conatinerRef.current || !secondSliderRef.current) return;
 
-        const staticRangePxWidth = 200
+        const staticRangePxWidth = 170
 
         const slider = sliderRef.current
         const secondSlider = secondSliderRef.current
@@ -164,7 +164,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
         }
 
-      
+
 
         onSecondMouseUp()
         onMouseUp()
@@ -184,7 +184,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
         //MouseLeave                ==== TouchCancel
 
 
-        
+
         slider.addEventListener('touchstart', onMouseDown)
         secondSlider.addEventListener('touchstart', onSecondMouseDown)
 
@@ -196,8 +196,8 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
         container.addEventListener('touchmove', onSecondMouseMove)
         container.addEventListener('touchcancel', onSecondMouseMove)
 
-        
-  
+
+
 
 
         const cleanUp = () => {
@@ -221,9 +221,12 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
 
     const dispatch = useAppDispatch()
 
+   
+
     function handleStroePrice() {
         dispatch(setMaxRangePrice(currentMaxSum))
         dispatch(setMinRangePrice(currentMinSum))
+        
     }
 
 
@@ -235,8 +238,8 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
                         Price
                     </h2>
                     <div className={c.input__container}>
-                        <input ref={minInputRef} defaultValue={currentMinSum}></input>
-                        <input ref={maxInputRef} defaultValue={currentMaxSum}></input>
+                        <input onChange={(e) => { setCurrentMinSum(e.target.value) }} ref={minInputRef} defaultValue={currentMinSum}></input>
+                        <input onChange={(e) => { setCurrentMaxSum(e.target.value) }} ref={maxInputRef} defaultValue={currentMaxSum}></input>
                         <button onClick={handleStroePrice} >OK</button>
                     </div>
 

@@ -11,6 +11,8 @@ export default function RangeContainer() {
    
    const {maxPrice,minPrice} = useAppSelector((state)=> state.rangeReducer )
 
+   
+
     return (
         <>
         

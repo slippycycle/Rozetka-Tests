@@ -1,27 +1,21 @@
-import axios from 'axios'
-import React from 'react'
-import { DeviceI } from '../models/models'
-import { pushDevice } from '../store/features/Backet.Slice'
-import { useAppDispatch} from '../store/hooks'
-import c from '../styles/Backet.module.scss'
-import SmallDeviceItem from './SmallDeviceItem'
+import axios from "axios"
+import React from "react"
+import { DeviceI } from "../models/models"
+import c from '../styles/HorizontalBasket.module.scss'
 
-interface DeviceItemFromBacketProps {
+interface HorizontalBasketImageContainerProps {
     id: string | number
 }
-
-export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
-
+export default function HorizontalBasketImageContainer({ id }: HorizontalBasketImageContainerProps) {
     const [loading, setLoading] = React.useState<boolean>(true)
     const [device, setDevice] = React.useState<DeviceI | any>({})
 
-    const dispatch = useAppDispatch()
- 
+
     async function fetchDevice() {
         const response = await axios.get(`http://localhost:3001/products?id=${id}`)
 
-        const result = (response.data[0] as DeviceI )
-         
+        const result = (response.data[0] as DeviceI)
+
         return result
     }
 
@@ -31,13 +25,18 @@ export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
 
     }, [])
 
+
+    // const currentColor = device.colors[0]
+    // console.log('DEVICE LITLE',  device.images[currentColor][0] )
+
     return (
         <>
             {loading ?
                 <h2>Loading</h2>
                 :
-                <SmallDeviceItem device={device} />
+                    <img src={device.images[device.colors[0]][0]} ></img>
             }
         </>
     )
 }
+

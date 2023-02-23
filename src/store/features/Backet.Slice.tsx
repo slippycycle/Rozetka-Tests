@@ -20,32 +20,30 @@ export const initialState:BacketState = {
    
 }
 
-// export const fetchBasketDevice = createAsyncThunk('backet/fetchBasketDevices',
-// async function (id: any ,{ rejectWithValue }) {
-//     try { 
-//         const responose = await axios.get(`http://localhost:3001/products?id=${id}`)
-//         return responose.data as DeviceI[]
-//     }  catch (e) {
-//         return rejectWithValue((e as AxiosError).message)
-//     } 
-// }
-// )
-
 const basketSlice = createSlice({
     name:'backet',
     initialState,
     reducers: {
+        deleteDeviceById(state, actions) {
+           state.devices.filter((el) => el.id === actions.payload)
+        },
         handleBacket(state) {
            state.backetActive = !state.backetActive
         },
-        setDevicesFromBacket(state, actions) {
+        setDevicesIdFromBacket(state, actions) {
             state.devicesId = actions.payload
         },
-        pushDevice(state, actions) {
-            state.devices.push(actions.payload)
+        setDevicesFromBacket(state, actions) {
+            state.devices = actions.payload
         },
-        deleteDevice(state, actions) {
-            state.devices = state.devices.filter((dev) => dev.id !== actions.payload)
+        pushDevice(state, actions) {
+            if (state.devices.find((el) => el.id == actions.payload.id)) {
+                return state;
+            }
+            else {
+                
+                state.devices.push(actions.payload)
+            }
         },
         addToTotalSum(state, actions) {
             
@@ -57,4 +55,4 @@ const basketSlice = createSlice({
 
 export default  basketSlice.reducer
 
-export const {handleBacket,setDevicesFromBacket,pushDevice,deleteDevice,addToTotalSum} = basketSlice.actions
+export const {handleBacket,setDevicesFromBacket,pushDevice,addToTotalSum,setDevicesIdFromBacket,deleteDeviceById} = basketSlice.actions

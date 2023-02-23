@@ -11,14 +11,14 @@ export default function BrandsCheckListContainer() {
 
 
 
-    const brands = React.useContext(AllBrandsContex)
+   
 
     const getCurrentType = useAppSelector((state) => state.brandReducer)
 
     console.log('render sortbybrandsleftBar as left bar')
 
 
-    const dispacth = useAppDispatch()
+
 
     const [isBrandsFromContetx, setIsBrandsFromContetx] = React.useState(false)
 
@@ -29,7 +29,7 @@ export default function BrandsCheckListContainer() {
     return (
         <>
             {isBrandsFromContetx ?
-                <BrandsCheckList brandsList={brands.brands} />
+                <BrandsCheckList  />
                 :
                 <>
                     {getCurrentType.loading ? <h2>loading</h2> :

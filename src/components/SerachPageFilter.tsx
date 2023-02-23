@@ -7,11 +7,11 @@ import RangeContainer from './RangeContainer'
 export default function SerachPageFilter() {
    
    
-    const brands = React.useContext(AllBrandsContex)
+   
 
     return (
         <div className={c.container}>
-            <BrandsCheckList brandsList={brands.brands} />
+            <BrandsCheckList />
             <RangeContainer />
         </div>
     )

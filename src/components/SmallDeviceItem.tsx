@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { DeviceI } from '../models/models'
-import { addToTotalSum, handleBacket, setDevicesFromBacket } from '../store/features/Backet.Slice'
-import { useAppDispatch } from '../store/hooks'
+import { addToTotalSum, deleteDeviceById, handleBacket, pushDevice, setDevicesFromBacket, setDevicesIdFromBacket } from '../store/features/Backet.Slice'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
 
@@ -15,6 +15,9 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     const dispatch = useAppDispatch()
 
+    const { devices } = useAppSelector(state => state.backetReducer)
+
+
 
     function deleteHandleBacket() {
         let takeCurrentBasket = JSON.parse(localStorage.getItem('backet') as string)
@@ -23,9 +26,9 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
         localStorage.setItem('backet', JSON.stringify(result))
 
-        dispatch(setDevicesFromBacket(result))
+        dispatch(setDevicesIdFromBacket(result))
 
-      
+     
 
 
     }
@@ -54,27 +57,28 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     function handleNumber(polus: boolean) {
 
-        if( polus ) {
+        if (polus) {
             setNumber(prev => prev + 1)
-            dispatch( addToTotalSum(device.price ))
-            
-        } 
+            dispatch(addToTotalSum(device.price))
+
+        }
         else {
             setNumber(prev => prev - 1)
-            dispatch( addToTotalSum( -device.price ))
+            dispatch(addToTotalSum(-device.price))
         }
 
     }
 
-  
 
-  useEffect(() => {
-   
-    return () => {
-        dispatch( addToTotalSum(  -device.price * number )) 
-    }
 
-  },[number])
+
+    useEffect(() => {
+
+        return () => {
+            dispatch(addToTotalSum(-device.price * number))
+        }
+
+    }, [number])
 
     return (
         <div className={c.item_wrap}>

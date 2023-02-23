@@ -71,14 +71,12 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
         }
         console.log('render device fetch block')
 
-    }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice, backet.devices])
+    }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice])
 
 
 
     return (
         <div className={c.wrap}>
-
-            <SortDevicesBar currentSortType={currentSortType as string} />
             {error ? <h2>{error as string}</h2> : null}
             {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}
         </div>

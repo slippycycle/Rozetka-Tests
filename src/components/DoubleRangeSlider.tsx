@@ -44,7 +44,7 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
         if (!sliderRef.current || !conatinerRef.current || !secondSliderRef.current ) return;
         
 
-        const staticRangePxWidth = 200
+        const staticRangePxWidth = 170
        
 
         const slider = sliderRef.current
@@ -201,7 +201,12 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
     const dispatch = useAppDispatch()
 
     function handleStroePrice() {
+        
+        console.log(currentMaxSum, currentMinSum, 'ASSSS')
+        
+
         dispatch(setMaxRangePrice(currentMaxSum))
+
         dispatch(setMinRangePrice(currentMinSum))
     }
 
@@ -215,8 +220,8 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
                         Price
                     </h2>
                     <div className={c.input__container}>
-                        <input ref={minInputRef} defaultValue={currentMinSum}></input>
-                        <input ref={maxInputRef} defaultValue={currentMaxSum}></input>
+                        <input onChange={(e) => {setCurrentMinSum(e.target.value) } }  ref={minInputRef} defaultValue={currentMinSum}></input>
+                        <input onChange={(e) => {setCurrentMaxSum(e.target.value) } } ref={maxInputRef} defaultValue={currentMaxSum}></input>
                         <button onClick={handleStroePrice} >OK</button>
                     </div>
 

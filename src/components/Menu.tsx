@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { MenuContext } from '../context'
 import { Types } from '../models/models'
+import { handleBacket } from '../store/features/Backet.Slice'
 import { fetchTypes } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'
@@ -22,12 +23,20 @@ export default function Menu() {
         dispatch(fetchTypes())
     }, [])
 
+    function handleMenu(e) {
+
+        menuState.menuHandle()
+        e.preventDefault()
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+    }
+
     return (
 
-        <div className={menuState.active ? c.menu__active : c.menu}>
+        <div onClick={handleMenu} className={menuState.active ? c.menu__active : c.menu}>
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuState.menuHandle}>
-                    <span className="material-symbols-outlined">
+                    <span onClick={() => { console.log(window.pageYOffset, 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYY') }} className="material-symbols-outlined">
                         close
                     </span>
                 </button>

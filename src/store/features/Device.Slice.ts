@@ -36,7 +36,7 @@ const initialState : DeviceState = {
     currentPage: 1,
     currentSortType: '',
     error: null,
-    limit: 10,
+    limit: 30,
   
 }
 
@@ -81,6 +81,9 @@ const productsSlice = createSlice({
         },
         setNextPage(state) {
             state.currentPage = state.currentPage + 1
+        },
+        setLimit(state, action) {
+            state.limit = action.payload
         }
      
     },
@@ -106,4 +109,4 @@ const productsSlice = createSlice({
 export default productsSlice.reducer
 
 
-export const { setSortType, setCurrentPage, setNextPage} = productsSlice.actions
+export const { setSortType, setCurrentPage, setNextPage,setLimit} = productsSlice.actions

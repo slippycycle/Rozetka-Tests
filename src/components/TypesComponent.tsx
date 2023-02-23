@@ -1,7 +1,7 @@
 import React from 'react'
 import { Types } from '../models/models'
 import { useNavigate } from "react-router-dom";
-import c from '../styles/LeftProductsNavbar.module.scss'
+import c from '../styles/HomePage.module.scss'
 import { useAppDispatch } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 
