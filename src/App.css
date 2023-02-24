@@ -13,9 +13,9 @@
 
 /* device slider */
 .swiper {
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -23,12 +23,12 @@
 
 
 .swiper-slide {
+  display: flex;
   text-align: center;
   font-size: 18px;
   background: #9f9a9a;
 
   /* Center slide text vertically */
-  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -38,37 +38,67 @@
 
 .slider-img-container {
   width: 100%;
-  height: 100%;
+  height: 500px;
   background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: cover;
+  object-position: center;
 }
-
-
 
 .slider-img-container img {
-  width: auto;
-  height: 100%;
-  object-fit: contain;
+  max-width: auto;
+  max-height: 100%;
+  background-color: #2196F3;
+
 }
 
+@media (max-width: 800px) and (min-width: 320px) {
+  
 
-@media (max-width: 800px) and (min-width: 700px) {
-  .swiper {
-    height: 450px;
-    width: 50%;
+  .slider-img-container {
+     height: 100%;
+     width:auto;
+     display: flex;
+     align-items: center;
+     background-color: rgb(255, 255, 255);
+     object-fit: contain;
+     object-position: none;
   }
-}
 
-@media (max-width: 600px) and (min-width: 500px) {
-  .swiper {
-    height: 400px;
-    width: 100%;
+
+  
+  .slider-img-container img {
+    max-width: 70%;
+    max-height: 70%;
+    background-color: #2196F3;
   }
 
 }
+/* @media (max-width: 1000px) and (min-width: 600px) {
+  
+  .slider-img-container img {
+    max-width: 100%;
+    height: auto;
+    background-color: #2196F3;
+    object-fit: contain;
+  }
+  
+}
 
+
+
+ @media (max-width: 600px) and (min-width: 400px) {
+  
+  .slider-img-container img {
+    max-width: 75%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+} */
+/*
 @media (max-width: 500px) and (min-width: 400px) {
   .swiper {
     height: 350px;
@@ -81,7 +111,7 @@
     height: 320px;
     width: 90%;
   }
-}
+} */
 
 /* device slider */
 

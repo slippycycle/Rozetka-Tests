@@ -32,6 +32,8 @@ export default function DevicePageContent({ device }: DevicePageContent) {
         setCurSubPages(page)
     }
 
+    
+
     console.log('Device page Render')
 
     return (
@@ -42,6 +44,7 @@ export default function DevicePageContent({ device }: DevicePageContent) {
                     <SubPages currentImgs={currentImgs} device={device} />
                     <DeviceInfoPanel device={device} currentSubPage={currentSubPage} />
                 </div>
+                    
             </SelectedSubPageContext.Provider>
         </>
     )

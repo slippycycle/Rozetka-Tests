@@ -17,45 +17,66 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
+
+    
+    
+
     return (
         <>
             <div className={c.message}>
-                <div className={c.image_conatiner} >
-                    <button onClick={() => {
+                <div className={c.user__container} >
+                    {/* <button onClick={() => {
                         setIsReplyMessage(true)
                         setReplyTarget(message)
                         console.log(message)
-                    }}>Reply</button>
+                    }}>Reply</button> */}
+                    <h3>
+                        {message.from}
+                    </h3>
                 </div>
                 <div className={c.body__container}>
                     {message.message}
                 </div>
                 <div className={c.message__control__block}>
-                 
-                    <span onClick={() => { setmessControllVisible(prev => !prev) }} className="material-symbols-outlined">
-                        more_vert
-                    </span>
-                        {
-                            messControllVisible ?
-                                <div className={c.message__controll}>
-                                    {
-                                        message.from === 'Azbek' ?
-                                            <button onClick={() => { DeleteQuestion(message.id) }} >delete</button>
-                                            : null
-                                    }
-                                    {
-                                        message?.replies?.length > 0 && !replyesVisible ?
-                                            <p onClick={() => { setReplyesVisible(true) }}>{`replyes ${message.replies.length}`}</p>
-                                            :
-                                            null
-                                    }
-                                </div>
-                                :
-                                null
-                        }
+
+                    {
+                        message.from === 'Azbek' ?
+                            <span onClick={() => { setmessControllVisible(prev => !prev) }} className="material-symbols-outlined">
+                                more_vert
+                            </span>
+                            :
+                            null
+                    }
+                    {
+                        messControllVisible && message.from === 'Azbek' ?
+                            <div className={c.message__controll}>
+                                {
+                                    message.from === 'Azbek' ?
+                                        <button onClick={() => { DeleteQuestion(message.id) }} >delete</button>
+                                        : null
+                                }
+                            </div>
+                            :
+                            null
+                    }
 
                 </div>
 
+                <div className={c.control_block}>
+
+                    <button onClick={() => {
+                        setIsReplyMessage(true)
+                        setReplyTarget(message)
+                        console.log(message)
+                    }}>Reply</button>
+                    {
+                        message?.replies?.length > 0  && !replyesVisible?
+                            <p onClick={() => { setReplyesVisible(true) }}>{`replyes ${message.replies.length}`}</p>
+                            :
+                            null
+                    }
+
+                </div>
             </div>
             {
                 replyesVisible ?
@@ -76,6 +97,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                     null
 
             }
+
         </>
     )
 

@@ -31,6 +31,30 @@
           "message": "NULLL",
           "id": "eca614f1-ce64-2a54-22d2-584506dd6bd5",
           "replies": []
+        },
+        {
+          "from": "Antoha Snuper",
+          "message": "Sus",
+          "id": "eca614f1-ce64-2a54-22d2dsswdwaSwfawawd222131awd-584506dd6bd5",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "Okey",
+              "id": "250bf392-8f03-f869-742c-abc2eea7c9de"
+            }
+          ]
+        },
+        {
+          "from": "Azbek",
+          "message": "Сьогодні замовив. Прийшло повідомлення, щоб чекав на смс доставки. Замовляв не для себе , але на свій номер з доставкою нової пошти. Номера накладної немаю. Як дізнатись за відправлення?",
+          "id": "f42d27fc-5233-2d39-9d89-f7a570e6c51b",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "В особистому кабінеті подивись статус замовлення (розділ \"мої замовлення\"). Якщо нема, тоді міг номер вказав з помилкою.",
+              "id": "a1968b4e-6cde-9f14-aebe-a35a90d29f6f"
+            }
+          ]
         }
       ]
     },
@@ -132,6 +156,78 @@
               "id": "885bcf1b-8752-71f0-0a8f-fe24f129b05f"
             }
           ]
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "b08b062c-14d0-586f-5201-9aec056446a7",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "1ef1e9f3-933d-8dff-dfb5-7708ade48b9f",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "15c8c7d0-0c89-a168-41fd-8aafcc4f6174",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "6268e254-5335-8ceb-7f5e-c47b56c578d9",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "26819ff6-c758-bc25-eb6f-358541e27e9b",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "aa853a81-1ef3-b0f2-d97a-59e976352828",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "e516c69e-5b34-8fac-3277-ed0605c50d6c",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "a7f1aedd-f55c-e79f-3318-56d755b60286",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "b273a2fc-71a1-90cd-29a1-d154a4040d4d",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "f40339fe-48be-e4c3-ac73-7d4bd0002f60",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "b7c5f00b-8476-fe1e-fafd-a2fa020333f8",
+          "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "SUS",
+          "id": "cbdb359d-dca0-3f2c-c06d-55e75b94bb8a",
+          "replies": []
         }
       ]
     },
@@ -209,6 +305,7 @@
     {
       "id": 1,
       "questionsId": "1",
+      "seller":"Dady Rafik(Marshrutka)",
       "name": "iphone12",
       "characteristics": [
         {
@@ -257,6 +354,7 @@
     {
       "id": 2,
       "name": "samsungA51",
+      "seller":"Dady Rafik(Marshrutka)",
       "characteristics": [
         {
           "header": "Camera",
@@ -314,6 +412,7 @@
       ],
       "questionsId": "3",
       "brand": "samsung",
+      "seller":"Dady Rafik(Marshrutka)",
       "type": "phone",
       "price": 24000,
       "colors": [
@@ -342,6 +441,7 @@
     {
       "id": 4,
       "name": "iphone13",
+      "seller":"Dady Rafik(Marshrutka)",
       "questionsId": "4",
       "characteristics": [
         {
@@ -409,6 +509,7 @@
       ],
       "brand": "apple",
       "questionsId": "5",
+      "seller":"Dady Rafik(Marshrutka)",
       "type": "phone",
       "price": 41999,
       "colors": [
@@ -436,6 +537,7 @@
     {
       "id": 6,
       "name": "ps4",
+      "seller":"Dady Rafik(Marshrutka)",
       "questionsId": "6",
       "brand": "SONY",
       "type": "consoles",
@@ -464,6 +566,7 @@
         }
       ],
       "questionsId": "7",
+      "seller":"Dady Rafik(Marshrutka)",
       "name": "iphone14pro",
       "brand": "apple",
       "type": "phone",

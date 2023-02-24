@@ -6,48 +6,48 @@ import { SelectedSubPageContext } from '../context'
 
 import { DeviceI, urlImg } from '../models/models'
 
-export type SelectedSubPageType = 'All information' |  'Questions' |  'characteristics'
+export type SelectedSubPageType = 'All information' | 'Questions' | 'characteristics'
 
 interface SubPageProps {
     currentImgs: urlImg[]
-    device:DeviceI
-    
+    device: DeviceI
+
 }
 
-export default  function SubPages({currentImgs,device}:SubPageProps) {
+export default function SubPages({ currentImgs, device }: SubPageProps) {
 
-    const {selected} = React.useContext(SelectedSubPageContext)
+    const { selected } = React.useContext(SelectedSubPageContext)
 
     console.log('sub page rendered')
 
-   
+
 
     switch (selected) {
         case 'characteristics':
             return (
-              <DeviceCharacteristicsSubPage deviceCharacteristics={device.characteristics}  />   
-          )
-          break;
-        case  'Questions' :
-            return (
-                <DeviceQuestionsSubPage questionsId={device.questionsId}/>
+                <DeviceCharacteristicsSubPage deviceCharacteristics={device.characteristics} />
             )
-          break;
-        case 'All information' :
+            break;
+        case 'Questions':
             return (
-                <DeviceSliderSubPage src={currentImgs} />     
-          )
-          break;
+                <DeviceQuestionsSubPage questionsId={device.questionsId} />
+            )
+            break;
+        case 'All information':
+            return (
+                <DeviceSliderSubPage description={device.description} src={currentImgs} />
+            )
+            break;
         default:
             return (
-                  <DeviceSliderSubPage src={currentImgs} />
+                <DeviceSliderSubPage description={device.description} src={currentImgs} />
             )
-         
-      }
+
+    }
     return (
-    <>
-     
-    </>
-)
+        <>
+
+        </>
+    )
 
 }

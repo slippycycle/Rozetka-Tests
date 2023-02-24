@@ -2,9 +2,10 @@
     height: auto;
     position: relative;
     top: 35px;
+    $def_bor_r: 7px;
+    $order__price__block_hgt: 200px;
 
     .conatiner {
-
         background-color: rgb(123, 123, 123);
         width: 100%;
         height: auto;
@@ -13,8 +14,9 @@
 
     .device_top_conatiner {
         width: 100%;
-        height: auto;
 
+
+        height: auto;
         background-color: rgb(255, 255, 255);
         border-bottom: 1px solid #e2e2e268;
         padding: 25px 10px 25px 10px;
@@ -40,7 +42,7 @@
 
     .subpages_list_container {
         width: 100%;
-        height: auto;
+        height: min-content;
         background-color: rgba(212, 212, 212, 0.323);
 
         .subpages_variaty_list {
@@ -116,13 +118,72 @@
         background-color: rgb(255, 255, 255);
         flex-direction: row;
         justify-content: space-between;
-
         .info__panel {
             width: 50%;
             padding: 10px;
             display: block;
             background-color: white;
+            margin-bottom: $order__price__block_hgt - 135;
 
+            .seller_block {
+                width: 100%;
+                margin-top: 10px;
+                display: flex;
+                border-radius: $def_bor_r;
+                border: 1px solid rgb(182, 182, 182);
+                background-color: rgb(255, 255, 255);
+                padding: 20px;
+                p{
+                    font-size: 1rem;
+                    color: #777777;
+                    font-weight: 600;
+                }
+                h4{
+                    font-size: 1rem;
+                    color: #171717;
+                    font-weight: 500;
+                }
+            }
+
+            .description_device {
+                color: #2e2e2e;
+            }
+
+            .devcie__intro {
+                width: 100%;
+                margin-bottom: 5px;
+                height: 130px;
+                padding: 5px;
+                font-size: 2rem;
+                display: flex;
+                border-radius: $def_bor_r;
+                border: 1px solid rgb(181, 181, 181);
+
+                .img_intro_container {
+                    width: 140px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        max-height: 90%;
+                        width: auto;
+                    }
+                }
+
+                .text__intro__container {
+                    width: max-content;
+                    height: 100%;
+                }
+
+            }
+
+            @media (max-width: 500px) {
+                .devcie__intro {
+                    font-size: 1.3rem;
+                }
+            }
 
             .color__block {
                 width: 100%;
@@ -151,14 +212,17 @@
                 }
 
             }
-         
+
+
+
+
 
             .order__price__block {
                 width: 100%;
-                height: 30%;
+                height: $order__price__block_hgt;
                 background-color: rgb(255, 255, 255);
                 border: 1px solid rgb(200, 200, 200);
-                border-radius: 20px;
+                border-radius: $def_bor_r;
                 padding: 15px;
                 display: flex;
                 flex-direction: column;
@@ -216,10 +280,10 @@
             @media (max-width: 800px) {
                 .order__price__block {
                     width: 100%;
-                    height: 60px;
+                    height: $order__price__block_hgt - 140;
                     background-color: rgba(255, 255, 255, 0.996);
                     border: none;
-                    padding: 5px; 
+                    padding: 5px;
                     font-size: 0.9rem;
                     box-shadow: rgba(0, 0, 0, 0.547) 0px 2px 7px;
                     align-items: center;
@@ -228,14 +292,14 @@
                     border-radius: 0px;
                     flex-direction: row;
                     align-items: center;
-                    justify-content: space-between;  
+                    justify-content: space-between;
                     position: fixed;
                     bottom: 0px;
 
                     h2 {
                         font-size: 1.5rem;
                         color: red;
-    
+
                         &::after {
                             content: '₴';
                             font-size: 1.1rem;
@@ -254,7 +318,7 @@
 
                         .credit__buton {
                             display: none;
-                    
+
                         }
 
                     }
