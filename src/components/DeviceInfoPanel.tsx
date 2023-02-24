@@ -38,7 +38,7 @@ export default  function DeviceInfoPanel({device,currentSubPage}:DeviceInfoPanel
                      <button className={c.credit__buton}>Buy in credit</button>
                 </div>
             </div>
-
+                <p>{device.description}</p>
         </div>
 
   )

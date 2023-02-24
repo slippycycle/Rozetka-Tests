@@ -8,7 +8,7 @@
   background-color: rgb(255, 255, 255);
   height: 100%;
 
-  
+
 }
 
 /* device slider */
@@ -20,6 +20,7 @@
   align-items: center;
 
 }
+
 
 .swiper-slide {
   text-align: center;
@@ -50,6 +51,36 @@
   width: auto;
   height: 100%;
   object-fit: contain;
+}
+
+
+@media (max-width: 800px) and (min-width: 700px) {
+  .swiper {
+    height: 450px;
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) and (min-width: 500px) {
+  .swiper {
+    height: 400px;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 500px) and (min-width: 400px) {
+  .swiper {
+    height: 350px;
+    width: 100%;
+  }
+
+}
+@media (max-width: 400px) and (min-width: 320px) {
+  .swiper {
+    height: 320px;
+    width: 90%;
+  }
 }
 
 /* device slider */

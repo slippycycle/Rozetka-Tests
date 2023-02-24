@@ -1,8 +1,16 @@
 .device__slider {
     width: 50%;
-    height: 500px;
+    height: auto;
+    padding: 5px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
 }
+
+
 
 .characteristics__container {
     width: 50%;
@@ -27,7 +35,7 @@
 }
 
 .quastions__wrap {
-    width: 50%;
+    width: 100%;
     overflow: hidden;
 
     input {

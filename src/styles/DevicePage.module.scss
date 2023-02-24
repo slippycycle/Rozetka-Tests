@@ -2,11 +2,13 @@
     height: auto;
     position: relative;
     top: 35px;
+
     .conatiner {
-      
+
         background-color: rgb(123, 123, 123);
         width: 100%;
         height: auto;
+        position: relative;
     }
 
     .device_top_conatiner {
@@ -22,12 +24,25 @@
             font-size: 3rem;
             font-weight: 300;
         }
+
+        @media (max-width: 700px) and (min-width: 500px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 500px) and (min-width: 320px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
     }
 
     .subpages_list_container {
         width: 100%;
         height: auto;
         background-color: rgba(212, 212, 212, 0.323);
+
         .subpages_variaty_list {
             display: flex;
             font-size: 1rem;
@@ -36,20 +51,62 @@
             cursor: pointer;
             height: 100%;
             padding: 5px;
+            display: flex;
+            flex-wrap: nowrap;
             width: 60%;
             justify-content: space-around;
 
+
             li {
-               
-                padding: 15px;  
+
+                padding: 15px;
+
+            }
+
+            @media (max-width: 800px) and (min-width: 500px) {
+
+                li {
+                    padding: 5px;
+                }
+
+            }
+
+            @media (max-width: 500px) and (min-width: 320px) {
+
+                li {
+                    padding: 3px;
+
+                }
+
             }
 
             .li_active {
-                border-bottom: 2px solid  rgb(106, 136, 255);
-              
+                border-bottom: 2px solid rgb(57, 97, 255)
             }
 
         }
+
+
+        @media (max-width: 800px) and (min-width: 500px) {
+
+            .subpages_variaty_list {
+                font-size: 1rem;
+                width: 80%;
+            }
+
+        }
+
+        @media (max-width: 500px) and (min-width: 320px) {
+
+            .subpages_variaty_list {
+                font-size: 1rem;
+                width: 100%;
+                font-size: 0.8rem;
+            }
+
+        }
+
+
     }
 
 
@@ -62,7 +119,7 @@
 
         .info__panel {
             width: 50%;
-            padding: 5px;
+            padding: 10px;
             display: block;
             background-color: white;
 
@@ -94,12 +151,13 @@
                 }
 
             }
+         
 
             .order__price__block {
                 width: 100%;
                 height: 30%;
                 background-color: rgb(255, 255, 255);
-                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border: 1px solid rgb(200, 200, 200);
                 border-radius: 20px;
                 padding: 15px;
                 display: flex;
@@ -153,6 +211,55 @@
                 }
 
 
+            }
+
+            @media (max-width: 800px) {
+                .order__price__block {
+                    width: 100%;
+                    height: 60px;
+                    background-color: rgba(255, 255, 255, 0.996);
+                    border: none;
+                    padding: 5px; 
+                    font-size: 0.9rem;
+                    box-shadow: rgba(0, 0, 0, 0.547) 0px 2px 7px;
+                    align-items: center;
+                    z-index: 20;
+                    display: flex;
+                    border-radius: 0px;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;  
+                    position: fixed;
+                    bottom: 0px;
+
+                    h2 {
+                        font-size: 1.5rem;
+                        color: red;
+    
+                        &::after {
+                            content: '₴';
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                    .order__butons {
+                        margin: 0px;
+                        align-items: center;
+                        background-color: rgb(255, 255, 255);
+                        display: flex;
+
+                        button {
+                            border-radius: 3px;
+                        }
+
+                        .credit__buton {
+                            display: none;
+                    
+                        }
+
+                    }
+
+                }
             }
 
 
@@ -260,6 +367,7 @@ $red: red;
 
             .info__panel {
                 width: 100%;
+                padding: 0px;
             }
 
             .subpages_list_container {

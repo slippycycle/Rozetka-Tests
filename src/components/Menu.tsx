@@ -19,24 +19,43 @@ export default function Menu() {
 
     const dispatch = useAppDispatch()
 
-    React.useEffect(() => {
-        dispatch(fetchTypes())
-    }, [])
-
-    function handleMenu(e) {
-
+    
+    function handleMenu(e: any) {
+        
         menuState.menuHandle()
         e.preventDefault()
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
     }
-
+    
+    const menuRef = React.useRef(null)
+    
+    
+    
+    const handleSubmit = React.useCallback((e: any) => {     
+        e.preventDefault()
+        e.stopPropagation();
+        console.log('closed')
+    }, []);
+    
+    React.useEffect(() => {
+        dispatch(fetchTypes())
+        
+    }, [])
+  
     return (
 
-        <div onClick={handleMenu} className={menuState.active ? c.menu__active : c.menu}>
+        <div ref={menuRef}  onClick={
+         (e) => {
+             e.preventDefault()
+             e.stopPropagation()
+             e.nativeEvent.stopImmediatePropagation() 
+             console.log('closed')
+         } 
+        } className={menuState.active ? c.menu__active : c.menu}>
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuState.menuHandle}>
-                    <span onClick={() => { console.log(window.pageYOffset, 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYY') }} className="material-symbols-outlined">
+                    <span onClick={(e) => { handleMenu(e)}} className="material-symbols-outlined">
                         close
                     </span>
                 </button>

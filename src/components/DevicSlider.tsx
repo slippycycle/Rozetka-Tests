@@ -20,8 +20,6 @@ interface DeviceSliderProps {
 export default function DeviceSlider({ src }: DeviceSliderProps) {
 
 
-
-
     return (
         <>
             <Swiper
