@@ -52,15 +52,24 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
 
             }
             <div className={c.order__price__block}>
-                <h2>{device.price}</h2>
+                {device.oldPrice && device.oldPrice > device.price ?
+                    <>
+                        <h3>{device.oldPrice}</h3>
+                        <h2>{device.price}</h2>
+                    </>
+                    :
+                    <h2 className={c.def__price}>{device.price}</h2>
+
+                }
+
                 <div className={c.order__butons}>
                     <button>Buy</button>
                     <button className={c.credit__buton}>Buy in credit</button>
                 </div>
             </div>
             <div className={c.seller_block}>
-                 <p>Seller: </p><h4>{device.seller}</h4> 
-            </div> 
+                <p>Seller: </p><h4>{device.seller}</h4>
+            </div>
 
         </div>
 

@@ -1,4 +1,19 @@
 {
+  "baners":[
+   {
+    "src":"https://content2.rozetka.com.ua/files/images/original/315022359.jpg",
+    "href":""
+   },
+   {
+    "src":"https://content.rozetka.com.ua/promotions/main_image_ua/original/311347545.jpg",
+    "href":""
+   },
+   {
+    "src":"https://cdnb.artstation.com/p/assets/images/images/016/802/459/large/shuja-shuaib-banner.jpg?1553535424",
+    "href":""
+   }
+
+  ],
   "brands": [
     "apple",
     "samsung",
@@ -70,8 +85,19 @@
               "from": "Azbek",
               "message": "HEY ",
               "id": "7400cec8-4582-e31d-eeac-a7c0e2e4e2dd"
+            },
+            {
+              "from": "Azbek",
+              "message": "Poshel naxuy",
+              "id": "2284feda-b8f6-7df6-d4ed-f6f9064743ac"
             }
           ]
+        },
+        {
+          "from": "Azbek",
+          "message": "Ya bombil EgiL",
+          "id": "51a74ff1-34a7-8110-a861-e655526be93a",
+          "replies": []
         }
       ]
     },
@@ -305,7 +331,7 @@
     {
       "id": 1,
       "questionsId": "1",
-      "seller":"Dady Rafik(Marshrutka)",
+      "seller": "Dady Rafik(Marshrutka)",
       "name": "iphone12",
       "characteristics": [
         {
@@ -327,7 +353,8 @@
       ],
       "brand": "apple",
       "type": "phone",
-      "price": 24000,
+      "oldPrice":25000,
+      "price": 23999,
       "colors": [
         "purple",
         "blue"
@@ -354,7 +381,7 @@
     {
       "id": 2,
       "name": "samsungA51",
-      "seller":"Dady Rafik(Marshrutka)",
+      "seller": "Dady Rafik(Marshrutka)",
       "characteristics": [
         {
           "header": "Camera",
@@ -376,6 +403,7 @@
       "questionsId": "2",
       "brand": "samsung",
       "type": "phone",
+      "oldPrice":15000,
       "price": 13000,
       "colors": [
         "teal"
@@ -412,8 +440,9 @@
       ],
       "questionsId": "3",
       "brand": "samsung",
-      "seller":"Dady Rafik(Marshrutka)",
+      "seller": "Dady Rafik(Marshrutka)",
       "type": "phone",
+      "oldPrice":27000,
       "price": 24000,
       "colors": [
         "black",
@@ -441,7 +470,7 @@
     {
       "id": 4,
       "name": "iphone13",
-      "seller":"Dady Rafik(Marshrutka)",
+      "seller": "Dady Rafik(Marshrutka)",
       "questionsId": "4",
       "characteristics": [
         {
@@ -463,6 +492,7 @@
       ],
       "brand": "apple",
       "type": "phone",
+      "oldPrice":40000,
       "price": 32999,
       "colors": [
         "black",
@@ -509,8 +539,9 @@
       ],
       "brand": "apple",
       "questionsId": "5",
-      "seller":"Dady Rafik(Marshrutka)",
+      "seller": "Dady Rafik(Marshrutka)",
       "type": "phone",
+      "oldPrice":43000,
       "price": 41999,
       "colors": [
         "red",
@@ -537,11 +568,11 @@
     {
       "id": 6,
       "name": "ps4",
-      "seller":"Dady Rafik(Marshrutka)",
+      "seller": "Dady Rafik(Marshrutka)",
       "questionsId": "6",
       "brand": "SONY",
       "type": "consoles",
-      "price": "17,00",
+      "price": 17000,
       "description": "bla blaLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. bla bla bla bla bla bla ",
       "rating": "4.7"
     },
@@ -566,10 +597,11 @@
         }
       ],
       "questionsId": "7",
-      "seller":"Dady Rafik(Marshrutka)",
+      "seller": "Dady Rafik(Marshrutka)",
       "name": "iphone14pro",
       "brand": "apple",
       "type": "phone",
+      "oldPrice":74999,
       "price": 74999,
       "colors": [
         "black",

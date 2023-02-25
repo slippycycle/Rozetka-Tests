@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 
+
 // import required modules
 import { Navigation } from "swiper";
 import { urlImg } from "../models/models";

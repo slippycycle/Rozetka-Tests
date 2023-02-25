@@ -168,11 +168,12 @@
 
 
 
+@media (max-width: 880px) {
 
-
-
-
-
+.dropdown_limit {
+  display: none;
+}
+}
 
 
 
@@ -180,9 +181,7 @@
 
 @media (max-width: 880px) and (min-width: 440px) {
 
-  .dropdown_limit {
-    display: none;
-  }
+  
 
   .filter__button {
     display: block;

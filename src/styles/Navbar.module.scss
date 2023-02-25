@@ -1,8 +1,9 @@
+@import "colors";
 $navbar-hgt: 50px;
 
 .menu__container {
     width: 100%;
-    background-color: rgb(36, 36, 36);
+    background-color: $dark_grey;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -11,7 +12,7 @@ $navbar-hgt: 50px;
 
     .top_navbar {
         width: 100%;
-        background-color: rgb(36, 36, 36);
+        background-color: $dark_grey;
         height: $navbar-hgt;
         display: flex;
         align-items: center;
@@ -31,8 +32,8 @@ $navbar-hgt: 50px;
                 width: auto;
                 height: 90%;
                 padding: 7px 30px 7px 30px;
-                border: 3px solid #0cc53a;
-                background-color: #0cc53a;
+                border: 3px solid $smooth_blue;
+                background-color: $smooth_blue;
                 border-top-right-radius: 15px;
                 border-bottom-right-radius: 15px;
         }
@@ -107,7 +108,7 @@ $navbar-hgt: 50px;
             font-size: 1.1rem;
             position: absolute;
             right: 5px;
-            color: #1fe326;
+            color: $smooth_blue;
             display: block;
         }
     }
@@ -120,7 +121,7 @@ $navbar-hgt: 50px;
 
         .top_navbar {
             height: 70px;
-            width: 1800px;
+            width: 1700px;
         }
     }
 }

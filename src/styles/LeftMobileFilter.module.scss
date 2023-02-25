@@ -1,3 +1,4 @@
+@import "colors";
 .menu {
     transform: translateX(-120%);
     display: block;
@@ -9,9 +10,10 @@
     transition: all 0.4s;
 
      .content {
-        width: 35%;
+        width: max-content;
+        padding: 5px 5px 0px 5px;
         position: relative;
-        z-index: 100;
+        z-index: 10;
         height: 100%;
         background-color: white;
         .close__button {
@@ -49,7 +51,7 @@
             z-index: 100;
             right: 0px;
             position: absolute;
-            color: rgb(31, 255, 132);
+            color: $dark_grey;
             background-color: rgb(255, 255, 255);
         }
     }

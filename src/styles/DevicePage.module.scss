@@ -227,6 +227,26 @@
                 display: flex;
                 flex-direction: column;
 
+                h3 {
+                    font-size: 1.5rem;
+                    color: rgb(117, 117, 117);
+                    text-decoration:line-through;
+
+                    &::after {
+                        content: '₴';
+                        font-size: 1.1rem;
+                    }  
+                }
+
+                .def__price {
+                    font-size: 2rem;
+                    color: rgb(0, 0, 0);
+
+                    &::after {
+                        content: '₴';
+                        font-size: 1.1rem;
+                    }
+                }
 
                 h2 {
                     font-size: 2rem;

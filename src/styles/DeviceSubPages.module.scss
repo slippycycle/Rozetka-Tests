@@ -1,3 +1,5 @@
+$light_grey: rgb(201, 201, 201);
+
 .device__slider {
     width: 50%;
     height: 100%;
@@ -7,8 +9,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    
+
+
     .device__slider__description {
         padding: 5px;
         color: rgb(48, 44, 44);
@@ -27,6 +29,7 @@
     .char {
 
         padding: 30px;
+
         h2 {
             font-size: 1.6rem;
         }
@@ -57,15 +60,20 @@
         width: 100%;
         overflow-y: auto;
 
+        $def__padding__mesage: 13px;
+        $def_bor_radius: 5px;
+
         .chat__container {
             width: 100%;
             padding: 5px;
-            background-color: rgba(193, 193, 193, 0.374);
+            background-color: rgb(255, 255, 255);
+
 
             .message {
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border: 1px solid $light_grey;
                 width: 100%;
                 background-color: white;
-                padding: 0px;
                 min-height: 50px;
                 font-size: 1.2rem;
                 margin-top: 5px;
@@ -84,31 +92,44 @@
                     height: 100%;
                     background-color: rgb(255, 255, 255);
                     font-size: 1rem;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding: $def__padding__mesage;
                 }
 
                 .user__container {
                     height: 50px;
-                    
+                    border-top-left-radius: $def_bor_radius;
+                    border-top-right-radius: $def_bor_radius;
+                    padding: $def__padding__mesage;
                     width: 100%;
                     background-color: rgb(255, 255, 255);
-                    border-bottom: 1px solid gray;
+                    border-bottom: 1px solid $light_grey;
 
                 }
+
+
 
                 .control_block {
                     width: 100%;
                     display: flex;
                     background-color: rgb(255, 255, 255);
+                    padding: $def__padding__mesage;
+                    border-bottom-left-radius: $def_bor_radius;
+                    border-bottom-right-radius: $def_bor_radius;
 
                     button {
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         color: blue;
+                        font-weight: 600;
+
+                        span {
+                            font-size: 1rem;
+                            display: inline-block;
+                            transform: skew(15deg);
+                        }
 
                     }
 
-                    p{
+                    p {
                         margin-left: 20px;
                         color: rgb(106, 106, 242);
                     }
@@ -123,7 +144,7 @@
                     background-color: rgb(255, 255, 255);
                     display: flex;
                     align-self: center;
-                
+
                     justify-content: center;
 
                     .message__controll {
@@ -142,11 +163,23 @@
 
             .replyes_block {
                 height: auto;
-                background-color: rgb(186, 186, 186);
-                width: 80%;
-                padding: 5px;
+                background-color: rgb(255, 255, 255);
+                width: 100%;
                 min-height: 50px;
                 font-size: 1.2rem;
+                border-left: 2px solid $light_grey;
+
+                .reply__message {
+                    background-color: rgb(255, 255, 255);
+                    margin: 20px 0px 20px 10px;
+                    padding: $def__padding__mesage;
+                    border-radius: $def_bor_radius;
+                    border: 1px solid rgb(222, 222, 222);
+                    .reply__message__user {
+                      
+                    }
+                }
+                
             }
 
         }
@@ -158,7 +191,7 @@
     .device__slider {
         width: 100%;
         height: 700px;
-        
+
     }
 
     .characteristics__container {

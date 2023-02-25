@@ -51,6 +51,7 @@ export interface DeviceI {
     faceDescription: string
     description: string
     rating: number
+    oldPrice: number
     seller: string
 }
 

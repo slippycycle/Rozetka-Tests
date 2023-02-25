@@ -12,7 +12,7 @@ export default React.memo(function CategoryLeftBar() {
 
   const { types, loading, error } = useAppSelector(state => state.typeReducer)
 
- 
+
   const dispatch = useAppDispatch()
 
   //fetching types
@@ -24,9 +24,28 @@ export default React.memo(function CategoryLeftBar() {
   console.log('render left types bar')
 
   return (
-    <div className={c.container}>
-      {loading ? <Loader /> : null}
-      {error? <p>{error}</p> : <TypesComponent typesArray={(types as Types[])} />}
-    </div>
+    
+      <div className={c.category__block}>
+        <div className={c.category}>
+          
+          {loading ?
+            <Loader />
+            :
+            <>
+              {error ?
+                <p>{error}</p>
+                :
+                <TypesComponent typesArray={(types as Types[])} />
+
+              }
+            </>
+          }
+        </div>
+
+      </div>
+
+   
+
+
   )
 })

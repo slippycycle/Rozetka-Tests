@@ -18,8 +18,8 @@ export default function ChatItem({ message }: ChatItemProsp) {
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
 
-    
-    
+
+
 
     return (
         <>
@@ -68,25 +68,33 @@ export default function ChatItem({ message }: ChatItemProsp) {
                         setIsReplyMessage(true)
                         setReplyTarget(message)
                         console.log(message)
-                    }}>Reply</button>
+                    }}>
+                        <span className="material-symbols-outlined">
+                            reply
+                        </span>
+                        Reply
+                    </button>
                     {
-                        message?.replies?.length > 0  && !replyesVisible?
+                        message?.replies?.length > 0 && !replyesVisible ?
                             <p onClick={() => { setReplyesVisible(true) }}>{`replyes ${message.replies.length}`}</p>
                             :
                             null
                     }
 
                 </div>
-            </div>
             {
                 replyesVisible ?
                     <div className={c.replyes_block}>
                         <>
                             {
-                                message.replies.map((rep) => <p>
+                                message.replies.map((rep) =>
+                                    <div className={c.reply__message}>
+                                        <div className={c.reply__message__user}>
+                                            {rep.from}
+                                        </div>
+                                        {rep.message}
+                                    </div>
 
-                                    {rep.message}
-                                </p>
 
                                 )
                             }
@@ -97,6 +105,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                     null
 
             }
+            </div>
 
         </>
     )
