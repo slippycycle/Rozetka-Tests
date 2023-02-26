@@ -1,3 +1,5 @@
+import { type } from "os"
+
 type UrlIcon = string
 
 export type brand = string
@@ -55,7 +57,17 @@ export interface DeviceI {
     seller: string
 }
 
-export type ReplyMessage =  Omit<Message, "replies">
+export type MessageId = string
+
+export type ReplyMessageId = string
+
+
+
+export type ReplyMessage =  Omit<Message, "replies">   
+
+
+
+
 
 export interface Chat {
     id: string
@@ -65,7 +77,7 @@ export interface Chat {
 
 export interface Message {
     data: string
-    id: string
+    id: MessageId
     from: string
     message: string
     replies: ReplyMessage[] 

@@ -1,18 +1,17 @@
 {
-  "baners":[
-   {
-    "src":"https://content2.rozetka.com.ua/files/images/original/315022359.jpg",
-    "href":""
-   },
-   {
-    "src":"https://content.rozetka.com.ua/promotions/main_image_ua/original/311347545.jpg",
-    "href":""
-   },
-   {
-    "src":"https://cdnb.artstation.com/p/assets/images/images/016/802/459/large/shuja-shuaib-banner.jpg?1553535424",
-    "href":""
-   }
-
+  "baners": [
+    {
+      "src": "https://content2.rozetka.com.ua/files/images/original/315022359.jpg",
+      "href": ""
+    },
+    {
+      "src": "https://content.rozetka.com.ua/promotions/main_image_ua/original/311347545.jpg",
+      "href": ""
+    },
+    {
+      "src": "https://cdnb.artstation.com/p/assets/images/images/016/802/459/large/shuja-shuaib-banner.jpg?1553535424",
+      "href": ""
+    }
   ],
   "brands": [
     "apple",
@@ -28,11 +27,85 @@
   "chats": [
     {
       "id": "1",
-      "messages": []
+      "messages": [
+        {
+          "from": "Azbek",
+          "message": "Okey ",
+          "id": "045828a3-6ca9-8545-16bf-3f1e594e49d8",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "Okey  ?? ?/ dw/ ",
+              "id": "20223968-83aa-92bc-b4ae-81a26b738861"
+            }
+          ]
+        },
+        {
+          "from": "Chepollino",
+          "message": "Hello ",
+          "id": "b159b792-df61-0688-54a7-dcafa0efccc6",
+          "replies": []
+        }
+      ]
     },
     {
       "id": "2",
-      "messages": []
+      "messages": [
+        {
+          "from": "Azbek",
+          "message": "Hello",
+          "id": "2096bcd7-e271-71ed-6dde-e2ed275ccad4",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "Hey",
+              "id": "ef9c47a8-5826-bfe0-6323-c33833f6cf16"
+            }
+          ]
+        },
+        {
+          "from": "Azbek",
+          "message": "distruction around table",
+          "id": "057dd757-d04a-824d-dd75-ced87fea8b28",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "What didi u mean ?",
+              "id": "91f43f1b-646b-fc88-6bda-064328693303"
+            }
+          ]
+        },
+        {
+          "from": "Azbek",
+          "message": "Can i own it free ? ",
+          "id": "3e5b57a8-b2d5-abf5-81a2-7aaad0e44a52",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "wpi npiq  awdwad aw ??? wdwqwq dqwd  qwd>",
+              "id": "8c0421eb-8cff-5beb-285c-bf5310e404b1"
+            }
+          ]
+        },
+        {
+          "from": "Azbek",
+          "message": "guyes Did you saw Azbek ?",
+          "id": "6c760d8f-e934-e469-35be-366b5b8a5f13",
+          "replies": [
+            {
+              "from": "Chepollino",
+              "message": "two days before avganistan war was started, he had hidded under table ",
+              "id": "ec09e7d8-83d7-8544-5d9c-98c0961e87fe"
+            }
+          ]
+        },
+        {
+          "from": "Chepollino",
+          "message": "what is going on ?",
+          "id": "1d4fe52e-4c9a-1879-4bd9-b930a816ecff",
+          "replies": []
+        }
+      ]
     },
     {
       "id": "3",
@@ -80,24 +153,31 @@
           "from": "Azbek",
           "message": "HEllo",
           "id": "c07f3424-26c9-51a9-ca5a-6ac52ed938cd",
-          "replies": [
-            {
-              "from": "Azbek",
-              "message": "HEY ",
-              "id": "7400cec8-4582-e31d-eeac-a7c0e2e4e2dd"
-            },
-            {
-              "from": "Azbek",
-              "message": "Poshel naxuy",
-              "id": "2284feda-b8f6-7df6-d4ed-f6f9064743ac"
-            }
-          ]
+          "replies": []
         },
         {
           "from": "Azbek",
-          "message": "Ya bombil EgiL",
-          "id": "51a74ff1-34a7-8110-a861-e655526be93a",
+          "message": "Null",
+          "id": "ca32f466-f5e3-c454-5a8a-0d3b8f4832b9",
           "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": "susy ?",
+          "id": "5f9b36fb-80f2-5ff2-cf43-6c7d17cada90",
+          "replies": []
+        },
+        {
+          "from": "Chepollino",
+          "message": "I need more ",
+          "id": "22dd6cbc-4634-566a-072c-78649ed5b348",
+          "replies": [
+            {
+              "from": "Chepollino",
+              "message": "Oks ",
+              "id": "14f52f54-1001-ba62-5b4e-ae4be81372f0"
+            }
+          ]
         }
       ]
     },
@@ -122,8 +202,14 @@
             },
             {
               "from": "Azbek",
+              "date": "10:30",
               "message": "NOOO",
-              "id": "9e0cb96b-08f3-413d-6540-e736568d3c40"
+              "id": "9e0cb96b-08f3-413d-6540-awdwadladwada40"
+            },
+            {
+              "from": "Chepollino",
+              "message": "Hey Tolik MAssa ",
+              "id": "a938f497-dc90-649e-2eee-ae40a7cc8f9b"
             }
           ]
         },
@@ -138,16 +224,6 @@
               "id": "4",
               "from": "Tolik Strelok",
               "message": "yes u can"
-            },
-            {
-              "from": "Azbek",
-              "message": "Yes ",
-              "id": "4220b226-6028-dea2-6975-b4eea4f0d3ef"
-            },
-            {
-              "from": "Azbek",
-              "message": "AAAAAAAAAAAAAAAAAAAAAA",
-              "id": "65f89b88-fe34-cc19-890b-27bd197b99e4"
             }
           ]
         },
@@ -169,7 +245,18 @@
           "from": "Azbek",
           "message": "Helo gays",
           "id": "42e0cbe3-1f1e-af71-73cf-02938da25910",
-          "replies": []
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "HELLOOL ",
+              "id": "ee372638-8149-a542-0603-56fa300fab53"
+            },
+            {
+              "from": "Azbek",
+              "message": "HELLOOL  dwa",
+              "id": "4aadfbe0-6ca1-4855-370e-7a1d57fcb217"
+            }
+          ]
         },
         {
           "from": "Azbek",
@@ -217,7 +304,13 @@
           "from": "Azbek",
           "message": "SUS",
           "id": "aa853a81-1ef3-b0f2-d97a-59e976352828",
-          "replies": []
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": "",
+              "id": "14080f12-f72e-ac4d-b0bc-5cf1f29cbc43"
+            }
+          ]
         },
         {
           "from": "Azbek",
@@ -254,6 +347,35 @@
           "message": "SUS",
           "id": "cbdb359d-dca0-3f2c-c06d-55e75b94bb8a",
           "replies": []
+        },
+        {
+          "from": "Azbek",
+          "message": " YA ya ya YA coco jambo",
+          "id": "b73b8756-abe7-e036-adb8-33661fbb0863",
+          "replies": [
+            {
+              "from": "Azbek",
+              "message": " YA ya ya YA coco jambo",
+              "id": "21c72afc-b330-3926-675f-6c87ee579fdb"
+            },
+            {
+              "from": "Azbek",
+              "message": " YA ya ya YA coco jambo",
+              "id": "bebb3ebb-28c3-caea-a127-31bde42ef7bd"
+            }
+          ]
+        },
+        {
+          "from": "Chepollino",
+          "message": "Hello",
+          "id": "d263fd96-e798-74e6-f2cc-64354e85c681",
+          "replies": [
+            {
+              "from": "Chepollino",
+              "message": "Hey susi",
+              "id": "e8bd2195-64ab-18ef-7f1b-cf9209c686f2"
+            }
+          ]
         }
       ]
     },
@@ -353,7 +475,7 @@
       ],
       "brand": "apple",
       "type": "phone",
-      "oldPrice":25000,
+      "oldPrice": 25000,
       "price": 23999,
       "colors": [
         "purple",
@@ -403,7 +525,7 @@
       "questionsId": "2",
       "brand": "samsung",
       "type": "phone",
-      "oldPrice":15000,
+      "oldPrice": 15000,
       "price": 13000,
       "colors": [
         "teal"
@@ -442,7 +564,7 @@
       "brand": "samsung",
       "seller": "Dady Rafik(Marshrutka)",
       "type": "phone",
-      "oldPrice":27000,
+      "oldPrice": 27000,
       "price": 24000,
       "colors": [
         "black",
@@ -492,7 +614,7 @@
       ],
       "brand": "apple",
       "type": "phone",
-      "oldPrice":40000,
+      "oldPrice": 40000,
       "price": 32999,
       "colors": [
         "black",
@@ -541,7 +663,7 @@
       "questionsId": "5",
       "seller": "Dady Rafik(Marshrutka)",
       "type": "phone",
-      "oldPrice":43000,
+      "oldPrice": 43000,
       "price": 41999,
       "colors": [
         "red",
@@ -601,7 +723,7 @@
       "name": "iphone14pro",
       "brand": "apple",
       "type": "phone",
-      "oldPrice":74999,
+      "oldPrice": 74999,
       "price": 74999,
       "colors": [
         "black",

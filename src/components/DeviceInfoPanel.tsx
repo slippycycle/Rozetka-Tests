@@ -3,7 +3,7 @@ import { SelectedSubPageContext } from '../context'
 import { DeviceI } from '../models/models'
 import { SelectedSubPageType } from '../pages/SubPage'
 import c from '../styles/DevicePage.module.scss'
-import SmallDeviceItem from './SmallDeviceItem'
+
 
 interface DeviceInfoPanelProps {
     device: DeviceI
@@ -23,6 +23,8 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
     return (
 
         <div className={c.info__panel}>
+           <div className={c.info__panel__wrap}>
+
             {selected == 'All information' ?
 
                 <div className={c.color__block}>
@@ -41,6 +43,7 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
                 </div>
 
                 :
+              
                 <div className={c.devcie__intro}>
                     <div className={c.img_intro_container}>
                         <img alt='device photo' src={device.images[device.colors[0]][0]}></img>
@@ -70,6 +73,7 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
             <div className={c.seller_block}>
                 <p>Seller: </p><h4>{device.seller}</h4>
             </div>
+           </div>
 
         </div>
 

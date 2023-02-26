@@ -4,5 +4,6 @@ export const DEVICE_ROUTE = 'DEVICE_ROUTE'
 
 export const ADMIN_ROUTE = 'ADMIN_ROUTE'
 
+export const IMAGINARY_USER = 'Chepollino'
 
 

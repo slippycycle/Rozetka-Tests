@@ -1,5 +1,5 @@
 $device-wdth: 19%;
-$device-hght: 450px;
+$device-hght: 430px;
 
 .device_item {
     width: $device-wdth;
@@ -22,8 +22,6 @@ $device-hght: 450px;
         img {
             object-fit: cover;
             max-height: 80%;
-
-
         }
     }
 
