@@ -6,7 +6,7 @@ import BacketList from './BacketList'
 
 export default function Backet() {
 
-  const { backetActive, devices } = useAppSelector(state => state.backetReducer)
+  const { backetActive, devices, reload} = useAppSelector(state => state.backetReducer)
 
   let DevicesId: any[] = JSON.parse(localStorage.getItem('backet') as string)
 

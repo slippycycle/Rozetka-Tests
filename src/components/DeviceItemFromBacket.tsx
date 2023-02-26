@@ -38,6 +38,6 @@ export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
                 :
                 <SmallDeviceItem device={device} />
             }
-        </>
+        </> 
     )
 }

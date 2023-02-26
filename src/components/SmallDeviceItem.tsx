@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { DeviceI } from '../models/models'
-import { addToTotalSum, deleteDeviceById, handleBacket, pushDevice, setDevicesFromBacket, setDevicesIdFromBacket } from '../store/features/Backet.Slice'
+import { addToTotalSum, deleteDeviceById, handleBacket, makeRender, pushDevice, setDevicesFromBacket, setDevicesIdFromBacket } from '../store/features/Backet.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
@@ -27,6 +27,8 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
         localStorage.setItem('backet', JSON.stringify(result))
 
         dispatch(setDevicesIdFromBacket(result))
+
+        dispatch(makeRender())
 
      
 

@@ -36,7 +36,7 @@ $navbar-hgt: 60px;
                 background-color: $smooth_blue;
                 border-top-right-radius: 15px;
                 border-bottom-right-radius: 15px;
-        }
+            }
 
             .search_input {
                 display: flex;
@@ -56,9 +56,9 @@ $navbar-hgt: 60px;
 
 
 
-        
-                }
-            
+
+            }
+
 
 
             @media (max-width: 600px) {
@@ -103,13 +103,38 @@ $navbar-hgt: 60px;
         }
 
         .backet__button {
-            padding: 20px;
+            padding: 10px;
             color: white;
-            font-size: 1.1rem;
-            position: absolute;
+            position: relative;
             right: 5px;
             color: $smooth_blue;
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+
+
+            span {
+               
+                text-align: center;
+                font-size: 34px;
+                
+                p {
+                     
+                      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                      color: #ffffff;
+                      font-size: 13px;
+                      width: 16px;
+                      height: 16px;
+                      position: absolute;
+                      text-align: center;
+                      top: 9px;
+                      left: 3px;
+                      border-radius: 50%;
+                      background-color: $smooth_blue;
+                  }
+
+            }
+
         }
     }
 }

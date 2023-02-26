@@ -2,8 +2,8 @@
     height: auto;
     position: relative;
     top: 35px;
-    
-    
+
+
 
     $def_bor_r: 7px;
     $order__price__block_hgt: 200px;
@@ -142,239 +142,243 @@
         background-color: rgb(255, 255, 255);
         flex-direction: row;
         justify-content: space-between;
+
         .info__panel {
-         
+
             width: 50%;
             display: block;
             background-color: white;
             margin-bottom: $order__price__block_hgt - 135;
 
-        .info__panel__wrap {
-                     position: sticky;
-                     padding: 10px 48px 0px 48px;
-                     z-index: 20;
-                     top: 130px;
-                    .seller_block {
-                        width: 100%;
-                        margin-top: 10px;
-                        display: flex;
-                        border-radius: $def_bor_r;
-                        border: 1px solid rgb(182, 182, 182);
-                        background-color: rgb(255, 255, 255);
-                        padding: 20px;
-                        p{
-                            font-size: 1rem;
-                            color: #777777;
-                            font-weight: 600;
-                        }
-                        h4{
-                            font-size: 1rem;
-                            color: #171717;
-                            font-weight: 500;
-                        }
+            .info__panel__wrap {
+                position: sticky;
+                 padding: 10px 48px 0px 48px;
+                z-index: 20;
+                top: 130px;
+
+                .seller_block {
+                    width: 100%;
+                    margin-top: 10px;
+                    display: flex;
+                    border-radius: $def_bor_r;
+                    border: 1px solid rgb(182, 182, 182);
+                    background-color: rgb(255, 255, 255);
+                    padding: 20px;
+
+                    p {
+                        font-size: 1rem;
+                        color: #777777;
+                        font-weight: 600;
                     }
-        
-                    .description_device {
-                        color: #2e2e2e;
-                    }
-        
-                    .devcie__intro {
-                        width: 100%;
-                        margin-bottom: 5px;
-                        height: 130px;
-                        padding: 5px;
-                        font-size: 1.8rem;
-                        display: flex;
-                        border-radius: $def_bor_r;
-                        border: 1px solid rgb(181, 181, 181);
-        
-                        .img_intro_container {
-                            width: 140px;
-                            height: 100%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-        
-                            img {
-                                max-height: 90%;
-                                width: auto;
-                            }
-                        }
-        
-                        .text__intro__container {
-                            width: max-content;
-                            height: 100%;
-                        }
-        
-                    }
-        
-                    @media (max-width: 500px) {
-                        .devcie__intro {
-                            font-size: 1.3rem;
-                        }
-                    }
-        
-                    .color__block {
-                        width: 100%;
-                        height: 100px;
-                        background-color: rgb(255, 255, 255);
-                        padding-top: 20px;
-                        font-size: 1.1rem;
-        
-                        .cloror__container__text {
-                            display: flex;
-                            font-display: row;
-                        }
-        
-                        h3 {
-                            color: rgb(147, 147, 147);
-                            cursor: pointer;
-                        }
-        
-                        .colors__container {
-                            display: flex;
-                            margin-top: 5px;
-                            flex-direction: row;
-                            width: 100%;
-                            max-height: 100px;
-                            flex-wrap: wrap;
-                        }
-        
-                    }
-        
-        
-        
-        
-        
-                    .order__price__block {
-                        width: 100%;
-                        height: $order__price__block_hgt;
-                        background-color: rgb(255, 255, 255);
-                        border: 1px solid rgb(200, 200, 200);
-                        border-radius: $def_bor_r;
-                        padding: 15px;
-                        display: flex;
-                        flex-direction: column;
-        
-                        h3 {
-                            font-size: 1.5rem;
-                            color: rgb(117, 117, 117);
-                            text-decoration:line-through;
-        
-                            &::after {
-                                content: '₴';
-                                font-size: 1.1rem;
-                            }  
-                        }
-        
-                        .def__price {
-                            font-size: 2rem;
-                            color: rgb(0, 0, 0);
-        
-                            &::after {
-                                content: '₴';
-                                font-size: 1.1rem;
-                            }
-                        }
-        
-                        h2 {
-                            font-size: 2rem;
-                            color: red;
-        
-                            &::after {
-                                content: '₴';
-                                font-size: 1.1rem;
-                            }
-                        }
-        
-                        .order__butons {
-                            width: min-content;
-                            margin-top: 20px;
-                            height: max-content;
-                            display: flex;
-                            flex-direction: row;
-                            flex-wrap: nowrap;
-                            justify-content: space-between;
-        
-                            $btn_wdth: 120px;
-                            $btn_borr: 7px;
-        
-                            button {
-                                width: $btn_wdth;
-                                height: auto;
-                                color: white;
-                                text-align: center;
-                                border-radius: $btn_borr;
-                                padding: 8px 4px 8px 4px;
-                                background-color: rgb(64, 64, 255);
-        
-                            }
-        
-                            .credit__buton {
-                                width: $btn_wdth + 30px;
-                                height: auto;
-                                color: white;
-                                text-align: center;
-                                border-radius: $btn_borr;
-                                padding: 8px 4px 8px 4px;
-                                background-color: rgb(115, 115, 255);
-                                margin-left: 10px;
-                            }
-        
-                        }
-        
-        
-                    }
-        
-                    @media (max-width: 800px) {
-                        .order__price__block {
-                            width: 100%;
-                            height: $order__price__block_hgt - 140;
-                            background-color: rgba(255, 255, 255, 0.996);
-                            border: none;
-                            padding: 5px;
-                            font-size: 0.9rem;
-                            box-shadow: rgba(0, 0, 0, 0.547) 0px 2px 7px;
-                            align-items: center;
-                            z-index: 20;
-                            display: flex;
-                            border-radius: 0px;
-                            flex-direction: row;
-                            align-items: center;
-                            justify-content: space-between;
-                            position: fixed;
-                            bottom: 0px;
-        
-                            h2 {
-                                font-size: 1.5rem;
-                                color: red;
-        
-                                &::after {
-                                    content: '₴';
-                                    font-size: 1.1rem;
-                                }
-                            }
-        
-                            .order__butons {
-                                margin: 0px;
-                                align-items: center;
-                                background-color: rgb(255, 255, 255);
-                                display: flex;
-        
-                                button {
-                                    border-radius: 3px;
-                                }
-        
-                                .credit__buton {
-                                    display: none;
-        
-                                }
-        
-                            }
-        
-                        }
+
+                    h4 {
+                        font-size: 1rem;
+                        color: #171717;
+                        font-weight: 500;
                     }
                 }
+
+                .description_device {
+                    color: #2e2e2e;
+                }
+
+                .devcie__intro {
+                    width: 100%;
+                    margin-bottom: 5px;
+                    height: 130px;
+                    padding: 5px;
+                    font-size: 1.8rem;
+                    display: flex;
+                    border-radius: $def_bor_r;
+                    border: 1px solid rgb(181, 181, 181);
+
+                    .img_intro_container {
+                        width: 140px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            max-height: 90%;
+                            width: auto;
+                        }
+                    }
+
+                    .text__intro__container {
+                        width: max-content;
+                        height: 100%;
+                    }
+
+                }
+
+                @media (max-width: 500px) {
+                    .devcie__intro {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .color__block {
+                    width: 100%;
+                    height: 100px;
+                    background-color: rgb(255, 255, 255);
+                    padding-top: 20px;
+                    font-size: 1.1rem;
+
+                    .cloror__container__text {
+                        display: flex;
+                        font-display: row;
+                    }
+
+                    h3 {
+                        color: rgb(147, 147, 147);
+                        cursor: pointer;
+                    }
+
+                    .colors__container {
+                        display: flex;
+                        margin-top: 5px;
+                        flex-direction: row;
+                        width: 100%;
+                        max-height: 100px;
+                        flex-wrap: wrap;
+                    }
+
+                }
+
+
+
+
+
+                .order__price__block {
+                    width: 100%;
+                    height: $order__price__block_hgt;
+                    background-color: rgb(255, 255, 255);
+                    border: 1px solid rgb(200, 200, 200);
+                    border-radius: $def_bor_r;
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+
+                    h3 {
+                        font-size: 1.5rem;
+                        color: rgb(117, 117, 117);
+                        text-decoration: line-through;
+
+                        &::after {
+                            content: '₴';
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                    .def__price {
+                        font-size: 2rem;
+                        color: rgb(0, 0, 0);
+
+                        &::after {
+                            content: '₴';
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                    h2 {
+                        font-size: 2rem;
+                        color: red;
+
+                        &::after {
+                            content: '₴';
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                    .order__butons {
+                        width: min-content;
+                        margin-top: 20px;
+                        height: max-content;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+
+                        $btn_wdth: 120px;
+                        $btn_borr: 7px;
+
+                        button {
+                            width: $btn_wdth;
+                            height: auto;
+                            color: white;
+                            text-align: center;
+                            border-radius: $btn_borr;
+                            padding: 8px 4px 8px 4px;
+                            background-color: rgb(64, 64, 255);
+
+                        }
+
+                        .credit__buton {
+                            width: $btn_wdth + 30px;
+                            height: auto;
+                            color: white;
+                            text-align: center;
+                            border-radius: $btn_borr;
+                            padding: 8px 4px 8px 4px;
+                            background-color: rgb(115, 115, 255);
+                            margin-left: 10px;
+                        }
+
+                    }
+
+
+                }
+
+                @media (max-width: 800px) {
+                    .order__price__block {
+                        width: 100%;
+                        height: $order__price__block_hgt - 140;
+                        background-color: rgba(255, 255, 255, 0.996);
+                        border: none;
+                        padding: 5px;
+                        font-size: 0.9rem;
+                        box-shadow: rgba(0, 0, 0, 0.547) 0px 2px 7px;
+                        align-items: center;
+                        z-index: 20;
+                        display: flex;
+                        border-radius: 0px;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        position: fixed;
+                        bottom: 0px;
+
+                        h2 {
+                            font-size: 1.5rem;
+                            color: red;
+
+                            &::after {
+                                content: '₴';
+                                font-size: 1.1rem;
+                            }
+                        }
+
+                        .order__butons {
+                            margin: 0px;
+                            align-items: center;
+                            background-color: rgb(255, 255, 255);
+                            display: flex;
+
+                            button {
+                                border-radius: 3px;
+                            }
+
+                            .credit__buton {
+                                display: none;
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
 
 
         }
@@ -391,7 +395,8 @@
 @media (min-width: 1700px) {
     .main_wrap {
         top: 70px;
-        .subpages_list_container  {
+
+        .subpages_list_container {
             top: 70px;
         }
     }
@@ -480,6 +485,7 @@ $red: red;
             flex-direction: column;
             align-items: center;
 
+
             .info__panel {
                 width: 100%;
                 padding: 0px;
@@ -487,6 +493,26 @@ $red: red;
 
             .subpages_list_container {
                 width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .main_wrap {
+        .wrap {
+            padding: none;
+          .info__panel {
+            padding: 0px;
+
+              .info__panel__wrap {
+                  width: 100%;
+                  padding: 0px;
+                  background-color: #17171700;
+                  
+                  
+                  
+                }
             }
         }
     }

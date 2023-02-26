@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import React, { SyntheticEvent, useCallback, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { DeviceI } from '../models/models'
-import { handleBacket } from '../store/features/Backet.Slice'
+import { handleBacket, makeRender } from '../store/features/Backet.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { AppDispatch } from '../store/store'
 
@@ -22,14 +22,16 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
     const {devices,devicesId} = useAppSelector(state => state.backetReducer)
 
-    const [active,setActive] = React.useState(currentBcket?.length > 0 ? currentBcket.find((el : string | number) => el == device.id): false)
-   
-   
+    const {reload} = useAppSelector(state => state.backetReducer)
+
+ 
+   console.log(currentBcket)
 
     function handleDevicebacket() {
 
         let currentBcket = JSON.parse(localStorage.getItem('backet') as string)
        
+
 
         if (!Array.isArray(currentBcket)) {
 
@@ -51,14 +53,18 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 result.push(device.id)
                 localStorage.setItem('backet', JSON.stringify(result))
                 console.log(devicesId)
-                setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
+                // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
+                dispatch(makeRender())
 
                
             }
 
         }
 
-        setActive(true)
+        // setActive(true)
+        //currentBcket?.length > 0 ? currentBcket.find((el : string | number) => el == device.id): false ?
+
+        dispatch(makeRender())
        
     }
 
@@ -80,7 +86,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 <div className={c.deivce__item__button__block}>
                     
                     <p>{device.price}</p>
-                    <button  type='button' className={active ?c.backet_button_active :c.backet_button} onClick={handleDevicebacket}>Add</button>
+                    <button  type='button' className={ currentBcket.includes(device.id) ?c.backet_button_active :c.backet_button} onClick={handleDevicebacket}>Add</button>
                 </div>
             </div>
         </div>
