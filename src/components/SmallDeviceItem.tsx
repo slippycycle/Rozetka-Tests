@@ -30,7 +30,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
         dispatch(makeRender())
 
-     
+
 
 
     }
@@ -55,13 +55,20 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     }
 
-    const inputRef = React.useRef(null)
+
+    React.useEffect(() => {
+        dispatch(addToTotalSum(device.price))
+        return () => {
+            dispatch(addToTotalSum(-device.price))
+        }
+    }, [])
 
     function handleNumber(polus: boolean) {
 
         if (polus) {
             setNumber(prev => prev + 1)
-            dispatch(addToTotalSum(device.price))
+            dispatch(addToTotalSum( + device.price))
+
 
         }
         else {
@@ -74,13 +81,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
 
 
-    useEffect(() => {
 
-        return () => {
-            dispatch(addToTotalSum(-device.price * number))
-        }
-
-    }, [number])
 
     return (
         <div className={c.item_wrap}>

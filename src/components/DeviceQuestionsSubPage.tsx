@@ -1,12 +1,14 @@
 import axios, { Axios, AxiosError } from 'axios'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import uuid from 'react-uuid'
 import { IMAGINARY_USER } from '../consts'
 import { MessageContext } from '../context'
 import { Chat, Message, MessageId, ReplyMessage, ReplyMessageId } from '../models/models'
 import c from '../styles/DeviceSubPages.module.scss'
-import ChatComponent from './ChatComponent'
+import ChatComponent from './QuestionsComponrnts/ChatComponent'
 import Loader from './Loader'
+import PostQuestionIput from './PostQuestionIput'
+import QuestionsReplyInput from './QuestionsComponrnts/QuestionsReplyInput'
 
 interface DeviceQuestionsSubPageProops {
     questionsId: number
@@ -19,11 +21,11 @@ type customError = {
 export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsSubPageProops) {
 
     const [chat, setChat] = useState([])
+
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(true)
     const [reload, setReload] = useState(false)
 
-    const [value, setValue] = React.useState<string>('')
 
     async function fetchQuestions() {
 
@@ -39,7 +41,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     }
 
-    async function PostReply() {
+    async function PostReply(value: string) {
 
 
         let updatedMessagse: any = chat[0]
@@ -60,17 +62,39 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                 console.log(response);
             }).then(() => {
                 setReload(prev => !prev)
-                setValue('')
+
             })
             .catch(function (error) {
                 console.log(error);
             });
 
+        setIsReplyMessage(false)
+
     }
 
-    async function PostQuestion() {
+
+    function makeScrollTOBottom() {
+        let htmlElement = document.documentElement;
+        let bodyElement = document.body;
+
+        let height = Math.max(
+            htmlElement.clientHeight, htmlElement.scrollHeight, htmlElement.offsetHeight,
+            bodyElement.scrollHeight, bodyElement.offsetHeight
+        );
+
+        window.scrollTo({
+            top: height,
+            behavior: 'smooth'
+        });
+    }
+
+
+    async function PostQuestion(value: string) {
 
         let updatedMessagse: any = chat[0]
+
+
+
 
         updatedMessagse.messages.push({
             from: IMAGINARY_USER,
@@ -79,7 +103,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             replies: [],
 
         })
-
 
 
         axios.put(`http://localhost:3001/chats/${questionsId}`,
@@ -91,11 +114,12 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             }).then(() => {
                 setReload(prev => !prev)
 
+            }).then(() => {
             })
             .catch(function (error) {
                 console.log(error);
-            });
-
+            })
+        //   setValue('')
     }
 
 
@@ -174,13 +198,17 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     const [replyTarget, setReplyTarget] = useState<Message | null>(null)
 
 
-
+    // function handleEnterPost(e) {
+    //     if (e.key === 'Enter') {
+    //         console.log('do validate')
+    //       }
+    // }
 
 
 
     return (
         <div className={c.main__questions__wrap}>
-            <MessageContext.Provider value={{ isReplyMessage, setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, replyTarget }}>
+            <MessageContext.Provider value={{ isReplyMessage, setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, replyTarget, PostQuestion, PostReply }}>
 
                 <div className={c.questions__wrap}>
                     <div className={c.questions__container}>
@@ -206,25 +234,12 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                                     </span>
                                 </div>
 
-                                <input name='post question imput' onChange={(e) => setValue(e.target.value)} placeholder={`enter you reply`}></input>
-                                <button onClick={PostReply}>
-
-                                    <span className="material-symbols-outlined">
-                                        send
-                                    </span>
-                                </button>
+                                <QuestionsReplyInput />
 
                             </>
                             :
-                            <>
-                                <input name='post question imput' onChange={(e) => setValue(e.target.value)} placeholder='make a question'></input>
-                                <button onClick={PostQuestion} >
 
-                                    <span className="material-symbols-outlined">
-                                        send
-                                    </span>
-                                </button>
-                            </>
+                            <PostQuestionIput />
                     }
                 </div>
             </MessageContext.Provider>

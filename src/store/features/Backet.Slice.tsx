@@ -45,8 +45,7 @@ const basketSlice = createSlice({
             if (state.devices.find((el) => el.id == actions.payload.id)) {
                 return state;
             }
-            else {
-                
+            else { 
                 state.devices.push(actions.payload)
             }
         },

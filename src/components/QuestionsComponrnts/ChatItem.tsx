@@ -1,8 +1,9 @@
 import React from 'react'
-import { IMAGINARY_USER } from '../consts'
-import { MessageContext } from '../context'
-import { Message } from '../models/models'
-import c from '../styles/DeviceSubPages.module.scss'
+import { IMAGINARY_USER } from '../../consts'
+import { MessageContext } from '../../context'
+import { Message } from '../../models/models'
+import c from '../../styles/DeviceSubPages.module.scss'
+// import c from '../../../styles/DeviceSubPages.module.'
 
 
 interface ChatItemProsp {
@@ -16,32 +17,36 @@ export default function ChatItem({ message }: ChatItemProsp) {
     const [replyesVisible, setReplyesVisible] = React.useState(false)
 
 
-    const { isReplyMessage, setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, replyTarget } = React.useContext(MessageContext)
+    const {  setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion } = React.useContext(MessageContext)
 
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
     const [messReplyControllVisibleId, setmessControllReplyVisibleId] = React.useState<string | number>('none')
 
 
-    console.log(replyTarget)
-
-
     return (
         <>
             <div className={c.message}>
-                <div className={c.user__container} >
+                <div onClick={() => {
+                    setmessControllVisible(false)
+                }} className={c.user__container} >
                     <h3>
                         {message.from}
                     </h3>
                 </div>
-                <div className={c.body__container}>
+                <div onClick={() => {
+                    setmessControllVisible(false)
+                }} className={c.body__container}>
                     {message.message}
                 </div>
                 <div className={c.message__control__block}>
 
                     {
                         message.from === IMAGINARY_USER ?
-                            <span onClick={() => { setmessControllVisible(prev => !prev) }} className="material-symbols-outlined">
+                            <span onClick={() => {
+                                setmessControllVisible(prev => !prev)
+                              
+                            }} className="material-symbols-outlined">
                                 more_vert
                             </span>
                             :
@@ -51,7 +56,10 @@ export default function ChatItem({ message }: ChatItemProsp) {
                         messControllVisible && message.from === IMAGINARY_USER ?
                             <div className={c.message__controll}>
 
-                                <button onClick={() => { DeleteQuestion(message.id) }} >
+                                <button onClick={() => {
+                                     DeleteQuestion(message.id) 
+                                     setmessControllVisible(false)
+                                    }} >
                                     <span className="material-symbols-outlined">
                                         delete
                                     </span>
@@ -70,7 +78,6 @@ export default function ChatItem({ message }: ChatItemProsp) {
                     <button onClick={() => {
                         setIsReplyMessage(true)
                         setReplyTarget(message)
-                        console.log(message)
                     }}>
                         <span className="material-symbols-outlined">
                             subdirectory_arrow_right
@@ -86,7 +93,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
                 </div>
                 {
-                    replyesVisible ?
+                    replyesVisible && message.replies.length > 0?
                         <div className={c.replyes_block}>
                             <>
                                 {
@@ -97,11 +104,14 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                                 {
                                                     rep.from === IMAGINARY_USER ?
                                                         <>
-                                                           <div className={c.ss}>
-                                                            <span  onClick={() => setmessControllReplyVisibleId(rep.id)} className="material-symbols-outlined">
-                                                                more_vert
-                                                            </span>
-                                                           </div>
+                                                            <div className={c.ss}>
+                                                                <span onClick={() => {
+                                                                    setmessControllReplyVisibleId(rep.id)
+                                                                    setmessControllVisible(false)
+                                                                }} className="material-symbols-outlined">
+                                                                    more_vert
+                                                                </span>
+                                                            </div>
                                                             {
                                                                 messReplyControllVisibleId == rep.id ?
                                                                     <div className={c.message__controll__reply}>
@@ -122,9 +132,6 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                                         :
                                                         null
                                                 }
-
-
-
                                             </div>
                                             <div className={c.reply__message__user}>
                                                 {rep.from}
