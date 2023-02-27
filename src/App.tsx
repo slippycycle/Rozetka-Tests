@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route, Router, Routes } from 'react-router';
 import HomePage from './pages/HomePage';
 import DevicePage from './pages/DevicePage';
-import SelectedDevicesPage from './pages/SelectedDevicesPage';
+import SelectedDevicesPage from './pages/SelectedDevicesCategory';
 import TopNavbar from './components/TopNavbar';
 import Backet from './components/Backet';
 import Menu from './components/Menu';

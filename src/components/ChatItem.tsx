@@ -11,16 +11,16 @@ interface ChatItemProsp {
 
 export default function ChatItem({ message }: ChatItemProsp) {
 
-    
-    
+
+
     const [replyesVisible, setReplyesVisible] = React.useState(false)
 
 
-    const { isReplyMessage, setIsReplyMessage, setReplyTarget, DeleteQuestion,DeleteReplyQuestion,replyTarget } = React.useContext(MessageContext)
+    const { isReplyMessage, setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, replyTarget } = React.useContext(MessageContext)
 
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
-    const [messReplyControllVisible,setmessControllReplyVisible] = React.useState<boolean>(false)
+    const [messReplyControllVisible, setmessControllReplyVisible] = React.useState<boolean>(false)
 
 
     console.log(replyTarget)
@@ -28,7 +28,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
     return (
         <>
-            <div className={c.message }>
+            <div className={c.message}>
                 <div className={c.user__container} >
                     {/* <button onClick={() => {
                         setIsReplyMessage(true)
@@ -55,9 +55,9 @@ export default function ChatItem({ message }: ChatItemProsp) {
                     {
                         messControllVisible && message.from === IMAGINARY_USER ?
                             <div className={c.message__controll}>
-                            
-                                        <button onClick={() => { DeleteQuestion(message.id) }} >delete</button>
-                                 
+
+                                <button onClick={() => { DeleteQuestion(message.id) }} >delete</button>
+
                             </div>
                             :
                             null
@@ -102,22 +102,22 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
                                                 {
                                                     rep.from === IMAGINARY_USER ?
-                                                      <> 
-                                                      <span onClick={() => { setmessControllReplyVisible(prev => !prev) }} className="material-symbols-outlined">
-                                                            more_vert
-                                                        </span>
-                                                        <div className={c.message__controll}>
-                                                          
-                                                                    <button onClick={() => { DeleteReplyQuestion(rep.id, message.id) }} >delete</button>
-                                                                   
-                                                            
-                                                        </div>
-                                                      </>
+                                                        <>
+                                                            <span onClick={() => { setmessControllReplyVisible(prev => !prev) }} className="material-symbols-outlined">
+                                                                more_vert
+                                                            </span>
+                                                            <div className={c.message__controll}>
+
+                                                                <button onClick={() => { DeleteReplyQuestion(rep.id, message.id) }} >delete</button>
+
+
+                                                            </div>
+                                                        </>
                                                         :
                                                         null
                                                 }
-                                               
-                                                     
+
+
 
                                             </div>
                                         </div>
@@ -126,7 +126,12 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                     )
                                 }
                             </>
-                            <p onClick={() => setReplyesVisible(false)}> Hide</p>
+                            <h3 onClick={() => setReplyesVisible(false)}>
+                                Hide
+                                <span className="material-symbols-outlined">
+                                    hide
+                                </span>
+                            </h3>
                         </div>
                         :
                         null

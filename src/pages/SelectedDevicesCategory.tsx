@@ -1,14 +1,11 @@
 import React from 'react'
-import Backet from '../components/Backet'
 import CategoryHeader from '../components/CategoryHeader'
 import ComponentsCategory from '../components/ComponentsCategory'
-import DevicesComponents from '../components/ComponentsCategory'
-import LeftMobileFilter from '../components/LeftMobileFilter'
 import SortDevicesBar from '../components/SortDevicesBar'
-import { MobileSortActive } from '../context'
 import { useAppSelector } from '../store/hooks'
+import  c from '../styles/SelectedDevicePage.module.scss'
 
-export default function SelectedDevicesPage() {
+export default function SelectedCategoryPage() {
 
     const takeCurrentType = window.location.pathname.replaceAll('/', '')
 
@@ -17,17 +14,17 @@ export default function SelectedDevicesPage() {
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
 
-    const { currentSortType} = useAppSelector(state => state.productReducer  )
+    const { currentSortType } = useAppSelector(state => state.productReducer)
 
     return (
-        <>
+        <div className={c.selected_category_wrap}>
             <CategoryHeader brands={selectedBrands} category={takeCurrentType} />
             <SortDevicesBar currentSortType={currentSortType as string} />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              
+
                 <ComponentsCategory />
-                
+
             </div>
-        </>
+        </div>
     )
 }

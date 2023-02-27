@@ -1,3 +1,8 @@
+@import 'colors';
+$def_bor_r: 7px;
+$order__price__block_hgt: 200px;
+$def_padding: 5px;
+
 .main_wrap {
     height: auto;
     position: relative;
@@ -5,8 +10,6 @@
 
 
 
-    $def_bor_r: 7px;
-    $order__price__block_hgt: 200px;
 
     .conatiner {
         background-color: rgb(123, 123, 123);
@@ -21,7 +24,7 @@
         height: auto;
         background-color: rgb(255, 255, 255);
         border-bottom: 1px solid #e2e2e268;
-        padding: 25px 10px 25px 10px;
+        padding: 40px 10px 25px 10px;
 
         h1 {
             font-family: 'Roboto', sans-serif;
@@ -44,11 +47,11 @@
 
     .subpages_list_container {
         position: sticky;
+        background-color: white;
         top: 59px;
         width: 100%;
         height: min-content;
         z-index: 30;
-        background-color: rgb(234, 234, 234);
 
         .subpages_variaty_list {
             display: flex;
@@ -152,14 +155,21 @@
 
             .info__panel__wrap {
                 position: sticky;
-                 padding: 10px 48px 0px 48px;
+                padding: 10px 48px 0px 48px;
                 z-index: 20;
                 top: 130px;
 
-                .seller_block {
+                .seller_wrap {
                     width: 100%;
                     margin-top: 10px;
                     display: flex;
+
+
+                }
+
+                .seller_block {
+                    display: flex;
+                    width: 100%;
                     border-radius: $def_bor_r;
                     border: 1px solid rgb(182, 182, 182);
                     background-color: rgb(255, 255, 255);
@@ -189,27 +199,34 @@
                     padding: 5px;
                     font-size: 1.8rem;
                     display: flex;
-                    border-radius: $def_bor_r;
-                    border: 1px solid rgb(181, 181, 181);
 
-                    .img_intro_container {
-                        width: 140px;
-                        height: 100%;
+                    .devcie__intro__content {
+                        border: 1px solid rgb(181, 181, 181);
+                        border-radius: $def_bor_r;
+                        width: 100%;
+                        font-size: 1.8rem;
                         display: flex;
-                        align-items: center;
-                        justify-content: center;
 
-                        img {
-                            max-height: 90%;
-                            width: auto;
+                        .img_intro_container {
+                            width: 140px;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                max-height: 90%;
+                                width: auto;
+                            }
+
+                            .text__intro__container {
+                                width: max-content;
+                                height: 100%;
+                            }
                         }
-                    }
 
-                    .text__intro__container {
-                        width: max-content;
-                        height: 100%;
-                    }
 
+                    }
                 }
 
                 @media (max-width: 500px) {
@@ -217,6 +234,8 @@
                         font-size: 1.3rem;
                     }
                 }
+
+
 
                 .color__block {
                     width: 100%;
@@ -246,6 +265,8 @@
 
                 }
 
+                $btn_wdth: 120px;
+                $btn_borr: 7px;
 
 
 
@@ -261,7 +282,7 @@
                     flex-direction: column;
 
                     h3 {
-                        font-size: 1.5rem;
+                        font-size: 1.1rem;
                         color: rgb(117, 117, 117);
                         text-decoration: line-through;
 
@@ -291,7 +312,10 @@
                         }
                     }
 
-                    .order__butons {
+
+                    $buttons__padding: 8px 7px 8px 7px;
+
+                    .order__buttons {
                         width: min-content;
                         margin-top: 20px;
                         height: max-content;
@@ -300,34 +324,106 @@
                         flex-wrap: nowrap;
                         justify-content: space-between;
 
-                        $btn_wdth: 120px;
-                        $btn_borr: 7px;
+
 
                         button {
                             width: $btn_wdth;
-                            height: auto;
+                            height: 40px;
                             color: white;
                             text-align: center;
+                            border: 1px solid $custom_green;
                             border-radius: $btn_borr;
-                            padding: 8px 4px 8px 4px;
-                            background-color: rgb(64, 64, 255);
+                            padding: $buttons__padding;
+                            background-color: $smooth_blue;
 
                         }
 
-                        .credit__buton {
+                        .basket__button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            justify-content: space-around;
+                            border: 1px solid $custom_green;
                             width: $btn_wdth + 30px;
-                            height: auto;
+                            height: 40px;
                             color: white;
                             text-align: center;
                             border-radius: $btn_borr;
-                            padding: 8px 4px 8px 4px;
-                            background-color: rgb(115, 115, 255);
+                            padding: $buttons__padding;
+                            background-color: $custom_green;
+                            margin-left: 10px;
+
+                            span {
+
+                                color: white;
+
+                            }
+
+                         
+                        }
+
+
+                        .basket__button__active {
+                            span {
+
+                                color: $custom_green;
+
+                            }
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            justify-content: space-around;
+                            width: $btn_wdth +30px;
+                            height: 40px;
+                            border: 1px solid $custom_green;
+                            color: $custom_green;
+                            text-align: center;
+                            border-radius: $btn_borr;
+                            padding: $buttons__padding;
+                            background-color: white;
                             margin-left: 10px;
                         }
 
                     }
 
 
+
+
+                    @media (max-width: 1200px) and (min-width: 800px) {
+
+
+                        .order__buttons {
+                            flex-direction: column;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: space-around;
+                            justify-content: center;
+
+
+                            button {
+                                width: 100%;
+                                height: auto;
+
+
+
+                            }
+
+                            .basket__button {
+                                width: 100%;
+                                height: auto;
+
+
+                                margin: 0px;
+                            }
+
+
+
+                        }
+
+
+
+                    }
                 }
 
                 @media (max-width: 800px) {
@@ -336,7 +432,7 @@
                         height: $order__price__block_hgt - 140;
                         background-color: rgba(255, 255, 255, 0.996);
                         border: none;
-                        padding: 5px;
+                        padding: $def_padding;
                         font-size: 0.9rem;
                         box-shadow: rgba(0, 0, 0, 0.547) 0px 2px 7px;
                         align-items: center;
@@ -359,7 +455,7 @@
                             }
                         }
 
-                        .order__butons {
+                        .order__buttons {
                             margin: 0px;
                             align-items: center;
                             background-color: rgb(255, 255, 255);
@@ -369,7 +465,7 @@
                                 border-radius: 3px;
                             }
 
-                            .credit__buton {
+                            .basket__button {
                                 display: none;
 
                             }
@@ -479,6 +575,49 @@ $red: red;
     }
 }
 
+
+
+
+@media (max-width: 800px) {
+    .main_wrap {
+        .wrap {
+            .info__panel {
+                padding: 90px;
+
+
+                .info__panel__wrap {
+                    .seller_wrap {
+                        padding: $def_padding;
+
+
+                    }
+
+                    .devcie__intro {
+                        padding: $def_padding;
+                        border: 10px;
+
+
+                        .devcie__intro__content {
+                            width: 100%;
+                        }
+
+
+                    }
+
+                }
+
+
+                .order__price__block {
+                    h3 {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
 @media (max-width: 800px) {
     .main_wrap {
         .wrap {
@@ -502,18 +641,21 @@ $red: red;
     .main_wrap {
         .wrap {
             padding: none;
-          .info__panel {
-            padding: 0px;
 
-              .info__panel__wrap {
-                  width: 100%;
-                  padding: 0px;
-                  background-color: #17171700;
-                  
-                  
-                  
+            .info__panel {
+                padding: 0px;
+
+                .info__panel__wrap {
+                    width: 100%;
+                    padding: 0px;
+                    background-color: #17171700;
+
+
+
+
                 }
             }
         }
     }
 }
+

@@ -61,8 +61,9 @@ $def_padding: 5px;
 
         background-color: white;
         padding: $def_padding;
-        width: 95%;
+        width: 100%;
         height: 100px;
+        padding: 5px;
         display: block;
         position: sticky;
         z-index: 30;
@@ -156,7 +157,7 @@ $def_padding: 5px;
 
                 .message {
                     border: 1px solid $light_grey;
-                    width: 95%;
+                    width: 100%;
                     background-color: rgb(255, 255, 255);
                     min-height: 50px;
                     font-size: 1.2rem;
@@ -184,8 +185,8 @@ $def_padding: 5px;
 
                     .user__container {
                         height: 50px;
-                        border-top-left-radius: $def_bor_radius;
-                        border-top-right-radius: $def_bor_radius;
+                        border-top-left-radius: $def_bor_radius + 7;
+                        border-top-right-radius: $def_bor_radius + 7;
                         padding: $def__padding__mesage;
                         width: 100%;
                         background-color: rgb(255, 255, 255);
@@ -200,8 +201,8 @@ $def_padding: 5px;
                         display: flex;
                         background-color: rgb(255, 255, 255);
                         padding: $def__padding__mesage;
-                        border-bottom-left-radius: $def_bor_radius;
-                        border-bottom-right-radius: $def_bor_radius;
+                        border-bottom-left-radius: $def_bor_radius + 7;
+                        border-bottom-right-radius: $def_bor_radius + 7;
 
                         button {
                             font-size: 1rem;
@@ -218,6 +219,7 @@ $def_padding: 5px;
 
                         p {
                             margin-left: 20px;
+                            cursor: pointer;
                             color: rgb(106, 106, 242);
                         }
                     }
@@ -254,8 +256,20 @@ $def_padding: 5px;
                     background-color: rgb(255, 255, 255);
                     width: 90%;
                     min-height: 50px;
+                    padding-bottom: $def__padding__mesage;
                     font-size: 1.2rem;
                     border-left: 2px solid $light_grey;
+
+                    h3 {
+                        color: #787878;
+                        cursor: pointer;
+                        margin-left: $def__padding__mesage;
+
+                        span {
+                          
+                            font-size: 1.1rem;
+                        }
+                    }
 
                     .reply__message {
                         background-color: rgb(255, 255, 255);
@@ -291,6 +305,8 @@ $def_padding: 5px;
     }
 }
 
+
+
 @media (max-width: 800px) {
     .device__slider {
         width: 100%;
@@ -300,6 +316,7 @@ $def_padding: 5px;
 
     .main__questions__wrap {
         width: 100%;
+        padding: 0px;
     }
 
     .characteristics__container {
