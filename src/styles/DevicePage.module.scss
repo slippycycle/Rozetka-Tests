@@ -60,7 +60,7 @@ $def_padding: 5px;
             flex-direction: row;
             cursor: pointer;
             height: 100%;
-            padding: 0px;
+            padding: 3px;
             display: flex;
             flex-wrap: nowrap;
             width: 30%;
@@ -84,7 +84,7 @@ $def_padding: 5px;
             @media (max-width: 500px) and (min-width: 320px) {
 
                 li {
-                    padding: 2px;
+                    padding: 7px;
 
                 }
 
@@ -507,6 +507,7 @@ $pink: rgb(247, 0, 255);
 $black: rgb(0, 0, 0);
 $white: white;
 $red: red;
+$teal: rgb(0, 192, 189);
 
 %color__item {
     width: 25px;
@@ -515,14 +516,36 @@ $red: red;
     display: block;
     border-radius: 3px;
     margin: 0px 3px 0px 3px;
+}
+
+%color__item__active {
+    
+    transform: scale(1.1);
+    @extend %color__item
+    
+}
 
 
+.color__item__teal {
+    background-color: $teal;
+    border: 2px solid rgb(0, 73, 87);
+    @extend %color__item
+}
+.color__item__teal__active {
+    background-color: $teal;
+    border: 2px solid rgb(0, 73, 87);
+    @extend %color__item__active
 }
 
 .color__item__purple {
     background-color: $purple;
     border: 2px solid rgb(90, 0, 90);
     @extend %color__item
+}
+.color__item__purple__active {
+    background-color: $purple;
+    border: 2px solid rgb(90, 0, 90);
+    @extend %color__item__active
 }
 
 .color__item__red {
@@ -531,10 +554,23 @@ $red: red;
     @extend %color__item
 }
 
+.color__item__red__active {
+    background-color: $red;
+    border: 2px solid rgb(179, 0, 0);
+    @extend %color__item__active
+}
+
+
 .color__item__blue {
     background-color: $blue;
     border: 2px solid rgb(23, 0, 128);
     @extend %color__item
+}
+
+.color__item__blue__active {
+    background-color: $blue;
+    border: 2px solid rgb(23, 0, 128);
+    @extend %color__item__active
 }
 
 
@@ -543,11 +579,23 @@ $red: red;
     border: 2px solid rgb(0, 143, 33);
     @extend %color__item
 }
+.color__item__green__active {
+    background-color: $green;
+    border: 2px solid rgb(0, 143, 33);
+    @extend %color__item__active
+}
+
 
 .color__item__black {
     background-color: $black;
     border: 2px solid rgb(25, 25, 25);
     @extend %color__item
+}
+
+.color__item__black__active {
+    background-color: $black;
+    border: 2px solid rgb(25, 25, 25);
+    @extend %color__item__active
 }
 
 .pictures_conatiner {

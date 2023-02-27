@@ -100,7 +100,7 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
 
                         <div className={c.colors__container}>
                             {device?.colors ?
-                                device.colors.map((col) => <div onClick={() => { setCurrentColor(col) }} className={c['color__item__' + col]}></div>)
+                                device.colors.map((col) => <div onClick={() => { setCurrentColor(col) }} className={currentColor == col ? c['color__item__' + col + '__active'] : c['color__item__' + col ]  }></div>)
                                 : null
                             }
                         </div>

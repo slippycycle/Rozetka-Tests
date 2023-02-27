@@ -200,16 +200,16 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                                     <span className="material-symbols-outlined">
                                         reply
                                     </span>
-                                    <h2>{`reply to @${replyTarget?.from}`}</h2>
-                                    <span onClick={() => {setIsReplyMessage(false)}} id="close_span" className="material-symbols-outlined">
+                                    <h2>{`reply to @${replyTarget?.from} ${replyTarget?.message.slice(0, 18)}`}</h2>
+                                    <span onClick={() => { setIsReplyMessage(false) }} id="close_span" className="material-symbols-outlined">
                                         close
                                     </span>
                                 </div>
 
                                 <input name='post question imput' onChange={(e) => setValue(e.target.value)} placeholder={`enter you reply`}></input>
                                 <button onClick={PostReply}>
-                                  
-                                    <span  className="material-symbols-outlined">
+
+                                    <span className="material-symbols-outlined">
                                         send
                                     </span>
                                 </button>
@@ -219,7 +219,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                             <>
                                 <input name='post question imput' onChange={(e) => setValue(e.target.value)} placeholder='make a question'></input>
                                 <button onClick={PostQuestion} >
-                                  
+
                                     <span className="material-symbols-outlined">
                                         send
                                     </span>

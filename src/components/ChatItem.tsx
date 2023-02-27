@@ -20,7 +20,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
-    const [messReplyControllVisible, setmessControllReplyVisible] = React.useState<boolean>(false)
+    const [messReplyControllVisibleId, setmessControllReplyVisibleId] = React.useState<string | number>('none')
 
 
     console.log(replyTarget)
@@ -30,11 +30,6 @@ export default function ChatItem({ message }: ChatItemProsp) {
         <>
             <div className={c.message}>
                 <div className={c.user__container} >
-                    {/* <button onClick={() => {
-                        setIsReplyMessage(true)
-                        setReplyTarget(message)
-                        console.log(message)
-                    }}>Reply</button> */}
                     <h3>
                         {message.from}
                     </h3>
@@ -56,7 +51,12 @@ export default function ChatItem({ message }: ChatItemProsp) {
                         messControllVisible && message.from === IMAGINARY_USER ?
                             <div className={c.message__controll}>
 
-                                <button onClick={() => { DeleteQuestion(message.id) }} >delete</button>
+                                <button onClick={() => { DeleteQuestion(message.id) }} >
+                                    <span className="material-symbols-outlined">
+                                        delete
+                                    </span>
+                                    delete
+                                </button>
 
                             </div>
                             :
@@ -92,26 +92,32 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                 {
                                     message.replies.map((rep) =>
                                         <div className={c.reply__message}>
-                                            <div className={c.reply__message__user}>
-                                                {rep.from}
-                                            </div>
-                                            <div className={c.reply__body}>
-                                                {rep.message}
-                                            </div>
                                             <div className={c.message__control__block__reply}>
 
                                                 {
                                                     rep.from === IMAGINARY_USER ?
                                                         <>
-                                                            <span onClick={() => { setmessControllReplyVisible(prev => !prev) }} className="material-symbols-outlined">
+                                                           <div className={c.ss}>
+                                                            <span  onClick={() => setmessControllReplyVisibleId(rep.id)} className="material-symbols-outlined">
                                                                 more_vert
                                                             </span>
-                                                            <div className={c.message__controll}>
+                                                           </div>
+                                                            {
+                                                                messReplyControllVisibleId == rep.id ?
+                                                                    <div className={c.message__controll__reply}>
 
-                                                                <button onClick={() => { DeleteReplyQuestion(rep.id, message.id) }} >delete</button>
+                                                                        <button onClick={() => { DeleteReplyQuestion(rep.id, message.id) }} >
+                                                                            <span className="material-symbols-outlined">
+                                                                                delete
+                                                                            </span>
+                                                                            delete
+                                                                        </button>
 
+                                                                    </div>
+                                                                    :
+                                                                    null
 
-                                                            </div>
+                                                            }
                                                         </>
                                                         :
                                                         null
@@ -119,6 +125,12 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
 
 
+                                            </div>
+                                            <div className={c.reply__message__user}>
+                                                {rep.from}
+                                            </div>
+                                            <div className={c.reply__body}>
+                                                {rep.message}
                                             </div>
                                         </div>
 
