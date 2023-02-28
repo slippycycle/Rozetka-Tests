@@ -27,7 +27,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
  
    console.log(currentBcket)
 
-    function handleDevicebasket() {
+    function handleDevicebacket() {
 
         let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
        
@@ -86,7 +86,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 <div className={c.deivce__item__button__block}>
                     
                     <p>{device.price}</p>
-                    <button  type='button' className={ currentBcket.includes(device.id) ?c.backet_button_active :c.backet_button} onClick={handleDevicebasket}>Add</button>
+                    <button  type='button' className={ currentBcket.includes(device.id) ?c.backet_button_active :c.backet_button} onClick={handleDevicebacket}>Add</button>
                 </div>
             </div>
         </div>

@@ -34,6 +34,7 @@ export default function Basket() {
         </div>
 
         {DevicesId?.length > 0 ?
+        
           <BacketList devicesidArray={DevicesId} />
           :
           <>
