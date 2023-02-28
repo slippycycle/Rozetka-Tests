@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MenuContext } from '../context'
-import { handleBacket } from '../store/features/Backet.Slice'
+import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Navbar.module.scss'
 
@@ -10,8 +10,8 @@ export default function TopNavbar() {
 
     let count;
 
-    if (localStorage.getItem('backet') !== null) {
-        count = JSON.parse(localStorage.getItem('backet') as string).length
+    if (localStorage.getItem('basket') !== null) {
+        count = JSON.parse(localStorage.getItem('basket') as string).length
     }
     else {
         count = 0
@@ -22,18 +22,18 @@ export default function TopNavbar() {
     const dispatch = useAppDispatch()
 
     function handleBacketVisible() {
-        dispatch(handleBacket())
+        dispatch(handleBasket())
 
     }
 
     const menuState = React.useContext(MenuContext)
 
-    const BacketState = useAppSelector(state => state.backetReducer)
+    const BacketState = useAppSelector(state => state.basketReducer)
 
     function menuHandle() {
         //close backet 
-        if (BacketState.backetActive) {
-            dispatch(handleBacket())
+        if (BacketState.basketActive) {
+            dispatch(handleBasket())
         }
 
         menuState.menuHandle()

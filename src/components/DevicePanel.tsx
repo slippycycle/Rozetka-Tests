@@ -24,7 +24,7 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
 
-    const backet = useAppSelector(s => s.backetReducer)
+   
 
     React.useEffect(() => {
         //_sort:'rating',_order:'desc'

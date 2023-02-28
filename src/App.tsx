@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage';
 import DevicePage from './pages/DevicePage';
 import SelectedDevicesPage from './pages/SelectedDevicesCategory';
 import TopNavbar from './components/TopNavbar';
-import Backet from './components/Backet';
+import Basket from './components/Basket';
 import Menu from './components/Menu';
 import { MenuContext, MobileSortActive } from './context';
 import SearchPage from './pages/SearchPage';
@@ -37,7 +37,7 @@ function App() {
                <MobileSortActive.Provider value={{ active, handleMenuState}} >
                <Menu />
                <TopNavbar />
-               <Backet />
+               <Basket />
                <LeftMobileFilter/>
                <Routes>
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { DeviceI } from '../models/models'
-import backetSlice, { handleBacket } from '../store/features/Backet.Slice'
+import basketSlice, { handleBasket } from '../store/features/Basket.Slice'
 import { setCurrentPage, setNextPage } from '../store/features/Device.Slice'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
@@ -29,7 +29,7 @@ export default function DeviceContainer({ devicesArray }: DeviceContainerProps) 
     return (
         <>
             <div className={c.content}>
-                {devicesArray?.map((dev) => <DeviceItem handleBacketFn={handleBacket} dispatch={dispacth} device={dev} />)}
+                {devicesArray?.map((dev) => <DeviceItem handleBacketFn={handleBasket} dispatch={dispacth} device={dev} />)}
             </div>
             <div className={c.pages_conatiner}>
                 {pagesArray.length > 1 ?

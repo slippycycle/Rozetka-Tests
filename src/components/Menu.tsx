@@ -1,7 +1,5 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { MenuContext } from '../context'
-import { Types } from '../models/models'
-import { handleBacket } from '../store/features/Backet.Slice'
 import { fetchTypes } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'

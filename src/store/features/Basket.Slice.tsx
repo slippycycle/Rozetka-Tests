@@ -7,7 +7,7 @@ type deviceId = string | number
 
 interface BacketState {
     devicesId: [] | number[] | string[] 
-    backetActive: boolean
+    basketActive: boolean
     totalSum: number
     devices: DeviceI[],
     reload: boolean
@@ -15,7 +15,7 @@ interface BacketState {
 
 export const initialState:BacketState = {
     devicesId: [],
-    backetActive: false,
+    basketActive: false,
     totalSum: 0,
     devices: [],
     reload: false
@@ -23,22 +23,22 @@ export const initialState:BacketState = {
 }
 
 const basketSlice = createSlice({
-    name:'backet',
+    name:'basket',
     initialState,
     reducers: {
         deleteDeviceById(state, actions) {
            state.devices.filter((el) => el.id === actions.payload)
         },
-        handleBacket(state) {
-           state.backetActive = !state.backetActive
+        handleBasket(state) {
+           state.basketActive = !state.basketActive
         },
-        setDevicesIdFromBacket(state, actions) {
+        setDevicesIdFromBasket(state, actions) {
             state.devicesId = actions.payload
         },
         makeRender(state) {
           state.reload = !state.reload
         }, 
-        setDevicesFromBacket(state, actions) {
+        setDevicesFromBasket(state, actions) {
             state.devices = actions.payload
         },
         pushDevice(state, actions) {
@@ -49,9 +49,11 @@ const basketSlice = createSlice({
                 state.devices.push(actions.payload)
             }
         },
-        addToTotalSum(state, actions) {
-            
+        addToTotalSum(state, actions) {  
             state.totalSum += actions.payload
+        },
+        removeFromTotalSum(state, action) {
+            state.totalSum -= action.payload
         }
 
     },
@@ -59,4 +61,4 @@ const basketSlice = createSlice({
 
 export default  basketSlice.reducer
 
-export const {handleBacket,setDevicesFromBacket,pushDevice,addToTotalSum,setDevicesIdFromBacket,deleteDeviceById,makeRender} = basketSlice.actions
+export const {handleBasket,removeFromTotalSum,setDevicesFromBasket,pushDevice,addToTotalSum,setDevicesIdFromBasket,deleteDeviceById,makeRender} = basketSlice.actions

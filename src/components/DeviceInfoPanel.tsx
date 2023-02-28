@@ -2,7 +2,7 @@ import React from 'react'
 import { SelectedSubPageContext } from '../context'
 import { DeviceI } from '../models/models'
 import { SelectedSubPageType } from '../pages/SubPage'
-import { handleBacket, makeRender } from '../store/features/Backet.Slice'
+import { handleBasket, makeRender } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePage.module.scss'
 
@@ -19,9 +19,9 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
 
     const { selected } = React.useContext(SelectedSubPageContext)
 
-    const { reload } = useAppSelector(state => state.backetReducer)
+    const { reload } = useAppSelector(state => state.basketReducer)
 
-    const parsedBasket = JSON.parse(localStorage.getItem('backet') as string)
+    const parsedBasket = JSON.parse(localStorage.getItem('basket') as string)
 
     const  [currentBasket,setCurrentBasket] = React.useState<any>([])
 
@@ -48,21 +48,21 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
 
             let stertArray = []
             stertArray.push(device.id)
-            localStorage.setItem('backet', JSON.stringify(stertArray))
+            localStorage.setItem('basket', JSON.stringify(stertArray))
 
         }
         if (Array.isArray(currentBasket)) {
 
             if (currentBasket.find((el) => el == device.id)) {
                 //already included 
-                dispatch(handleBacket())
+                dispatch(handleBasket())
             }
             else {
                 //on success
 
                 let result = currentBasket
                 result.push(device.id)
-                localStorage.setItem('backet', JSON.stringify(result))
+                localStorage.setItem('basket', JSON.stringify(result))
               
                 // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
                 dispatch(makeRender())

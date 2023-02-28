@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { DeviceI } from '../models/models'
-import { pushDevice } from '../store/features/Backet.Slice'
+import { pushDevice } from '../store/features/Basket.Slice'
 import { useAppDispatch} from '../store/hooks'
 import c from '../styles/Backet.module.scss'
 import SmallDeviceItem from './SmallDeviceItem'
@@ -10,12 +10,12 @@ interface DeviceItemFromBacketProps {
     id: string | number
 }
 
-export function DeviceItemFromBacket({ id }: DeviceItemFromBacketProps) {
+export function DeviceItemFromBasket({ id }: DeviceItemFromBacketProps) {
 
     const [loading, setLoading] = React.useState<boolean>(true)
     const [device, setDevice] = React.useState<DeviceI | any>({})
 
-    const dispatch = useAppDispatch()
+   
  
     async function fetchDevice() {
         const response = await axios.get(`http://localhost:3001/products?id=${id}`)

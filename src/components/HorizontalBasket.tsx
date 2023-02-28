@@ -6,9 +6,30 @@ import HorizontalBasketImageContainer from './HorizontalBasketImage'
 
 export default function HorizontalBasket() {
 
-    const { devicesId } = useAppSelector(state => state.backetReducer)
+    const { devicesId } = useAppSelector(state => state.basketReducer)
 
-    const basket = JSON.parse(localStorage.getItem('backet') as string).slice(0, 5)
+ 
+
+
+    
+    const [ basket, setBasket ] = React.useState([])
+    
+    
+    React.useEffect(() => {
+        
+        let current = JSON.parse(localStorage.getItem('basket') as string)
+
+        if( current  ) {
+    
+            setBasket(current)
+    
+        }  else {
+            setBasket([])
+        }
+    },[])
+
+
+
 
 
     return (

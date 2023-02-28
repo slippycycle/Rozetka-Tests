@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { handleBacket } from '../store/features/Backet.Slice'
+import { handleBasket } from '../store/features/Basket.Slice'
 import { fetchProducts } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SearchPage.module.scss'
@@ -82,7 +82,7 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
                 <div className={c.devices__list__container}>
                     
                         
-                            {devices?.map((dev) => <DeviceItem handleBacketFn={handleBacket} dispatch={dispatch} device={dev} />)}
+                            {devices?.map((dev) => <DeviceItem handleBacketFn={handleBasket} dispatch={dispatch} device={dev} />)}
                         
                     
                 </div>

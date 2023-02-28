@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { DeviceI } from '../models/models'
-import { addToTotalSum, deleteDeviceById, handleBacket, makeRender, pushDevice, setDevicesFromBacket, setDevicesIdFromBacket } from '../store/features/Backet.Slice'
+import { addToTotalSum, deleteDeviceById, handleBasket, makeRender, pushDevice, setDevicesFromBasket, setDevicesIdFromBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
@@ -15,20 +15,29 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     const dispatch = useAppDispatch()
 
-    const { devices } = useAppSelector(state => state.backetReducer)
+    const { devices } = useAppSelector(state => state.basketReducer)
 
 
 
     function deleteHandleBacket() {
-        let takeCurrentBasket = JSON.parse(localStorage.getItem('backet') as string)
+        let takeCurrentBasket = JSON.parse(localStorage.getItem('basket') as string)
 
         let result = takeCurrentBasket.filter((devId: string | number) => devId !== device.id)
 
-        localStorage.setItem('backet', JSON.stringify(result))
+        localStorage.setItem('basket', JSON.stringify(result))
 
-        dispatch(setDevicesIdFromBacket(result))
+        dispatch(setDevicesIdFromBasket(result))
+
+        // (number - 1) as we already have price copy, it was setted by useEffect in current component
+        let totalSumFromDeleteDevice =  device.price * (number - 1)
+
+        console.log(totalSumFromDeleteDevice,'AAAAA')
+
+        dispatch(addToTotalSum( -totalSumFromDeleteDevice ) )
 
         dispatch(makeRender())
+
+    
 
 
 
@@ -46,7 +55,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
     function handleCLikDevice() {
 
         if (window.location.pathname.replaceAll(device.type, '').replaceAll('/', '') == device.id) {
-            dispatch(handleBacket())
+            dispatch(handleBasket())
             return;
         }
 
@@ -67,13 +76,16 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
         if (polus) {
             setNumber(prev => prev + 1)
-            dispatch(addToTotalSum( + device.price))
+            dispatch(addToTotalSum(+ device.price))
 
 
         }
         else {
-            setNumber(prev => prev - 1)
-            dispatch(addToTotalSum(-device.price))
+
+            if (number > 1) {
+                setNumber(prev => prev - 1)
+                dispatch(addToTotalSum(-device.price))
+            }
         }
 
     }
@@ -131,3 +143,4 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
         </div>
     )
 }
+

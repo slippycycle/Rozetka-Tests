@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import React, { SyntheticEvent, useCallback, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { DeviceI } from '../models/models'
-import { handleBacket, makeRender } from '../store/features/Backet.Slice'
+import { handleBasket, makeRender } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { AppDispatch } from '../store/store'
 
@@ -18,18 +18,18 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
 
     
-    let currentBcket = JSON.parse(localStorage.getItem('backet') as string)
+    let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
 
-    const {devices,devicesId} = useAppSelector(state => state.backetReducer)
+    const {devices,devicesId} = useAppSelector(state => state.basketReducer)
 
-    const {reload} = useAppSelector(state => state.backetReducer)
+    const {reload} = useAppSelector(state => state.basketReducer)
 
  
    console.log(currentBcket)
 
-    function handleDevicebacket() {
+    function handleDevicebasket() {
 
-        let currentBcket = JSON.parse(localStorage.getItem('backet') as string)
+        let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
        
 
 
@@ -37,21 +37,21 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
             let stertArray = []
             stertArray.push(device.id)
-            localStorage.setItem('backet', JSON.stringify(stertArray))
+            localStorage.setItem('basket', JSON.stringify(stertArray))
 
         }
         if (Array.isArray(currentBcket)) {
 
             if (currentBcket.find((el) => el == device.id)) {
                 //already included 
-                dispatch(handleBacket())
+                dispatch(handleBasket())
             }
             else {
                 //on success
 
                 let result = currentBcket
                 result.push(device.id)
-                localStorage.setItem('backet', JSON.stringify(result))
+                localStorage.setItem('basket', JSON.stringify(result))
                 console.log(devicesId)
                 // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
                 dispatch(makeRender())
@@ -86,7 +86,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 <div className={c.deivce__item__button__block}>
                     
                     <p>{device.price}</p>
-                    <button  type='button' className={ currentBcket.includes(device.id) ?c.backet_button_active :c.backet_button} onClick={handleDevicebacket}>Add</button>
+                    <button  type='button' className={ currentBcket.includes(device.id) ?c.backet_button_active :c.backet_button} onClick={handleDevicebasket}>Add</button>
                 </div>
             </div>
         </div>
