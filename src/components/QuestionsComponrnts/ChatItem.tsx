@@ -12,21 +12,22 @@ interface ChatItemProsp {
 
 export default function ChatItem({ message }: ChatItemProsp) {
 
+    const {  setIsReplyMessage, setReplyTarget, DeleteQuestion,  DeleteReplyQuestion } = React.useContext(MessageContext)
 
 
     const [replyesVisible, setReplyesVisible] = React.useState(false)
 
 
-    const {  setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion } = React.useContext(MessageContext)
-
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
     const [messReplyControllVisibleId, setmessControllReplyVisibleId] = React.useState<string | number>('none')
 
+    
+    
 
     return (
         <>
-            <div className={c.message}>
+            <div className={ c.message}>
                 <div onClick={() => {
                     setmessControllVisible(false)
                 }} className={c.user__container} >
@@ -77,6 +78,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
                     <button onClick={() => {
                         setIsReplyMessage(true)
+                        setReplyesVisible(true)
                         setReplyTarget(message)
                     }}>
                         <span className="material-symbols-outlined">

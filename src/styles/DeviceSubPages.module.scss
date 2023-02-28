@@ -53,6 +53,7 @@ $def_bor_radius: 5px;
 $order__price__block_hgt: 200px;
 $def_padding: 5px;
 
+
 .main__questions__wrap {
     width: 50%;
     padding: 10px 10px 5px 30px;
@@ -115,6 +116,34 @@ $def_padding: 5px;
             border: 1px solid $links_color;
             ;
 
+         
+                
+                span {
+                    
+                    animation: rotation 1s infinite linear;
+                    display: inline;
+                    text-align: center;
+                    padding: 0px;
+                    margin: 0px;
+                    font-size: 17px;
+                    background-color: rgba(47, 182, 182, 0);
+                    animation-name: spin;
+                    animation-duration: 5000ms;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: linear; 
+                }
+                @keyframes spin {
+                    from {
+                        transform:rotate(0deg);
+                    }
+                    to {
+                        transform:rotate(360deg);
+                    }
+                }
+                
+            }
+
+
 
             span {
                 display: inline;
@@ -144,6 +173,13 @@ $def_padding: 5px;
         .questions__container {
             height: auto;
             width: 100%;
+
+            .loading_container {
+                width: 100%;
+                height: 700px;
+                background-color: rgb(255, 255, 255);
+                display: block;
+            }
 
 
             .chat__container {
@@ -262,14 +298,14 @@ $def_padding: 5px;
 
                         .message__controll {
 
-                                  
-                          @extend   %message__controll__pattern; 
-                          
+
+                            @extend %message__controll__pattern;
+
 
                             span {
-                              
+
                                 @extend %delete_span__patter;
-                             
+
                             }
                         }
 
@@ -296,6 +332,7 @@ $def_padding: 5px;
 
                             font-size: 1.1rem;
                         }
+
                         &:hover {
                             color: gray;
                         }
@@ -334,23 +371,22 @@ $def_padding: 5px;
                                     position: absolute;
                                     right: 0px;
                                     top: 5px;
-                                    color:rgb(156, 156, 156);
+                                    color: rgb(156, 156, 156);
 
                                 }
                             }
 
 
-                          
+
 
                             .message__controll__reply {
-                                @extend   %message__controll__pattern; 
+                                @extend %message__controll__pattern;
 
 
                                 button {
 
                                     span {
-                                     @extend %delete_span__patter
-
+                                        @extend %delete_span__patter
                                     }
 
                                 }
@@ -367,7 +403,7 @@ $def_padding: 5px;
         }
 
     }
-}
+
 
 
 

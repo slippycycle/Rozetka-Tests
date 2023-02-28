@@ -16,12 +16,10 @@ import LeftMobileFilter from './components/LeftMobileFilter';
 
 function App() {
 
-   if (localStorage.getItem('basket') == '')
-   {
-      localStorage.setItem('basket', '[]')
-      console.log('setteled')
-   } 
+   
+ 
 
+   
    const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
    const [active, setActive] = React.useState(false)

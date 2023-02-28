@@ -1,9 +1,6 @@
 import axios from 'axios'
 import React from 'react'
 import { DeviceI } from '../models/models'
-import { pushDevice } from '../store/features/Basket.Slice'
-import { useAppDispatch} from '../store/hooks'
-import c from '../styles/Backet.module.scss'
 import SmallDeviceItem from './SmallDeviceItem'
 
 interface DeviceItemFromBacketProps {

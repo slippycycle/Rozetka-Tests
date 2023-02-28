@@ -3,11 +3,8 @@ import { handleBasket } from '../store/features/Basket.Slice'
 import { fetchProducts } from '../store/features/Device.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SearchPage.module.scss'
-import DeviceContainer from './DeviceContainer'
 import DeviceItem from './DeviceItem'
 import Loader from './Loader'
-import SearchHeader from './SearchHeader'
-import SerchedDevices from './SerchedDevices'
 
 type searchQuery = string
 

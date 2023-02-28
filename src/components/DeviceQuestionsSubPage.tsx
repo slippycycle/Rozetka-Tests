@@ -9,6 +9,7 @@ import ChatComponent from './QuestionsComponrnts/ChatComponent'
 import Loader from './Loader'
 import PostQuestionIput from './PostQuestionIput'
 import QuestionsReplyInput from './QuestionsComponrnts/QuestionsReplyInput'
+import { BlobOptions } from 'buffer'
 
 interface DeviceQuestionsSubPageProops {
     questionsId: number
@@ -22,9 +23,10 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     const [chat, setChat] = useState([])
 
-    const [error, setError] = useState('')
-    const [loading, setLoading] = useState(true)
-    const [reload, setReload] = useState(false)
+    const [error, setError] = useState<string>('')
+    const [loading, setLoading] = useState<boolean>(true)
+    const [reload, setReload] = useState<boolean>(false)
+    const [postLoading, setPostLoading] = useState<boolean>(false)
 
 
     async function fetchQuestions() {
@@ -44,6 +46,8 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     async function PostReply(value: string) {
 
 
+        setPostLoading(true)
+
         let updatedMessagse: any = chat[0]
 
         const current = updatedMessagse.messages.findIndex((mes: Message) => mes.id == replyTarget?.id)
@@ -54,21 +58,28 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             id: uuid(),
         })
 
+   
+
         axios.put(`http://localhost:3001/chats/${questionsId}`,
-            updatedMessagse
-
+        updatedMessagse
+        
         )
-            .then(function (response) {
-                console.log(response);
-            }).then(() => {
-                setReload(prev => !prev)
-
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
+        .then(function (response) {
+            console.log(response);
+        }).then(() => {
+        
+               setReload(prev => !prev)
+            
+            
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
         setIsReplyMessage(false)
+
+
+
+
 
     }
 
@@ -91,35 +102,41 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     async function PostQuestion(value: string) {
 
-        let updatedMessagse: any = chat[0]
+        setPostLoading(true)
 
+         //timeouts i use to show it more explicitly
+        setTimeout(() => {
 
-
-
-        updatedMessagse.messages.push({
-            from: IMAGINARY_USER,
-            message: value,
-            id: uuid(),
-            replies: [],
-
-        })
-
-
-        axios.put(`http://localhost:3001/chats/${questionsId}`,
-            updatedMessagse
-
-        )
-            .then(function (response) {
-                console.log(response);
-            }).then(() => {
-                setReload(prev => !prev)
-
-            }).then(() => {
+            let updatedMessagse: any = chat[0]
+    
+            updatedMessagse.messages.push({
+                from: IMAGINARY_USER,
+                message: value,
+                id: uuid(),
+                replies: [],
+    
             })
-            .catch(function (error) {
-                console.log(error);
-            })
-        //   setValue('')
+    
+           
+                axios.put(`http://localhost:3001/chats/${questionsId}`,
+                    updatedMessagse
+    
+                )
+                    .then(function (response) {
+                        console.log(response);
+                    }).then(() => {
+                        setReload(prev => !prev)
+    
+                    }).then(() => {
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+
+        },1500)
+
+
+  
     }
 
 
@@ -168,15 +185,14 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             updatedMessagse, 'DELETED'
         )
 
+   
         axios.put(`http://localhost:3001/chats/${questionsId}`,
             newObject
-
         )
             .then(function (response) {
                 console.log(response);
             }).then(() => {
                 setReload(prev => !prev)
-
             })
             .catch(function (error) {
                 console.log(error);
@@ -187,9 +203,8 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
 
     React.useEffect(() => {
-
-        fetchQuestions().then(response => setChat(response)).catch(er => setError(er)).then(res => setLoading(false))
-
+        //timeouts i use to show it more explicitly
+        fetchQuestions().then(response => setChat(response)).catch(er => setError(er)).then(res => setTimeout(() => { setPostLoading(false) }) ).then(res => setLoading(false)).then(res => makeScrollTOBottom())
 
     }, [reload])
 
@@ -208,12 +223,16 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     return (
         <div className={c.main__questions__wrap}>
-            <MessageContext.Provider value={{ isReplyMessage, setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, replyTarget, PostQuestion, PostReply }}>
+
+
+            <MessageContext.Provider value={{ isReplyMessage, setLoading, postLoading, setPostLoading, loading, setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, replyTarget, PostQuestion, PostReply }}>
 
                 <div className={c.questions__wrap}>
                     <div className={c.questions__container}>
                         {loading ?
-                            <Loader />
+                            <div className={c.loading_container}>
+                                <Loader />
+                            </div>
                             :
                             <ChatComponent chat={chat} />
                         }
@@ -241,6 +260,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
                             <PostQuestionIput />
                     }
+                    <h2>POstLoading {JSON.stringify(postLoading)}</h2>
                 </div>
             </MessageContext.Provider>
         </div>

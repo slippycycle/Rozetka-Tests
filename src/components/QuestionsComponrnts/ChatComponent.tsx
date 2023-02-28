@@ -8,11 +8,6 @@ interface ChatComponentProps {
 export default function ChatComponent({ chat }: ChatComponentProps) {
 
     console.log('chat render')
-
-   
-
-
-
     return (
        <QuestionsChat chat={chat}/>
     )

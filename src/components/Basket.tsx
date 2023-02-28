@@ -34,7 +34,6 @@ export default function Basket() {
         </div>
 
         {DevicesId?.length > 0 ?
-        
           <BacketList devicesidArray={DevicesId} />
           :
           <>
@@ -44,10 +43,12 @@ export default function Basket() {
             <h2>{'Basket is empty :('}</h2>
           </>
         }
-        <p className={c.total__sum__text}>Total sum: {totalSum}</p>
-        <button className={c.oreder__button}>Order all devices</button>
+        <div className={c.manage__block}>
+          
+                <h3>Total sum {totalSum}</h3>
+                <button>Make an order</button>
+            </div>
+        </div>
       </div>
-
-    </div>
   )
 }
