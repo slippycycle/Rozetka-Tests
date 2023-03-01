@@ -2,7 +2,7 @@ import React from 'react'
 import { IMAGINARY_USER } from '../../consts'
 import { MessageContext } from '../../context'
 import { Message } from '../../models/models'
-import c from '../../styles/DeviceSubPages.module.scss'
+import c from '../../styles/MessageItem.module.scss'
 // import c from '../../../styles/DeviceSubPages.module.'
 
 
@@ -12,7 +12,7 @@ interface ChatItemProsp {
 
 export default function ChatItem({ message }: ChatItemProsp) {
 
-    const { setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
+    const { setIsReplyMessage, setReplyTarget, deleteQuestion, deleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
 
 
     const [replyesVisible, setReplyesVisible] = React.useState(false)
@@ -64,7 +64,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                             <div className={c.message__controll}>
 
                                 <button onClick={() => {
-                                    DeleteQuestion(message.id)
+                                    deleteQuestion(message.id)
                                     setmessControllVisible(false)
                                 }} >
                                     <span className="material-symbols-outlined">
@@ -125,7 +125,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                                                 messReplyControllVisibleId == rep.id ?
                                                                     <div className={c.message__controll__reply}>
 
-                                                                        <button onClick={() => { DeleteReplyQuestion(rep.id, message.id) }} >
+                                                                        <button onClick={() => { deleteReplyQuestion(rep.id, message.id) }} >
                                                                             <span className="material-symbols-outlined">
                                                                                 delete
                                                                             </span>

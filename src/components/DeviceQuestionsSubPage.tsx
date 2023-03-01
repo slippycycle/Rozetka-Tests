@@ -11,6 +11,7 @@ import QuestionsReplyInput from './QuestionsComponrnts/QuestionsReplyInput'
 import { BlobOptions } from 'buffer'
 import { scrollToY } from '../utils/mathFunctions'
 import PostQuestionIput from './QuestionsComponrnts/PostQuestionIput'
+import QuestionsChat from './QuestionsComponrnts/QuestionsChat'
 
 interface DeviceQuestionsSubPageProops {
     questionsId: number
@@ -20,7 +21,7 @@ interface DeviceQuestionsSubPageProops {
 
 export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsSubPageProops) {
 
-    const [chat, setChat] = useState<Chat | []>([])
+    const [chat, setChat] = useState<Chat>({id:'wadaw',messages:[]})
 
     const [error, setError] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(true)
@@ -29,6 +30,12 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     const [replyTargetYcords, setReplyTargetYcords] = React.useState(0)
     const [isReplyMessage, setIsReplyMessage] = useState<boolean>(false)
     const [replyTarget, setReplyTarget] = useState<Message | null>(null)
+
+
+
+
+    const questionsRef = React.useRef<HTMLDivElement>(null)
+
 
 
     async function fetchQuestions() {
@@ -128,8 +135,18 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         ).then(function (response) {
             console.log(response);
-            makeScrollTOBottom()
-            setReload(true)
+            // setReload(prev => !prev)
+            setTimeout(() => {
+                window.scrollTo({
+                    top: questionsRef.current?.offsetHeight,
+                    left: 0,
+                    behavior: 'smooth'
+                })
+            }, 1)
+
+
+
+
 
         })
 
@@ -203,13 +220,18 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
 
     React.useEffect(() => {
-        //timeouts i use to show it more explicitly
-        fetchQuestions()
-            .then(response => setChat(response))
-            .then(res => setTimeout(() => { setPostLoading(false) }))
-            .then(res => setLoading(false)).catch(er => setError(er))
 
-    }, [reload])
+        fetchQuestions()
+            .then((response) => {
+                setLoading(false)
+                setChat(response)
+
+                console.log('MAIN')
+
+
+            })
+
+    }, [])
 
 
 
@@ -245,13 +267,14 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             }}>
 
                 <div className={c.questions__wrap}>
-                    <div className={c.questions__container}>
+                    <div ref={questionsRef} className={c.questions__container}>
                         {loading ?
                             <div className={c.loading_container}>
                                 <Loader />
                             </div>
                             :
-                            <ChatComponent chat={chat as Chat} />
+                            <QuestionsChat chat={chat}/>
+                            // <ChatComponent chat={chat as Chat} />
                         }
                     </div>
                 </div>
