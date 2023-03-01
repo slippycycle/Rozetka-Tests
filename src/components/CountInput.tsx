@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { MutableRefObject, useEffect } from 'react'
 import c from '../styles/CountInput.module.scss'
 
 interface CountInputProps {
@@ -7,17 +7,19 @@ interface CountInputProps {
 
 export default function CountInput({ defaultVal }: CountInputProps) {
 
-    const inputRef = React.useRef<any>(null) 
+    const inputRef = React.useRef<HTMLInputElement | any >(null);
+
+
 
     console.log(defaultVal, 'changed')
-   
+
     useEffect(() => {
         inputRef.current.defaultValue = defaultVal
 
-    },[])
+    }, [])
     if (inputRef.current) {
         inputRef.current.defaultValue = defaultVal
-    } 
+    }
 
 
     return (

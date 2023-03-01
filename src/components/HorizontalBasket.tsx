@@ -8,25 +8,25 @@ export default function HorizontalBasket() {
 
     const { devicesId } = useAppSelector(state => state.basketReducer)
 
- 
 
 
-    
-    const [ basket, setBasket ] = React.useState([])
-    
-    
+
+
+    const [basket, setBasket] = React.useState([])
+
+
     React.useEffect(() => {
-        
+
         let current = JSON.parse(localStorage.getItem('basket') as string)
 
-        if( current  ) {
-    
+        if (current) {
+
             setBasket(current)
-    
-        }  else {
+
+        } else {
             setBasket([])
         }
-    },[])
+    }, [])
 
 
 
@@ -45,7 +45,7 @@ export default function HorizontalBasket() {
             <div className={c.photo_container}>
                 {
                     basket.map((id: string | number) =>
-                        <div className={c.device_photo_container}>
+                        <div key={id} className={c.device_photo_container}>
                             <HorizontalBasketImageContainer id={id} />
                         </div>)
                 }

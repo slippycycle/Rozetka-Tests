@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Basket.module.scss'
@@ -6,23 +6,20 @@ import BacketList from './BasketList'
 
 export default function Basket() {
 
-  const { basketActive, devices, reload} = useAppSelector(state => state.basketReducer)
+  const { basketActive, devices, reload } = useAppSelector(state => state.basketReducer)
+  const { totalSum } = useAppSelector(state => state.basketReducer)
 
-  let DevicesId: any[] = JSON.parse(localStorage.getItem('basket') as string)
+  let devicesId: string[] = JSON.parse(localStorage.getItem('basket') as string)
 
   console.log('backet render')
 
-  const {totalSum} = useAppSelector(state => state.basketReducer)
-
-
-  
 
   const dispatch = useAppDispatch()
 
   return (
     <div className={basketActive ? c.backet_bloor : c.hide}>
       <div className={c.backet_container} >
-       
+
         <button className={c.close__button} onClick={() => dispatch(handleBasket())}>
           <span className="material-symbols-outlined">
             close
@@ -33,8 +30,8 @@ export default function Basket() {
           <p>Basket</p>
         </div>
 
-        {DevicesId?.length > 0 ?
-          <BacketList devicesidArray={DevicesId} />
+        {devicesId?.length > 0 ?
+          <BacketList devicesIdArray={devicesId} />
           :
           <>
             <div className={c.backet_image_conatiner}>
@@ -44,11 +41,11 @@ export default function Basket() {
           </>
         }
         <div className={c.manage__block}>
-          
-                <h3>Total sum {totalSum}</h3>
-                <button>Make an order</button>
-            </div>
+
+          <h3>Total sum {totalSum}</h3>
+          <button>Make an order</button>
         </div>
       </div>
+    </div>
   )
 }

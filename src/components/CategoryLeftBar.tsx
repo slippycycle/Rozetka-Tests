@@ -18,34 +18,31 @@ export default React.memo(function CategoryLeftBar() {
   //fetching types
   React.useEffect(() => {
     dispatch(fetchTypes())
-    console.log(types)
+
   }, [])
 
   console.log('render left types bar')
 
   return (
-    
-      <div className={c.category__block}>
-        <div className={c.category}>
-          
-          {loading ?
-            <Loader />
-            :
-            <>
-              {error ?
-                <p>{error}</p>
-                :
-                <TypesComponent typesArray={(types as Types[])} />
 
-              }
-            </>
-          }
-        </div>
+    <div className={c.category__block}>
+      <div className={c.category}>
 
+        {loading ?
+          <Loader />
+          :
+          <>
+            {error ?
+              <p>{error}</p>
+              :
+              <TypesComponent typesArray={(types as Types[])} />
+
+            }
+          </>
+        }
       </div>
 
-   
-
+    </div>
 
   )
 })

@@ -79,7 +79,7 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
                 <div className={c.devices__list__container}>
                     
                         
-                            {devices?.map((dev) => <DeviceItem handleBacketFn={handleBasket} dispatch={dispatch} device={dev} />)}
+                            {devices?.map((dev) => <DeviceItem handleBacketFn={handleBasket} key={dev.id} dispatch={dispatch} device={dev} />)}
                         
                     
                 </div>

@@ -12,7 +12,7 @@ interface ChatItemProsp {
 
 export default function ChatItem({ message }: ChatItemProsp) {
 
-    const {  setIsReplyMessage, setReplyTarget, DeleteQuestion,  DeleteReplyQuestion } = React.useContext(MessageContext)
+    const { setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
 
 
     const [replyesVisible, setReplyesVisible] = React.useState(false)
@@ -22,12 +22,18 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
     const [messReplyControllVisibleId, setmessControllReplyVisibleId] = React.useState<string | number>('none')
 
-    
-    
+    console.log('chatItem render')
+
+
+    const ref = React.useRef<HTMLDivElement>(null)
+
+    function handlScrollToReplyMessage() {
+        setReplyTargetYcords(ref?.current?.offsetTop)
+    }
 
     return (
         <>
-            <div className={ c.message}>
+            <div ref={ref} className={c.message}>
                 <div onClick={() => {
                     setmessControllVisible(false)
                 }} className={c.user__container} >
@@ -46,7 +52,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                         message.from === IMAGINARY_USER ?
                             <span onClick={() => {
                                 setmessControllVisible(prev => !prev)
-                              
+
                             }} className="material-symbols-outlined">
                                 more_vert
                             </span>
@@ -58,9 +64,9 @@ export default function ChatItem({ message }: ChatItemProsp) {
                             <div className={c.message__controll}>
 
                                 <button onClick={() => {
-                                     DeleteQuestion(message.id) 
-                                     setmessControllVisible(false)
-                                    }} >
+                                    DeleteQuestion(message.id)
+                                    setmessControllVisible(false)
+                                }} >
                                     <span className="material-symbols-outlined">
                                         delete
                                     </span>
@@ -80,6 +86,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                         setIsReplyMessage(true)
                         setReplyesVisible(true)
                         setReplyTarget(message)
+                        handlScrollToReplyMessage()
                     }}>
                         <span className="material-symbols-outlined">
                             subdirectory_arrow_right
@@ -95,7 +102,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
                 </div>
                 {
-                    replyesVisible && message.replies.length > 0?
+                    replyesVisible && message.replies.length > 0 ?
                         <div className={c.replyes_block}>
                             <>
                                 {

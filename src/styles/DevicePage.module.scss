@@ -26,6 +26,22 @@ $def_padding: 5px;
         border-bottom: 1px solid #e2e2e268;
         padding: 40px 10px 25px 10px;
 
+
+
+        .stars_container {
+            width: 200px;
+            height: 40px;
+            display: flex;
+            font-display: row;
+
+            background-color: #171717;
+            .star {
+                width: 20%;
+                height: 100%;
+                background-color: #777777;
+            }
+        }
+
         h1 {
             font-family: 'Roboto', sans-serif;
             font-size: 3rem;
@@ -47,7 +63,7 @@ $def_padding: 5px;
 
     .subpages_list_container {
         position: sticky;
-        background-color: white;
+        background-color: rgb(250, 250, 252);
         top: 59px;
         width: 100%;
         height: min-content;
@@ -147,7 +163,7 @@ $def_padding: 5px;
         justify-content: space-between;
 
         .info__panel {
-            
+            margin-top: 52px;
             width: 50%;
             display: block;
             background-color: white;
@@ -347,6 +363,11 @@ $def_padding: 5px;
                             border-radius: $btn_borr;
                             padding: $buttons__padding;
                             background-color: $second_color;
+                            &:hover {
+                                background-color: $second_color_light;
+                                border: 1px solid $second_color_light;
+                                transition: 0.4s;
+                            }
 
                         }
 

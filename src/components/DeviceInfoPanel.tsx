@@ -1,7 +1,6 @@
 import React from 'react'
 import { SelectedSubPageContext } from '../context'
-import { DeviceI } from '../models/models'
-import { SelectedSubPageType } from '../pages/SubPage'
+import { BasketDevicesIdArray, DeviceI, DeviceId } from '../models/models'
 import { handleBasket, makeRender } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePage.module.scss'
@@ -9,10 +8,10 @@ import c from '../styles/DevicePage.module.scss'
 
 interface DeviceInfoPanelProps {
     device: DeviceI
-    currentSubPage: SelectedSubPageType
+
 }
 
-export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPanelProps) {
+export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
 
 
     const { currentColor, setCurrentColor } = React.useContext(SelectedSubPageContext)
@@ -23,62 +22,46 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
 
     const parsedBasket = JSON.parse(localStorage.getItem('basket') as string)
 
-    const  [currentBasket,setCurrentBasket] = React.useState<any>([])
-
-   
-
-    React.useEffect(() => {
-            if (Array.isArray(parsedBasket)) {
-                setCurrentBasket(parsedBasket)
-            } else {
-                setCurrentBasket([])
-            }
-    },[,reload])
-
-
+    const [currentBasket, setCurrentBasket] = React.useState<BasketDevicesIdArray>([])
 
     const dispatch = useAppDispatch()
 
+
+    React.useEffect(() => {
+        if (Array.isArray(parsedBasket)) {
+            setCurrentBasket(parsedBasket)
+        } else {
+            setCurrentBasket([])
+        }
+    }, [, reload])
 
     console.log('device info panel render')
 
     const handleBasketButton = () => {
 
-        if (!Array.isArray(currentBasket)  ) {
 
-            let stertArray = []
-            stertArray.push(device.id)
-            localStorage.setItem('basket', JSON.stringify(stertArray))
+        if (currentBasket.find((devicesIdfromBasket: DeviceId) => devicesIdfromBasket == device.id)) {
+            //already included 
+            dispatch(handleBasket())
+        }
+        else {
+            //on success
+
+            let result: BasketDevicesIdArray = currentBasket
+            result.push(device.id)
+            localStorage.setItem('basket', JSON.stringify(result))
+
+            // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
+            dispatch(makeRender())
+
 
         }
-        if (Array.isArray(currentBasket)) {
-
-            if (currentBasket.find((el) => el == device.id)) {
-                //already included 
-                dispatch(handleBasket())
-            }
-            else {
-                //on success
-
-                let result = currentBasket
-                result.push(device.id)
-                localStorage.setItem('basket', JSON.stringify(result))
-              
-                // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
-                dispatch(makeRender())
-
-               
-            }
-        
-        
 
         // setActive(true)
         //currentBcket?.length > 0 ? currentBcket.find((el : string | number) => el == device.id): false ?
 
+        //changing contex to render bsket item in Navbar and update buttons style
         dispatch(makeRender())
-       
-    }
-
 
     }
 
@@ -100,7 +83,7 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
 
                         <div className={c.colors__container}>
                             {device?.colors ?
-                                device.colors.map((col) => <div onClick={() => { setCurrentColor(col) }} className={currentColor == col ? c['color__item__' + col + '__active'] : c['color__item__' + col ]  }></div>)
+                                device.colors.map((col) => <div key={col} onClick={() => { setCurrentColor(col) }} className={currentColor == col ? c['color__item__' + col + '__active'] : c['color__item__' + col]}></div>)
                                 : null
                             }
                         </div>
@@ -132,7 +115,7 @@ export default function DeviceInfoPanel({ device, currentSubPage }: DeviceInfoPa
 
                     <div className={c.order__buttons}>
                         <button>Buy</button>
-                        <button onClick={handleBasketButton} className={currentBasket.includes(device.id)? c.basket__button__active : c.basket__button}>
+                        <button onClick={handleBasketButton} className={currentBasket.includes(device.id) ? c.basket__button__active : c.basket__button}>
                             {currentBasket.includes(device.id) ? "In basket" : "Put in basket"}
                             <span className="material-symbols-outlined">
                                 shopping_cart

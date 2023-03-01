@@ -10,7 +10,7 @@ interface CategoryHeaderProps {
 }
 
 
-export default function CategoryHeader({ brands,category }: CategoryHeaderProps) {
+export default function CategoryHeader({ brands, category }: CategoryHeaderProps) {
 
     const [categoryObject, setCategoryObject] = React.useState<Types | null>(null)
     const [error, setError] = React.useState<string | null>(null)
@@ -39,15 +39,16 @@ export default function CategoryHeader({ brands,category }: CategoryHeaderProps)
         fetchInfoAboutCurrentCategory()
     }, [])
 
- 
+
 
     return (
         <div className={c.category}>
-            {brands?.length == 1?
+            {brands?.length == 1 ?
+            //in case where we select only one brand in type phone for example me fill change it to //Mobile Phone => Mobile Phone { Applle as selected brand }
                 <h2>{error ? error : categoryObject?.fullTypeName + ' ' + brands[0]}</h2>
-                :    
+                :
                 <h2>{error ? error : categoryObject?.fullTypeName}</h2>
-    }
+            }
         </div>
     )
 }

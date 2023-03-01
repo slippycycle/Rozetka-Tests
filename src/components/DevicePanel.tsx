@@ -27,13 +27,6 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
    
 
     React.useEffect(() => {
-        //_sort:'rating',_order:'desc'
-        //_sort=rating&_order=desc
-        //{ type: 'phone', brand: ['apple','samsung'],_sort:'rating',_order:'desc'}
-        //{ type: 'phone', brand: [], _sort: 'rating', _order: 'desc',_page: '1',_limit:3 }
-        //http://localhost:3001/products?price_gte=40000&price_lte=90000 //by range
-
-
 
         //as we dont need inculde range verify in default range
         if (maxPrice !== defaultMaxPrice || minPrice > defaultminPrice) {

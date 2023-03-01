@@ -1,8 +1,10 @@
-import { type } from "os"
+
 
 type UrlIcon = string
 
-export type brand = string
+type brand = string
+
+export type BasketDevicesIdArray = DeviceId[]
 
 export type Types = {
     type: string
@@ -12,8 +14,6 @@ export type Types = {
 }
 
 export type Brands = string[]
-
-
 
 
 export type urlImg = string
@@ -26,7 +26,7 @@ interface DeviceImagesArray {
 
 }
 interface imagesI {
-    colors:string
+    colors: string
 
 }
 
@@ -40,13 +40,15 @@ export type Characteristic = {
     body: string
 }
 
+export type DeviceId = string | number
+
 export interface DeviceI {
     name: string
     colors: string[]
     characteristics: Characteristic[]
     questionsId: number
-    images: { [key: string] :string[]}
-    id: string | number
+    images: { [key: string]: string[] }
+    id: DeviceId 
     brand: string
     type: string
     price: number
@@ -61,26 +63,19 @@ export type MessageId = string
 
 export type ReplyMessageId = string
 
-
-
-export type ReplyMessage =  Omit<Message, "replies">   
-
-
-
-
+export type ReplyMessage = Omit<Message, "replies">
 
 export interface Chat {
     id: string
     messages: Message[]
-} 
-
+}
 
 export interface Message {
-    data: string
+    date: string
     id: MessageId
     from: string
     message: string
-    replies: ReplyMessage[] 
+    replies: ReplyMessage[]
 
 }
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Brands } from '../models/models';
+import { Brands, Types } from '../models/models';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Device.Slice';
@@ -7,63 +7,55 @@ import c from '../styles/BrandsCheckList.module.scss'
 import { AllBrandsContex } from '../context';
 import axios from 'axios';
 import { fetchBrands } from '../API/fetchBrands';
+import { takeType } from '../API/fetchType';
 
 
 
 
 
-export default  React.memo( function BrandsCheckList() {
+export default React.memo(function BrandsCheckList() {
 
-
-
-
-    const [list, setList] = React.useState<string[] | []  >([])
+    const [list, setList] = React.useState<string[] | []>([])
 
     const brandsStore = useAppSelector(state => state.brandReducer)
 
-    const takeCurrentUtrl = window.location.pathname.replaceAll('/','')
-
-    console.log(takeCurrentUtrl,'URL')
-    
-    const [types, setTypes] = React.useState([])
-    
-    async function takeType () {
-        const response = await axios.get(`http://localhost:3001/types?type=${takeCurrentUtrl}`)
-
-        return response.data
-    }
-
-    
     const [loading, setLoading] = React.useState(true)
+
+    const takeCurrentTypeThrowUrl = window.location.pathname.replaceAll('/', '')
+
+    console.log(takeCurrentTypeThrowUrl, 'URL')
+
+  
  
+
     React.useEffect(() => {
 
-        if (takeCurrentUtrl.includes('search')) {
-            
-            fetchBrands().then( res   => setList(res as string[] | [] ))
-            return; 
+        if (takeCurrentTypeThrowUrl.includes('search')) {
+            // in case we have search page just fetch all brands to list 
+            fetchBrands().then(res => setList(res as string[] | []))
+            return;
         }
 
-        takeType().then(res => setList(res[0].brands))
+        //fetch brands which alow this category => phone/apple / samsung / ...
+        takeType(takeCurrentTypeThrowUrl).then(res => setList(res.brands)).then(res => console.log(res,))
 
-    },[takeCurrentUtrl, ])
+    }, [takeCurrentTypeThrowUrl,])
 
 
 
 
-   
+
 
     const dispacth = useAppDispatch()
 
-    function handleSelect(event: any) {
+    function handleSelect(event: React.MouseEvent<HTMLInputElement>) {
 
-        const value = event.target.value;
-        const isChecked = event.target.checked;
+        const value = (event.target as HTMLInputElement).value;
+        const isChecked = (event.target as HTMLInputElement).checked;
 
         if (isChecked) {
 
             dispacth(addSelectedBrands([...brandsStore.selectedBrands, value]))
-
 
         } else {
 
@@ -72,13 +64,11 @@ export default  React.memo( function BrandsCheckList() {
 
         }
 
+        //reset 
         dispacth(setCurrentPage(1))
 
     };
 
-    const listRef = useRef<HTMLDivElement | null>(null)
-
-    const listElRef = useRef<HTMLDivElement | null>(null)
 
     return (
         <div className={c.cheklist_container}>
@@ -86,7 +76,7 @@ export default  React.memo( function BrandsCheckList() {
             <div>
                 <h2>Select Brands</h2>
             </div>
-            <div ref={listRef}>
+            <div >
                 {brandsStore.loading ?
                     null
                     :

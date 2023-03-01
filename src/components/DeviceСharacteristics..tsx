@@ -14,7 +14,7 @@ export default function DeviceCharacteristicsSubPage({ deviceCharacteristics }: 
         <div className={c.characteristics__container}>
             {
                 deviceCharacteristics.map((char) => 
-                 <CharacteristicItem char={char}/>
+                 <CharacteristicItem key={char.header} char={char}/>
                 )
             }
         </div>

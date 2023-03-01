@@ -29,13 +29,13 @@ export default function DeviceContainer({ devicesArray }: DeviceContainerProps) 
     return (
         <>
             <div className={c.content}>
-                {devicesArray?.map((dev) => <DeviceItem handleBacketFn={handleBasket} dispatch={dispacth} device={dev} />)}
+                {devicesArray?.map((dev) => <DeviceItem key={dev.id} handleBacketFn={handleBasket} dispatch={dispacth} device={dev} />)}
             </div>
             <div className={c.pages_conatiner}>
                 {pagesArray.length > 1 ?
                     <>
                         {pagesArray.map((el) =>
-                            <button className={el == currentPage ? c.page__button_active : c.page__button} onClick={() => { dispacth(setCurrentPage(el)) }} >
+                            <button key={el} className={el == currentPage ? c.page__button_active : c.page__button} onClick={() => { dispacth(setCurrentPage(el)) }} >
                                 {el}
                             </button>
                         )}

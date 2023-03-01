@@ -7,35 +7,37 @@ import { Chat, Message, MessageId, ReplyMessage, ReplyMessageId } from '../model
 import c from '../styles/DeviceSubPages.module.scss'
 import ChatComponent from './QuestionsComponrnts/ChatComponent'
 import Loader from './Loader'
-import PostQuestionIput from './PostQuestionIput'
 import QuestionsReplyInput from './QuestionsComponrnts/QuestionsReplyInput'
 import { BlobOptions } from 'buffer'
+import { scrollToY } from '../utils/mathFunctions'
+import PostQuestionIput from './QuestionsComponrnts/PostQuestionIput'
 
 interface DeviceQuestionsSubPageProops {
     questionsId: number
 }
 
-type customError = {
-    message: string
-}
+
 
 export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsSubPageProops) {
 
-    const [chat, setChat] = useState([])
+    const [chat, setChat] = useState<Chat | []>([])
 
     const [error, setError] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(true)
     const [reload, setReload] = useState<boolean>(false)
     const [postLoading, setPostLoading] = useState<boolean>(false)
+    const [replyTargetYcords, setReplyTargetYcords] = React.useState(0)
+    const [isReplyMessage, setIsReplyMessage] = useState<boolean>(false)
+    const [replyTarget, setReplyTarget] = useState<Message | null>(null)
 
 
     async function fetchQuestions() {
 
-
         try {
             const response = await axios.get(`http://localhost:3001/chats?id=${questionsId}`)
 
-            return await response.data
+
+            return await response.data[0] as Chat
 
         } catch (error: any) {
             return error.message
@@ -43,12 +45,12 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     }
 
-    async function PostReply(value: string) {
+    async function postReply(value: string) {
 
 
         setPostLoading(true)
 
-        let updatedMessagse: any = chat[0]
+        let updatedMessagse: any = chat
 
         const current = updatedMessagse.messages.findIndex((mes: Message) => mes.id == replyTarget?.id)
 
@@ -58,23 +60,18 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             id: uuid(),
         })
 
-   
+
 
         axios.put(`http://localhost:3001/chats/${questionsId}`,
-        updatedMessagse
-        
+            updatedMessagse
+
         )
-        .then(function (response) {
-            console.log(response);
-        }).then(() => {
-        
-               setReload(prev => !prev)
-            
-            
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            .then(function (response) {
+                console.log(response);
+                scrollToY(replyTargetYcords)
+                setPostLoading(false)
+
+            })
         setIsReplyMessage(false)
 
 
@@ -100,49 +97,51 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     }
 
 
-    async function PostQuestion(value: string) {
-
-        setPostLoading(true)
-
-         //timeouts i use to show it more explicitly
-        setTimeout(() => {
-
-            let updatedMessagse: any = chat[0]
-    
-            updatedMessagse.messages.push({
-                from: IMAGINARY_USER,
-                message: value,
-                id: uuid(),
-                replies: [],
-    
-            })
-    
-           
-                axios.put(`http://localhost:3001/chats/${questionsId}`,
-                    updatedMessagse
-    
-                )
-                    .then(function (response) {
-                        console.log(response);
-                    }).then(() => {
-                        setReload(prev => !prev)
-    
-                    }).then(() => {
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
-
-        },1500)
+    async function postQuestion(value: string) {
 
 
-  
+
+        //timeouts i use to show it more explicitly
+
+
+        let updatedMessagse: Chat = chat as Chat
+
+        const date = new Date();
+
+        let currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+
+
+        let message: Message = {
+            from: IMAGINARY_USER,
+            message: value,
+            id: uuid(),
+            replies: [],
+            date: currentDate
+
+        }
+
+        updatedMessagse.messages.push(message)
+
+
+        axios.put(`http://localhost:3001/chats/${questionsId}`,
+            updatedMessagse
+
+        ).then(function (response) {
+            console.log(response);
+            makeScrollTOBottom()
+            setReload(true)
+
+        })
+
+
+
+
     }
 
 
-    async function DeleteReplyQuestion(replyId: ReplyMessageId, id: MessageId) {
+    async function deleteReplyQuestion(replyId: ReplyMessageId, id: MessageId) {
 
-        let newChat: Chat = chat[0]
+        let newChat: Chat = chat as Chat
 
         let foundMessage = newChat.messages.findIndex((mes: Message) => mes.id === id)
 
@@ -173,11 +172,11 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     }
 
 
-    async function DeleteQuestion(id: string) {
+    async function deleteQuestion(id: string) {
 
-        let updatedMessagse: any = (chat[0] as Chat).messages.filter((mes: Message) => mes.id !== id)
+        let updatedMessagse: any = (chat as Chat).messages.filter((mes: Message) => mes.id !== id)
 
-        let newObject: Chat = chat[0]
+        let newObject: Chat = chat as Chat
 
         newObject.messages = updatedMessagse
 
@@ -185,7 +184,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             updatedMessagse, 'DELETED'
         )
 
-   
+
         axios.put(`http://localhost:3001/chats/${questionsId}`,
             newObject
         )
@@ -202,15 +201,18 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
 
 
+
     React.useEffect(() => {
         //timeouts i use to show it more explicitly
-        fetchQuestions().then(response => setChat(response)).catch(er => setError(er)).then(res => setTimeout(() => { setPostLoading(false) }) ).then(res => setLoading(false)).then(res => makeScrollTOBottom())
+        fetchQuestions()
+            .then(response => setChat(response))
+            .then(res => setTimeout(() => { setPostLoading(false) }))
+            .then(res => setLoading(false)).catch(er => setError(er))
 
     }, [reload])
 
 
-    const [isReplyMessage, setIsReplyMessage] = useState<boolean>(false)
-    const [replyTarget, setReplyTarget] = useState<Message | null>(null)
+
 
 
     // function handleEnterPost(e) {
@@ -225,7 +227,22 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
         <div className={c.main__questions__wrap}>
 
 
-            <MessageContext.Provider value={{ isReplyMessage, setLoading, postLoading, setPostLoading, loading, setIsReplyMessage, setReplyTarget, DeleteQuestion, DeleteReplyQuestion, replyTarget, PostQuestion, PostReply }}>
+            <MessageContext.Provider value={{
+                isReplyMessage,
+                replyTargetYcords,
+                setReplyTargetYcords,
+                setLoading,
+                postLoading,
+                setPostLoading,
+                loading,
+                setIsReplyMessage,
+                setReplyTarget,
+                deleteQuestion,
+                deleteReplyQuestion,
+                replyTarget,
+                postQuestion,
+                postReply
+            }}>
 
                 <div className={c.questions__wrap}>
                     <div className={c.questions__container}>
@@ -234,20 +251,19 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                                 <Loader />
                             </div>
                             :
-                            <ChatComponent chat={chat} />
+                            <ChatComponent chat={chat as Chat} />
                         }
                     </div>
-
                 </div>
                 <div className={c.input_container}>
                     {
                         isReplyMessage ?
                             <>
                                 <div className={c.reply_info_wrap}>
-                                    <span className="material-symbols-outlined">
+                                    <span onClick={() => scrollToY(replyTargetYcords)} className="material-symbols-outlined">
                                         reply
                                     </span>
-                                    <h2>{`reply to @${replyTarget?.from} ${replyTarget?.message.slice(0, 18)}`}</h2>
+                                    <h2 onClick={() => scrollToY(replyTargetYcords)} >{`reply to @${replyTarget?.from} ${replyTarget?.message.slice(0, 15)}`}</h2>
                                     <span onClick={() => { setIsReplyMessage(false) }} id="close_span" className="material-symbols-outlined">
                                         close
                                     </span>
@@ -260,7 +276,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
                             <PostQuestionIput />
                     }
-                    <h2>POstLoading {JSON.stringify(postLoading)}</h2>
+
                 </div>
             </MessageContext.Provider>
         </div>

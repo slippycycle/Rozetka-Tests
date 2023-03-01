@@ -3,11 +3,7 @@ import LeftMobileFilter from '../components/LeftMobileFilter'
 import SearchHeader from '../components/SearchHeader'
 import SearchPageDevicesPanel from '../components/SearchPageDevicesPanel'
 import SerachPageFilter from '../components/SerachPageFilter'
-import SerchedDevices from '../components/SerchedDevices'
 import { AllBrandsContex, MobileSortActive } from '../context'
-import { brand } from '../models/models'
-import { fetchProducts } from '../store/features/Device.Slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SearchPage.module.scss'
 
 

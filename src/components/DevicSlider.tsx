@@ -31,7 +31,7 @@ export default function DeviceSlider({ src }: DeviceSliderProps) {
                 }}
                 className="mySwiper">
                 {src.map((img) =>
-                    <SwiperSlide>
+                    <SwiperSlide key={img}>
                         <div className='slider-img-container'>
                             <img src={img} />
                         </div>

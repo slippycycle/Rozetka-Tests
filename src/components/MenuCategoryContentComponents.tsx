@@ -15,7 +15,7 @@ export default function MenuCategoryContentComponents({ active,error, loading,ty
                 <p>{error ? error : loading}</p>
                 :
                 <ul className={c.category_list_container}>
-                    {types.map((tp: Types) => <li>{tp.fullTypeName}<img src={tp.icon} /></li>)}
+                    {types.map((tp: Types) => <li key={tp.fullTypeName}>{tp.fullTypeName}<img src={tp.icon} /></li>)}
                 </ul>
             }
         </div>

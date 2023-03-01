@@ -3,16 +3,17 @@ import c from '../styles/Basket.module.scss'
 import { DeviceItemFromBasket } from './DeviceItemFromBasket'
 
 
+
 interface BacketListProps {
-    devicesidArray: any[]
+    devicesIdArray: string[]
 }
 
-export default function BasketList({ devicesidArray }: BacketListProps) {
+export default function BasketList({ devicesIdArray }: BacketListProps) {
 
     return (
         
         <div className={c.backet_list}>
-            {devicesidArray?.map((id) => <DeviceItemFromBasket key={id} id={id} />)}
+            {devicesIdArray?.map((id) => <DeviceItemFromBasket key={id} id={id} />)}
         </div>
     )
 }

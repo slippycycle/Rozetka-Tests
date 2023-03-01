@@ -7,3 +7,4 @@ export const ADMIN_ROUTE = 'ADMIN_ROUTE'
 export const IMAGINARY_USER = 'Ugwei'
 
 
+export const firstColorIndex = 0
