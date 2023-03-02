@@ -43,8 +43,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         try {
             const response = await axios.get(`http://localhost:3001/chats?id=${questionsId}`)
-
-
             return await response.data[0] as Chat
 
         } catch (error: any) {
@@ -61,7 +59,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         const current = updatedMessagse.messages.findIndex((mes: Message) => mes.id == replyTarget?.id)
 
-        updatedMessagse.messages?.[current]?.replies?.push({
+        updatedMessagse.messages?.[current]?.replies?.unshift({
             from: IMAGINARY_USER,
             message: value,
             id: uuid(),
@@ -72,14 +70,10 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         )
             .then(function (response) {
-                console.log(replyTargetYcords,'CORDS')
-                console.log(response);
-                scrollToY(replyTargetYcords - scrollAddition)
                 setPostLoading(false)
 
             })
         setIsReplyMessage(false)
-
 
     }
 

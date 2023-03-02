@@ -1,7 +1,7 @@
 import React, { KeyboardEvent } from 'react';
 import { MessageContext } from '../../context'
 import c from './style/ChatInputs.module.scss'
-import { handlePost, handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
+import {  handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
 
 export default function QuestionsReplyInput() {
 
@@ -14,7 +14,7 @@ export default function QuestionsReplyInput() {
 
     return (
         <div className={c.input_block}>
-            <input onKeyDown={(e) => handlePost(e, value, setValue, postReply,postLoading)} name='post question imput' value={value} onChange={(e) => setValue(e.target.value)} placeholder={`enter you reply`}></input>
+            <input name='post question imput' value={value} onChange={(e) => setValue(e.target.value)} placeholder={`enter you reply`}></input>
             <button onClick={() => {
                 handlePostThrowButton(value, setValue, postReply,postLoading)
             }

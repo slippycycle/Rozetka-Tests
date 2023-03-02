@@ -9,11 +9,15 @@ type deviceId = string | number
 interface ChatSlice {
     chatItemsOpened: number
     topChatItems: number
+    lastTop: number
+    lastBottom: number
 
 
 }
 
 export const initialState: ChatSlice = {
+    lastTop: 0,
+    lastBottom: 0,
     topChatItems: 0,
     chatItemsOpened: 30,
 
@@ -32,8 +36,15 @@ const ChatSLice = createSlice({
         makeChatStepToTop(state) {
             state.chatItemsOpened = state.chatItemsOpened - 10
             state.topChatItems = state.topChatItems - 10
+        },
+        setlastReplyPosition(state) {
+            state.lastTop =  state.topChatItems
+            state.lastBottom =  state.chatItemsOpened
+        },
+        setPagination(state) {
+           state.topChatItems = state.lastTop
+           state.chatItemsOpened = state.lastBottom
         }
-
 
 
     },
@@ -41,4 +52,4 @@ const ChatSLice = createSlice({
 
 export default ChatSLice.reducer
 
-export const { makeChateStepTobottom, makeChatStepToTop } = ChatSLice.actions
+export const { makeChateStepTobottom, makeChatStepToTop,setlastReplyPosition,setPagination} = ChatSLice.actions

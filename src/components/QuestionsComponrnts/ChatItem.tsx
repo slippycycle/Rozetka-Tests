@@ -2,6 +2,8 @@ import React from 'react'
 import { IMAGINARY_USER } from '../../consts'
 import { MessageContext } from '../../context'
 import { Message } from '../../models/models'
+import { setlastReplyPosition } from '../../store/features/Chat.Slice'
+import { useAppDispatch } from '../../store/hooks'
 import c from '../../styles/MessageItem.module.scss'
 // import c from '../../../styles/DeviceSubPages.module.'
 
@@ -19,14 +21,12 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
 
     const [replyesVisible, setReplyesVisible] = React.useState(false)
-
     const [isDeleted, setIsDeleted] = React.useState<boolean>(false)
-
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
-
     const [messReplyControllVisibleId, setmessControllReplyVisibleId] = React.useState<string | number>('none')
-
     const [replyIdWhichWasRemoved, setReplyIdWhichWasRemoved] = React.useState<ReplyMessageID>('')
+    
+    const dispatch = useAppDispatch()
 
     console.log('chatItem render')
 
@@ -74,6 +74,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                     deleteQuestion(message.id)
                                     setmessControllVisible(false)
                                     setIsDeleted(true)
+                                   
                                 }} >
                                     <span className="material-symbols-outlined">
                                         delete
@@ -94,7 +95,10 @@ export default function ChatItem({ message }: ChatItemProsp) {
                         setIsReplyMessage(true)
                         setReplyesVisible(true)
                         setReplyTarget(message)
+                         
                         handlScrollToReplyMessage()
+                        dispatch( setlastReplyPosition() )
+
                     }}>
                         <span className="material-symbols-outlined">
                             subdirectory_arrow_right
