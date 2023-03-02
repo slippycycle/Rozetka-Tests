@@ -1,23 +1,38 @@
 import React from 'react';
 import { MessageContext } from '../../context'
 import c from './style/ChatInputs.module.scss'
-import { handlePost, handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
+import { handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
 
 
 export default function PostQuestionIput() {
 
     const [value, setValue] = React.useState('')
     const [postLoading, setPostLoading] = React.useState(false)
+    const [verified, setVerified] = React.useState(true)
+
 
     const { postQuestion } = React.useContext(MessageContext)
 
 
     return (
         <div className={c.input_block}>
-            <input onKeyDown={(e) => { handlePost(e, value, setValue, postQuestion, postLoading) }}
-             name='post question imput' value={value} onChange={(e) => setValue(e.target.value)} placeholder='make a question'></input>
+            <input
+                className={verified ? c.input_def : c.input_wrong}
+                name='post question imput' value={value}
+                onChange={(e) => setValue(e.target.value)} placeholder='make a question'>
+
+            </input>
             <button onClick={() => {
-                handlePostThrowButton(value, setValue, postQuestion, postLoading)
+
+                if (value.replaceAll(' ', '').length > 3) {
+                    handlePostThrowButton(value, setValue, postQuestion, postLoading)
+                    setVerified(true)
+                } else {
+                    setVerified(false)
+                }
+
+
+
             }}>
                 {postLoading ?
 

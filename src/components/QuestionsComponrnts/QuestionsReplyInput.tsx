@@ -1,22 +1,33 @@
 import React, { KeyboardEvent } from 'react';
 import { MessageContext } from '../../context'
 import c from './style/ChatInputs.module.scss'
-import {  handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
+import { handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
 
-export default function QuestionsReplyInput() {
+interface QuestionsReplyInput {
+    autoScroll: () => void
+}
 
+export default function QuestionsReplyInput({ autoScroll }: QuestionsReplyInput) {
 
     const [value, setValue] = React.useState<string>('')
+
+    const [verified, setVerified] = React.useState<boolean>(true)
 
     const { postReply, postLoading } = React.useContext(MessageContext)
 
 
-
     return (
         <div className={c.input_block}>
-            <input name='post question imput' value={value} onChange={(e) => setValue(e.target.value)} placeholder={`enter you reply`}></input>
+            <input className={verified ? c.input_def : c.input_wrong} name='post question imput' value={value} onChange={(e) => setValue(e.target.value)} placeholder={`enter you reply`}></input>
             <button onClick={() => {
-                handlePostThrowButton(value, setValue, postReply,postLoading)
+
+                if (value.replaceAll(' ', '').length > 3) {
+                    handlePostThrowButton(value, setValue, postReply, postLoading)
+                    autoScroll()
+                    setVerified(true)
+                } else {
+                    setVerified(false)
+                }
             }
             }>
 

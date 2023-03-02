@@ -41,7 +41,7 @@ export default function ChatInputContainer() {
                     </span>
                 </div>
 
-                <QuestionsReplyInput  />
+                <QuestionsReplyInput autoScroll={ handleLinkToReplymess }  />
 
             </>
             :

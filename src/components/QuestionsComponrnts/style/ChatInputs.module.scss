@@ -42,8 +42,23 @@ $def_bor_radius: 5px;
 
     display: flex;
 
+    .input_wrong  { 
+        background-color: white;
+        border: 2px solid rgb(236, 53, 53);
+        margin: 0% auto;
+        width: 90%;
+        padding-left: $def__padding__mesage;
+        height: 50px;
 
-    input {
+        &::before {
+            content: 'you should enter more than 3 symbol ';
+            background-color: rgb(255, 255, 255);
+            font-size: 1.2rem;
+            color: red;
+        }
+    }
+
+    .input_def  {
         background-color: white;
         border: 2px solid $light_grey;
         margin: 0% auto;
