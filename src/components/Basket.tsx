@@ -37,14 +37,19 @@ export default function Basket() {
             <div className={c.backet_image_conatiner}>
               <img src='https://xl-static.rozetka.com.ua/assets/img/design/modal-cart-dummy.svg' />
             </div>
-            <h2>{'Basket is empty :('}</h2>
+            <h2 className={c.basket_alert}>{'Basket is empty :('}</h2>
           </>
         }
-        <div className={c.manage__block}>
+        {devicesId?.length > 0 ?
 
-          <h3>Total sum {totalSum}</h3>
-          <button>Make an order</button>
-        </div>
+          <div className={c.manage__block}>
+
+            <h3>Total sum {totalSum}</h3>
+            <button>Make an order</button>
+          </div>
+          :
+          null
+        }
       </div>
     </div>
   )

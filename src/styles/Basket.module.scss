@@ -16,13 +16,18 @@
         display: flex;
         position: relative;
         z-index: 121;
-        width: 1000px;
+        width: 800px;
         background-color: rgb(255, 255, 255);
         flex-direction: column;
-        height: 90%;
+        height: 70%;
         border-radius: 5px;
         overflow: hidden;
 
+        .basket_alert {
+            font-size: 2rem;
+            text-align: center;
+            color: rgb(81, 81, 81) ;
+        }
 
         .manage__block {
             width: 100%;
@@ -128,9 +133,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 50%;
 
             img {
-                max-height: 80%;
+                height: 70%;
                 width: auto;
             }
         }
@@ -165,7 +171,7 @@
     .backet_bloor {
         .backet_container {
             width: 85%;
-            height: 90%;
+            height: 80%;
 
             .backet_image_conatiner {
                 img {
@@ -177,20 +183,22 @@
     }
 }
 
+//1100 900
 
-@media (min-width: 1000px) {
-    .backet_bloor {
-        .backet_container {
 
-            .backet_image_conatiner {
-                img {
-                    max-height: 100%;
-                    width: auto;
-                }
-            }
-        }
-    }
-}
+// @media (min-width: 1000px) {
+//     .backet_bloor {
+//         .backet_container {
+
+//             .backet_image_conatiner {
+//                 img {
+//                     max-height: 90%;
+//                     width: 90%;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 @media (min-width: 1620px) {
     .backet_bloor {
