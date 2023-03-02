@@ -4,6 +4,9 @@
 $def__padding__mesage: 13px;
 $def_bor_radius: 5px;
 
+.deleted {
+    display: none;
+}
 
 .message {
     border: 1px solid $light_grey;

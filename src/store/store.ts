@@ -4,6 +4,7 @@ import typeReducer from './features/Types.Slice'
 import brandReducer from './features/Brands.Slice'
 import productReducer from './features/Device.Slice'
 import basketReducer from './features/Basket.Slice'
+import chatReducer from './features/Chat.Slice'
 import rangeReducer from './features/PriceRange'
 
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   productReducer,
   basketReducer,
   rangeReducer,
+  chatReducer,
 
    
 })

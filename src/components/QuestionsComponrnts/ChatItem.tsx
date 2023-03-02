@@ -8,15 +8,17 @@ import c from '../../styles/MessageItem.module.scss'
 
 interface ChatItemProsp {
     message: Message
+    index: number
 }
 
-export default function ChatItem({ message }: ChatItemProsp) {
+export default function ChatItem({ message , index}: ChatItemProsp) {
 
     const { setIsReplyMessage, setReplyTarget, deleteQuestion, deleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
 
 
     const [replyesVisible, setReplyesVisible] = React.useState(false)
 
+    const [isDeleted, setIsDeleted] = React.useState<boolean>(false)
 
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
 
@@ -33,7 +35,8 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
     return (
         <>
-            <div ref={ref} className={c.message}>
+            <div ref={ref} className={isDeleted?c.deleted  :c.message}>
+              <h1>{index}</h1>
                 <div onClick={() => {
                     setmessControllVisible(false)
                 }} className={c.user__container} >
@@ -66,6 +69,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                 <button onClick={() => {
                                     deleteQuestion(message.id)
                                     setmessControllVisible(false)
+                                    setIsDeleted(true)
                                 }} >
                                     <span className="material-symbols-outlined">
                                         delete

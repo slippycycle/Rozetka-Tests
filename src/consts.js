@@ -8,3 +8,5 @@ export const IMAGINARY_USER = 'Ugwei'
 
 
 export const firstColorIndex = 0
+
+export const scrollAddition = 170

@@ -1,7 +1,7 @@
 import axios, { Axios, AxiosError } from 'axios'
 import React, { useCallback, useState } from 'react'
 import uuid from 'react-uuid'
-import { IMAGINARY_USER } from '../consts'
+import { IMAGINARY_USER, scrollAddition } from '../consts'
 import { MessageContext } from '../context'
 import { Chat, Message, MessageId, ReplyMessage, ReplyMessageId } from '../models/models'
 import c from '../styles/DeviceSubPages.module.scss'
@@ -21,7 +21,7 @@ interface DeviceQuestionsSubPageProops {
 
 export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsSubPageProops) {
 
-    const [chat, setChat] = useState<Chat>({id:'wadaw',messages:[]})
+    const [chat, setChat] = useState<Chat>({ id: '', messages: [] })
 
     const [error, setError] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(true)
@@ -54,7 +54,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     async function postReply(value: string) {
 
-
         setPostLoading(true)
 
         let updatedMessagse: any = chat
@@ -67,49 +66,28 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             id: uuid(),
         })
 
-
-
         axios.put(`http://localhost:3001/chats/${questionsId}`,
             updatedMessagse
 
         )
             .then(function (response) {
+                console.log(replyTargetYcords,'CORDS')
                 console.log(response);
-                scrollToY(replyTargetYcords)
+                scrollToY(replyTargetYcords - scrollAddition)
                 setPostLoading(false)
 
             })
         setIsReplyMessage(false)
 
 
-
-
-
     }
 
 
-    function makeScrollTOBottom() {
-        let htmlElement = document.documentElement;
-        let bodyElement = document.body;
-
-        let height = Math.max(
-            htmlElement.clientHeight, htmlElement.scrollHeight, htmlElement.offsetHeight,
-            bodyElement.scrollHeight, bodyElement.offsetHeight
-        );
-
-        window.scrollTo({
-            top: height,
-            behavior: 'smooth'
-        });
-    }
 
 
     async function postQuestion(value: string) {
 
-
-
         //timeouts i use to show it more explicitly
-
 
         let updatedMessagse: Chat = chat as Chat
 
@@ -127,7 +105,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         }
 
-        updatedMessagse.messages.push(message)
+        updatedMessagse.messages.unshift(message)
 
 
         axios.put(`http://localhost:3001/chats/${questionsId}`,
@@ -135,23 +113,8 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         ).then(function (response) {
             console.log(response);
-            // setReload(prev => !prev)
-            setTimeout(() => {
-                window.scrollTo({
-                    top: questionsRef.current?.offsetHeight,
-                    left: 0,
-                    behavior: 'smooth'
-                })
-            }, 1)
-
-
-
-
-
+            setReload(prev => !prev)
         })
-
-
-
 
     }
 
@@ -207,8 +170,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
         )
             .then(function (response) {
                 console.log(response);
-            }).then(() => {
-                setReload(prev => !prev)
             })
             .catch(function (error) {
                 console.log(error);
@@ -273,7 +234,8 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                                 <Loader />
                             </div>
                             :
-                            <QuestionsChat chat={chat}/>
+                           
+                            <QuestionsChat chat={chat} />
                             // <ChatComponent chat={chat as Chat} />
                         }
                     </div>
@@ -286,7 +248,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                                     <span onClick={() => scrollToY(replyTargetYcords)} className="material-symbols-outlined">
                                         reply
                                     </span>
-                                    <h2 onClick={() => scrollToY(replyTargetYcords)} >{`reply to @${replyTarget?.from} ${replyTarget?.message.slice(0, 15)}`}</h2>
+                                    <h2 onClick={() => scrollToY(replyTargetYcords - scrollAddition)} >{`reply to @${replyTarget?.from} ${replyTarget?.message.slice(0, 15)}`}</h2>
                                     <span onClick={() => { setIsReplyMessage(false) }} id="close_span" className="material-symbols-outlined">
                                         close
                                     </span>
