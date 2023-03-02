@@ -12,6 +12,7 @@ import { BlobOptions } from 'buffer'
 import { scrollToY } from '../utils/mathFunctions'
 import PostQuestionIput from './QuestionsComponrnts/PostQuestionIput'
 import QuestionsChat from './QuestionsComponrnts/QuestionsChat'
+import ChatInputContainer from './QuestionsComponrnts/ChatInputContainer'
 
 interface DeviceQuestionsSubPageProops {
     questionsId: number
@@ -142,8 +143,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             .catch(function (error) {
                 console.log(error);
             });
-
-
     }
 
 
@@ -171,8 +170,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             });
 
     }
-
-
 
 
     React.useEffect(() => {
@@ -230,29 +227,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                         }
                     </div>
                 </div>
-                <div className={c.input_container}>
-                    {
-                        isReplyMessage ?
-                            <>
-                                <div className={c.reply_info_wrap}>
-                                    <span onClick={() => scrollToY(replyTargetYcords)} className="material-symbols-outlined">
-                                        reply
-                                    </span>
-                                    <h2 onClick={() => scrollToY(replyTargetYcords - scrollAddition)} >{`reply to @${replyTarget?.from} ${replyTarget?.message.slice(0, 15)}`}</h2>
-                                    <span onClick={() => { setIsReplyMessage(false) }} id="close_span" className="material-symbols-outlined">
-                                        close
-                                    </span>
-                                </div>
-
-                                <QuestionsReplyInput />
-
-                            </>
-                            :
-
-                            <PostQuestionIput />
-                    }
-
-                </div>
+                <ChatInputContainer/>
             </MessageContext.Provider>
         </div>
     )

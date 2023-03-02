@@ -1,6 +1,6 @@
 import React, { KeyboardEvent } from 'react';
 import { MessageContext } from '../../context'
-import c from './../../styles/DeviceSubPages.module.scss'
+import c from './style/ChatInputs.module.scss'
 import { handlePost, handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
 
 export default function QuestionsReplyInput() {
