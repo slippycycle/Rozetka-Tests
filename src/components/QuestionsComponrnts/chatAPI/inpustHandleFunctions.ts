@@ -1,14 +1,19 @@
+import { AxiosResponse } from 'axios';
 import React, { KeyboardEvent } from 'react';
 
 type handleValueFunctionTypee = (value: string) => void
 
-type postFnType = (value : string) => void
+type postFnType = (value : string) => AxiosResponse
 
-export function handlePostThrowButton(value: string, handleValueFunction: handleValueFunctionTypee, postFn: postFnType, loading: boolean) {
+export async function handlePostThrowButton(value: string, handleValueFunction: handleValueFunctionTypee, postFn: postFnType, loading: boolean) {
 
    
-        postFn(value)
-        handleValueFunction('')
+   let response = postFn(value)
+
+   handleValueFunction('')
+  
+   return  await response
+
  
 }
 

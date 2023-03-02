@@ -17,6 +17,44 @@
 
 
 
+.alert_succes {
+  width: 100%;
+  position: absolute;
+  transition: all 1s;
+  z-index: 50;
+  opacity: 0;
+  padding: 8px;
+  height: auto;
+  color: rgb(84, 84, 84);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(141, 141, 255); 
+  bottom: 55px ;
+}
+
+.alert_error {
+  width: 100%;
+  position: absolute;
+  color: white;
+  transition: all 1s;
+  z-index: 50;
+  opacity: 0;
+  padding: 8px;
+  height: auto;
+  color: rgb(84, 84, 84);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgb(255, 121, 121);
+  border-radius: 5px;
+  border: 1px solid rgb(223, 0, 0); 
+  bottom: 55px ;
+
+ 
+}
+
+
+
+
 
 /* device slider */
 .swiper {

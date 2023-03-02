@@ -12,7 +12,9 @@ const root = createRoot(container);
 
 
 
-localStorage.getItem('basket') == null || localStorage.getItem('basket') == ' ' ||   localStorage.getItem('basket') == '' ? localStorage.setItem('basket','[]') : null
+if (localStorage.getItem('basket') == null || localStorage.getItem('basket') == ' ' || localStorage.getItem('basket') == '') { 
+  localStorage.setItem('basket', '[]') 
+}
 
 
 
@@ -25,9 +27,9 @@ const store = setupStore();
 
 root.render(
   <Provider store={store}>
-     
-      <App />
-      
+
+    <App />
+
   </Provider>
 );
 

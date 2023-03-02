@@ -17,8 +17,9 @@ type ReplyMessageID = string | number
 
 export default function ChatItem({ message }: ChatItemProsp) {
 
-    const { setIsReplyMessage, setReplyTarget, deleteQuestion, deleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
+    
 
+    const { setIsReplyMessage, setReplyTarget, deleteQuestion, deleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
 
     const [replyesVisible, setReplyesVisible] = React.useState(false)
     const [isDeleted, setIsDeleted] = React.useState<boolean>(false)

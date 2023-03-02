@@ -1,4 +1,4 @@
-import axios, { Axios, AxiosError } from 'axios'
+import axios, { Axios, AxiosError, AxiosResponse } from 'axios'
 import React, { useCallback, useState } from 'react'
 import uuid from 'react-uuid'
 import { IMAGINARY_USER, scrollAddition } from '../consts'
@@ -37,8 +37,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     const questionsRef = React.useRef<HTMLDivElement>(null)
 
-
-
     async function fetchQuestions() {
 
         try {
@@ -70,9 +68,11 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         )
             .then(function (response) {
+
                 setPostLoading(false)
 
             })
+
         setIsReplyMessage(false)
 
     }
@@ -82,34 +82,45 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     async function postQuestion(value: string) {
 
-        //timeouts i use to show it more explicitly
-
-        let updatedMessagse: Chat = chat as Chat
-
-        const date = new Date();
-
-        let currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+       
 
 
-        let message: Message = {
-            from: IMAGINARY_USER,
-            message: value,
-            id: uuid(),
-            replies: [],
-            date: currentDate
+        try {
+            let updatedMessagse: Chat = chat as Chat
 
-        }
+            const date = new Date();
 
-        updatedMessagse.messages.unshift(message)
+            let currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 
 
-        axios.put(`http://localhost:3001/chats/${questionsId}`,
-            updatedMessagse
+            let message: Message = {
+                from: IMAGINARY_USER,
+                message: value,
+                id: uuid(),
+                replies: [],
+                date: currentDate
 
-        ).then(function (response) {
-            console.log(response);
+            }
+
+            updatedMessagse.messages.unshift(message)
+
+            const response = await axios.put(`http://localhost:3001/chats/${questionsId}`,
+                updatedMessagse
+            )
+
+
             setReload(prev => !prev)
-        })
+            return response as AxiosResponse
+
+            
+          
+        }catch(e) {
+            const error = e as AxiosError;
+            return error
+            
+          }
+
+ 
 
     }
 
@@ -215,13 +226,13 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                                 <Loader />
                             </div>
                             :
-                           
+
                             <QuestionsChat chat={chat} />
                             // <ChatComponent chat={chat as Chat} />
                         }
                     </div>
                 </div>
-                <ChatInputContainer/>
+                <ChatInputContainer />
             </MessageContext.Provider>
         </div>
     )

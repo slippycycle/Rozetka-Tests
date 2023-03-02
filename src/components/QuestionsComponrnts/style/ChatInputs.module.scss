@@ -6,6 +6,31 @@ $def__padding__mesage: 13px;
 $def_bor_radius: 5px;
 
 
+
+
+.remove-btn {
+    margin-right: 0.5rem;
+  }
+  
+  .item-enter {
+    opacity: 0;
+  }
+  .item-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  .item-exit {
+    opacity: 1;
+  }
+  .item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+  }
+  
+
+
+
+
 .reply_info_wrap {
     font-size: 1.1rem;
     position: relative;
@@ -39,39 +64,32 @@ $def_bor_radius: 5px;
 }
 
 .input_block {
-
+    position: relative;
     display: flex;
+    justify-content: center;
 
-    .input_wrong  { 
+   
+
+    %inputs_pattern {
         background-color: white;
-        border: 2px solid rgb(236, 53, 53);
         margin: 0% auto;
         width: 90%;
         padding-left: $def__padding__mesage;
         height: 50px;
+    }
 
-        &::before {
-            content: 'you should enter more than 3 symbol ';
-            background-color: rgb(255, 255, 255);
-            font-size: 1.2rem;
-            color: red;
-        }
+    .input_wrong  { 
+        border: 2px solid rgb(236, 53, 53);
+        @extend   %inputs_pattern
+       
     }
 
     .input_def  {
-        background-color: white;
-        border: 2px solid $light_grey;
-        margin: 0% auto;
-        width: 90%;
-        padding-left: $def__padding__mesage;
-        height: 50px;
+        
 
-        &::before {
-            content: 'you should enter more than 3 symbol ';
-            background-color: rgb(255, 255, 255);
-            font-size: 1.2rem;
-            color: red;
-        }
+        border: 2px solid $light_grey;
+        @extend   %inputs_pattern
+
 
     }
 
