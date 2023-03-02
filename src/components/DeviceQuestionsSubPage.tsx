@@ -138,15 +138,10 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
         )
             .then(function (response) {
                 console.log(response);
-            }).then(() => {
-                setReload(prev => !prev)
-
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-
 
 
     }
@@ -198,11 +193,6 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
 
 
-    // function handleEnterPost(e) {
-    //     if (e.key === 'Enter') {
-    //         console.log('do validate')
-    //       }
-    // }
 
 
 

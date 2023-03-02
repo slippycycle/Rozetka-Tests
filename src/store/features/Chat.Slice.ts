@@ -10,13 +10,13 @@ interface ChatSlice {
     chatItemsOpened: number
     topChatItems: number
 
-    
+
 }
 
 export const initialState: ChatSlice = {
     topChatItems: 0,
-    chatItemsOpened: 20,
-    
+    chatItemsOpened: 30,
+
 
 }
 
@@ -26,19 +26,19 @@ const ChatSLice = createSlice({
     reducers: {
 
         makeChateStepTobottom(state) {
-            state.chatItemsOpened  = state.chatItemsOpened  + 10
+            state.chatItemsOpened = state.chatItemsOpened + 10
             state.topChatItems = state.topChatItems + 10
         },
         makeChatStepToTop(state) {
-            state.chatItemsOpened  = state.chatItemsOpened  - 10
+            state.chatItemsOpened = state.chatItemsOpened - 10
             state.topChatItems = state.topChatItems - 10
         }
 
-      
+
 
     },
 })
 
 export default ChatSLice.reducer
 
-export const {makeChateStepTobottom,makeChatStepToTop  } = ChatSLice.actions
+export const { makeChateStepTobottom, makeChatStepToTop } = ChatSLice.actions

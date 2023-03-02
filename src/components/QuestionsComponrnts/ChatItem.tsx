@@ -8,10 +8,12 @@ import c from '../../styles/MessageItem.module.scss'
 
 interface ChatItemProsp {
     message: Message
-    index: number
+
 }
 
-export default function ChatItem({ message , index}: ChatItemProsp) {
+type ReplyMessageID = string | number
+
+export default function ChatItem({ message }: ChatItemProsp) {
 
     const { setIsReplyMessage, setReplyTarget, deleteQuestion, deleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
 
@@ -24,6 +26,8 @@ export default function ChatItem({ message , index}: ChatItemProsp) {
 
     const [messReplyControllVisibleId, setmessControllReplyVisibleId] = React.useState<string | number>('none')
 
+    const [replyIdWhichWasRemoved, setReplyIdWhichWasRemoved] = React.useState<ReplyMessageID>('')
+
     console.log('chatItem render')
 
 
@@ -35,8 +39,8 @@ export default function ChatItem({ message , index}: ChatItemProsp) {
 
     return (
         <>
-            <div ref={ref} className={isDeleted?c.deleted  :c.message}>
-              <h1>{index}</h1>
+            <div ref={ref} className={isDeleted ? c.deleted : c.message}>
+
                 <div onClick={() => {
                     setmessControllVisible(false)
                 }} className={c.user__container} >
@@ -111,7 +115,7 @@ export default function ChatItem({ message , index}: ChatItemProsp) {
                             <>
                                 {
                                     message.replies.map((rep) =>
-                                        <div className={c.reply__message}>
+                                        <div className={replyIdWhichWasRemoved === rep.id?  c.deleted:c.reply__message}>
                                             <div className={c.message__control__block__reply}>
 
                                                 {
@@ -121,6 +125,7 @@ export default function ChatItem({ message , index}: ChatItemProsp) {
                                                                 <span onClick={() => {
                                                                     setmessControllReplyVisibleId(rep.id)
                                                                     setmessControllVisible(false)
+
                                                                 }} className="material-symbols-outlined">
                                                                     more_vert
                                                                 </span>
@@ -129,7 +134,10 @@ export default function ChatItem({ message , index}: ChatItemProsp) {
                                                                 messReplyControllVisibleId == rep.id ?
                                                                     <div className={c.message__controll__reply}>
 
-                                                                        <button onClick={() => { deleteReplyQuestion(rep.id, message.id) }} >
+                                                                        <button onClick={() => { 
+                                                                            deleteReplyQuestion(rep.id, message.id)
+                                                                            setReplyIdWhichWasRemoved(rep.id)
+                                                                            }} >
                                                                             <span className="material-symbols-outlined">
                                                                                 delete
                                                                             </span>

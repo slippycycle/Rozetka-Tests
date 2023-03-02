@@ -17,16 +17,14 @@ export default function ChatComponent({ chat }: ChatComponentProps) {
 
     return (
         <>
-        <ChatItem message={{
+        {/* <ChatItem message={{
             id:'Xawdawdawd',
             from:IMAGINARY_USER,
             date:'22:30',
             replies:[],
-            message:'Phantom'
-            
-
+            message:'Phantom'   
         }
-        }/>
+        }/> */}
         <QuestionsChat chat={chat}/>
         </>
     )
