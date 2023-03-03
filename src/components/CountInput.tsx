@@ -36,7 +36,7 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
            
                  setInnerNum(Number(number))
         
-                //seting devices number
+             
                  setInnerNum(number)
                 
                 let totalSumFromDeleteDevice =  devicePrice * defaultVal
@@ -47,32 +47,12 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
 
                 dispatch(addToTotalSum( number * devicePrice ))
 
-                console.log(totalSumFromDeleteDevice,'AAAAA')
-        
-
-                // console.log(defaultVal)
-              
-                // dispatch(addToTotalSum(number * devicePrice))
-
-                // let totalSumFromDeleteDevice = devicePrice * number
-
-                // console.log(totalSumFromDeleteDevice,'AAAAA')
-        
-        
-                // dispatch(addToTotalSum(  devicePrice * number  ) )
-                
-
-
-                //push current 
-
-                
+                console.log(totalSumFromDeleteDevice,'AAAAA')            
         }
-        else {
-           
-        }
+       
     }
 
     return (
-        <input value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
+        <input onKeyDown={(e) => { e.key === "Backspace"? setInnerNum('') : null    }} value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
     )
 }

@@ -74,21 +74,26 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     function handleNumber(polus: boolean) {
 
-        if (polus) {
-            setInnerNum(prev => prev + 1)
-            setNumber(prev => prev + 1)
-            dispatch(addToTotalSum(+ device.price))
+        if (innerNum !== '' && innerNum !== ' ' ) {
 
-
-        }
-        else {
-
-            if (number > 1) {
-                setInnerNum(prev => prev - 1)
-                setNumber(prev => prev - 1)
-                dispatch(addToTotalSum(-device.price))
+            if (polus) {
+                setInnerNum(prev => prev + 1)
+                setNumber(prev => prev + 1)
+                dispatch(addToTotalSum(+ device.price))
+    
+    
             }
+            else {
+    
+                if (number > 1) {
+                    setInnerNum(prev => prev - 1)
+                    setNumber(prev => prev - 1)
+                    dispatch(addToTotalSum(-device.price))
+                }
+            }
+
         }
+
 
     }
 
