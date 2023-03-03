@@ -13,7 +13,7 @@ interface SmallDeviceItemProps {
 
 export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
     const [number, setNumber] = React.useState<number>(1)
-    const [innerNum, setInnerNum] = React.useState(1)
+    const [innerNum, setInnerNum] = React.useState<number >(1)
 
 
     const dispatch = useAppDispatch()
@@ -25,7 +25,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
     function deleteHandleBacket() {
         let takeCurrentBasket = JSON.parse(localStorage.getItem('basket') as string)
 
-        let result = takeCurrentBasket.filter((devId: string | number) => devId !== device.id)
+        let result = takeCurrentBasket.filter((devId: number) => devId !== device.id)
 
         localStorage.setItem('basket', JSON.stringify(result))
 
@@ -74,25 +74,27 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     function handleNumber(polus: boolean) {
 
-        if (innerNum !== '' && innerNum !== ' ' ) {
+       
 
             if (polus) {
-                setInnerNum(prev => prev + 1)
-                setNumber(prev => prev + 1)
-                dispatch(addToTotalSum(+ device.price))
-    
-    
+                
+                if (innerNum < 99 && innerNum > 0) {
+                    setInnerNum(prev => prev + 1)
+                    setNumber(prev => prev + 1)
+                    dispatch(addToTotalSum(+ device.price))
+                 }
+                
             }
             else {
     
-                if (number > 1) {
+                if (number > 1 && innerNum > 1) {
                     setInnerNum(prev => prev - 1)
                     setNumber(prev => prev - 1)
                     dispatch(addToTotalSum(-device.price))
                 }
             }
 
-        }
+        
 
 
     }

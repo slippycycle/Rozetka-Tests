@@ -14,7 +14,7 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
 
     const inputRef = React.useRef<HTMLInputElement | any>(null);
 
-   const {setInnerNum, innerNum} = React.useContext(CountContext)
+    const { setInnerNum, innerNum } = React.useContext(CountContext)
 
     console.log(defaultVal, 'changed')
 
@@ -32,27 +32,29 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
 
         let number = Number(numberFromInput)
 
-        if (  number > 0) {
-           
-                 setInnerNum(Number(number))
-        
-             
-                 setInnerNum(number)
-                
-                let totalSumFromDeleteDevice =  devicePrice * defaultVal
+        console.log(number, 'NUMBER X')
 
-                dispatch(addToTotalSum( -totalSumFromDeleteDevice ) )
 
-                changeValueState(number)
+        if (number > 0 && number < 100) {
 
-                dispatch(addToTotalSum( number * devicePrice ))
+            setInnerNum(Number(number))
 
-                console.log(totalSumFromDeleteDevice,'AAAAA')            
+            setInnerNum(number)
+
+            let totalSumFromDeleteDevice = devicePrice * defaultVal
+
+            dispatch(addToTotalSum(-totalSumFromDeleteDevice))
+
+            changeValueState(number)
+
+            dispatch(addToTotalSum(number * devicePrice))
+
+            console.log(totalSumFromDeleteDevice, 'AAAAA')
         }
-       
+
     }
 
     return (
-        <input onKeyDown={(e) => { e.key === "Backspace"? setInnerNum('') : null    }} value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
+        <input onKeyDown={(e) => { e.key === "Backspace" ? setInnerNum('') : null }} value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
     )
 }
