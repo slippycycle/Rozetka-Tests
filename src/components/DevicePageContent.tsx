@@ -24,13 +24,9 @@ export default function DevicePageContent({ device }: DevicePageContent) {
 
     const currentImgs = device?.images[currentColor]
 
-
-
     function changeCurrentSubPage(page: SelectedSubPageType) {
         setCurSubPages(page)
     }
-
-
 
     console.log('Device page Render')
 

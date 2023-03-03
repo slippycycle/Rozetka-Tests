@@ -10,6 +10,7 @@
     overflow: hidden;
     position: fixed;
     z-index: 120;
+    padding: 0px 15px 0px 15px;
 
 
     .backet_container {
@@ -19,14 +20,14 @@
         width: 800px;
         background-color: rgb(255, 255, 255);
         flex-direction: column;
-        height: 70%;
+        height: 80%;
         border-radius: 5px;
         overflow: hidden;
 
         .basket_alert {
             font-size: 2rem;
             text-align: center;
-            color: rgb(81, 81, 81) ;
+            color: rgb(81, 81, 81);
         }
 
         .manage__block {
@@ -38,36 +39,37 @@
             flex-direction: row;
             justify-content: space-between;
 
-           
-                $fz-price: 1.3rem;
 
-                h3 {
-                    color: #525252;
-                    font-size: $fz-price;
-                    font-weight: 550;
+            $fz-price: 1.3rem;
 
-                    &::after {
-                        content: '₴';
-                        font-size: $fz-price - 2;
-                        color: #535353;
-                    }
+            h3 {
+                color: #525252;
+                font-size: $fz-price;
+                font-weight: 550;
+
+                &::after {
+                    content: '₴';
+                    font-size: $fz-price - 2;
+                    color: #535353;
                 }
+            }
 
-                button {
-                    height: max-content;
-                    border-radius: 5px;
-                    padding: 10px;
+            button {
+                height: max-content;
+                border-radius: 5px;
+                padding: 10px;
+                transition: all 0.3s;
+                background-color: $second_color;
+                color: white;
+
+                &:hover {
                     transition: all 0.3s;
-                    background-color: $second_color;
-                    color: white;
-                    &:hover {
-                        transition: all 0.3s;
-                        background-color: $second_color_light;
-                    }
-
+                    background-color: $second_color_light;
                 }
 
-            
+            }
+
+
 
         }
 
@@ -141,73 +143,29 @@
             }
         }
     }
+
+    @media (min-width: 1750px) {
+        .backet_container {
+            height: 800px;
+            width: 800px;
+        }
+    }
+
+    
+    
+    
+}
+@media (max-width: 700px) and (min-width: 320px) {
+
+    .backet_bloor {
+        padding: 0px;
+        .backet_container {
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
 
 .hide {
     display: none;
-}
-
-@media (min-width: 320px) and (max-width: 700px) {
-    .backet_bloor {
-        padding: 0px;
-
-        .backet_container {
-            width: 100%;
-            height: 100%;
-            border-radius: 0px;
-
-            .backet_image_conatiner {
-                img {
-                    max-height: 100%;
-                    width: auto;
-                }
-            }
-        }
-    }
-}
-
-
-@media (min-width: 700px) and (max-width: 920px) {
-    .backet_bloor {
-        .backet_container {
-            width: 85%;
-            height: 80%;
-
-            .backet_image_conatiner {
-                img {
-                    max-height: 100%;
-
-                }
-            }
-        }
-    }
-}
-
-//1100 900
-
-
-// @media (min-width: 1000px) {
-//     .backet_bloor {
-//         .backet_container {
-
-//             .backet_image_conatiner {
-//                 img {
-//                     max-height: 90%;
-//                     width: 90%;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-@media (min-width: 1620px) {
-    .backet_bloor {
-
-        .backet_container {
-            background-color: rgb(255, 255, 255);
-            height: 70%;
-            width: 1000px;
-        }
-
-    }
 }

@@ -385,6 +385,7 @@ $def_padding: 5px;
                             padding: $buttons__padding;
                             background-color: $third_color;
                             margin-left: 10px;
+                          
 
                             span {
 
@@ -401,6 +402,9 @@ $def_padding: 5px;
 
                                 color: $second_color;
 
+                            }
+                            &:hover {
+                              background-color: white;
                             }
 
                             display: flex;

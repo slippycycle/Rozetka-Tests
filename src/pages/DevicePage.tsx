@@ -12,7 +12,7 @@ export default function DevicePage() {
 
   const [device, setDevicd] = React.useState<DeviceI | null>(null)
   const [loading, setLoading] = React.useState<boolean>(true)
- 
+
 
 
 

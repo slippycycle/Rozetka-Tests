@@ -44,6 +44,10 @@ const ChatSLice = createSlice({
         setPagination(state) {
            state.topChatItems = state.lastTop
            state.chatItemsOpened = state.lastBottom
+        },
+        setDefaultPositions(state) {
+            state.topChatItems = 0
+            state.chatItemsOpened = 30
         }
 
 
@@ -52,4 +56,4 @@ const ChatSLice = createSlice({
 
 export default ChatSLice.reducer
 
-export const { makeChateStepTobottom, makeChatStepToTop,setlastReplyPosition,setPagination} = ChatSLice.actions
+export const { makeChateStepTobottom, makeChatStepToTop,setlastReplyPosition,setPagination,setDefaultPositions} = ChatSLice.actions

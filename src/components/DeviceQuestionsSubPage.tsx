@@ -13,6 +13,7 @@ import { scrollToY } from '../utils/mathFunctions'
 import PostQuestionIput from './QuestionsComponrnts/PostQuestionIput'
 import QuestionsChat from './QuestionsComponrnts/QuestionsChat'
 import ChatInputContainer from './QuestionsComponrnts/ChatInputContainer'
+import ErrorComponent from './QuestionsComponrnts/ErrorComponent'
 
 interface DeviceQuestionsSubPageProops {
     questionsId: number
@@ -23,8 +24,7 @@ interface DeviceQuestionsSubPageProops {
 export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsSubPageProops) {
 
     const [chat, setChat] = useState<Chat>({ id: '', messages: [] })
-
-    const [error, setError] = useState<string>('')
+    const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState<boolean>(true)
     const [reload, setReload] = useState<boolean>(false)
     const [postLoading, setPostLoading] = useState<boolean>(false)
@@ -32,6 +32,22 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     const [isReplyMessage, setIsReplyMessage] = useState<boolean>(false)
     const [replyTarget, setReplyTarget] = useState<Message | null>(null)
 
+    const contextContent = {
+        isReplyMessage,
+        replyTargetYcords,
+        setReplyTargetYcords,
+        setLoading,
+        postLoading,
+        setPostLoading,
+        loading,
+        setIsReplyMessage,
+        setReplyTarget,
+        deleteQuestion,
+        deleteReplyQuestion,
+        replyTarget,
+        postQuestion,
+        postReply
+    }
 
 
 
@@ -42,8 +58,8 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
         try {
             const response = await axios.get(`http://localhost:3001/chats?id=${questionsId}`)
             return await response.data[0] as Chat
-
         } catch (error: any) {
+            setError(error.message)
             return error.message
         }
 
@@ -53,7 +69,11 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         setPostLoading(true)
 
-        let updatedMessagse: any = chat
+        const date = new Date();
+
+        let currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+
+        let updatedMessagse: Chat = chat as Chat
 
         const current = updatedMessagse.messages.findIndex((mes: Message) => mes.id == replyTarget?.id)
 
@@ -61,17 +81,15 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             from: IMAGINARY_USER,
             message: value,
             id: uuid(),
+            date: currentDate
         })
 
         axios.put(`http://localhost:3001/chats/${questionsId}`,
             updatedMessagse
 
         )
-            .then(function (response) {
+            .then(function (response) { setPostLoading(false) })
 
-                setPostLoading(false)
-
-            })
 
         setIsReplyMessage(false)
 
@@ -82,16 +100,12 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     async function postQuestion(value: string) {
 
-       
-
-
         try {
             let updatedMessagse: Chat = chat as Chat
 
             const date = new Date();
 
             let currentDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
-
 
             let message: Message = {
                 from: IMAGINARY_USER,
@@ -108,19 +122,16 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
                 updatedMessagse
             )
 
-
             setReload(prev => !prev)
             return response as AxiosResponse
 
-            
-          
-        }catch(e) {
+        } catch (e) {
             const error = e as AxiosError;
             return error
-            
-          }
 
- 
+        }
+
+
 
     }
 
@@ -138,10 +149,8 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
         console.log(newChat)
 
-        axios.put(`http://localhost:3001/chats/${questionsId}`,
-            newChat
+        axios.put(`http://localhost:3001/chats/${questionsId}`, newChat)
 
-        )
             .then(function (response) {
                 console.log(response);
             })
@@ -153,8 +162,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     async function deleteQuestion(id: string) {
 
-        let updatedMessagse: any = (chat as Chat).messages.filter((mes: Message) => mes.id !== id)
-
+        let updatedMessagse: Message[] = (chat as Chat).messages.filter((mes: Message) => mes.id !== id)
         let newObject: Chat = chat as Chat
 
         newObject.messages = updatedMessagse
@@ -178,17 +186,16 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
 
     React.useEffect(() => {
-
         fetchQuestions()
             .then((response) => {
+
                 setLoading(false)
-                setChat(response)
-
-                console.log('MAIN')
-
-
+                if (!response) {
+                    setError('bad response')
+                } else {
+                    setChat(response)
+                }
             })
-
     }, [])
 
 
@@ -200,39 +207,31 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
 
     return (
         <div className={c.main__questions__wrap}>
-
-
-            <MessageContext.Provider value={{
-                isReplyMessage,
-                replyTargetYcords,
-                setReplyTargetYcords,
-                setLoading,
-                postLoading,
-                setPostLoading,
-                loading,
-                setIsReplyMessage,
-                setReplyTarget,
-                deleteQuestion,
-                deleteReplyQuestion,
-                replyTarget,
-                postQuestion,
-                postReply
-            }}>
+            <MessageContext.Provider value={contextContent}>
 
                 <div className={c.questions__wrap}>
                     <div ref={questionsRef} className={c.questions__container}>
                         {loading ?
+
                             <div className={c.loading_container}>
                                 <Loader />
                             </div>
                             :
-
-                            <QuestionsChat chat={chat} />
-                            // <ChatComponent chat={chat as Chat} />
+                            <>
+                                {!error ?
+                                    <QuestionsChat chat={chat} />
+                                    :
+                                    <ErrorComponent errorMessage={error} />
+                                }
+                            </>
                         }
                     </div>
                 </div>
-                <ChatInputContainer />
+                {!error ?
+                    <ChatInputContainer />
+                    :
+                    null
+                }
             </MessageContext.Provider>
         </div>
     )

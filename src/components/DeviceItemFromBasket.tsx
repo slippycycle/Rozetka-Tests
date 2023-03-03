@@ -12,6 +12,7 @@ export function DeviceItemFromBasket({ id }: DeviceItemFromBacketProps) {
     const [loading, setLoading] = React.useState<boolean>(true)
     const [device, setDevice] = React.useState<DeviceI | any>({})
 
+    
    
  
     async function fetchDevice() {
