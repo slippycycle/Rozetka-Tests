@@ -1,14 +1,19 @@
 import React from 'react'
-import { typeSlice } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/HomePage.module.scss'
 import Loader from './Loader'
 import TypesComponent from './TypesComponent'
-import { setTypes } from '../store/features/Types.Slice'
 import { fetchTypes } from '../store/features/Types.Slice'
 import { Types } from '../models/models'
 
-export default React.memo(function CategoryLeftBar() {
+interface CategoryLeftBar {
+  visible: boolean
+  handleCategory: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+
+
+export default React.memo(function CategoryLeftBar({ visible,handleCategory }: CategoryLeftBar) {
 
   const { types, loading, error } = useAppSelector(state => state.typeReducer)
 
@@ -24,25 +29,52 @@ export default React.memo(function CategoryLeftBar() {
   console.log('render left types bar')
 
   return (
+    <>
+      <div className={c.category_block}>
+        <div className={c.category}>
 
-    <div className={c.category__block}>
-      <div className={c.category}>
+          {loading ?
+            <Loader />
+            :
+            <>
+              {error ?
+                <p>{error}</p>
+                :
+                <TypesComponent typesArray={(types as Types[])} />
 
-        {loading ?
-          <Loader />
-          :
-          <>
-            {error ?
-              <p>{error}</p>
-              :
-              <TypesComponent typesArray={(types as Types[])} />
+              }
+            </>
+          }
+        </div>
 
-            }
-          </>
-        }
       </div>
+   {
+        
+        <div className={visible? c.category_mobile_active :c.category_mobile}>
+        <div className={c.category}>
 
-    </div>
+           <div onClick={() => {handleCategory(prev => !prev)}} className={c.close_btn}>X</div>
+          {loading ?
+            <Loader />
+            :
+            <>
+              {error ?
+                <p>{error}</p>
+                :
+                <TypesComponent typesArray={(types as Types[])} />
+
+              }
+            </>
+          }
+        </div>
+
+      </div>
+     
+
+     }
+
+    </>
+
 
   )
 })

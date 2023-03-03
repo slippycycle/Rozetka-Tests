@@ -5,7 +5,7 @@ import { useAppDispatch } from '../store/hooks';
 import c from '../styles/CountInput.module.scss'
 
 interface CountInputProps {
-    defaultVal: number | null
+    defaultVal: number 
     changeValueState: Dispatch<SetStateAction<number>>
     devicePrice: number
 }
@@ -16,7 +16,8 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
 
     const { setInnerNum, innerNum } = React.useContext(CountContext)
 
-    console.log(defaultVal, 'changed')
+    const dispatch = useAppDispatch()
+    
 
     useEffect(() => {
         inputRef.current.defaultValue = defaultVal
@@ -26,16 +27,13 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
         inputRef.current.defaultValue = defaultVal
     }
 
-    const dispatch = useAppDispatch()
 
     function handlePriceIput(numberFromInput: string) {
 
         let number = Number(numberFromInput)
 
-        console.log(number, 'NUMBER X')
-
-
         if (number > 0 && number < 100) {
+
 
             setInnerNum(Number(number))
 
@@ -54,7 +52,15 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
 
     }
 
+    function handleBackSpace (key: string) {
+
+        if (key === "Backspace") {
+            setInnerNum('')
+        }
+
+    }
+
     return (
-        <input onKeyDown={(e) => { e.key === "Backspace" ? setInnerNum('') : null }} value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
+        <input onKeyDown={(e) =>  handleBackSpace(e.key) } value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
     )
 }
