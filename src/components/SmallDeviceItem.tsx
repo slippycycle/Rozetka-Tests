@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import { CountContext } from '../context'
 import { DeviceI } from '../models/models'
 import { addToTotalSum, deleteDeviceById, handleBasket, makeRender, pushDevice, setDevicesFromBasket, setDevicesIdFromBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -12,6 +13,8 @@ interface SmallDeviceItemProps {
 
 export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
     const [number, setNumber] = React.useState<number>(1)
+    const [innerNum, setInnerNum] = React.useState(1)
+
 
     const dispatch = useAppDispatch()
 
@@ -72,6 +75,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
     function handleNumber(polus: boolean) {
 
         if (polus) {
+            setInnerNum(prev => prev + 1)
             setNumber(prev => prev + 1)
             dispatch(addToTotalSum(+ device.price))
 
@@ -80,6 +84,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
         else {
 
             if (number > 1) {
+                setInnerNum(prev => prev - 1)
                 setNumber(prev => prev - 1)
                 dispatch(addToTotalSum(-device.price))
             }
@@ -108,6 +113,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
                 <div className={c.count__container}>
                     <div className={c.count}>
+                       <CountContext.Provider value={ {setInnerNum, innerNum} }>
                         
                         <button onClick={() => { handleNumber(false) }}>
                             <p>-</p>
@@ -118,6 +124,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
                         <button onClick={() => { handleNumber(true) }}>
                             <p >+</p>
                         </button>
+                        </CountContext.Provider> 
                         
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import React, { Dispatch, MutableRefObject, SetStateAction, useEffect } from 'react'
+import { CountContext } from '../context';
 import { addToTotalSum, makeRender, removeFromTotalSum, setTotalSum } from '../store/features/Basket.Slice';
 import { useAppDispatch } from '../store/hooks';
 import c from '../styles/CountInput.module.scss'
@@ -13,8 +14,7 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
 
     const inputRef = React.useRef<HTMLInputElement | any>(null);
 
-
-    const [value, setValue] = React.useState<null | number>(null)
+   const {setInnerNum, innerNum} = React.useContext(CountContext)
 
     console.log(defaultVal, 'changed')
 
@@ -34,16 +34,16 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
 
         if (  number > 0) {
            
+                 setInnerNum(Number(number))
         
                 //seting devices number
-                setValue((Number(numberFromInput) ))
+                 setInnerNum(number)
                 
                 let totalSumFromDeleteDevice =  devicePrice * defaultVal
 
                 dispatch(addToTotalSum( -totalSumFromDeleteDevice ) )
 
                 changeValueState(number)
-
 
                 dispatch(addToTotalSum( number * devicePrice ))
 
@@ -73,6 +73,6 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
     }
 
     return (
-        <input onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
+        <input value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
     )
 }

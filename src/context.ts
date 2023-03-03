@@ -17,3 +17,4 @@ export const SelectedSubPageContext = React.createContext<any>(null)
 
 export const MessageContext = React.createContext<any>(null)
 
+export const CountContext = React.createContext(null)
