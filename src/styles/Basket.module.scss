@@ -20,7 +20,7 @@
         width: 800px;
         background-color: rgb(255, 255, 255);
         flex-direction: column;
-        height: 80%;
+        height: 95%;
         border-radius: 5px;
         overflow: hidden;
 
@@ -144,13 +144,21 @@
         }
     }
 
-    @media (min-width: 1750px) {
+    @media (max-width: 2100px) and (min-width: 1750px) {
         .backet_container {
             height: 800px;
             width: 800px;
         }
     }
+    
+    @media (min-width: 2100px) {
+        .backet_container {
+            height: 1000px;
+            width: 1000px;
+        }
+    }
 
+    
     
     
     
