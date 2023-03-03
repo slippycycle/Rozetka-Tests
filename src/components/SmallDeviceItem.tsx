@@ -38,10 +38,6 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
         dispatch(makeRender())
 
     
-
-
-
-
     }
 
     const currentColor = device.colors[0]
@@ -64,6 +60,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     }
 
+    
 
     React.useEffect(() => {
         dispatch(addToTotalSum(device.price))
@@ -111,13 +108,17 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
                 <div className={c.count__container}>
                     <div className={c.count}>
+                        
                         <button onClick={() => { handleNumber(false) }}>
                             <p>-</p>
                         </button>
-                        <CountInput defaultVal={number} ></CountInput>
+
+                        <CountInput devicePrice={device.price} changeValueState={setNumber} defaultVal={number} ></CountInput>
+                        
                         <button onClick={() => { handleNumber(true) }}>
                             <p >+</p>
                         </button>
+                        
                     </div>
                 </div>
 

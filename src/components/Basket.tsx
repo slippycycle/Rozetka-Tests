@@ -43,7 +43,6 @@ export default function Basket() {
         {devicesId?.length > 0 ?
 
           <div className={c.manage__block}>
-
             <h3>Total sum {totalSum}</h3>
             <button>Make an order</button>
           </div>

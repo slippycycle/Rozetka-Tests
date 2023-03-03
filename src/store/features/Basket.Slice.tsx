@@ -54,6 +54,9 @@ const basketSlice = createSlice({
         },
         removeFromTotalSum(state, action) {
             state.totalSum -= action.payload
+        },
+        setTotalSum(state, action) {
+            state.totalSum = action.payload
         }
 
     },
@@ -61,4 +64,4 @@ const basketSlice = createSlice({
 
 export default  basketSlice.reducer
 
-export const {handleBasket,removeFromTotalSum,setDevicesFromBasket,pushDevice,addToTotalSum,setDevicesIdFromBasket,deleteDeviceById,makeRender} = basketSlice.actions
+export const {handleBasket,setTotalSum,removeFromTotalSum,setDevicesFromBasket,pushDevice,addToTotalSum,setDevicesIdFromBasket,deleteDeviceById,makeRender} = basketSlice.actions
