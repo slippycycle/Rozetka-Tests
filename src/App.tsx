@@ -12,20 +12,21 @@ import Menu from './components/Menu';
 import { MenuContext, MobileSortActive } from './context';
 import SearchPage from './pages/SearchPage';
 import LeftMobileFilter from './components/LeftMobileFilter';
+import BottomBanner from './components/BottomBanner';
 
 
 function App() {
 
-   
- 
 
-   
+
+
+
    const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
    const [active, setActive] = React.useState(false)
 
    function handleMenuState() {
-       setActive(active => !active)
+      setActive(active => !active)
    }
 
 
@@ -38,22 +39,23 @@ function App() {
       <BrowserRouter>
          <div className='app-wrapp'>
             <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
-               <MobileSortActive.Provider value={{ active, handleMenuState}} >
-               <Menu />
-               <TopNavbar />
-               <Basket />
-               <LeftMobileFilter/>
-               <Routes>
+               <MobileSortActive.Provider value={{ active, handleMenuState }} >
+                  <Menu />
+                  <TopNavbar />
+                  <Basket />
+                  <LeftMobileFilter />
+                  <Routes>
 
-                  <Route element={<HomePage />} path='/'></Route>
-                  <Route element={<SelectedDevicesPage />} path=':id/'></Route>
-                  <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
-                  <Route element={<SearchPage />} path='/search/:id/'></Route>
+                     <Route element={<HomePage />} path='/'></Route>
+                     <Route element={<SelectedDevicesPage />} path=':id/'></Route>
+                     <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
+                     <Route element={<SearchPage />} path='/search/:id/'></Route>
 
-               </Routes>
+                  </Routes>
                </MobileSortActive.Provider>
             </MenuContext.Provider>
          </div>
+         <BottomBanner />
       </BrowserRouter>
    );
 }

@@ -33,7 +33,7 @@ export default function BannerSlider() {
             >
                 <SwiperSlide>
                     <div className=''>
-                        <img src={'https://content2.rozetka.com.ua/files/images/original/315022359.jpg'} />
+                        <img src={'https://casfurb.com/wp-content/uploads/2022/10/CASFURB_BANNER71.jpg'} />
                     </div>
                 </SwiperSlide>
               

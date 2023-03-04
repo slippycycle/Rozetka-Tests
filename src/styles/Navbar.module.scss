@@ -20,7 +20,7 @@ $navbar-hgt: 60px;
 
         .search__container {
             width: 70%;
-            height: 90%;
+            height: 45px;
             display: flex;
             align-items: center;
             margin: 0% auto;
@@ -143,10 +143,14 @@ $navbar-hgt: 60px;
 @media (min-width: 1700px) {
     .menu__container {
         height: 70px;
-
+        
+        
         .top_navbar {
             height: 70px;
             width: 1700px;
+            .search__container {
+                height: 50px;
+             }
         }
     }
 }

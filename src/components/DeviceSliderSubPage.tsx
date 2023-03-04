@@ -12,16 +12,18 @@ interface DeviceSliderSubPageProps {
 export default function DeviceSliderSubPage({ src, description }: DeviceSliderSubPageProps) {
 
   return (
-   
-      <div className={c.device__slider}>
-        <DeviceSlider src={src} />
-        
+
+    <div className={c.device__slider}>
+
+      <DeviceSlider src={src} />
+
+
       <div className={c.device__slider__description} >
         <p>{description}</p>
       </div>
-        
-      </div>
-     
-   
+
+    </div>
+
+
   )
 }

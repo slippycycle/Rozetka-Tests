@@ -8,7 +8,7 @@ interface HandleCategoryProps {
   handleCategory: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function Home({handleCategory}:HandleCategoryProps) {
+export default function Home({ handleCategory }: HandleCategoryProps) {
 
 
   return (
@@ -17,7 +17,12 @@ export default function Home({handleCategory}:HandleCategoryProps) {
       <div className={c.banner_wrap}>
         <BannerSlider />
       </div>
-      <button className={c.show_category_btn} onClick={() => {handleCategory(prev => !prev)}}>Show categories</button>
+      <button className={c.show_category_btn} onClick={() => { handleCategory(prev => !prev) }}>
+        Show categories
+        <span className="material-symbols-outlined">
+          category
+        </span>
+      </button>
     </div>
   )
 }

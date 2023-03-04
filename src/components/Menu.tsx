@@ -17,43 +17,43 @@ export default function Menu() {
 
     const dispatch = useAppDispatch()
 
-    
+
     function handleMenu(e: any) {
-        
+
         menuState.menuHandle()
         e.preventDefault()
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
     }
-    
+
     const menuRef = React.useRef(null)
-    
-    
-    
-    const handleSubmit = React.useCallback((e: any) => {     
+
+
+
+    const handleSubmit = React.useCallback((e: any) => {
         e.preventDefault()
         e.stopPropagation();
         console.log('closed')
     }, []);
-    
+
     React.useEffect(() => {
         dispatch(fetchTypes())
-        
+
     }, [])
-  
+
     return (
 
-        <div ref={menuRef}  onClick={
-         (e) => {
-             e.preventDefault()
-             e.stopPropagation()
-             e.nativeEvent.stopImmediatePropagation() 
-             console.log('closed')
-         } 
+        <div ref={menuRef} onClick={
+            (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                e.nativeEvent.stopImmediatePropagation()
+                console.log('closed')
+            }
         } className={menuState.active ? c.menu__active : c.menu}>
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuState.menuHandle}>
-                    <span onClick={(e) => { handleMenu(e)}} className="material-symbols-outlined">
+                    <span onClick={(e) => { handleMenu(e) }} className="material-symbols-outlined">
                         close
                     </span>
                 </button>
@@ -77,14 +77,41 @@ export default function Menu() {
                 <MenuCategoryContentComponents types={types} loading={loading} error={error} active={active} />
 
 
-                <ul className={c.ul_list}>
-                    <li>HOME <span className="material-symbols-outlined">
-                        home
-                    </span>
+                <ul className={c.ul_links}>
+                    <li>
+                        <span className="material-symbols-outlined">
+                            home
+                        </span>
+                        <a>
+                            HOME
+                        </a>
                     </li>
-                    <li>SUPPORT</li>
-                    <li>BASKET</li>
-                    <li>TELEGRAM BOT</li>
+                    <li>
+                        <span className="material-symbols-outlined">
+                            support_agent
+                        </span>
+                        <a>
+                            SUPPORT
+                        </a>
+                    </li>
+                    <li>
+                        <span className="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                        <a>
+                            BASKET
+                        </a>
+
+
+                    </li>
+                    <li>
+                        <span className="material-symbols-outlined">
+                            send
+                        </span>
+                        <a>
+                            TELEGRAM BOT
+                        </a>
+                    </li>
                 </ul>
 
 

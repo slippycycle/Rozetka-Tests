@@ -411,6 +411,13 @@
       "messages": [
         {
           "from": "Ugwei",
+          "message": "rw3r3w r3w rw3 r",
+          "id": "94776de7-ddc2-972a-ddd5-1be2c6e572ee",
+          "replies": [],
+          "date": "3-3-2023"
+        },
+        {
+          "from": "Ugwei",
           "message": "awdwad awd aw",
           "id": "c88764f7-feab-d441-1568-b981271fa622",
           "replies": []
@@ -443,6 +450,12 @@
           "message": "Сьогодні замовив. Прийшло повідомлення, щоб чекав на смс доставки. Замовляв не для себе , але на свій номер з доставкою нової пошти. Номера накладної немаю. Як дізнатись за відправлення?",
           "id": "f42d27fc-5233-2d39-9d89-f7a570e6c51b",
           "replies": [
+            {
+              "from": "Ugwei",
+              "message": "така сама проблема була дякую ",
+              "id": "66946a62-17f3-4d92-cef0-bc06c6a34d01",
+              "date": "3-3-2023"
+            },
             {
               "from": "Azbek",
               "message": "В особистому кабінеті подивись статус замовлення (розділ \"мої замовлення\"). Якщо нема, тоді міг номер вказав з помилкою.",
@@ -931,6 +944,13 @@
       "messages": [
         {
           "from": "Ugwei",
+          "message": "@null",
+          "id": "f302d4d9-1936-fb49-e350-af3b24534a92",
+          "replies": [],
+          "date": "3-3-2023"
+        },
+        {
+          "from": "Ugwei",
           "message": "rg rgrd grdg ",
           "id": "083071d5-92c6-5ccf-1055-716c3599a318",
           "replies": [],
@@ -1108,41 +1128,6 @@
           "from": "Ugwei",
           "message": "wadwadwad",
           "id": "10c00725-b9a3-4f98-ae3e-54eafad74e3c",
-          "replies": [],
-          "date": "2-3-2023"
-        },
-        {
-          "from": "Ugwei",
-          "message": "wadwadwadwadwda",
-          "id": "61975d74-5300-9b3d-e7e5-77a512014322",
-          "replies": [],
-          "date": "2-3-2023"
-        },
-        {
-          "from": "Ugwei",
-          "message": "awdwadwawdaawd",
-          "id": "6ed7d4e6-e412-22bb-a9af-bad06b103e12",
-          "replies": [],
-          "date": "2-3-2023"
-        },
-        {
-          "from": "Ugwei",
-          "message": "wadwadwawadwadwad",
-          "id": "381c7b08-b0a0-cbf2-3ade-692243f48beb",
-          "replies": [],
-          "date": "2-3-2023"
-        },
-        {
-          "from": "Ugwei",
-          "message": "wda wa d awdawd aw dwd aw dwa d dwaFFFF",
-          "id": "aac47e9d-8775-9666-6f40-a6c4b7001c81",
-          "replies": [],
-          "date": "2-3-2023"
-        },
-        {
-          "from": "Ugwei",
-          "message": "awewaewae wwa e wa",
-          "id": "cdb6a6d5-4bed-61bb-7052-26961619dcbc",
           "replies": [],
           "date": "2-3-2023"
         },
@@ -2117,45 +2102,6 @@
           "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
-        ]
-      }
-    },
-    {
-      "id": 2,
-      "name": "samsungA51",
-      "seller": "Dady Rafik(Marshrutka)",
-      "characteristics": [
-        {
-          "header": "Camera",
-          "body": " 8 mgpx SSX PRo MAxt"
-        },
-        {
-          "header": "Screen",
-          "body": "Cool as always"
-        },
-        {
-          "header": "CPU",
-          "body": "SPEX M"
-        },
-        {
-          "header": "memory",
-          "body": "28Gb"
-        }
-      ],
-      "questionsId": "2",
-      "brand": "samsung",
-      "type": "phone",
-      "oldPrice": 15000,
-      "price": 13000,
-      "colors": [
-        "teal"
-      ],
-      "faceDescription": " Mobile phone A51 56GB/32MGPX cool to",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
-      "rating": 3.7,
-      "images": {
-        "teal": [
-          "https://content2.rozetka.com.ua/goods/images/big/266876325.jpg"
         ]
       }
     },

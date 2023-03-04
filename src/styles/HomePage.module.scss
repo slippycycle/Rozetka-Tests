@@ -32,7 +32,8 @@
       margin-top: 10px;
       display: block;
       background-color: aliceblue;
-      height: auto;
+      height: 400px;
+    
     }
 
   }
@@ -41,7 +42,7 @@
   .category_block {
     width: 100%;
     display: flex;
-    top: 10px;
+    top: 15px;
     flex-direction: column;
     left: 0px;
     width: 100%;
@@ -62,11 +63,14 @@
       .item {
         cursor: pointer;
         width: 100%;
-        height: 6vh;
-        padding-left: 10%;
+        height: auto;
+        padding: 7px 15px 7px 15px;
         font-size: 1.2rem;
         background-color: rgba(255, 0, 0, 0);
-        color: rgb(0, 136, 255);
+        color: $links_color;
+        &:hover {
+          color: rgb(255, 89, 89);
+        }
 
       }
     }
@@ -79,17 +83,40 @@
   @media (max-width: 1000px) {
 
     .show_category_btn {
-      width: 90%;
-      height: 40px;
+      width: 95%;
+      padding: 10px 20px 10px 20px;
+      display: block;
       border-radius: 10px;
-      border: 2px solid gray;
+      margin-top: 10px;
+      text-align: center;
+      background-color: $second_color;
       display: flex;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      font-size: 1.3rem;
+      color: rgb(255, 255, 255);
+      font-weight: 550;
+      
+      &:hover {
+        background-color: $second_color_light;
+        transition: all 300ms;
+      }
+
+      span {
+      
+        font-size: 2rem;
+
+      }
+
+
     }
 
 
   }
 
   .category_mobile {
+    display: none;
+  }
+  .category_mobile_active {
     display: none;
   }
 
@@ -108,26 +135,29 @@
       display: block;
       background-color: rgba(0, 0, 0, 0.239);
       flex-direction: column;
+      top:0px;
       left: 0px;
       height: 100%;
       position: fixed;
       z-index: 108;
+      transition: all 500ms;
+
+      
+    }
+
+    %category_content_patter {
+      background-color: rgb(44, 104, 158);
+      width: 20%;
+      height: 100%;
     }
 
 
     .category_mobile_active {
-      width: 100%;
-      top: 0px;
-      display: block;
-      background-color: rgba(0, 0, 0, 0.239);
-      flex-direction: column;
-      left: 0px;
+   
       transform: translate(0%);
-      transition: all 500ms;
-      height: 100%;
-      position: fixed;
-      z-index: 108;
-
+      
+      @extend  %cat_mob ;
+      
       .category {
         width: 30%;
         background-color: rgb(255, 255, 255);
@@ -137,26 +167,19 @@
         position: absolute;
 
         .category_cont {
-          background-color: aliceblue;
-          width: 20%;
-          height: 100%;
+         @extend  %category_content_patter;
         }
       }
 
     }
 
     .category_mobile {
-      width: 100%;
-      top: 0px;
-      transition: all 500ms;
-      display: block;
-      background-color: rgba(0, 0, 0, 0.239);
-      flex-direction: column;
-      left: 0px;
-      transform: translate(-130%);
-      height: 100%;
-      position: fixed;
-      z-index: 108;
+     
+      transform: translate(-120%);
+      
+      @extend  %cat_mob ;
+
+     
 
       .category {
         width: 30%;
@@ -167,9 +190,7 @@
         position: absolute;
 
         .category_cont {
-          background-color: aliceblue;
-          width: 20%;
-          height: 100%;
+          @extend  %category_content_patter;
         }
       }
 

@@ -4,8 +4,10 @@
 $def__padding__mesage: 13px;
 $def_bor_radius: 5px;
 
+
 .device__slider {
-    width: 50%;
+
+    width: 70%;
     height: 100%;
     padding: 5px;
     overflow: hidden;
@@ -17,11 +19,27 @@ $def_bor_radius: 5px;
 
     .device__slider__description {
         padding: 5px;
-        color: rgb(48, 44, 44);
+        color: rgb(109, 106, 106);
         font-size: 1rem;
+        max-width: 800px;
     }
 }
 
+@media (min-width: 1600px) {
+
+    .device__slider {
+        width: 100%;
+        height: 130%;
+        padding: 5px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+}
 
 
 .characteristics__container {
