@@ -2,7 +2,7 @@ import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/t
 import { typeSlice } from './features/Types.Slice';
 import typeReducer from './features/Types.Slice'
 import brandReducer from './features/Brands.Slice'
-import productReducer from './features/Device.Slice'
+import productReducer from './features/Devices.Slice'
 import basketReducer from './features/Basket.Slice'
 import chatReducer from './features/Chat.Slice'
 import rangeReducer from './features/PriceRange'

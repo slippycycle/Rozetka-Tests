@@ -1,6 +1,6 @@
 import React from 'react'
 import { sortDevicestypes } from '../models/models'
-import { fetchProducts, setLimit, setSortType } from '../store/features/Device.Slice'
+import { fetchProducts, setLimit, setSortType } from '../store/features/Devices.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SortDevicesBar.module.css'
 import { memo } from 'react'

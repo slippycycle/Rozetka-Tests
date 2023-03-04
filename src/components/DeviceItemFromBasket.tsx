@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { Axios } from 'axios'
 import React from 'react'
 import { DeviceI } from '../models/models'
 import SmallDeviceItem from './SmallDeviceItem'
@@ -10,17 +10,24 @@ interface DeviceItemFromBacketProps {
 export function DeviceItemFromBasket({ id }: DeviceItemFromBacketProps) {
 
     const [loading, setLoading] = React.useState<boolean>(true)
-    const [device, setDevice] = React.useState<DeviceI | any>({})
-
+    const [device, setDevice] = React.useState<DeviceI | null>(null)
+    const [error,setError] = React.useState<string | null>(null)
     
    
  
     async function fetchDevice() {
-        const response = await axios.get(`http://localhost:3001/products?id=${id}`)
+      
+        try {
+            const response = await axios.get(`http://localhost:3001/products?id=${id}`)
+    
+            const result = (response.data[0] as DeviceI )
+             
+            return result
+        
+        } catch(e) {
+            setError(e.message? e.message as string : 'Error')
+        }
 
-        const result = (response.data[0] as DeviceI )
-         
-        return result
     }
 
     React.useEffect(() => {
@@ -32,9 +39,16 @@ export function DeviceItemFromBasket({ id }: DeviceItemFromBacketProps) {
     return (
         <>
             {loading ?
-                <h2>Loading</h2>
-                :
-                <SmallDeviceItem device={device} />
+                    <h2>Loading</h2>
+                    :
+                    <>      
+                    {error?
+                        <p>{error}</p>
+                         :
+                        <SmallDeviceItem device={device as DeviceI} />
+                    
+                    }
+                    </>
             }
         </> 
     )

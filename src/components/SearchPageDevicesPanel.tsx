@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { handleBasket } from '../store/features/Basket.Slice'
-import { fetchProducts } from '../store/features/Device.Slice'
+import { fetchProducts } from '../store/features/Devices.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SearchPage.module.scss'
 import DeviceItem from './DeviceItem'
@@ -74,16 +74,26 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
     return (
         <>
             {loading ?
-                <Loader />
-                :
-                <div className={c.devices__list__container}>
-                    
-                        
-                            {devices?.map((dev) => <DeviceItem handleBacketFn={handleBasket} key={dev.id} dispatch={dispatch} device={dev} />)}
-                        
-                    
+                <div className={c.loader_container}>
+                    <Loader />
                 </div>
+                :
+                <>
 
+                    {error ?
+                        <h1>{error as string}</h1>
+                        :
+                        <div className={c.devices__list__container}>
+
+
+                            {devices?.map((dev) => <DeviceItem handleBacketFn={handleBasket} key={dev.id} dispatch={dispatch} device={dev} />)}
+
+
+                        </div>
+                    }
+
+
+                </>
             }
         </>
     )

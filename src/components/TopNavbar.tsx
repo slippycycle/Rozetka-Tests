@@ -49,7 +49,7 @@ export default function TopNavbar() {
 
         if (event.key === 'Enter') {
 
-            navigate(`/search/${value.replace(/ /g, '').toLowerCase()}`)
+            navigate(`/search/${value.replace(/ /g, '').toLowerCase().replaceAll('/','') } `)
             window.location.reload();
         }
     }
@@ -58,7 +58,7 @@ export default function TopNavbar() {
 
     function navigateBySearchItem() {
 
-        navigate(`/search/${value.replace(/ /g, '').toLowerCase()}`)
+        navigate(`/search/${value.replace(/ /g, '').toLowerCase().replaceAll('/','') }`)
         window.location.reload();
     }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { DeviceI } from '../models/models'
 import basketSlice, { handleBasket } from '../store/features/Basket.Slice'
-import { setCurrentPage, setNextPage } from '../store/features/Device.Slice'
+import { setCurrentPage, setNextPage } from '../store/features/Devices.Slice'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import { getPages } from '../utils/pagination'

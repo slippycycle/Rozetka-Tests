@@ -1,5 +1,4 @@
-import { PreventAny } from '@reduxjs/toolkit/dist/entities/models'
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 import c from '../styles/HomePage.module.scss'
 import BannerSlider from './BannerSlider'
 import HorizontalBasket from './HorizontalBasket'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { sortDevicestypes, Types } from '../models/models'
-import { fetchProducts } from '../store/features/Device.Slice'
+import { fetchProducts } from '../store/features/Devices.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import { getPages } from '../utils/pagination'

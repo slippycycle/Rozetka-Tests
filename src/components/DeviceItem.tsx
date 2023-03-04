@@ -21,12 +21,9 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
     let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
 
-    const { devices, devicesId } = useAppSelector(state => state.basketReducer)
 
     const { reload } = useAppSelector(state => state.basketReducer)
 
-
-    console.log(currentBcket)
 
     function handleDevicebacket() {
 
@@ -53,7 +50,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 let result = currentBcket
                 result.push(device.id)
                 localStorage.setItem('basket', JSON.stringify(result))
-                console.log(devicesId)
+
                 // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
                 dispatch(makeRender())
 
@@ -71,41 +68,17 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
 
 
-    function useHover<T>(): [MutableRefObject<T>, boolean] {
-        const [value, setValue] = useState<boolean>(false);
-        const ref: any = React.useRef<T | null>(null);
-        const handleMouseOver = (): void => setValue(true);
-        const handleMouseOut = (): void => setValue(false);
-        React.useEffect(
-            () => {
-                const node: any = ref.current;
-                if (node) {
-                    node.addEventListener("mouseover", handleMouseOver);
-                    node.addEventListener("mouseout", handleMouseOut);
-                    return () => {
-                        node.removeEventListener("mouseover", handleMouseOver);
-                        node.removeEventListener("mouseout", handleMouseOut);
-                    };
-                }
-            },
-            [ref.current] // Recall only if ref changes
-        );
-        return [ref, value];
-    }
 
 
 
 
-    const [hoverRef, isHovered] = useHover<HTMLDivElement>();
-
-
-
-
-    console.log(isHovered, device)
-
+    const [isHovered, setIsHovered] = React.useState(false)
 
     return (
-        <div ref={hoverRef} className={isHovered ? c.device_item_hovered : c.device_item} >
+        <div className={isHovered ? c.device_item_hovered : c.device_item}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             {device.oldPrice > device.price ?
                 <div className={c.discount_alert}>
                     DISCOUNT
@@ -114,7 +87,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 null
             }
             <div className={c.image_container} onClick={() => { navigate(`/${device.type}/${device.id}`) }}>
-                <img alt={device.faceDescription} src={isHovered? device.images[device.colors[0]][0] :  device.images[device.colors[0]][1]  } />
+                <img alt={device.faceDescription} src={isHovered ? device.images[device.colors[0]][0] : device.images[device.colors[0]][1]} />
             </div>
 
             <div className={c.device_item_info_block}>

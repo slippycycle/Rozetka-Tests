@@ -2,7 +2,7 @@ import React from 'react'
 import { AllBrandsContex, MobileSortActive } from '../context'
 import { sortDevicestypes } from '../models/models';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
-import { setCurrentPage, setLimit, setSortType } from '../store/features/Device.Slice';
+import { setCurrentPage, setLimit, setSortType } from '../store/features/Devices.Slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import c from '../styles/LeftMobileFilter.module.scss'
 import BrandsCheckListContainer from './BrandsCheckListContainer';

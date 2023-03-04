@@ -48,7 +48,7 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts',
     async function (fetchParams: Params, { rejectWithValue }) {
         try {
 
-            const response = await axios.get<DeviceI[]>(`http://localhost:3001/products`, { params: fetchParams })
+            const response = await axios.get<DeviceI[]>(`http://localhost:3001/products`, { params: fetchParams})
 
             console.log(response?.data?.length)
 
@@ -58,7 +58,7 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts',
 
 
         } catch (e) {
-            return rejectWithValue((e as AxiosError).message)
+            return rejectWithValue((e as AxiosError).message as string)
         }
     }
 )

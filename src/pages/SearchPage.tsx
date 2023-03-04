@@ -16,6 +16,7 @@ export default function SearchPage() {
   const [active, setActive] = React.useState(false)
   const [brands, setBrands] = React.useState(['apple', 'samsung', 'xiaomi', 'SONY'])
 
+  const [isSomethingFounded, setIssomethingFounded] = React.useState<boolean>(false)
 
   function handleMenuState() {
     setActive(active => !active)
@@ -32,7 +33,7 @@ export default function SearchPage() {
           <LeftMobileFilter />
           <SearchHeader searchQuerry={searchQuerry} />
           <div className={c.wrap}>
-            <SerachPageFilter />
+            <SerachPageFilter  />
             <SearchPageDevicesPanel query={searchQuerry} />
           </div>
 
