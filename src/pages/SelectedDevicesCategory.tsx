@@ -12,9 +12,7 @@ export default function SelectedCategoryPage() {
             <CategoryHeader />
             <SortDevicesBar  />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-
                 <ComponentsCategory />
-
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import c from '../styles/HomePage.module.scss'
 import { useAppDispatch } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
+import { setCurrentPage } from '../store/features/Devices.Slice';
 
 interface TypesComponentProps {
     typesArray: Types[]
@@ -24,6 +25,8 @@ export default function TypesComponent({ typesArray }: TypesComponentProps) {
     function redirectHandle(tp: Types) {
         navigate(`/${tp.type}`)
         //reset selected brands in case we change category page  
+        dispatch(setCurrentPage(1))
+        //reset pages 
         dispatch(addSelectedBrands([]))
     }
 

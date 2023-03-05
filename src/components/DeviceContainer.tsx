@@ -44,10 +44,10 @@ export default function DevicesContainer({ devicesArray }: DevicesContainerProps
                     null
                 }
                 {
-                    currentPage == pagesArray[pagesArray.length - 1] || pagesArray.length > 1?
-                    null
-                    :
+                    currentPage !== pagesArray[pagesArray.length - 1] && pagesArray.length > 1?
                     <button className={c.page__button__next} onClick={() => { dispacth(setNextPage()) }}>Next page</button>
+                    :
+                    null
                 }
 
             </div>
