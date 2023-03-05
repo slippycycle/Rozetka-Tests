@@ -12,7 +12,9 @@ export default function Home({ handleCategory }: HandleCategoryProps) {
 
   return (
     <div className={c.home_container}>
+     
       <HorizontalBasket />
+     
       <div className={c.banner_wrap}>
         <BannerSlider />
       </div>

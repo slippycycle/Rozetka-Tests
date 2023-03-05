@@ -6,7 +6,7 @@ import HorizontalBasketImageContainer from './HorizontalBasketImage'
 
 export default function HorizontalBasket() {
 
-    const { devicesId, totalSum } = useAppSelector(state => state.basketReducer)
+    const { reload, totalSum } = useAppSelector(state => state.basketReducer)
 
     const [basket, setBasket] = React.useState([])
 
@@ -22,7 +22,7 @@ export default function HorizontalBasket() {
         } else {
             setBasket([])
         }
-    }, [])
+    }, [totalSum])
 
     return (
         <div className={c.horizontal_basket}>

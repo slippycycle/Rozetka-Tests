@@ -102,7 +102,6 @@ export default React.memo(function BrandsCheckList() {
                                         onClick={handleSelect}
                                         type="checkbox">
                                     </input>
-
                                 }
 
                                 <span className={c.checkmark}></span>
