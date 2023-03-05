@@ -6,7 +6,6 @@ import App from './App';
 import './index.css';
 
 
-
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
@@ -15,7 +14,9 @@ const root = createRoot(container);
 if (localStorage.getItem('basket') == null || localStorage.getItem('basket') == ' ' || localStorage.getItem('basket') == '') { 
   localStorage.setItem('basket', '[]') 
 }
-
+if (localStorage.getItem('recentlyViewed') == null || localStorage.getItem('recentlyViewed') == ' ' || localStorage.getItem('recentlyViewed') == '') { 
+  localStorage.setItem('recentlyViewed', '[]') 
+}
 
 
 const store = setupStore();

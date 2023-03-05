@@ -10,16 +10,31 @@ export default function DevicePage() {
 
   //taking clear device id from url
 
+  const deviceId = window.location.pathname.replaceAll('/phone/', '').replaceAll('/laptops/', '').replaceAll('/consoles/', '')
+
   const [device, setDevicd] = React.useState<DeviceI | null>(null)
   const [loading, setLoading] = React.useState<boolean>(true)
 
 
+  React.useEffect(() => {
+    
+    //adding to recently viewed
+    const recentlyViewedItems = JSON.parse(localStorage.getItem('recentlyViewed') as string)
+    if (!recentlyViewedItems.includes(deviceId)) {
+
+      recentlyViewedItems.unshift(deviceId)
+      localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewedItems) )
+    } 
+
+    
+
+  }, [])
 
 
   async function fetchingDeviceById() {
 
     try {
-      const deviceId = window.location.pathname.replaceAll('/phone/', '').replaceAll('/laptops/', '').replaceAll('/consoles/', '')
+     
       const response = await axios.get(`http://localhost:3001/products?id=${deviceId}`)
       return await response.data[0] as DeviceI
     } catch (error) {

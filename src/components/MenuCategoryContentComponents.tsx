@@ -10,7 +10,7 @@ interface MenuCategoryContentComponentsProps {
 
 export default function MenuCategoryContentComponents({ active,error, loading,types }: MenuCategoryContentComponentsProps) {
     return (
-        <div className={active ? c.category__content__active : c.category__content}>
+        <div className={c.category__content__active}>
             {error && !loading ?
                 <p>{error ? error : loading}</p>
                 :

@@ -34,19 +34,20 @@ export default function Menu() {
                 </div>
 
 
-                <div className={c.menu__category}>
+                <div  onClick={() => setActiveContent(prev => !prev)} className={c.menu__category}>
                     <span className="material-symbols-outlined">
                         category
                     </span>
                     Category
-                    <div onClick={() => setActiveContent(prev => !prev)} className={c.arrow__container}>
+                    <div className={c.arrow__container}>
                         <span className="material-symbols-outlined">
                             {activeContent ? 'expand_less' : 'expand_more'}
                         </span>
                     </div>
                 </div>
 
-                <MenuCategoryContentComponents types={types} loading={loading} error={error} active={active} />
+
+                <MenuCategoryContentComponents types={types} loading={loading} error={error} active={activeContent} />
 
 
                 <ul className={c.ul_links}>
