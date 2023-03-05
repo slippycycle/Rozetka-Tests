@@ -1,10 +1,12 @@
 import React, { useRef } from 'react'
 import { handleBasket } from '../store/features/Basket.Slice'
-import { fetchProducts } from '../store/features/Devices.Slice'
+import { fetchProducts, setCurrentPage, setNextPage } from '../store/features/Devices.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SearchPage.module.scss'
+import { getPages } from '../utils/pagination'
 import DeviceItem from './DeviceItem'
 import Loader from './Loader'
+import PaginationControll from './PaginationControll'
 
 type searchQuery = string
 
@@ -15,10 +17,25 @@ interface SearchPageDevicesPanelProps {
 
 export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanelProps) {
 
+    const { error, loading, devices,tottalItems, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
+
+    const dispacth = useAppDispatch()
+
+    const [pagesArray, setPagesArray] = React.useState<number[]>([])
+
+    
+    React.useEffect(() => {
+        if (Array.isArray( devices) ){
+            setPagesArray(getPages(limit, devices.length))
+        }
+    }, [loading])
+    
+    
+    console.log(pagesArray, limit, tottalItems,'NEED')
+
 
     const dispatch = useAppDispatch()
 
-    const { error, loading, devices, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
 
     const { maxPrice, minPrice } = useAppSelector((state) => state.rangeReducer)
 
@@ -72,7 +89,7 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
 
 
     return (
-        <>
+        <div className={c.serach_page_content}>
             {loading ?
                 <div className={c.loader_container}>
                     <Loader />
@@ -84,17 +101,12 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
                         <h1>{error as string}</h1>
                         :
                         <div className={c.devices__list__container}>
-
-
                             {devices?.map((dev) => <DeviceItem handleBacketFn={handleBasket} key={dev.id} dispatch={dispatch} device={dev} />)}
-
-
                         </div>
                     }
 
-
                 </>
             }
-        </>
+        </div>
     )
 }

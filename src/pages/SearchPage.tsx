@@ -1,5 +1,6 @@
 import React from 'react'
 import LeftMobileFilter from '../components/LeftMobileFilter'
+import PaginationControll from '../components/PaginationControll'
 import SearchHeader from '../components/SearchHeader'
 import SearchPageDevicesPanel from '../components/SearchPageDevicesPanel'
 import SerachPageFilter from '../components/SerachPageFilter'
@@ -26,14 +27,16 @@ export default function SearchPage() {
 
   return (
 
-    <div  className={c.main_wrap}>
+    <div className={c.main_wrap}>
       <MobileSortActive.Provider value={{ active, handleMenuState }} >
         <AllBrandsContex.Provider value={{ brands }}>
 
           <LeftMobileFilter />
           <SearchHeader searchQuerry={searchQuerry} />
           <div className={c.wrap}>
-            <SerachPageFilter  />
+            <div className={c.filter_content}>
+              <SerachPageFilter />
+            </div>
             <SearchPageDevicesPanel query={searchQuerry} />
           </div>
 

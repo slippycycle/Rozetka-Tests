@@ -27,7 +27,15 @@
   "chats": [
     {
       "id": "11",
-      "messages": []
+      "messages": [
+        {
+          "from": "Ugwei",
+          "message": "оутбук Apple MacBook Pro 16 M2 Pro 512GB 2023 (MNWC3UA/A) Silver ?? // qwdwdad",
+          "id": "6027c46c-ddf4-1b0e-1045-a486ba35ceb1",
+          "replies": [],
+          "date": "5-3-2023"
+        }
+      ]
     },
     {
       "id": "10",

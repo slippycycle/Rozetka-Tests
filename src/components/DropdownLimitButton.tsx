@@ -1,7 +1,7 @@
 import React from 'react'
 import { setLimit } from '../store/features/Devices.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import c from '../styles/LeftMobileFilter.module.scss'
+import c from '../styles/DropdownLimitButton.module.scss'
 
 export default function DropdownLimitButton() {
    

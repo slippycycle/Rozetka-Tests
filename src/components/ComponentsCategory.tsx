@@ -1,6 +1,6 @@
 import React from 'react'
 import c from '../styles/DevicesComponents.module.scss'
-import DevicePanel from './DevicePanel'
+import DevicePanel from './DevicesPanel'
 import LeftFilter from './LeftFilter'
 
 

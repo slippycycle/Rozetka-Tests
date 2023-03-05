@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import { getPages } from '../utils/pagination'
 import CategoryHeader from './CategoryHeader'
-import DevicesContainer from './DeviceContainer'
+import DevicesContainer from './DevicesContainer'
 import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
 
