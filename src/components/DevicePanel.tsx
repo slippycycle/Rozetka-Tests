@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import { getPages } from '../utils/pagination'
 import CategoryHeader from './CategoryHeader'
-import DeviceContainer from './DeviceContainer'
+import DevicesContainer from './DeviceContainer'
 import Loader from './Loader'
 import SortDevicesBar from './SortDevicesBar'
 
@@ -71,7 +71,7 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
     return (
         <div className={c.wrap}>
             {error ? <h2>{error as string}</h2> : null}
-            {loading ? <Loader /> : <DeviceContainer devicesArray={devices} />}
+            {loading ? <Loader /> : <DevicesContainer devicesArray={devices} />}
         </div>
     )
 }

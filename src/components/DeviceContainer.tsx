@@ -1,6 +1,6 @@
 import React from 'react'
 import { DeviceI } from '../models/models'
-import basketSlice, { handleBasket } from '../store/features/Basket.Slice'
+import  { handleBasket } from '../store/features/Basket.Slice'
 import { setCurrentPage, setNextPage } from '../store/features/Devices.Slice'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
@@ -8,13 +8,13 @@ import { getPages } from '../utils/pagination'
 import DeviceItem from './DeviceItem'
 
 
-interface DeviceContainerProps {
+interface DevicesContainerProps {
     devicesArray: DeviceI[]
 }
 
 
 
-export default function DeviceContainer({ devicesArray }: DeviceContainerProps) {
+export default function DevicesContainer({ devicesArray }: DevicesContainerProps) {
 
     const dispacth = useAppDispatch()
 

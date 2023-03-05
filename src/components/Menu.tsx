@@ -7,9 +7,9 @@ import MenuCategoryContentComponents from './MenuCategoryContentComponents'
 
 export default function Menu() {
 
-    const [active, setActive] = React.useState<boolean>(false)
+    const [activeContent, setActiveContent] = React.useState<boolean>(false)
 
-    const menuState = React.useContext(MenuContext)
+    const {active, menuHandle} = React.useContext(MenuContext)
 
     console.log('menu active')
 
@@ -17,21 +17,15 @@ export default function Menu() {
 
     const menuRef = React.useRef(null)
 
+  console.log( 'AAAA');
 
 
     return (
 
-        <div ref={menuRef} onClick={
-            (e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                e.nativeEvent.stopImmediatePropagation()
-                console.log('closed')
-            }
-        } className={menuState.active ? c.menu__active : c.menu}>
+        <div ref={menuRef} className={active ? c.menu__active : c.menu}>
             <div className={c.menu_content}>
-                <button className={c.close__button} onClick={menuState.menuHandle}>
-                    <span onClick={menuState.menuHandle} className="material-symbols-outlined">
+                <button className={c.close__button} onClick={menuHandle}>
+                    <span  className="material-symbols-outlined">
                         close
                     </span>
                 </button>
@@ -45,9 +39,9 @@ export default function Menu() {
                         category
                     </span>
                     Category
-                    <div onClick={() => setActive(prev => !prev)} className={c.arrow__container}>
+                    <div onClick={() => setActiveContent(prev => !prev)} className={c.arrow__container}>
                         <span className="material-symbols-outlined">
-                            {active ? 'expand_less' : 'expand_more'}
+                            {activeContent ? 'expand_less' : 'expand_more'}
                         </span>
                     </div>
                 </div>

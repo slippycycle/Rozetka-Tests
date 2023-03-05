@@ -26,6 +26,67 @@
   ],
   "chats": [
     {
+      "id": "11",
+      "messages": []
+    },
+    {
+      "id": "10",
+      "messages": [
+        {
+          "from": "Ugwei",
+          "message": "FIRST QUESTIN BELOW APPLE MAC BOOK AIR 13 M 1",
+          "id": "453ebe94-4433-c418-3b8b-afc9f2f8a6a5",
+          "replies": [],
+          "date": "4-3-2023"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "messages": [
+        {
+          "from": "Ugwei",
+          "message": " sef se",
+          "id": "4978a6ac-a8d3-fc58-0cb1-39524b2af78f",
+          "replies": [],
+          "date": "4-3-2023"
+        },
+        {
+          "from": "Ugwei",
+          "message": "es ef esf es",
+          "id": "329a4142-5d74-8c55-086c-e4aa20e2c542",
+          "replies": [],
+          "date": "4-3-2023"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "messages": [
+        {
+          "from": "Ugwei",
+          "message": "wa daw dwa wad ",
+          "id": "21f4429d-3e87-9fef-63ab-cd89571ac3a7",
+          "replies": [],
+          "date": "4-3-2023"
+        },
+        {
+          "from": "Ugwei",
+          "message": "WEEEE E EE E ",
+          "id": "da4e1700-bf76-bc29-d472-881d26345abd",
+          "replies": [],
+          "date": "4-3-2023"
+        },
+        {
+          "from": "Ugwei",
+          "message": "FIRST QUESTION FROM ME ",
+          "id": "98e13ac1-236b-79c8-d6a4-d6c273eb136e",
+          "replies": [],
+          "date": "4-3-2023"
+        }
+      ]
+    },
+    {
       "id": "1",
       "messages": [
         {
@@ -2298,6 +2359,188 @@
           "https://content.rozetka.com.ua/goods/images/big/284920866.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/284920874.jpg",
           "https://content2.rozetka.com.ua/goods/images/big/284920891.jpg"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "name": "iphone14",
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 28 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM 11"
+        },
+        {
+          "header": "memory",
+          "body": "128Gb"
+        }
+      ],
+      "brand": "apple",
+      "questionsId": "8",
+      "seller": "Dady Rafik(Marshrutka)",
+      "type": "phone",
+      "oldPrice": 43000,
+      "price": 41999,
+      "colors": [
+        "red",
+        "purple"
+      ],
+      "description": "bla  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.bla bla bla bla bla bla bla ",
+      "rating": 5,
+      "faceDescription": "Mobile phone Aplle Iphone 14 128GB ",
+      "images": {
+        "red": [
+          "https://content2.rozetka.com.ua/goods/images/big/284913542.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913560.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913574.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/284913604.jpg"
+        ],
+        "purple": [
+          "https://content1.rozetka.com.ua/goods/images/big/284913534.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913552.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/284913565.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913588.jpg"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "name": "iphone14",
+      "characteristics": [
+        {
+          "header": "Camera",
+          "body": " 28 mgpx SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM 11"
+        },
+        {
+          "header": "memory",
+          "body": "128Gb"
+        }
+      ],
+      "brand": "apple",
+      "questionsId": "9",
+      "seller": "Dady Rafik(Marshrutka)",
+      "type": "phone",
+      "oldPrice": 43000,
+      "price": 41999,
+      "colors": [
+        "purple",
+        "red"
+      ],
+      "description": "bla  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.bla bla bla bla bla bla bla ",
+      "rating": 5,
+      "faceDescription": "Mobile phone Aplle Iphone 14 128GB ",
+      "images": {
+        "red": [
+          "https://content2.rozetka.com.ua/goods/images/big/284913542.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913560.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913574.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/284913604.jpg"
+        ],
+        "purple": [
+          "https://content1.rozetka.com.ua/goods/images/big/284913534.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913552.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/284913565.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/284913588.jpg"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "name": "macbookair13",
+      "characteristics": [
+        {
+          "header": "GPU",
+          "body": "SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM 13"
+        },
+        {
+          "header": "memory",
+          "body": "1TB"
+        }
+      ],
+      "brand": "apple",
+      "questionsId": "10",
+      "seller": "Dady Rafik(TroleiBus)",
+      "type": "laptops",
+      "oldPrice": 67000,
+      "price": 63999,
+      "colors": [
+        "gold"
+      ],
+      "description": "bla  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.bla bla bla bla bla bla bla ",
+      "rating": 5,
+      "faceDescription": "Ноутбук Apple MacBook Air 13 M1 256GB 2020 (MGND3) Gold ",
+      "images": {
+        "gold": [
+          "https://content.rozetka.com.ua/goods/images/big/30872664.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/30872671.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/30872706.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/30872694.jpg"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "name": "macbookpro16",
+      "characteristics": [
+        {
+          "header": "GPU",
+          "body": "SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM23"
+        },
+        {
+          "header": "memory",
+          "body": "512GB"
+        }
+      ],
+      "brand": "apple",
+      "questionsId": "11",
+      "seller": "Dady Rafik(TroleiBus)",
+      "type": "laptops",
+      "oldPrice": 140000,
+      "price": 129999,
+      "colors": [
+        "grey"
+      ],
+      "description": "bla  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.bla bla bla bla bla bla bla ",
+      "rating": 5,
+      "faceDescription": "Ноутбук Apple MacBook Pro 16 M2 Pro 512GB 2023 (MNWC3UA/A) Silver ",
+      "images": {
+        "grey": [
+          "https://content.rozetka.com.ua/goods/images/big/308891503.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/308891505.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/308891506.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/308891507.jpg"
         ]
       }
     }

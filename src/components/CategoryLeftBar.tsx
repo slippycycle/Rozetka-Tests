@@ -13,7 +13,7 @@ interface CategoryLeftBar {
 
 
 
-export default React.memo(function CategoryLeftBar({ visible,handleCategory }: CategoryLeftBar) {
+export default React.memo(function CategoryLeftBar({ visible, handleCategory }: CategoryLeftBar) {
 
   const { types, loading, error } = useAppSelector(state => state.typeReducer)
 
@@ -48,30 +48,46 @@ export default React.memo(function CategoryLeftBar({ visible,handleCategory }: C
         </div>
 
       </div>
-   {
-        
-        <div className={visible? c.category_mobile_active :c.category_mobile}>
-        <div className={c.category}>
 
-           <div onClick={() => {handleCategory(prev => !prev)}} className={c.close_btn}>X</div>
-          {loading ?
-            <Loader />
-            :
-            <>
-              {error ?
-                <p>{error}</p>
-                :
-                <TypesComponent typesArray={(types as Types[])} />
+      {/* mobile left category bar */}
 
-              }
-            </>
-          }
+      {
+
+        <div className={visible ? c.category_mobile_active : c.category_mobile}>
+
+          <div className={c.category}>
+
+            <div className={c.category_top_header}>
+              <h2>Categories</h2>
+              <button onClick={() => { handleCategory(prev => !prev) }} className={c.close_btn}>
+                <span className="material-symbols-outlined">
+                  close
+                </span>
+              </button>
+
+            </div>
+
+          <div className={c.categories_list_wrap}>
+            {loading ?
+              <Loader />
+              :
+              <>
+                {error ?
+                  <p>{error}</p>
+                  :
+                  <TypesComponent typesArray={(types as Types[])} />
+
+                }
+              </>
+            }
+          </div>
+
+          </div>
+
         </div>
 
-      </div>
-     
 
-     }
+      }
 
     </>
 

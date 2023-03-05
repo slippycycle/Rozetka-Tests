@@ -1,4 +1,4 @@
-import axios, { Axios } from 'axios'
+import axios, { Axios, AxiosError } from 'axios'
 import React from 'react'
 import { DeviceI } from '../models/models'
 import SmallDeviceItem from './SmallDeviceItem'
@@ -19,20 +19,21 @@ export function DeviceItemFromBasket({ id }: DeviceItemFromBacketProps) {
       
         try {
             const response = await axios.get(`http://localhost:3001/products?id=${id}`)
-    
             const result = (response.data[0] as DeviceI )
-             
-            return result
-        
-        } catch(e) {
-            setError(e.message? e.message as string : 'Error')
+            setDevice( result )
+        } 
+        catch (e) {
+            const error = e as AxiosError;
+            setError(error.message? error.message : 'Error')   
         }
+
+        
 
     }
 
     React.useEffect(() => {
         setLoading(true)
-        fetchDevice().then(res => setDevice(res)).then(res => setLoading(false))
+        fetchDevice().then( res => setLoading(false))
 
     }, [])
 
