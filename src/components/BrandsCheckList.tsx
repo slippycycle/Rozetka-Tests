@@ -19,11 +19,9 @@ export default function BrandsCheckList() {
 
     const brandsStore = useAppSelector(state => state.brandReducer)
 
-    const [loading, setLoading] = React.useState(true)
-
     const takeCurrentTypeThrowUrl = window.location.pathname.replaceAll('/', '')
 
-    console.log(takeCurrentTypeThrowUrl, 'BRANDS CHECK LIST')
+   
 
   
  

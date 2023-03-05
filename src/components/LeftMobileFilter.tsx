@@ -1,33 +1,23 @@
 import React from 'react'
-import { AllBrandsContex, MobileSortActive } from '../context'
+import { MobileSortActive } from '../context'
 import { sortDevicestypes } from '../models/models';
-import { addSelectedBrands } from '../store/features/Brands.Slice';
-import { setCurrentPage, setLimit, setSortType } from '../store/features/Devices.Slice';
+import { setLimit, setSortType } from '../store/features/Devices.Slice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import c from '../styles/LeftMobileFilter.module.scss'
 import BrandsCheckListContainer from './BrandsCheckListContainer';
 import DoubleRangeSlider from './DoubleRangeSlider';
 import DoubleRangeSliderMobile from './DoubleRangeSliderMobile';
+import DropdownLimitButton from './DropdownLimitButton';
 
 
 
 export default function LeftMobileFilter() {
 
-
     const menuState = React.useContext(MobileSortActive)
-
 
     const { defaultMaxPrice, defaultminPrice, maxPrice, minPrice } = useAppSelector(state => state.rangeReducer)
 
-    function handleSortType(sortType: sortDevicestypes) {
-
-        dispatch(setSortType(sortType))
-    
-      }
-
-    const dispatch = useAppDispatch()
-
-    const { limit } = useAppSelector(state => state.productReducer)
+    console.log('left mobile filter RENDER CCCCC')
 
     return (
         <div className={menuState.active ? c.menu_active : c.menu}>
@@ -47,16 +37,7 @@ export default function LeftMobileFilter() {
                     {/* if device has no touch screen */}
                     <DoubleRangeSliderMobile maxSum={maxPrice} startSum={minPrice} endSum={maxPrice} />
                 </div>
-                <div className={c.dropdown_limit}>
-
-                    <button className={c.dropbtn_limit}>{`Show by: ${limit}`}</button>
-                    <div className={c.dropdown_content_limit}>
-                        <a onClick={() => dispatch(setLimit(5))} >5</a>
-                        <a onClick={() => dispatch(setLimit(10))} >10</a>
-                        <a onClick={() => dispatch(setLimit(20))} >20</a>
-                        <a onClick={() => dispatch(setLimit(30))} >30</a>
-                    </div>
-                </div>
+                <DropdownLimitButton />
             </div>
         </div>
     )

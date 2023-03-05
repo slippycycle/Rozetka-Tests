@@ -7,18 +7,17 @@ import Loader from './Loader'
 
 export default function BrandsCheckListContainer() {
 
-    // const getCurrentType = useAppSelector((state) => state.brandReducer)
+    const getCurrentType = useAppSelector((state) => state.brandReducer)
 
-    console.log('render sortbybrandsleftBar as left bar')
 
     return (
 
         <>
-            {/* {loading ?
+            {getCurrentType.loading ?
                 <Loader />
-                : */}
+                :
                 <BrandsCheckList />
-            {/* } */}
+            }
 
         </>
 

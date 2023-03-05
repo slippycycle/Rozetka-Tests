@@ -79,4 +79,4 @@ function SortDevicesBar() {
   )
 }
 
-export default memo(SortDevicesBar);
+export default SortDevicesBar;
