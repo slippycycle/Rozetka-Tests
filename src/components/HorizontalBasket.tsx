@@ -6,7 +6,9 @@ import HorizontalBasketImageContainer from './HorizontalBasketImage'
 
 export default function HorizontalBasket() {
 
-    const { reload, totalSum } = useAppSelector(state => state.basketReducer)
+    const { totalSum } = useAppSelector(state => state.basketReducer)
+
+    const { reload } = useAppSelector(state => state.basketStateSlice)
 
     const [basket, setBasket] = React.useState([])
 

@@ -7,6 +7,7 @@ import basketReducer from './features/Basket.Slice'
 import chatReducer from './features/Chat.Slice'
 import rangeReducer from './features/PriceRange'
 import sortReducer from './features/SortDevices.Slice'
+import basketStateSlice from './BasketState.Slice';
 
 
 
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   basketReducer,
   rangeReducer,
   chatReducer,
-  sortReducer
+  sortReducer,
+  basketStateSlice
 
    
 })

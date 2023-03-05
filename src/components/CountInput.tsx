@@ -1,8 +1,8 @@
-import React, { Dispatch, MutableRefObject, SetStateAction, useEffect } from 'react'
+import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import { CountContext } from '../context';
-import { addToTotalSum, makeRender, removeFromTotalSum, setTotalSum } from '../store/features/Basket.Slice';
+import { addToTotalSum, } from '../store/features/Basket.Slice';
 import { useAppDispatch } from '../store/hooks';
-import c from '../styles/CountInput.module.scss'
+
 
 interface CountInputProps {
     defaultVal: number 

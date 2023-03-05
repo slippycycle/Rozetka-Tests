@@ -6,7 +6,8 @@ import BacketList from './BasketList'
 
 export default function Basket() {
 
-  const { basketActive, devices, reload } = useAppSelector(state => state.basketReducer)
+  const { basketActive, devices } = useAppSelector(state => state.basketReducer)
+  const {reload} = useAppSelector(state => state.basketStateSlice)
   const { totalSum } = useAppSelector(state => state.basketReducer)
 
   let devicesId: string[] = JSON.parse(localStorage.getItem('basket') as string)

@@ -1,7 +1,8 @@
 import React from 'react'
 import { SelectedSubPageContext } from '../context'
 import { BasketDevicesIdArray, DeviceI, DeviceId } from '../models/models'
-import { handleBasket, makeRender } from '../store/features/Basket.Slice'
+import { makeRender } from '../store/BasketState.Slice'
+import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePage.module.scss'
 
@@ -18,7 +19,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
 
     const { selected } = React.useContext(SelectedSubPageContext)
 
-    const { reload } = useAppSelector(state => state.basketReducer)
+    const { reload } = useAppSelector(state => state.basketStateSlice)
 
     const parsedBasket = JSON.parse(localStorage.getItem('basket') as string)
 

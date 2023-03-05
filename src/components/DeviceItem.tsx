@@ -2,7 +2,8 @@ import { render } from '@testing-library/react'
 import React, { MutableRefObject, SyntheticEvent, useCallback, useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { DeviceI } from '../models/models'
-import { handleBasket, makeRender } from '../store/features/Basket.Slice'
+import { makeRender } from '../store/BasketState.Slice'
+import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { AppDispatch } from '../store/store'
 
@@ -22,7 +23,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
     let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
 
 
-    const { reload } = useAppSelector(state => state.basketReducer)
+    const { reload } = useAppSelector(state => state.basketStateSlice)
 
 
     function handleDevicebacket() {

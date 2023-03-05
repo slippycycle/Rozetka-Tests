@@ -10,7 +10,7 @@ interface BacketState {
     basketActive: boolean
     totalSum: number
     devices: DeviceI[],
-    reload: boolean
+  
 }
 
 export const initialState:BacketState = {
@@ -18,7 +18,6 @@ export const initialState:BacketState = {
     basketActive: false,
     totalSum: 0,
     devices: [],
-    reload: false
    
 }
 
@@ -35,9 +34,6 @@ const basketSlice = createSlice({
         setDevicesIdFromBasket(state, actions) {
             state.devicesId = actions.payload
         },
-        makeRender(state) {
-          state.reload = !state.reload
-        }, 
         setDevicesFromBasket(state, actions) {
             state.devices = actions.payload
         },
@@ -64,4 +60,4 @@ const basketSlice = createSlice({
 
 export default  basketSlice.reducer
 
-export const {handleBasket,setTotalSum,removeFromTotalSum,setDevicesFromBasket,pushDevice,addToTotalSum,setDevicesIdFromBasket,deleteDeviceById,makeRender} = basketSlice.actions
+export const {handleBasket,setTotalSum,removeFromTotalSum,setDevicesFromBasket,pushDevice,addToTotalSum,setDevicesIdFromBasket,deleteDeviceById} = basketSlice.actions
