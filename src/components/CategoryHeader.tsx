@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios'
 import React from 'react'
-import { Brand, Types } from '../models/models'
+import { Types } from '../models/models'
 import { useAppSelector } from '../store/hooks'
 import c from '../styles/CategoryHeader.module.scss'
 
@@ -8,43 +8,33 @@ import c from '../styles/CategoryHeader.module.scss'
 
 
 export default function CategoryHeader({}) {
+    
+    
     const takeCurrentType = window.location.pathname.replaceAll('/', '')
-
-    console.log(takeCurrentType, 'CU')
-
     const [categoryObject, setCategoryObject] = React.useState<Types | null>(null)
     const [error, setError] = React.useState<string | null>(null)
-
-
-
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
+    
+    
+    console.log(takeCurrentType, 'CU')
+
 
 
     async function fetchInfoAboutCurrentCategory() {
 
         try {
-
             const response = await axios.get<Types[]>(`http://localhost:3001/types?type=${takeCurrentType}`)
-
             setCategoryObject(response.data[0] as Types)
-
-
         }
         catch (e) {
-
             const err = e as AxiosError
-
             setError(err.message)
-
         }
-
     }
 
     React.useEffect(() => {
         fetchInfoAboutCurrentCategory()
     }, [])
-
-
 
     return (
         <div className={c.category}>
