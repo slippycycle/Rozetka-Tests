@@ -4,22 +4,27 @@ import { Brand, Types } from '../models/models'
 import { useAppSelector } from '../store/hooks'
 import c from '../styles/CategoryHeader.module.scss'
 
-interface CategoryHeaderProps {
-    brands?: Brand[]
-    category: string
-}
 
 
-export default function CategoryHeader({ brands, category }: CategoryHeaderProps) {
+
+export default function CategoryHeader({}) {
+    const takeCurrentType = window.location.pathname.replaceAll('/', '')
+
+    console.log(takeCurrentType, 'CU')
 
     const [categoryObject, setCategoryObject] = React.useState<Types | null>(null)
     const [error, setError] = React.useState<string | null>(null)
+
+
+
+    const { selectedBrands } = useAppSelector((state) => state.brandReducer)
+
 
     async function fetchInfoAboutCurrentCategory() {
 
         try {
 
-            const response = await axios.get<Types[]>(`http://localhost:3001/types?type=${category}`)
+            const response = await axios.get<Types[]>(`http://localhost:3001/types?type=${takeCurrentType}`)
 
             setCategoryObject(response.data[0] as Types)
 
@@ -43,9 +48,9 @@ export default function CategoryHeader({ brands, category }: CategoryHeaderProps
 
     return (
         <div className={c.category}>
-            {brands?.length == 1 ?
+            {selectedBrands?.length == 1 ?
             //in case where we select only one brand in type phone for example me fill change it to //Mobile Phone => Mobile Phone { Applle as selected brand }
-                <h2>{error ? error : categoryObject?.fullTypeName + ' ' + brands[0]}</h2>
+                <h2>{error ? error : categoryObject?.fullTypeName + ' ' + selectedBrands[0]}</h2>
                 :
                 <h2>{error ? error : categoryObject?.fullTypeName}</h2>
             }

@@ -7,19 +7,10 @@ import  c from '../styles/SelectedDevicePage.module.scss'
 
 export default function SelectedCategoryPage() {
 
-    const takeCurrentType = window.location.pathname.replaceAll('/', '')
-
-    console.log(takeCurrentType, 'CU')
-
-    const { selectedBrands } = useAppSelector((state) => state.brandReducer)
-
-
-    const { currentSortType } = useAppSelector(state => state.productReducer)
-
     return (
         <div className={c.selected_category_wrap}>
-            <CategoryHeader brands={selectedBrands} category={takeCurrentType} />
-            <SortDevicesBar currentSortType={currentSortType as string} />
+            <CategoryHeader />
+            <SortDevicesBar  />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
 
                 <ComponentsCategory />

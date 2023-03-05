@@ -68,7 +68,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
 
 
-
+   console.log('deviceItem render')
 
 
 

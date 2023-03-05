@@ -13,7 +13,7 @@ import { takeType } from '../API/fetchType';
 
 
 
-export default React.memo(function BrandsCheckList() {
+export default function BrandsCheckList() {
 
     const [list, setList] = React.useState<string[] | []>([])
 
@@ -23,7 +23,7 @@ export default React.memo(function BrandsCheckList() {
 
     const takeCurrentTypeThrowUrl = window.location.pathname.replaceAll('/', '')
 
-    console.log(takeCurrentTypeThrowUrl, 'URL')
+    console.log(takeCurrentTypeThrowUrl, 'BRANDS CHECK LIST')
 
   
  
@@ -116,6 +116,6 @@ export default React.memo(function BrandsCheckList() {
         </div>
 
     )
-})
+}
 
 
