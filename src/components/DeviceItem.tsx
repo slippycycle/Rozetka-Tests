@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import React, { MutableRefObject, SyntheticEvent, useCallback, useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { DeviceI } from '../models/models'
-import { makeRender } from '../store/BasketState.Slice'
+import { makeRender } from '../store/features/BasketState.Slice'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { AppDispatch } from '../store/store'
@@ -69,7 +69,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
 
 
-   console.log('deviceItem render')
+    console.log('deviceItem render')
 
 
 
@@ -109,10 +109,13 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                     <div className={c.price_block}>
                         {
                             device.oldPrice > device.price ?
-                                <h2 className={c.discount_font}>
+
+                                <>
                                     <h4>{device.oldPrice}</h4>
-                                    {device.price}
-                                </h2>
+                                    <h2 className={c.discount_font}>
+                                        {device.price}
+                                    </h2>
+                                </>
                                 :
                                 <h2>
 

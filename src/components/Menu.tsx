@@ -19,6 +19,8 @@ export default function Menu() {
 
     console.log( 'AAAA');
 
+   
+    
 
     return (
 
@@ -33,13 +35,12 @@ export default function Menu() {
                     <h2>SKRIX Devices</h2>
                 </div>
 
-
-                <div  onClick={() => setActiveContent(prev => !prev)} className={c.menu__category}>
-                    <span className="material-symbols-outlined">
+                <div onClick={() => setActiveContent(prev => !prev)} className={c.menu__category}>
+                    <span   className="material-symbols-outlined">
                         category
                     </span>
                     Category
-                    <div className={c.arrow__container}>
+                    <div   className={c.arrow__container}>
                         <span className="material-symbols-outlined">
                             {activeContent ? 'expand_less' : 'expand_more'}
                         </span>
@@ -47,7 +48,7 @@ export default function Menu() {
                 </div>
 
 
-                <MenuCategoryContentComponents types={types} loading={loading} error={error} active={activeContent} />
+                {/* <MenuCategoryContentComponents types={types} loading={loading} error={error} active={activeContent} /> */}
 
 
                 <ul className={c.ul_links}>

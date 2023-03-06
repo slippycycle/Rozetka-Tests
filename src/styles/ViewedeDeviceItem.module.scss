@@ -1,0 +1,47 @@
+@import 'colors';
+
+.cart {
+    height: 85%;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-right: 1px solid $light_grey;
+    position: relative;
+
+
+    label {
+        position: absolute;
+        left: 0px;
+        background-color: $links_color;
+        font-size: 0.8rem;
+        color: white;
+        display: inline;
+        width: auto;
+        height: auto;
+        padding: 3px 7px 3px 7px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+
+    }
+
+    .image_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        height: 70%;
+
+        img {
+            max-width: 85%;
+            max-height: 85%;
+        }
+
+    }
+
+    .text_wrap {
+        width: 100%;
+        font-size: 1rem;
+
+    }
+
+}

@@ -1,9 +1,10 @@
 import axios, { AxiosError } from "axios";
+import { SERVER_URL } from "../consts";
 
 export async function fetchBrands () {
     try {
 
-        const response = await axios.get<string[]>('http://localhost:3001/brands')
+        const response = await axios.get<string[]>(`${SERVER_URL}}brands`)
 
         return  response.data
         

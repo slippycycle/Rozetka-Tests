@@ -1,7 +1,7 @@
 import React from 'react'
 import { SelectedSubPageContext } from '../context'
 import { BasketDevicesIdArray, DeviceI, DeviceId } from '../models/models'
-import { makeRender } from '../store/BasketState.Slice'
+import { makeRender } from '../store/features/BasketState.Slice'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePage.module.scss'

@@ -60,27 +60,29 @@ export default React.memo(function CategoryLeftBar({ visible, handleCategory }: 
             <div className={c.category_top_header}>
               <h2>Categories</h2>
               <button onClick={() => { handleCategory(prev => !prev) }} className={c.close_btn}>
-                <span className="material-symbols-outlined">
-                  close
-                </span>
+                <div>
+                  <span className="material-symbols-outlined">
+                    close
+                  </span>
+                </div>
               </button>
 
             </div>
 
-          <div className={c.categories_list_wrap}>
-            {loading ?
-              <Loader />
-              :
-              <>
-                {error ?
-                  <p>{error}</p>
-                  :
-                  <TypesComponent typesArray={(types as Types[])} />
+            <div className={c.categories_list_wrap}>
+              {loading ?
+                <Loader />
+                :
+                <>
+                  {error ?
+                    <p>{error}</p>
+                    :
+                    <TypesComponent typesArray={(types as Types[])} />
 
-                }
-              </>
-            }
-          </div>
+                  }
+                </>
+              }
+            </div>
 
           </div>
 

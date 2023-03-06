@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import axios, { AxiosError, AxiosHeaders } from "axios"
+import { SERVER_URL } from "../../consts"
 import {  Brand, Brands, DeviceI, sortDevicestypes } from "../../models/models"
 
 
@@ -48,7 +49,7 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts',
     async function (fetchParams: Params, { rejectWithValue }) {
         try {
 
-            const response = await axios.get<DeviceI[]>(`http://localhost:3001/products`, { params: fetchParams})
+            const response = await axios.get<DeviceI[]>(`${SERVER_URL}products`, { params: fetchParams})
 
             return response
 
