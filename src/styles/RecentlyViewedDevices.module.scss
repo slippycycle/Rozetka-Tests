@@ -3,17 +3,10 @@
     padding-top: 20px;
     padding-bottom: 20px;
     
-    
-
-
-
-
     .fourtneen_slider {
         display: none;
-        background-color: aqua;
         width: 100%;
         height: 400px;
-
     }
 
     @media (min-width: 1120px) {
@@ -27,7 +20,6 @@
     
     .treeple_slider {
         display: none;
-        background-color: rgb(138, 169, 169);
         width: 100%;
         height: 400px;
     }
@@ -41,9 +33,15 @@
 
     .double_slider {
         display: none;
-        background-color: rgb(50, 69, 240);
         width: 100%;
         height: 400px;
+    }
+
+    @media (max-width: 900px ) and (min-width: 320px) {
+        
+        .double_slider {       
+            display: flex;
+        }
     }
 
 
