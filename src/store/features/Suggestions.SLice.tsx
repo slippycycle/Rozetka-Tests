@@ -47,7 +47,7 @@ export const fetchSuggestionNext = createAsyncThunk('suggetsions/fetchSuggestion
     //http://localhost:3001/products?type=phone&brand=apple&brand=samsung
     //_page=3&_limit=2
 
-    async function (page, { rejectWithValue }) {
+    async function (page : number, { rejectWithValue }) {
         try {
             const response = await axios.get(`${SERVER_URL}suggestion?_page=${page}&_limit=4`)
 

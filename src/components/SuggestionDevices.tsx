@@ -13,7 +13,7 @@ export default function SuggestionDevices() {
 
   const { suggestionDevices, loading } = useAppSelector(state => state.suggetsionsReducer)
 
-  const [count,setCount ] = React.useState<number>(2)
+  const [count, setCount] = React.useState<number>(2)
 
 
   const dispatch = useAppDispatch()
@@ -46,14 +46,22 @@ export default function SuggestionDevices() {
         <h2>Loading</h2>
         :
         <div className={c.content}>
-          {suggestionDevices.map((dev) =>
+          {suggestionDevices.map((dev, index) =>
             <div className={c.deviceItem_wrap}>
+              <label className={c.small_banner}>TOP</label>
               <ViewedeDeviceItem deviceI={dev} />
+
+              {
+                (index + 1 ) == suggestionDevices.length ?
+                  <button className={c.fethc_btn} onClick={fetchNextPart}>
+                    show more
+                  </button>
+                  :
+                  null
+              }
+
             </div>
           )}
-          <button onClick={fetchNextPart}>
-          fetchNextPart
-          </button>
 
         </div>
 
