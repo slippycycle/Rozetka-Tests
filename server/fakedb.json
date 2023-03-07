@@ -26,6 +26,10 @@
   ],
   "chats": [
     {
+      "id": "12",
+      "messages": []
+    },
+    {
       "id": "11",
       "messages": [
         {
@@ -2121,6 +2125,32 @@
         "razer"
       ],
       "icon": "https://cdn-icons-png.flaticon.com/512/114/114734.png"
+    },
+    {
+      "type": "garniture",
+      "fullTypeName": "Garniture",
+      "brands": [
+        "samsung",
+        "apple",
+        "ASUS",
+        "razer",
+        "steal series",
+        "XyperX"
+      ],
+      "icon": "https://cdn-icons-png.flaticon.com/512/114/114734.png"
+    },
+    {
+      "type": "PC ",
+      "fullTypeName": "Garniture",
+      "brands": [
+        "samsung",
+        "apple",
+        "ASUS",
+        "razer",
+        "steal series",
+        "XyperX"
+      ],
+      "icon": "https://cdn-icons-png.flaticon.com/512/114/114734.png"
     }
   ],
   "products": [
@@ -2549,6 +2579,47 @@
           "https://content2.rozetka.com.ua/goods/images/big/308891505.jpg",
           "https://content2.rozetka.com.ua/goods/images/big/308891506.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/308891507.jpg"
+        ]
+      }
+    },  {
+      "id": 12,
+      "name": "ps5",
+      "characteristics": [
+        {
+          "header": "GPU",
+          "body": "SSX PRo MAxt"
+        },
+        {
+          "header": "Screen",
+          "body": "Cool as always"
+        },
+        {
+          "header": "CPU",
+          "body": "AIM23"
+        },
+        {
+          "header": "memory",
+          "body": "512GB"
+        }
+      ],
+      "brand": "SONY",
+      "questionsId": "12",
+      "seller": "Dady Rafik(AirPlane)",
+      "type": "consoles",
+      "oldPrice": 32000,
+      "price": 29999,
+      "colors": [
+        "white"
+      ],
+      "description": "bla  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.bla bla bla bla bla bla bla ",
+      "rating": 5,
+      "faceDescription": "Sony PlayStation 5 White 825Gb Digital Edition + DualSense (White) + Charging Station",
+      "images": {
+        "white": [
+          "https://content2.rozetka.com.ua/goods/images/big/294536773.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/294536780.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/294536788.jpg",
+          "https://content2.rozetka.com.ua/goods/images/big/294536797.jpg"
         ]
       }
     }

@@ -7,7 +7,7 @@ interface ViewedeDeviceItem {
 }
 
 
-export default function ViewedeDeviceItem({ deviceI }: ViewedeDeviceItem) {
+export default function IntroDeviceItem({ deviceI }: ViewedeDeviceItem) {
 
 
 

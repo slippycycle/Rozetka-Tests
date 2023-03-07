@@ -9,7 +9,7 @@ import rangeReducer from './features/PriceRange'
 import sortReducer from './features/SortDevices.Slice'
 import basketStateSlice from './features/BasketState.Slice';
 import viewedReducer from './features/ViewedDevices.Slice';
-
+import suggetsionsReducer from './features/Suggestions.SLice'
 
 
 
@@ -23,7 +23,8 @@ const rootReducer = combineReducers({
   chatReducer,
   sortReducer,
   basketStateSlice,
-  viewedReducer
+  viewedReducer,
+  suggetsionsReducer,
 
    
 })

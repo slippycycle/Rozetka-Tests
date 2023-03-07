@@ -3,6 +3,7 @@ import c from '../styles/HomePage.module.scss'
 import BannerSlider from './BannerSlider'
 import HorizontalBasket from './HorizontalBasket'
 import RecentlyViewedDevices from './RecentlyViewedDevices'
+import SuggestionDevices from './SuggestionDevices'
 
 interface HandleCategoryProps {
   handleCategory: React.Dispatch<React.SetStateAction<boolean>>
@@ -26,6 +27,7 @@ export default function Home({ handleCategory }: HandleCategoryProps) {
       </button>
 
       <RecentlyViewedDevices />
+      <SuggestionDevices/>
      
     </div>
   )

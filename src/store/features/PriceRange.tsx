@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    maxPrice: 100000,
+    maxPrice: 300000,
     minPrice: 0,
     defaultminPrice: 0,
-    defaultMaxPrice: 100000
+    defaultMaxPrice: 300000
 
 }
 

@@ -1,0 +1,52 @@
+.wrap {
+    width: 97%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+
+    .header_contaier {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-self: center;
+    
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-family: 'Nanum Gothic', sans-serif;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+
+        }
+
+        span {
+            font-size: 2rem;
+           
+            cursor: default;
+            height: 50%;
+            margin-top: 20px;
+            color: yellow;
+
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        
+        width: 100%;
+        height: auto;
+        background-color: rgb(148, 166, 181);
+
+        .deviceItem_wrap {
+            width: 25%;
+            height:370px;
+        }
+        
+    }
+
+}

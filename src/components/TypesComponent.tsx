@@ -5,6 +5,7 @@ import c from '../styles/HomePage.module.scss'
 import { useAppDispatch } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Devices.Slice';
+import { setMaxRangePrice, setMinRangePrice } from '../store/features/PriceRange';
 
 interface TypesComponentProps {
     typesArray: Types[]
@@ -28,6 +29,9 @@ export default function TypesComponent({ typesArray }: TypesComponentProps) {
         dispatch(setCurrentPage(1))
         //reset pages 
         dispatch(addSelectedBrands([]))
+        //reset range slider
+       dispatch(setMaxRangePrice(300000))
+       dispatch(setMinRangePrice(0))
     }
 
     return (

@@ -140,7 +140,10 @@ export default function RecentlyViewedDevices() {
             </div>
 
             :
-            null
+           <div className={c.empty_message_wrap}>
+                 <img src="https://t4.ftcdn.net/jpg/01/68/01/87/360_F_168018748_qmW17F6anXnw8ah9odplfSBQfXXyD9cu.jpg"></img>
+                 <h2>you havnt viewed anything</h2>
+           </div>
           }
         </>
 
