@@ -10,10 +10,6 @@ interface HandleCategoryProps {
 
 export default function Home({ handleCategory }: HandleCategoryProps) {
 
-
-  
-
-
   return (
     <div className={c.home_container}>
 
@@ -30,6 +26,7 @@ export default function Home({ handleCategory }: HandleCategoryProps) {
       </button>
 
       <RecentlyViewedDevices />
+     
     </div>
   )
 }

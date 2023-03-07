@@ -88,7 +88,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 null
             }
             <div className={c.image_container} onClick={() => { navigate(`/${device.type}/${device.id}`) }}>
-                <img alt={device.faceDescription} src={isHovered ? device.images[device.colors[0]][0] : device.images[device.colors[0]][1]} />
+                <img alt={device.faceDescription} src={isHovered ? device.images[device.colors[0]][1] : device.images[device.colors[0]][0]} />
             </div>
 
             <div className={c.device_item_info_block}>

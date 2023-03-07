@@ -23,12 +23,10 @@ export default function RecentlyViewedDevices() {
 
 
   const [devicesId, setDevicesId] = React.useState<DeviceId[]>([])
-
   const [loading, setLoading] = React.useState<boolean>(true)
-
   const [devicesB, setDevicesB] = React.useState<DeviceI[]>([])
-
   const { viewedDevices } = useAppSelector(state => state.viewedReducer)
+
 
   console.log(viewedDevices);
 
@@ -42,32 +40,33 @@ export default function RecentlyViewedDevices() {
 
     setLoading(true)
 
-    for (let i = 0; i < recentlyViewed.length; i++) {
+    if (recentlyViewed.length > 0) {
+      for (let i = 0; i < recentlyViewed.length; i++) {
 
-      fetchDevice(recentlyViewed[i]).then(res => {
+        fetchDevice(recentlyViewed[i]).then(res => {
 
-        let device: DeviceI = res as DeviceI
-
-        if (device.id) {
+          let device: DeviceI = res as DeviceI
 
           if (device.images && device.id && device.colors && device.price) {
-            
 
             dispatch(pushViewedDevice(device))
-
-
           }
-        } else {
 
+
+        })
+
+        if (i == recentlyViewed.length - 1) {
+          setLoading(false)
         }
 
-      })
 
-      if (i  == recentlyViewed.length - 1) {
-        setLoading(false)
+
       }
 
+    } else {
+      setLoading(false)
     }
+
 
 
   }, [])
@@ -78,65 +77,73 @@ export default function RecentlyViewedDevices() {
       {loading ?
         <h1>Loading</h1>
         :
+        <>
+          {devicesId.length > 0 ?
 
-        <div className={c.slider_container}>
+            <div className={c.slider_container}>
 
-          <div className={c.fourtneen_slider}>
-            <Swiper
-              slidesPerView={4}
-              spaceBetween={0}
-              freeMode={false}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
-              className="mySwiper"
-            >
-              {viewedDevices.map((dev) =>
-                <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
-              )}
+              <div className={c.fourtneen_slider}>
+                <Swiper
+                  slidesPerView={4}
+                  spaceBetween={0}
+                  freeMode={false}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[FreeMode, Pagination]}
+                  className="mySwiper"
+                >
+                  {viewedDevices.map((dev) =>
+                    <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
+                  )}
 
-            </Swiper>
-          </div>
-          <div className={c.treeple_slider}>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={0}
-              freeMode={false}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
-              className="mySwiper"
-            >
-              {viewedDevices.map((dev) =>
-                <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
-              )}
-
-
-            </Swiper>
-          </div>
-          <div className={c.double_slider}>
-            <Swiper
-              slidesPerView={2}
-              spaceBetween={0}
-              freeMode={false}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
-              className="mySwiper"
-            >
-              {viewedDevices.map((dev) =>
-                <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
-              )}
-
-            </Swiper>
-          </div>
+                </Swiper>
+              </div>
+              <div className={c.treeple_slider}>
+                <Swiper
+                  slidesPerView={3}
+                  spaceBetween={0}
+                  freeMode={false}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[FreeMode, Pagination]}
+                  className="mySwiper"
+                >
+                  {viewedDevices.map((dev) =>
+                    <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
+                  )}
 
 
+                </Swiper>
+              </div>
+              <div className={c.double_slider}>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={0}
+                  freeMode={false}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[FreeMode, Pagination]}
+                  className="mySwiper"
+                >
+                  {viewedDevices.map((dev) =>
+                    <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
+                  )}
 
-        </div>
+                </Swiper>
+              </div>
+
+
+
+            </div>
+
+            :
+            null
+          }
+        </>
+
 
       }
 

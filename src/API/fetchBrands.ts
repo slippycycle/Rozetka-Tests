@@ -4,7 +4,7 @@ import { SERVER_URL } from "../consts";
 export async function fetchBrands () {
     try {
 
-        const response = await axios.get<string[]>(`${SERVER_URL}}brands`)
+        const response = await axios.get<string[]>(`${SERVER_URL}brands`)
 
         return  response.data
         

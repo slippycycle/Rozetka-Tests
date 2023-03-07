@@ -1,8 +1,5 @@
-import React from 'react'
-import { fetchDevice } from '../API/fetchDevice'
-import { DeviceI, DeviceId } from '../models/models'
-import { pushViewedDevice } from '../store/features/ViewedDevices.Slice'
-import { useAppDispatch } from '../store/hooks'
+import { useNavigate } from 'react-router-dom'
+import { DeviceI, } from '../models/models'
 import c from '../styles/ViewedeDeviceItem.module.scss'
 
 interface ViewedeDeviceItem {
@@ -10,24 +7,43 @@ interface ViewedeDeviceItem {
 }
 
 
-
 export default function ViewedeDeviceItem({ deviceI }: ViewedeDeviceItem) {
 
 
 
+    let navigate = useNavigate()
+
+    function handleRedirect() {
+        navigate(`/${deviceI.type}/${deviceI.id}`)
+    }
+
 
     return (
         <div className={c.cart}>
-            <label>
-                open
-            </label>
-            <div className={c.image_container}>
+            <div onClick={handleRedirect} className={c.image_container}>
                 <img alt={`photo ${deviceI?.faceDescription}`} src={deviceI.images[deviceI.colors[0]][0]} />
             </div>
             <div className={c.text_wrap}>
                 <p>
                     {deviceI?.faceDescription}
                 </p>
+            </div>
+            <div className={c.price_block}>
+                {
+                    deviceI.oldPrice > deviceI.price ?
+
+                        <>
+                            <h4>{deviceI.oldPrice}</h4>
+                            <h2 className={c.discount_font}>
+                                {deviceI.price}
+                            </h2>
+                        </>
+                        :
+                        <h2>
+
+                            {deviceI.price}
+                        </h2>
+                }
             </div>
         </div>
     )

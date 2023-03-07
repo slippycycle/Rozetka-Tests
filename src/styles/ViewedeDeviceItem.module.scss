@@ -1,7 +1,7 @@
 @import 'colors';
 
 .cart {
-    height: 85%;
+    height: 80%;
     background-color: rgb(255, 255, 255);
     width: 100%;
     border-right: 1px solid $light_grey;
@@ -32,8 +32,9 @@
         height: 70%;
 
         img {
-            max-width: 85%;
-            max-height: 85%;
+            max-width: 80%;
+            max-height: 80%;
+            cursor: pointer;
         }
 
     }
@@ -42,8 +43,91 @@
         width: 100%;
         padding-left: 30px;
         padding-right: 30px;
+        height: 60px;
         color: #1e1e1e;
         font-size: 0.9rem;
+        overflow: hidden;
     }
 
+    .price_block {
+
+        padding: 5px 5px 5px 7px;
+        display: flex;
+        flex-direction: start;
+        align-items: center;
+
+        h4 {
+            font-size: 0.9rem;
+            position: absolute;
+            bottom: 15px;
+            color: gray;
+            text-decoration: line-through;
+        }
+
+
+
+        .discount_font {
+            position: relative;
+            font-size: 1.2rem;
+            color: rgb(255, 0, 0);
+        }
+
+        h2 {
+            position: relative;
+            font-size: 1.2rem;
+            color: rgb(30, 30, 30);
+        }
+    }
+
+}
+
+
+@media (max-width: 500px) {
+    .cart {
+
+        .image_container {
+
+            img {
+                max-width: 70%;
+                max-height: 70%;
+
+            }
+
+        }
+        .text_wrap {
+            padding-left: 7px;
+            padding-right: 7px;
+            height: 60px;
+            color: #1e1e1e;
+            font-size: 0.8rem;
+            overflow: hidden;
+        }
+
+        .price_block {
+
+            padding: 4px 4px 4px 6px;
+            display: flex;
+            flex-direction: start;
+            align-items: center;
+
+            h4 {
+                font-size: 0.8rem;
+                position: absolute;
+                bottom: 20px;
+                color: gray;
+                text-decoration: line-through;
+            }
+
+
+
+            .discount_font {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+        }
+
+    }
 }
