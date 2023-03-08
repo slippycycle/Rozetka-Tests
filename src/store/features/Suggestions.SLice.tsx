@@ -89,16 +89,12 @@ const suggestionsDevices = createSlice({
                 state.error = action.payload as string
             },)
 
-            .addCase(fetchSuggestionNext.pending, (state) => {
-                state.error = null
-                state.loading = true
-            },)
             .addCase(fetchSuggestionNext.fulfilled, (state, action) => {
                 state.suggestionDevices = [...state.suggestionDevices, ...action.payload]
                 state.loading = false
             },)
             .addCase(fetchSuggestionNext.rejected, (state, action) => {
-                state.loading = false
+               
                 state.error = action.payload as string
             },)
 

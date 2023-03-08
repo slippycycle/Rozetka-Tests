@@ -118,7 +118,6 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                                 </>
                                 :
                                 <h2>
-
                                     {device.price}
                                 </h2>
                         }

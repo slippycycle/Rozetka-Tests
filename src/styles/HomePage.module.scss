@@ -2,7 +2,7 @@
 
 .wrap {
   display: flex;
-  top: 50px;
+  top: 47px;
   position: relative;
   background-color: white;
   width: 100%;
@@ -20,15 +20,18 @@
 
   .home_container {
     display: flex;
+    position: relative;
     flex-direction: column;
-    width: 80%;
+    width: 77%;
     align-items: center;
     background-color: rgb(255, 255, 255);
     height: auto;
+    padding: 10px;
+
 
 
     .banner_wrap {
-      width: 97%;
+      width: 100%;
       margin-top: 10px;
       display: block;
       background-color: aliceblue;
@@ -40,44 +43,44 @@
 
 
   .category_block {
-    width: 100%;
+    padding-left: 45px;
+    width: 23%;
     display: flex;
+    height: auto;
     top: 15px;
     flex-direction: column;
     left: 0px;
-    width: 100%;
     position: relative;
     z-index: 8;
 
+
+
+
     .category {
       width: 100%;
-      height: 100vh;
-
       display: flex;
       align-items: center;
       flex-direction: column;
-      position: absolute;
       justify-content: start;
       align-items: start;
       left: 0;
-      border-right: solid 1px $light_grey ;
       padding-top: 3%;
 
       span {
-       display: none;
+        display: none;
       }
 
       .item {
         cursor: pointer;
         width: 100%;
         height: auto;
-        padding-left: 27px;
-        font-size: 1.2rem;
+
+        font-size: 1.1rem;
         margin-top: 10px;
         color: $links_color;
 
         &:hover {
-          color: rgb(255, 89, 89);
+          color: $links_col_2;
         }
 
       }
@@ -91,7 +94,7 @@
   @media (max-width: 1000px) {
 
     .show_category_btn {
-      width: 95%;
+      width: 100%;
       padding: 10px 20px 10px 20px;
       display: block;
       height: auto;
@@ -262,7 +265,7 @@
 
 
       .category {
-      
+
         width: max-content;
         background-color: rgb(255, 255, 255);
         display: inline;
@@ -270,6 +273,7 @@
         z-index: 9;
         position: absolute;
         $button_padding: 15px;
+
         .category_top_header {
           width: 100%;
           height: auto;
@@ -279,60 +283,60 @@
           display: flex;
           justify-content: space-between;
           border-bottom: 1px solid $light_grey;
-  
-  
+
+
           h2 {
             font-size: 1.5rem;
             color: #2e2e2e;
             font-weight: 500;
           }
-  
+
           .close_btn {
             color: #2e2e2e;
-  
+
           }
-  
+
         }
-  
+
         .categories_list_wrap {
           width: 300px;
           padding: 0px 0px 0px 17px;
-  
+
           .categories_list {
             margin-top: 80px;
-  
+
             li {
               margin-top: 13px;
               font-size: 1.2rem;
               display: flex;
               flex-direction: row;
-  
+
               position: relative;
-  
+
               a {
                 color: #85bbee;
                 cursor: pointer;
-  
+
                 &:hover {
                   color: $links_color;
                 }
               }
-  
+
               span {
                 position: absolute;
                 right: $button_padding;
                 color: gray;
               }
-  
-  
+
+
             }
           }
-  
+
         }
 
 
-        
-      
+
+
       }
 
 

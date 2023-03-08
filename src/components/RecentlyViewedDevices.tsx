@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,13 +10,14 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper";
 
-import c from '../styles/RecentlyViewedDevices.module.scss'
-import ViewedeDeviceItem from "./ViewedeDeviceItem";
+import c from '../styles/DevicesSlider.module.scss'
+import ViewedeDeviceItem from "./DeviceFromSlider";
 import { DeviceI, DeviceId } from "../models/models";
 import { devices } from "../consts";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchDevice } from "../API/fetchDevice";
 import { pushViewedDevice } from "../store/features/ViewedDevices.Slice";
+import Loader from "./Loader";
 
 
 export default function RecentlyViewedDevices() {
@@ -34,7 +35,7 @@ export default function RecentlyViewedDevices() {
   const dispatch = useAppDispatch()
 
   React.useEffect(() => {
-    console.log(devicesB)
+    console.log('SECOND FECTH')
     const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed') as string)
     setDevicesId(recentlyViewed)
 
@@ -58,9 +59,6 @@ export default function RecentlyViewedDevices() {
         if (i == recentlyViewed.length - 1) {
           setLoading(false)
         }
-
-
-
       }
 
     } else {
@@ -75,7 +73,7 @@ export default function RecentlyViewedDevices() {
     <div className={c.wrap}>
       <h1>Recently viewed</h1>
       {loading ?
-        <h1>Loading</h1>
+        <Loader />
         :
         <>
           {devicesId.length > 0 ?
@@ -140,10 +138,10 @@ export default function RecentlyViewedDevices() {
             </div>
 
             :
-           <div className={c.empty_message_wrap}>
-                 <img src="https://t4.ftcdn.net/jpg/01/68/01/87/360_F_168018748_qmW17F6anXnw8ah9odplfSBQfXXyD9cu.jpg"></img>
-                 <h2>you havnt viewed anything</h2>
-           </div>
+            <div className={c.empty_message_wrap}>
+              <img src="https://t4.ftcdn.net/jpg/01/68/01/87/360_F_168018748_qmW17F6anXnw8ah9odplfSBQfXXyD9cu.jpg"></img>
+              <h2>you havnt viewed anything</h2>
+            </div>
           }
         </>
 

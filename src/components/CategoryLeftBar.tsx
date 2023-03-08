@@ -5,6 +5,7 @@ import Loader from './Loader'
 import TypesComponent from './TypesComponent'
 import { fetchTypes } from '../store/features/Types.Slice'
 import { Types } from '../models/models'
+import InformationAboutCompanyList from './InformationAboutCompanyList'
 
 interface CategoryLeftBar {
   visible: boolean
@@ -47,7 +48,16 @@ export default React.memo(function CategoryLeftBar({ visible, handleCategory }: 
           }
         </div>
 
+        <div>
+
+        </div>
+
+
+        <InformationAboutCompanyList />
+
+
       </div>
+
 
       {/* mobile left category bar */}
 

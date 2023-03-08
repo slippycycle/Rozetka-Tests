@@ -78,7 +78,21 @@
 
 }
 
+.app-icons {
+  display: flex;
+  align-items: center;
+}
+.vertical {
+  width: 300px;
+  flex-direction: column;
+}
 
+.android {
+  width: 45%;
+}
+.apple {
+  width:45%;
+}
 
 
 

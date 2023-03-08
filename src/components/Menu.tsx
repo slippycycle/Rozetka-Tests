@@ -3,13 +3,14 @@ import { MenuContext } from '../context'
 import { fetchTypes } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'
+import InformationAboutCompanyList from './InformationAboutCompanyList'
 import MenuCategoryContentComponents from './MenuCategoryContentComponents'
 
 export default function Menu() {
 
     const [activeContent, setActiveContent] = React.useState<boolean>(false)
 
-    const {active, menuHandle} = React.useContext(MenuContext)
+    const { active, menuHandle } = React.useContext(MenuContext)
 
     console.log('menu active')
 
@@ -17,17 +18,17 @@ export default function Menu() {
 
     const menuRef = React.useRef(null)
 
-    console.log( 'AAAA');
+    console.log('AAAA');
 
-   
-    
+
+
 
     return (
 
         <div ref={menuRef} className={active ? c.menu__active : c.menu}>
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuHandle}>
-                    <span  className="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         close
                     </span>
                 </button>
@@ -36,11 +37,11 @@ export default function Menu() {
                 </div>
 
                 <div onClick={() => setActiveContent(prev => !prev)} className={c.menu__category}>
-                    <span   className="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         category
                     </span>
                     Category
-                    <div   className={c.arrow__container}>
+                    <div className={c.arrow__container}>
                         <span className="material-symbols-outlined">
                             {activeContent ? 'expand_less' : 'expand_more'}
                         </span>
@@ -75,8 +76,6 @@ export default function Menu() {
                         <a>
                             BASKET
                         </a>
-
-
                     </li>
                     <li>
                         <span className="material-symbols-outlined">
@@ -88,6 +87,9 @@ export default function Menu() {
                     </li>
                 </ul>
 
+                <div className={c.list_container}>
+                    <InformationAboutCompanyList />
+                </div>
 
             </div>
         </div>

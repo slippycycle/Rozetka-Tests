@@ -5,7 +5,8 @@ import { DeviceI } from '../models/models'
 import { fetchSuggestion, fetchSuggestionNext } from '../store/features/Suggestions.SLice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SuggestionDevices.module.scss'
-import ViewedeDeviceItem from './ViewedeDeviceItem'
+import ViewedeDeviceItem from './DeviceFromSlider'
+import Loader from './Loader'
 
 export default function SuggestionDevices() {
 
@@ -22,7 +23,7 @@ export default function SuggestionDevices() {
   React.useEffect(() => {
 
     dispatch(fetchSuggestion())
-
+    console.log('THIRD REFETCH')
   }, [])
 
   function fetchNextPart() {
@@ -43,7 +44,7 @@ export default function SuggestionDevices() {
       </div>
 
       {loading ?
-        <h2>Loading</h2>
+        <Loader/>
         :
         <div className={c.content}>
           {suggestionDevices.map((dev, index) =>
