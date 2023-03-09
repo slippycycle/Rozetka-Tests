@@ -5,6 +5,7 @@ import { makeRender } from '../store/features/BasketState.Slice'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePage.module.scss'
+import { pushDeviceInfo } from '../store/features/BasketData'
 
 
 interface DeviceInfoPanelProps {
@@ -49,6 +50,8 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
 
             // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
             dispatch(makeRender())
+
+            dispatch(pushDeviceInfo({id: device.id, count: 1 }) )
 
 
         }

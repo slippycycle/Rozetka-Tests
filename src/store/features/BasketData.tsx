@@ -44,7 +44,9 @@ const basketDataSlice = createSlice({
              
                 state.devicesIdCounts.push(action.payload)
     
-                localStorage.setItem('basketData', JSON.stringify(   state.devicesIdCounts))
+                localStorage.setItem('basketData', JSON.stringify(state.devicesIdCounts))
+
+                
             
         },
        

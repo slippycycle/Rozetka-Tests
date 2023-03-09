@@ -14,15 +14,17 @@ export default function OrderPage() {
   React.useEffect(() => {
 
     if (devicesIdCounts.length > 0) {
+      console.log('first case')
       setRes(devicesIdCounts )
     } else {
+      console.log('second case')
       setRes(  JSON.parse(localStorage.getItem('basketData') as string) )
     }
 
 
     console.log( devicesIdCounts);
 
-  }, [devicesIdCounts,totalSum])
+  }, [,devicesIdCounts,totalSum])
  
 
   return (
