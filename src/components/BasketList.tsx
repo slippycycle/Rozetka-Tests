@@ -1,19 +1,22 @@
+import { color } from '@mui/system'
 import React from 'react'
+import { basketItem } from '../models/models'
 import c from '../styles/Basket.module.scss'
 import { DeviceItemFromBasket } from './DeviceItemFromBasket'
 
 
 
 interface BacketListProps {
-    devicesIdArray: string[]
+    devicesIdArray: basketItem[]
 }
 
 export default function BasketList({ devicesIdArray }: BacketListProps) {
 
-    return (
-        
+    console.log('OUR ENOMY ',devicesIdArray)
+
+    return ( 
         <div className={c.backet_list}>
-            {devicesIdArray?.map((id) => <DeviceItemFromBasket key={id} id={id} />)}
+            {devicesIdArray?.map((bski:basketItem) => <DeviceItemFromBasket color={bski.color} key={bski.id} id={bski.id}  innerId={bski.innerId}/>)}
         </div>
     )
 }

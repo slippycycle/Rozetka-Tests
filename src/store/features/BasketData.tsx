@@ -5,14 +5,14 @@ import { DeviceI } from "../../models/models"
 
 type deviceId = string | number
 
-type deviceFromBasket = {
+export type deviceFromBasket = {
     id: deviceId
     count: number
 }
 
 interface BacketState {
     devicesIdCounts: deviceFromBasket[]
-    
+
 }
 
 export const initialState: BacketState = {
@@ -27,7 +27,7 @@ const basketDataSlice = createSlice({
         dleteItemFromDeviceInfo(state, action) {
             state.devicesIdCounts = state.devicesIdCounts.filter((dev) => dev.id !== action.payload)
 
-            localStorage.setItem('basketData', JSON.stringify( state.devicesIdCounts.filter((dev) => dev.id !== action.payload)))
+            localStorage.setItem('basketData', JSON.stringify(state.devicesIdCounts.filter((dev) => dev.id !== action.payload)))
 
         },
         setCurrentCountAtDevicesInfo(state, action) {
@@ -41,16 +41,16 @@ const basketDataSlice = createSlice({
 
         },
         pushDeviceInfo(state, action) {
-             
-                state.devicesIdCounts.push(action.payload)
-    
-                localStorage.setItem('basketData', JSON.stringify(state.devicesIdCounts))
 
-                
-            
+            state.devicesIdCounts.push(action.payload)
+
+            localStorage.setItem('basketData', JSON.stringify(state.devicesIdCounts))
+
+
+
         },
-       
-       
+
+
         setStartDevicesInfo(state, action) {
 
             const result = [];

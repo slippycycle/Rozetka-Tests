@@ -29,11 +29,12 @@ export default function Basket() {
     dispatch(handleBasket())
   }
 
+
+  console.log(devicesId, 'DEVICES ID AT BASKET')
+
   React.useEffect(() => {
 
     dispatch(setStartDevicesInfo(devicesId))
-
-   
 
 
   }, [])

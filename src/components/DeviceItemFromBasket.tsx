@@ -6,9 +6,11 @@ import SmallDeviceItem from './SmallDeviceItem'
 
 interface DeviceItemFromBacketProps {
     id: string | number
+    innerId: string
+    color: string
 }
 
-export function DeviceItemFromBasket({ id }: DeviceItemFromBacketProps) {
+export function DeviceItemFromBasket({ id,innerId,color}: DeviceItemFromBacketProps) {
 
     const [loading, setLoading] = React.useState<boolean>(true)
     const [device, setDevice] = React.useState<DeviceI | null>(null)
@@ -46,7 +48,7 @@ export function DeviceItemFromBasket({ id }: DeviceItemFromBacketProps) {
                     {error ?
                         <p>{error}</p>
                         :
-                        <SmallDeviceItem device={device as DeviceI} />
+                        <SmallDeviceItem color={color} currentInnerID={innerId} device={device as DeviceI} />
 
                     }
                 </>

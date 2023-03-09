@@ -20,6 +20,12 @@ export type urlImg = string
 
 export type Brand = string
 
+export interface basketItem {
+    id: DeviceId
+    innerId: string
+    color?: string
+}  
+
 interface DeviceImagesArray {
     colors: {}
     urls: string[]

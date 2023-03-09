@@ -10,6 +10,7 @@ import { AppDispatch } from '../store/store'
 import c from '../styles/DeviceItem.module.scss'
 import { count } from 'console'
 import { pushDeviceInfo } from '../store/features/BasketData'
+import uuid from 'react-uuid'
 
 interface DeviceItemProps {
     device: DeviceI,
@@ -45,7 +46,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
         }
         if (Array.isArray(currentBcket)) {
 
-            if (currentBcket.find((el) => el == device.id)) {
+            if (currentBcket.find((el) => el.id == device.id && el.color == 'default')) {
                 //already included 
                 dispatch(handleBasket())
             }
@@ -53,12 +54,13 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 //on success
 
                 let result = currentBcket
-                result.push(device.id)
+
+                result.push({ id:device.id,innerId: uuid(), color:'default'})
                 localStorage.setItem('basket', JSON.stringify(result))
 
                 // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
                 dispatch(makeRender())
-                dispatch(pushDeviceInfo({id: device.id, count: 1 }) )
+                dispatch(pushDeviceInfo({id: device.id, count: 1, innerId: uuid(),color:'default' }) )
 
 
             }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { CountContext } from '../context'
-import { DeviceI } from '../models/models'
+import { basketItem, DeviceI } from '../models/models'
 import { makeRender } from '../store/features/BasketState.Slice'
 import { addToTotalSum,  handleBasket,  setDevicesIdFromBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -11,9 +11,11 @@ import { dleteItemFromDeviceInfo, setCurrentCountAtDevicesInfo } from '../store/
 
 interface SmallDeviceItemProps {
     device: DeviceI
+    currentInnerID: string
+    color: string
 }
 
-export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
+export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDeviceItemProps) {
 
     const [number, setNumber] = React.useState<number>(1)
     const [innerNum, setInnerNum] = React.useState<number>(1)
@@ -24,10 +26,13 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
     const dispatch = useAppDispatch()
 
 
+    
     function deleteHandleBacket() {
+        
+        
         let takeCurrentBasket = JSON.parse(localStorage.getItem('basket') as string)
 
-        let result = takeCurrentBasket.filter((devId: number) => devId !== device.id)
+        let result = takeCurrentBasket.filter((dev: basketItem) => dev.innerId !== currentInnerID )  
 
         localStorage.setItem('basket', JSON.stringify(result))
 
@@ -48,7 +53,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
     }
 
     const currentColor = device.colors[0]
-    const firstmImgUrl = device.images[currentColor][0]
+    const firstmImgUrl = device.images[color !== 'default'? color : currentColor][0]
 
 
 
@@ -83,7 +88,6 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
                 setNumber(prev => prev + 1)
                 dispatch(addToTotalSum(+ device.price))
                 dispatch(setCurrentCountAtDevicesInfo({ id: device.id, count: innerNum + 1 }))
-
             }
 
         }
@@ -112,7 +116,6 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
                 </div>
 
 
-
                 <div className={c.count__container}>
                     <div className={c.count}>
                         <CountContext.Provider value={{ setInnerNum, innerNum }}>
@@ -126,6 +129,7 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
                             <button onClick={() => { handleNumber(true) }}>
                                 <p >+</p>
                             </button>
+
                         </CountContext.Provider>
 
                     </div>

@@ -1,11 +1,12 @@
 import React from 'react'
 import { SelectedSubPageContext } from '../context'
-import { BasketDevicesIdArray, DeviceI, DeviceId } from '../models/models'
+import { BasketDevicesIdArray, basketItem, DeviceI, DeviceId } from '../models/models'
 import { makeRender } from '../store/features/BasketState.Slice'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePage.module.scss'
 import { pushDeviceInfo } from '../store/features/BasketData'
+import uuid from 'react-uuid'
 
 
 interface DeviceInfoPanelProps {
@@ -20,7 +21,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
     const { selected } = React.useContext(SelectedSubPageContext)
     const { reload } = useAppSelector(state => state.basketStateSlice)
     const parsedBasket = JSON.parse(localStorage.getItem('basket') as string)
-    const [currentBasket, setCurrentBasket] = React.useState<BasketDevicesIdArray>([])
+    const [currentBasket, setCurrentBasket] = React.useState<basketItem[]>([])
     const dispatch = useAppDispatch()
 
 
@@ -37,21 +38,23 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
     const handleBasketButton = () => {
 
 
-        if (currentBasket.find((devicesIdfromBasket: DeviceId) => devicesIdfromBasket == device.id)) {
+        if (currentBasket.find((el) => el.id == device.id && el.color == currentColor)) {
             //already included 
             dispatch(handleBasket())
         }
         else {
             //on success
 
-            let result: BasketDevicesIdArray = currentBasket
-            result.push(device.id)
+            let basketDevice = {id: device.id, count: 1, innerId: uuid(), color: currentColor }
+
+            let result = currentBasket
+            result.push(basketDevice)
             localStorage.setItem('basket', JSON.stringify(result))
 
             // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
             dispatch(makeRender())
 
-            dispatch(pushDeviceInfo({id: device.id, count: 1 }) )
+            dispatch(pushDeviceInfo(basketDevice) )
 
 
         }

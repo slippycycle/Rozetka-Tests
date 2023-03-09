@@ -13,7 +13,7 @@ import { MenuContext, MobileSortActive } from './context';
 import SearchPage from './pages/SearchPage';
 import LeftMobileFilter from './components/LeftMobileFilter';
 import BottomBanner from './components/BottomBanner';
-import OrderPage from './pages/OrderPage';
+import OrderPage from './pages/OrderList';
 
 
 function App() {
