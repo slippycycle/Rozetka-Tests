@@ -23,10 +23,12 @@ const basketDataSlice = createSlice({
     name: 'basketData',
     initialState,
     reducers: {
-        
 
         dleteItemFromDeviceInfo(state, action) {
             state.devicesIdCounts = state.devicesIdCounts.filter((dev) => dev.id !== action.payload)
+
+            localStorage.setItem('basketData', JSON.stringify( state.devicesIdCounts.filter((dev) => dev.id !== action.payload)))
+
         },
         setCurrentCountAtDevicesInfo(state, action) {
 
@@ -39,7 +41,11 @@ const basketDataSlice = createSlice({
 
         },
         pushDeviceInfo(state, action) {
-            state.devicesIdCounts.push(action.payload)
+             
+                state.devicesIdCounts.push(action.payload)
+    
+                localStorage.setItem('basketData', JSON.stringify(   state.devicesIdCounts))
+            
         },
        
        

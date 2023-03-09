@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { setStartDevicesInfo } from '../store/features/BasketData'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -11,21 +12,33 @@ export default function Basket() {
   const { reload } = useAppSelector(state => state.basketStateSlice)
   const { totalSum } = useAppSelector(state => state.basketReducer)
 
-  const { devicesIdCounts } = useAppSelector(state => state.basketDataReducer) 
+  const { devicesIdCounts } = useAppSelector(state => state.basketDataReducer)
 
   let devicesId: string[] = JSON.parse(localStorage.getItem('basket') as string)
 
-  console.log('backet render')
+  let navigate = useNavigate()
+
+  const dispatch = useAppDispatch()
+
+
+  function handleRedirect() {
+
+    console.log('BEFORE REDIRECT',devicesIdCounts)
+    localStorage.setItem('basketData', JSON.stringify(devicesIdCounts))
+    navigate(`/order`)
+    dispatch(handleBasket())
+  }
 
   React.useEffect(() => {
 
-    dispatch( setStartDevicesInfo(devicesId) )
+    dispatch(setStartDevicesInfo(devicesId))
 
-    console.log(devicesIdCounts,'INFO')
+   
+
 
   }, [])
 
-  const dispatch = useAppDispatch()
+
 
   return (
     <div className={basketActive ? c.backet_bloor : c.hide}>
@@ -55,11 +68,7 @@ export default function Basket() {
 
           <div className={c.manage__block}>
             <h3>Total sum {totalSum}</h3>
-            <button onClick={() => {
-              console.log(totalSum);
-              console.log(devicesId)
-              console.log( devicesIdCounts )
-            }} >Make an order</button>
+            <button onClick={handleRedirect} >Make an order</button>
           </div>
           :
           null
