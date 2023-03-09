@@ -17,11 +17,14 @@ interface SearchPageDevicesPanelProps {
 
 export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanelProps) {
 
+    const { selectedBrands } = useAppSelector((state) => state.brandReducer)
     const { error, loading, devices,tottalItems, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
-
-    const dispacth = useAppDispatch()
-
+    const { maxPrice, minPrice, defaultMaxPrice, defaultminPrice } = useAppSelector((state) => state.rangeReducer)
+   
     const [pagesArray, setPagesArray] = React.useState<number[]>([])
+
+    const dispatch = useAppDispatch()
+
 
     
     React.useEffect(() => {
@@ -31,23 +34,12 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
     }, [loading])
     
     
-    console.log(pagesArray, limit, tottalItems,'NEED')
-
-
-    const dispatch = useAppDispatch()
-
-
-    const { maxPrice, minPrice } = useAppSelector((state) => state.rangeReducer)
-
-    const { selectedBrands } = useAppSelector((state) => state.brandReducer)
-
-
-
 
 
     React.useEffect(() => {
 
-        if (maxPrice !== 200000 || minPrice > 0) {
+        //as i dont want make price verify on default params 
+        if (maxPrice !== defaultMaxPrice || defaultminPrice > 0) {
             switch (currentSortType) {
                 case 'rating':
                     dispatch(fetchProducts({ q: query, price_gte: minPrice, price_lte: maxPrice, _sort: 'rating', _order: 'desc', brand: selectedBrands }))
@@ -84,10 +76,6 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
     }, [currentSortType, currentPage, limit, maxPrice, minPrice, selectedBrands])
 
 
-    //  
-
-
-
     return (
         <div className={c.serach_page_content}>
             {loading ?
@@ -96,7 +84,6 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
                 </div>
                 :
                 <>
-
                     {error ?
                         <h1>{error as string}</h1>
                         :
@@ -104,7 +91,6 @@ export default function SearchPageDevicesPanel({ query }: SearchPageDevicesPanel
                             {devices?.map((dev) => <DeviceItem handleBacketFn={handleBasket} key={dev.id} dispatch={dispatch} device={dev} />)}
                         </div>
                     }
-
                 </>
             }
         </div>

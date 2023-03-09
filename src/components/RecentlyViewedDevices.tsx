@@ -13,7 +13,6 @@ import { FreeMode, Pagination } from "swiper";
 import c from '../styles/DevicesSlider.module.scss'
 import ViewedeDeviceItem from "./DeviceFromSlider";
 import { DeviceI, DeviceId } from "../models/models";
-import { devices } from "../consts";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchDevice } from "../API/fetchDevice";
 import { pushViewedDevice } from "../store/features/ViewedDevices.Slice";
@@ -25,11 +24,10 @@ export default function RecentlyViewedDevices() {
 
   const [devicesId, setDevicesId] = React.useState<DeviceId[]>([])
   const [loading, setLoading] = React.useState<boolean>(true)
-  const [devicesB, setDevicesB] = React.useState<DeviceI[]>([])
   const { viewedDevices } = useAppSelector(state => state.viewedReducer)
 
 
-  console.log(viewedDevices);
+
 
 
   const dispatch = useAppDispatch()

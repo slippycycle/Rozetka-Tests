@@ -3,6 +3,7 @@ import c from '../styles/DoubleRangeSlider.module.scss'
 import React, { useRef, useState } from 'react'
 import { useAppDispatch } from '../store/hooks'
 import { setMaxRangePrice, setMinRangePrice } from '../store/features/PriceRange'
+import { setCurrentPage } from '../store/features/Devices.Slice'
 
 
 
@@ -208,6 +209,8 @@ export default React.memo( function DoubleRangeSlider({ maxSum, startSum, endSum
         dispatch(setMaxRangePrice(currentMaxSum))
 
         dispatch(setMinRangePrice(currentMinSum))
+
+        dispatch(setCurrentPage(1))
     }
 
 

@@ -16,16 +16,11 @@ import { takeType } from '../API/fetchType';
 export default function BrandsCheckList() {
 
     const [list, setList] = React.useState<string[] | []>([])
-
     const brandsStore = useAppSelector(state => state.brandReducer)
-
     const takeCurrentTypeThrowUrl = window.location.pathname.replaceAll('/', '')
-
-   
-
   
+    const dispacth = useAppDispatch()
  
-
     React.useEffect(() => {
 
         if (takeCurrentTypeThrowUrl.includes('search')) {
@@ -40,11 +35,7 @@ export default function BrandsCheckList() {
     }, [takeCurrentTypeThrowUrl,])
 
 
-
-
-
-
-    const dispacth = useAppDispatch()
+   
 
     function handleSelect(event: React.MouseEvent<HTMLInputElement>) {
 

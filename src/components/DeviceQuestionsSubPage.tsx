@@ -198,12 +198,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
             })
     }, [])
 
-
-
-
-
-
-
+    
 
     return (
         <div className={c.main__questions__wrap}>

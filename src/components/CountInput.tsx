@@ -1,25 +1,28 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import { CountContext } from '../context';
-import { addToTotalSum, } from '../store/features/Basket.Slice';
+import { DeviceId } from '../models/models';
+import { addToTotalSum, setCurrentCountAtDevicesInfo, } from '../store/features/Basket.Slice';
 import { useAppDispatch } from '../store/hooks';
 
 
 interface CountInputProps {
-    defaultVal: number 
+    defaultVal: number
     changeValueState: Dispatch<SetStateAction<number>>
-    devicePrice: number
+    devicePrice: number,
+    id: DeviceId
 }
 
-export default function CountInput({ defaultVal, changeValueState, devicePrice }: CountInputProps) {
+export default function CountInput({ defaultVal, changeValueState, devicePrice,id }: CountInputProps) {
 
     const inputRef = React.useRef<HTMLInputElement | any>(null);
 
     const { setInnerNum, innerNum } = React.useContext(CountContext)
 
     const dispatch = useAppDispatch()
-    
+
 
     useEffect(() => {
+        
         inputRef.current.defaultValue = defaultVal
 
     }, [])
@@ -48,11 +51,13 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
             dispatch(addToTotalSum(number * devicePrice))
 
             console.log(totalSumFromDeleteDevice, 'AAAAA')
+
+            dispatch(setCurrentCountAtDevicesInfo({ id: id, count: number   }))
         }
 
     }
 
-    function handleBackSpace (key: string) {
+    function handleBackSpace(key: string) {
 
         if (key === "Backspace") {
             setInnerNum('')
@@ -61,6 +66,6 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice }
     }
 
     return (
-        <input onKeyDown={(e) =>  handleBackSpace(e.key) } value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
+        <input onKeyDown={(e) => handleBackSpace(e.key)} value={innerNum} onChange={(e) => { handlePriceIput(e.target.value) }} ref={inputRef}></input>
     )
 }

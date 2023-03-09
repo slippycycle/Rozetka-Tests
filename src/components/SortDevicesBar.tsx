@@ -1,7 +1,4 @@
 import React from 'react'
-import { sortDevicestypes } from '../models/models'
-import { setLimit, setSortType } from '../store/features/Devices.Slice'
-import { useAppDispatch } from '../store/hooks'
 import c from '../styles/SortDevicesBar.module.css'
 import { MobileSortActive } from '../context'
 import DropdownLimitButton from './DropdownLimitButton'

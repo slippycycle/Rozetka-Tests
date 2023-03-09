@@ -3,11 +3,12 @@ import React, { MutableRefObject, SyntheticEvent, useCallback, useContext, useSt
 import { Link, useNavigate } from 'react-router-dom'
 import { DeviceI } from '../models/models'
 import { makeRender } from '../store/features/BasketState.Slice'
-import { handleBasket } from '../store/features/Basket.Slice'
+import { handleBasket, pushDeviceInfo } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { AppDispatch } from '../store/store'
 
 import c from '../styles/DeviceItem.module.scss'
+import { count } from 'console'
 
 interface DeviceItemProps {
     device: DeviceI,
@@ -18,12 +19,14 @@ interface DeviceItemProps {
 export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceItemProps) {
 
 
+    
     let navigate = useNavigate()
-
+   
+    const { reload } = useAppSelector(state => state.basketStateSlice)
+   
     let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
 
 
-    const { reload } = useAppSelector(state => state.basketStateSlice)
 
 
     function handleDevicebacket() {
@@ -54,6 +57,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
                 // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
                 dispatch(makeRender())
+                dispatch(pushDeviceInfo({id: device.id, count: 1 }) )
 
 
             }
@@ -69,7 +73,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
 
 
-    console.log('deviceItem render')
+   
 
 
 

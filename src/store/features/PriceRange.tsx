@@ -21,9 +21,7 @@ const rangeSlice = createSlice({
     }
 })
 
-
 export default rangeSlice.reducer
-
 
 export const {setMaxRangePrice,setMinRangePrice} = rangeSlice.actions
 

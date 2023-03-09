@@ -6,6 +6,7 @@ import HorizontalBasket from './HorizontalBasket'
 import RecentlyViewedDevices from './RecentlyViewedDevices'
 import SuggestionDevices from './SuggestionDevices'
 import { useInView } from 'react-intersection-observer'
+import HomeContent from './HomeContent'
 
 interface HandleCategoryProps {
   handleCategory: React.Dispatch<React.SetStateAction<boolean>>
@@ -13,25 +14,7 @@ interface HandleCategoryProps {
 
 export default function Home({ handleCategory }: HandleCategoryProps) {
 
-  const [slidersVisible, setSlidersVisible] = React.useState<number>(1)
-  const [btnVisible, setBtnVisible] = React.useState(true)
-
-
-  const { ref, inView } = useInView({
-    threshold: 0.8
-  })
-
-  React.useEffect(() => {
-
-    if (slidersVisible > 2) {
-      setBtnVisible(false)
-    } else {
-      setSlidersVisible(prev => prev + 1)
-    }
-
-    console.log(slidersVisible)
-
-  }, [inView])
+ 
 
   return (
     <div className={c.home_container}>
@@ -47,28 +30,7 @@ export default function Home({ handleCategory }: HandleCategoryProps) {
           category
         </span>
       </button>
-
-
-      <DiscountDevices />
-      {slidersVisible > 1 ?
-        <RecentlyViewedDevices />
-        :
-        null
-      }
-      {slidersVisible > 2 ?
-        <SuggestionDevices />
-        :
-        null
-
-      }
-      {
-        btnVisible?
-        <div ref={ref}>show</div>
-        : 
-        null
-      }
-
-
+      <HomeContent />
     </div >
   )
 }

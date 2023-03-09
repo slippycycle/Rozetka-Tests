@@ -1,7 +1,7 @@
 import React from 'react'
 import c from '../styles/Loader.module.scss'
 
-export default React.memo(function Loader() {
+export default function Loader() {
   return (
 
     <div>
@@ -9,4 +9,4 @@ export default React.memo(function Loader() {
     </div>
 
   )
-})
+}

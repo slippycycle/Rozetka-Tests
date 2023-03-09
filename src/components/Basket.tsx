@@ -1,19 +1,26 @@
 import React from 'react'
-import { handleBasket } from '../store/features/Basket.Slice'
+import { handleBasket, setStartDevicesInfo } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Basket.module.scss'
 import BacketList from './BasketList'
 
 export default function Basket() {
 
-  const { basketActive, devices } = useAppSelector(state => state.basketReducer)
-  const {reload} = useAppSelector(state => state.basketStateSlice)
+  const { basketActive, devicesIdCounts } = useAppSelector(state => state.basketReducer)
+  const { reload } = useAppSelector(state => state.basketStateSlice)
   const { totalSum } = useAppSelector(state => state.basketReducer)
 
   let devicesId: string[] = JSON.parse(localStorage.getItem('basket') as string)
 
   console.log('backet render')
 
+  React.useEffect(() => {
+
+    dispatch( setStartDevicesInfo(devicesId) )
+
+    console.log(devicesIdCounts,'INFO')
+
+  }, [])
 
   const dispatch = useAppDispatch()
 
@@ -45,7 +52,11 @@ export default function Basket() {
 
           <div className={c.manage__block}>
             <h3>Total sum {totalSum}</h3>
-            <button>Make an order</button>
+            <button onClick={() => {
+              console.log(totalSum);
+              console.log(devicesId)
+              console.log( devicesIdCounts )
+            }} >Make an order</button>
           </div>
           :
           null

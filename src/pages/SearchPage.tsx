@@ -12,35 +12,28 @@ export default function SearchPage() {
 
   let searchQuerry = window.location.pathname.replaceAll('/', '').replace('search', '')
 
-
-
   const [active, setActive] = React.useState(false)
-  const [brands, setBrands] = React.useState(['apple', 'samsung', 'xiaomi', 'SONY'])
-
-  const [isSomethingFounded, setIssomethingFounded] = React.useState<boolean>(false)
 
   function handleMenuState() {
     setActive(active => !active)
   }
 
-
-
   return (
 
     <div className={c.main_wrap}>
       <MobileSortActive.Provider value={{ active, handleMenuState }} >
-        <AllBrandsContex.Provider value={{ brands }}>
 
-          <LeftMobileFilter />
-          <SearchHeader searchQuerry={searchQuerry} />
-          <div className={c.wrap}>
-            <div className={c.filter_content}>
-              <SerachPageFilter />
-            </div>
-            <SearchPageDevicesPanel query={searchQuerry} />
+
+        <LeftMobileFilter />
+        <SearchHeader searchQuerry={searchQuerry} />
+        <div className={c.wrap}>
+          <div className={c.filter_content}>
+            <SerachPageFilter />
           </div>
+          <SearchPageDevicesPanel query={searchQuerry} />
+        </div>
 
-        </AllBrandsContex.Provider>
+
 
       </MobileSortActive.Provider>
     </div>

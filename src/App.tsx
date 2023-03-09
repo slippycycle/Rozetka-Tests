@@ -13,6 +13,7 @@ import { MenuContext, MobileSortActive } from './context';
 import SearchPage from './pages/SearchPage';
 import LeftMobileFilter from './components/LeftMobileFilter';
 import BottomBanner from './components/BottomBanner';
+import OrderPage from './pages/OrderPage';
 
 
 function App() {
@@ -29,14 +30,9 @@ function App() {
       setActive(active => !active)
    }
 
-
-
    function menuHandle() {
       setMenuActive(prev => !prev)
    }
-
-
-
    
    return (
       <BrowserRouter>
@@ -53,6 +49,7 @@ function App() {
                      <Route element={<SelectedDevicesPage />} path=':id/'></Route>
                      <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
                      <Route element={<SearchPage />} path='/search/:id/'></Route>
+                     <Route element={<OrderPage />} path='order'></Route>
 
                   </Routes>
                </MobileSortActive.Provider>

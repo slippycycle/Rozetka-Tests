@@ -11,7 +11,7 @@ export default function DropdownSortButton() {
 
     const dispatch = useAppDispatch()
 
-    console.log('sort bar render XXXXXXX')
+ 
   
     function handleSortType(sortType: sortDevicestypes) {
       dispatch(setSortType(sortType))

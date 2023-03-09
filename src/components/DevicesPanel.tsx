@@ -28,7 +28,7 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
 
     React.useEffect(() => {
 
-        //as we dont need inculde range verify in default range
+        //as we dont need inculde price verify in default range
         if (maxPrice !== defaultMaxPrice || minPrice > defaultminPrice) {
 
             switch (currentSortType) {

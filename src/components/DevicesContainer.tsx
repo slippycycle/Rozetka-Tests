@@ -19,12 +19,12 @@ export default function DevicesContainer({ devicesArray }: DevicesContainerProps
     const dispacth = useAppDispatch()
 
     const [pagesArray, setPagesArray] = React.useState<number[]>([])
+    const { tottalItems, limit, currentPage } = useAppSelector(state => state.productReducer)
 
     React.useEffect(() => {
         setPagesArray(getPages(limit, tottalItems))
     }, [])
 
-    const { tottalItems, limit, currentPage } = useAppSelector(state => state.productReducer)
 
     return (
         <>

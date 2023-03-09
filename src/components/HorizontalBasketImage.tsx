@@ -8,7 +8,7 @@ interface HorizontalBasketImageContainerProps {
 }
 export default function HorizontalBasketImageContainer({ id }: HorizontalBasketImageContainerProps) {
     const [loading, setLoading] = React.useState<boolean>(true)
-    const [device, setDevice] = React.useState<DeviceI | any>({})
+    const [device, setDevice] = React.useState<DeviceI>()
 
 
     async function fetchDevice() {
@@ -26,15 +26,14 @@ export default function HorizontalBasketImageContainer({ id }: HorizontalBasketI
     }, [])
 
 
-    // const currentColor = device.colors[0]
-    // console.log('DEVICE LITLE',  device.images[currentColor][0] )
+
 
     return (
         <>
             {loading ?
                 <h2>Loading</h2>
                 :
-                    <img src={device.images[device.colors[0]][0]} ></img>
+                    <img src={device?  device.images[device.colors[0]][0] : 'Device not found'} ></img>
             }
         </>
     )

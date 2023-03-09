@@ -14,16 +14,16 @@ interface PaginationControllProps {
 export default function PaginationControll() {
 
     const dispacth = useAppDispatch()
+   
     const { tottalItems, limit, currentPage } = useAppSelector(state => state.productReducer)
-
+    
     const [pagesArray, setPagesArray] = React.useState<number[]>([])
+
 
     React.useEffect(() => {
         setPagesArray(getPages(limit, tottalItems))
     }, [])
 
-
-    
 
 
     return (

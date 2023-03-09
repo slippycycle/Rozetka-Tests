@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { CountContext } from '../context'
 import { DeviceI } from '../models/models'
 import { makeRender } from '../store/features/BasketState.Slice'
-import { addToTotalSum, deleteDeviceById, handleBasket, pushDevice, setDevicesFromBasket, setDevicesIdFromBasket } from '../store/features/Basket.Slice'
+import { addToTotalSum, dleteItemFromDeviceInfo, handleBasket, setCurrentCountAtDevicesInfo, setDevicesIdFromBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
@@ -13,14 +13,14 @@ interface SmallDeviceItemProps {
 }
 
 export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
+
     const [number, setNumber] = React.useState<number>(1)
-    const [innerNum, setInnerNum] = React.useState<number >(1)
-
-
-    const dispatch = useAppDispatch()
+    const [innerNum, setInnerNum] = React.useState<number>(1)
+    const [moreVisible, setMoreVisible] = React.useState<boolean>(false)
 
     const { devices } = useAppSelector(state => state.basketReducer)
 
+    const dispatch = useAppDispatch()
 
 
     function deleteHandleBacket() {
@@ -33,21 +33,22 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
         dispatch(setDevicesIdFromBasket(result))
 
         // (number - 1) as we already have price copy, it was setted by useEffect in current component
-        let totalSumFromDeleteDevice =  device.price * (number - 1)
+        let totalSumFromDeleteDevice = device.price * (number - 1)
 
-        console.log(totalSumFromDeleteDevice,'AAAAA')
+        console.log(totalSumFromDeleteDevice, 'AAAAA')
 
-        dispatch(addToTotalSum( -totalSumFromDeleteDevice ) )
+        dispatch(addToTotalSum(-totalSumFromDeleteDevice))
 
         dispatch(makeRender())
 
-    
+        dispatch(dleteItemFromDeviceInfo(device.id))
+
+
     }
 
     const currentColor = device.colors[0]
     const firstmImgUrl = device.images[currentColor][0]
 
-    const [moreVisible, setMoreVisible] = React.useState<boolean>(false)
 
 
     let navigate = useNavigate()
@@ -64,7 +65,6 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     }
 
-    
 
     React.useEffect(() => {
         dispatch(addToTotalSum(device.price))
@@ -75,35 +75,28 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
     function handleNumber(polus: boolean) {
 
-       
+        if (polus) {
 
-            if (polus) {
-                
-                if (innerNum < 99 && innerNum > 0) {
-                    setInnerNum(prev => prev + 1)
-                    setNumber(prev => prev + 1)
-                    dispatch(addToTotalSum(+ device.price))
-                 }
-                
-            }
-            else {
-    
-                if (number > 1 && innerNum > 1) {
-                    setInnerNum(prev => prev - 1)
-                    setNumber(prev => prev - 1)
-                    dispatch(addToTotalSum(-device.price))
-                }
+            if (innerNum < 99 && innerNum > 0) {
+                setInnerNum(prev => prev + 1)
+                setNumber(prev => prev + 1)
+                dispatch(addToTotalSum(+ device.price))
+                dispatch(setCurrentCountAtDevicesInfo({ id: device.id, count: innerNum + 1 }))
+
             }
 
-        
+        }
+        else {
 
+            if (number > 1 && innerNum > 1) {
+                setInnerNum(prev => prev - 1)
+                setNumber(prev => prev - 1)
+                dispatch(addToTotalSum(-device.price))
+                dispatch(setCurrentCountAtDevicesInfo({ id: device.id, count: innerNum - 1 }))
+            }
+        }
 
     }
-
-
-
-
-
 
     return (
         <div className={c.item_wrap}>
@@ -121,19 +114,19 @@ export default function SmallDeviceItem({ device }: SmallDeviceItemProps) {
 
                 <div className={c.count__container}>
                     <div className={c.count}>
-                       <CountContext.Provider value={ {setInnerNum, innerNum} }>
-                        
-                        <button onClick={() => { handleNumber(false) }}>
-                            <p>-</p>
-                        </button>
+                        <CountContext.Provider value={{ setInnerNum, innerNum }}>
 
-                        <CountInput devicePrice={device.price} changeValueState={setNumber} defaultVal={number} ></CountInput>
-                        
-                        <button onClick={() => { handleNumber(true) }}>
-                            <p >+</p>
-                        </button>
-                        </CountContext.Provider> 
-                        
+                            <button onClick={() => { handleNumber(false) }}>
+                                <p>-</p>
+                            </button>
+
+                            <CountInput  id={device.id} devicePrice={device.price} changeValueState={setNumber} defaultVal={number} ></CountInput>
+
+                            <button onClick={() => { handleNumber(true) }}>
+                                <p >+</p>
+                            </button>
+                        </CountContext.Provider>
+
                     </div>
                 </div>
 

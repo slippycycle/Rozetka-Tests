@@ -1,28 +1,18 @@
 import React from 'react'
 import { MenuContext } from '../context'
-import { fetchTypes } from '../store/features/Types.Slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import {  useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'
 import InformationAboutCompanyList from './InformationAboutCompanyList'
-import MenuCategoryContentComponents from './MenuCategoryContentComponents'
+
 
 export default function Menu() {
 
-    const [activeContent, setActiveContent] = React.useState<boolean>(false)
-
-    const { active, menuHandle } = React.useContext(MenuContext)
-
-    console.log('menu active')
-
+    
     const { types, loading, error } = useAppSelector(state => state.typeReducer)
-
+    const { active, menuHandle } = React.useContext(MenuContext)
+    const [activeContent, setActiveContent] = React.useState<boolean>(false)
     const menuRef = React.useRef(null)
-
-    console.log('AAAA');
-
-
-
-
+    
     return (
 
         <div ref={menuRef} className={active ? c.menu__active : c.menu}>
@@ -40,16 +30,11 @@ export default function Menu() {
                     <span className="material-symbols-outlined">
                         category
                     </span>
-                    Category
+                    Catalog
                     <div className={c.arrow__container}>
-                        <span className="material-symbols-outlined">
-                            {activeContent ? 'expand_less' : 'expand_more'}
-                        </span>
+                       
                     </div>
                 </div>
-
-
-                {/* <MenuCategoryContentComponents types={types} loading={loading} error={error} active={activeContent} /> */}
 
 
                 <ul className={c.ul_links}>

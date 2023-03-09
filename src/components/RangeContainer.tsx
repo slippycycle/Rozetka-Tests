@@ -1,9 +1,8 @@
 import React from 'react'
 import DoubleRangeSlider from './DoubleRangeSlider'
 import DoubleRangeSliderMobile from './DoubleRangeSliderMobile'
-import RangeSlider from './RangeSlider'
 import c from '../styles/RangeContainer.module.scss'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import {  useAppSelector } from '../store/hooks'
 
 export default function RangeContainer() {
 
@@ -11,8 +10,6 @@ export default function RangeContainer() {
 
     return (
         <>
-        
-
                 <div className={c.range__slider__conatiner}>
                     {/* if device has a touch screen */}
                     <DoubleRangeSlider maxSum={maxPrice} startSum={minPrice} endSum={maxPrice} />
@@ -20,9 +17,7 @@ export default function RangeContainer() {
                 <div className={c.range__mobile__slider__conatiner} >
                     {/* if device has no touch screen */}
                     <DoubleRangeSliderMobile maxSum={maxPrice} startSum={minPrice} endSum={maxPrice} />
-                </div>
-
-            
+                </div>  
         </>
 
     )

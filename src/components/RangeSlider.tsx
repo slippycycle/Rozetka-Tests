@@ -1,9 +1,8 @@
 // @ts-nocheck
 import React, { useRef, useState } from 'react'
-import { RangePriceContext } from '../context'
 import c from '../styles/RangeSlider.module.scss'
 
- interface RangeSliderProps {
+interface RangeSliderProps {
   maxSum: number
   defaultSum: number
 }
@@ -21,7 +20,7 @@ export default function RangeSlider({ maxSum, defaultSum }: RangeSliderProps) {
 
 
 
- 
+
 
   React.useEffect(() => {
 
@@ -40,7 +39,7 @@ export default function RangeSlider({ maxSum, defaultSum }: RangeSliderProps) {
 
 
     setCurrentCords(defaultSum)
-  
+
 
     let defaultSumProcentFromMaxSum = Math.ceil(defaultSum * 100 / maxSum)
 
@@ -57,7 +56,7 @@ export default function RangeSlider({ maxSum, defaultSum }: RangeSliderProps) {
     const onMouseMove = (event: MouseEvent) => {
 
       if (!isClicked.current || isClicked.current == false) return;
-   
+
 
       const nextX = event.clientX - cords.current.startX + cords.current.lastX
 
@@ -75,8 +74,8 @@ export default function RangeSlider({ maxSum, defaultSum }: RangeSliderProps) {
         const PriceRange = maxSum * procents / 100
 
         setCurrentCords(PriceRange)
-        
-        
+
+
 
         rangeLineFild.current.style.width = procents + '%'
         slider.style.left = nextX + 'px'
@@ -96,10 +95,10 @@ export default function RangeSlider({ maxSum, defaultSum }: RangeSliderProps) {
       console.log('d')
       isClicked.current = false
 
-     
+
     }
 
- 
+
 
     onMouseUp()
 

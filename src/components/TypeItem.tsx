@@ -5,8 +5,6 @@ interface TypeItem {
 }
 
 export default function TypeItem({ type }: TypeItem) {
-
-
     return (
         <div className='wda'>{type}</div>
     )

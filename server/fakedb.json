@@ -127,7 +127,14 @@
           "from": "Ugwei",
           "message": "YE OKKEE ",
           "id": "d7c4cf24-8328-fe41-7b0f-d723ff9c650c",
-          "replies": [],
+          "replies": [
+            {
+              "from": "Ugwei",
+              "message": "YEEEE OKKKEE E@",
+              "id": "f53be9ee-ed30-48bd-55f0-8a6920697e8e",
+              "date": "8-3-2023"
+            }
+          ],
           "date": "2-3-2023"
         },
         {
@@ -349,13 +356,7 @@
           "from": "Chepollino",
           "message": "",
           "id": "c829ae1d-d7ae-cc9d-f802-0b6a6c803297",
-          "replies": [
-            {
-              "from": "Ugwei",
-              "message": "ddawdwad",
-              "id": "65393662-e09a-c175-69ef-074c95334be7"
-            }
-          ]
+          "replies": []
         },
         {
           "from": "Chepollino",
@@ -3241,7 +3242,6 @@
         ]
       }
     },
-   
     {
       "id": 8,
       "name": "iphone14",

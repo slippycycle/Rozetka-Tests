@@ -24,7 +24,7 @@ export default function InformationAboutCompanyList() {
                 </ul>
             </div>
             <div className={c.information_list}>
-                <h3>Information about company</h3>
+                <h3>More information</h3>
                 <ul>
                     <li>About us</li>
                     <li>Vacansies</li>

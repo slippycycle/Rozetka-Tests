@@ -9,11 +9,10 @@ export default function NavbarInputContainer() {
     let navigate = useNavigate()
 
 
-   
+
     function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
 
         if (event.key === 'Enter') {
-
             navigate(`/search/${value.replace(/ /g, '').toLowerCase().replaceAll('/', '')} `)
             window.location.reload();
         }
@@ -27,12 +26,18 @@ export default function NavbarInputContainer() {
 
 
 
-
-
     return (
         <div className={c.search__container}>
-            <input type='text' onKeyDown={handleKeyDown} onChange={(e) => { setValue(e.target.value) }} className={c.search_input} placeholder='i am looking for...'></input>
+            <button className={c.category_btn}>
+                <p>Catalog</p>
+                <span className="material-symbols-outlined">
+                    category
+                </span>
+            </button>
+            <div className={c.input_container}>
+                <input type='text' onKeyDown={handleKeyDown} onChange={(e) => { setValue(e.target.value) }} className={c.search_input} placeholder='i am looking for...'></input>
             <button onClick={navigateBySearchItem} className={c.find__button}>Find</button>
+            </div>
         </div>
     )
 }

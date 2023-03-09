@@ -20,11 +20,10 @@ import { FreeMode, Pagination } from "swiper";
 export default function DiscountDevices() {
 
     const [devices, setDevices] = React.useState<DeviceI[] | []>([])
-
     const [loading, setLoading] = React.useState<boolean>(false)
-
     const [error, setError] = React.useState<string | null>(null)
 
+    
     async function fethcDesDevices() {
 
         try {

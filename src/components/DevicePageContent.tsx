@@ -19,7 +19,6 @@ export default function DevicePageContent({ device }: DevicePageContent) {
 
 
     const [currentSubPage, setCurSubPages] = React.useState<SelectedSubPageType>('All information')
-
     const [currentColor, setCurrentColor] = React.useState(device?.colors[firstColorIndex])
 
     const currentImgs = device?.images[currentColor]
@@ -28,7 +27,7 @@ export default function DevicePageContent({ device }: DevicePageContent) {
         setCurSubPages(page)
     }
 
-    console.log('Device page Render')
+
 
     return (
         <>

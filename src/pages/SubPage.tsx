@@ -44,10 +44,6 @@ export default function SubPages({ currentImgs, device }: SubPageProps) {
             )
 
     }
-    return (
-        <>
-
-        </>
-    )
+   
 
 }

@@ -16,9 +16,6 @@ interface TypesComponentProps {
 
 export default function TypesComponent({ typesArray }: TypesComponentProps) {
 
-
-
-
     const dispatch = useAppDispatch()
 
     let navigate = useNavigate()
@@ -30,8 +27,8 @@ export default function TypesComponent({ typesArray }: TypesComponentProps) {
         //reset pages 
         dispatch(addSelectedBrands([]))
         //reset range slider
-       dispatch(setMaxRangePrice(300000))
-       dispatch(setMinRangePrice(0))
+        dispatch(setMaxRangePrice(300000))
+        dispatch(setMinRangePrice(0))
     }
 
     return (

@@ -9,10 +9,7 @@ interface DevicePageTopComponentProps {
 
 export default function DevicePageTopComponent({ device }: DevicePageTopComponentProps) {
 
-    console.log('TOP DEVICE PAGE')
-
- 
-    const starRef = React.useRef<HTMLDivElement>(document.createElement("div"))
+   
 
 
     return (

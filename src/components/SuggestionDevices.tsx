@@ -11,13 +11,13 @@ import Loader from './Loader'
 export default function SuggestionDevices() {
 
   const [devices, setDevices] = React.useState<DeviceI[] | []>([])
+  const [count, setCount] = React.useState<number>(2)
 
   const { suggestionDevices, loading } = useAppSelector(state => state.suggetsionsReducer)
 
-  const [count, setCount] = React.useState<number>(2)
-
-
   const dispatch = useAppDispatch()
+
+
 
 
   React.useEffect(() => {
@@ -44,7 +44,7 @@ export default function SuggestionDevices() {
       </div>
 
       {loading ?
-        <Loader/>
+        <Loader />
         :
         <div className={c.content}>
           {suggestionDevices.map((dev, index) =>
@@ -53,7 +53,7 @@ export default function SuggestionDevices() {
               <ViewedeDeviceItem deviceI={dev} />
 
               {
-                (index + 1 ) == suggestionDevices.length ?
+                (index + 1) == suggestionDevices.length ?
                   <button className={c.fethc_btn} onClick={fetchNextPart}>
                     show more
                   </button>

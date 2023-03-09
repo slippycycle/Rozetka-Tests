@@ -16,15 +16,10 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
 
 
     const { currentColor, setCurrentColor } = React.useContext(SelectedSubPageContext)
-
     const { selected } = React.useContext(SelectedSubPageContext)
-
     const { reload } = useAppSelector(state => state.basketStateSlice)
-
     const parsedBasket = JSON.parse(localStorage.getItem('basket') as string)
-
     const [currentBasket, setCurrentBasket] = React.useState<BasketDevicesIdArray>([])
-
     const dispatch = useAppDispatch()
 
 
@@ -36,7 +31,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
         }
     }, [, reload])
 
-    console.log('device info panel render')
+
 
     const handleBasketButton = () => {
 
