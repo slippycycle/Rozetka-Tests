@@ -20,7 +20,7 @@ export const initialState: BacketState = {
 }
 
 const basketDataSlice = createSlice({
-    name: 'basket',
+    name: 'basketData',
     initialState,
     reducers: {
         
@@ -64,7 +64,7 @@ export const {
     pushDeviceInfo,
     dleteItemFromDeviceInfo,
     setCurrentCountAtDevicesInfo,
-   
+    setStartDevicesInfo
 } = basketDataSlice.actions
 
 

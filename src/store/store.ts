@@ -10,6 +10,7 @@ import sortReducer from './features/SortDevices.Slice'
 import basketStateSlice from './features/BasketState.Slice';
 import viewedReducer from './features/ViewedDevices.Slice';
 import suggetsionsReducer from './features/Suggestions.SLice'
+import basketDataReducer from './features/BasketData'
 
 
 
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   basketStateSlice,
   viewedReducer,
   suggetsionsReducer,
+  basketDataReducer
 
    
 })

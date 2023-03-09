@@ -3,12 +3,13 @@ import React, { MutableRefObject, SyntheticEvent, useCallback, useContext, useSt
 import { Link, useNavigate } from 'react-router-dom'
 import { DeviceI } from '../models/models'
 import { makeRender } from '../store/features/BasketState.Slice'
-import { handleBasket, pushDeviceInfo } from '../store/features/Basket.Slice'
+import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { AppDispatch } from '../store/store'
 
 import c from '../styles/DeviceItem.module.scss'
 import { count } from 'console'
+import { pushDeviceInfo } from '../store/features/BasketData'
 
 interface DeviceItemProps {
     device: DeviceI,

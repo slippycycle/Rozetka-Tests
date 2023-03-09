@@ -1,14 +1,17 @@
 import React from 'react'
-import { handleBasket, setStartDevicesInfo } from '../store/features/Basket.Slice'
+import { handleBasket } from '../store/features/Basket.Slice'
+import { setStartDevicesInfo } from '../store/features/BasketData'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Basket.module.scss'
 import BacketList from './BasketList'
 
 export default function Basket() {
 
-  const { basketActive, devicesIdCounts } = useAppSelector(state => state.basketReducer)
+  const { basketActive } = useAppSelector(state => state.basketReducer)
   const { reload } = useAppSelector(state => state.basketStateSlice)
   const { totalSum } = useAppSelector(state => state.basketReducer)
+
+  const { devicesIdCounts } = useAppSelector(state => state.basketDataReducer) 
 
   let devicesId: string[] = JSON.parse(localStorage.getItem('basket') as string)
 

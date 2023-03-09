@@ -1,7 +1,8 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import { CountContext } from '../context';
 import { DeviceId } from '../models/models';
-import { addToTotalSum, setCurrentCountAtDevicesInfo, } from '../store/features/Basket.Slice';
+import { addToTotalSum, } from '../store/features/Basket.Slice';
+import { setCurrentCountAtDevicesInfo } from '../store/features/BasketData';
 import { useAppDispatch } from '../store/hooks';
 
 

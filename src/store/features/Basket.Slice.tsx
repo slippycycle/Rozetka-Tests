@@ -15,7 +15,7 @@ interface BacketState {
     basketActive: boolean
     totalSum: number
     devices: DeviceI[],
-    devicesIdCounts: deviceFromBasket[]
+  
 
 }
 
@@ -24,7 +24,7 @@ export const initialState: BacketState = {
     basketActive: false,
     totalSum: 0,
     devices: [],
-    devicesIdCounts: []
+   
 }
 
 const basketSlice = createSlice({
@@ -38,22 +38,7 @@ const basketSlice = createSlice({
             state.basketActive = !state.basketActive
         },
 
-        dleteItemFromDeviceInfo(state, action) {
-            state.devicesIdCounts = state.devicesIdCounts.filter((dev) => dev.id !== action.payload)
-        },
-        setCurrentCountAtDevicesInfo(state, action) {
-
-            for (let i = 0; i < state.devicesIdCounts.length; i++) {
-
-                if (state.devicesIdCounts[i].id == action.payload.id) {
-                    state.devicesIdCounts[i] = action.payload
-                }
-            }
-
-        },
-        pushDeviceInfo(state, action) {
-            state.devicesIdCounts.push(action.payload)
-        },
+      
         setDevicesIdFromBasket(state, actions) {
             state.devicesId = actions.payload
         },
@@ -77,33 +62,18 @@ const basketSlice = createSlice({
         setTotalSum(state, action) {
             state.totalSum = action.payload
         },
-        setStartDevicesInfo(state, action) {
-
-            const result = [];
-
-            for (let i = 0; i < action.payload.length; i++) {
-
-                result.push({ id: action.payload[i], count: 1 })
-
-            }
-
-            state.devicesIdCounts = result
-        }
+       
     },
 })
 
 export default basketSlice.reducer
 
 export const {
-    pushDeviceInfo,
-    dleteItemFromDeviceInfo,
-    setCurrentCountAtDevicesInfo,
     handleBasket,
     setTotalSum,
     removeFromTotalSum,
     setDevicesFromBasket,
     pushDevice,
-    setStartDevicesInfo,
     addToTotalSum,
     setDevicesIdFromBasket,
     deleteDeviceById
