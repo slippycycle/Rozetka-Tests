@@ -45,7 +45,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
         else {
             //on success
 
-            let basketDevice = {id: device.id, count: 1, innerId: uuid(), color: currentColor }
+            let basketDevice = { id: device.id, count: 1, innerId: uuid(), color: currentColor }
 
             let result = currentBasket
             result.push(basketDevice)
@@ -54,7 +54,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
             // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
             dispatch(makeRender())
 
-            dispatch(pushDeviceInfo(basketDevice) )
+            dispatch(pushDeviceInfo(basketDevice))
 
 
         }
@@ -67,6 +67,14 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
 
     }
 
+    function findSameBasketItem() {
+        if (currentBasket.find((dev) => dev.id == device.id && dev.color == currentColor)) {
+            return true
+        }
+        return false
+    }
+
+    console.log(currentBasket, 'BASKEt')
 
 
     return (
@@ -117,8 +125,8 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
 
                     <div className={c.order__buttons}>
                         <button>Buy</button>
-                        <button onClick={handleBasketButton} className={currentBasket.includes(device.id) ? c.basket__button__active : c.basket__button}>
-                            {currentBasket.includes(device.id) ? "In basket" : "Put in basket"}
+                        <button onClick={handleBasketButton} className={findSameBasketItem() ? c.basket__button__active : c.basket__button}>
+                            {findSameBasketItem() ? "In basket" : "Put in basket"}
                             <span className="material-symbols-outlined">
                                 shopping_cart
                             </span>

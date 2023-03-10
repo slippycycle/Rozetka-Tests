@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import React, { MutableRefObject, SyntheticEvent, useCallback, useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { DeviceI } from '../models/models'
+import { basketItem, DeviceI } from '../models/models'
 import { makeRender } from '../store/features/BasketState.Slice'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -21,11 +21,11 @@ interface DeviceItemProps {
 export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceItemProps) {
 
 
-    
+
     let navigate = useNavigate()
-   
+
     const { reload } = useAppSelector(state => state.basketStateSlice)
-   
+
     let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
 
 
@@ -55,12 +55,12 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
                 let result = currentBcket
 
-                result.push({ id:device.id,innerId: uuid(), color:'default'})
+                result.push({ id: device.id, innerId: uuid(), color: 'default' })
                 localStorage.setItem('basket', JSON.stringify(result))
 
                 // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
                 dispatch(makeRender())
-                dispatch(pushDeviceInfo({id: device.id, count: 1, innerId: uuid(),color:'default' }) )
+                dispatch(pushDeviceInfo({ id: device.id, count: 1, innerId: uuid(), color: 'default' }))
 
 
             }
@@ -76,8 +76,15 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
 
 
 
-   
 
+    function findSameDeviceInBasket() {
+
+        if (currentBcket.find((dev: basketItem) => dev.id == device.id && dev.color == 'default')) {
+            return true
+        } 
+
+        return false
+    }
 
 
     const [isHovered, setIsHovered] = React.useState(false)
@@ -130,7 +137,7 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                         }
                     </div>
                     {
-                        currentBcket.includes(device.id) ?
+                        findSameDeviceInBasket() ?
 
                             <div className={c.basket_included}>
                                 <span onClick={handleDevicebacket} className="material-symbols-outlined">
