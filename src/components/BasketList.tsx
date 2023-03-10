@@ -16,7 +16,7 @@ export default function BasketList({ devicesIdArray }: BacketListProps) {
 
     return ( 
         <div className={c.backet_list}>
-            {devicesIdArray?.map((bski:basketItem) => <DeviceItemFromBasket color={bski.color} key={bski.id} id={bski.id}  innerId={bski.innerId}/>)}
+            {devicesIdArray?.map((bski:basketItem) => <DeviceItemFromBasket color={bski.color} key={bski.innerId + bski.id} id={bski.id}  innerId={bski.innerId}/>)}
         </div>
     )
 }
