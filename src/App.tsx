@@ -14,6 +14,7 @@ import SearchPage from './pages/SearchPage';
 import LeftMobileFilter from './components/LeftMobileFilter';
 import BottomBanner from './components/BottomBanner';
 import OrderPage from './pages/OrderList';
+import Checkout from './pages/Checkout';
 
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
                      <Route element={<SelectedDevicesPage />} path=':id/'></Route>
                      <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
                      <Route element={<SearchPage />} path='/search/:id/'></Route>
-                     <Route element={<OrderPage />} path='order'></Route>
+                     <Route element={<Checkout />} path='checkout'></Route>
 
                   </Routes>
                </MobileSortActive.Provider>

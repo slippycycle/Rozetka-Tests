@@ -1,0 +1,107 @@
+@import 'colors';
+
+.item {
+    width: 100%;
+    padding: 20px 0px 20px 20px;
+    border-bottom: 1px solid $light_grey;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+
+    .image_container {
+        height: 45px;
+        width: 45px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+    }
+
+    .body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+
+        h2 {
+            width: 40%;
+            font-size: 0.9rem;
+            color: $links_color;
+            cursor: pointer;
+
+            &:hover {
+                color: $links_col_2;
+                text-decoration: underline;
+            }
+        }
+
+        .number {
+            h3 {
+                font-size: 0.8rem;
+                color: gray;
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: black;
+            }
+        }
+
+        .price {
+            h3 {
+                font-size: 0.8rem;
+                color: gray;
+               
+            }
+
+            .old_prc {
+                font-size: 0.8rem;
+                color: rgb(78, 78, 78);
+                text-decoration: line-through;
+                &::after {
+                    content: '₴';
+                    font-size: 0.8rem;
+                }
+            }
+            .discount_price {
+                font-size: 0.8rem;
+                color: rgb(251, 0, 0);
+                &::after {
+                    content: '₴';
+                    font-size: 0.8rem;
+                }
+            }
+            p {
+                font-size: 0.9rem;
+                color: black;
+                &::after {
+                    content: '₴';
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .sum {
+            h3 {
+                font-size: 0.8rem;
+                color: gray;
+              
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: black;
+                &::after {
+                    content: '₴';
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+    }
+
+
+}

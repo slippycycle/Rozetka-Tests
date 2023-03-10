@@ -8,7 +8,7 @@ type deviceId = string | number
 export type deviceFromBasket = {
     id: deviceId
     count: number
-    innerId :string
+    innerId: string
 }
 
 interface BacketState {
@@ -26,18 +26,16 @@ const basketDataSlice = createSlice({
     reducers: {
 
         dleteItemFromDeviceInfo(state, action) {
-            state.devicesIdCounts = state.devicesIdCounts.filter((dev) => dev.id !== action.payload)
+            state.devicesIdCounts = state.devicesIdCounts.filter((dev) => dev.innerId !== action.payload)
 
-            localStorage.setItem('basketData', JSON.stringify(state.devicesIdCounts.filter((dev) => dev.id !== action.payload)))
+            localStorage.setItem('basketData', JSON.stringify(state.devicesIdCounts.filter((dev) => dev.innerId !== action.payload)))
 
         },
         setCurrentCountAtDevicesInfo(state, action) {
 
-       
-
             for (let i = 0; i < state.devicesIdCounts.length; i++) {
 
-                console.log( state.devicesIdCounts[i] ,action.payload, 'OUR SITUATION');
+                console.log(state.devicesIdCounts[i], action.payload, 'OUR SITUATION');
 
                 if (state.devicesIdCounts[i].innerId == action.payload.innerId) {
 

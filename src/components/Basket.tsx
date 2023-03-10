@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { basketItem } from '../models/models'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { setStartDevicesInfo } from '../store/features/BasketData'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -14,7 +15,7 @@ export default function Basket() {
 
   const { devicesIdCounts } = useAppSelector(state => state.basketDataReducer)
 
-  let devicesId: string[] = JSON.parse(localStorage.getItem('basket') as string)
+  let devicesId: basketItem[] = JSON.parse(localStorage.getItem('basket') as string)
 
   let navigate = useNavigate()
 
@@ -25,7 +26,7 @@ export default function Basket() {
 
     console.log('BEFORE REDIRECT',devicesIdCounts)
     localStorage.setItem('basketData', JSON.stringify(devicesIdCounts))
-    navigate(`/order`)
+    navigate(`/checkout`)
     dispatch(handleBasket())
   }
 

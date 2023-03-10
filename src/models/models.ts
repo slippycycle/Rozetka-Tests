@@ -24,6 +24,7 @@ export interface basketItem {
     id: DeviceId
     innerId: string
     color?: string
+    count?: number
 }  
 
 interface DeviceImagesArray {

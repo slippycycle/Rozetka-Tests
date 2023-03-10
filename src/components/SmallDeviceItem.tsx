@@ -47,7 +47,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
 
         dispatch(makeRender())
 
-        dispatch(dleteItemFromDeviceInfo(device.id))
+        dispatch(dleteItemFromDeviceInfo(currentInnerID))
 
 
     }

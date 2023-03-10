@@ -1,7 +1,9 @@
 import React from 'react'
+import CheckoutListDeviceItem from '../components/CheckoutListDeviceItem'
+import { basketItem } from '../models/models'
 import { deviceFromBasket } from '../store/features/BasketData'
 import { useAppSelector } from '../store/hooks'
-import c from '../styles/OrderPage.module.scss'
+import c from '../styles/OrderList.module.scss'
 
 export default function OrderPage() {
 
@@ -28,11 +30,15 @@ export default function OrderPage() {
   }, [, devicesIdCounts, totalSum])
 
 
+  
+
   return (
     <div className={c.wrap}>
       <h2>{totalSum}</h2>
-      {res.map((el) => <li>{el.id}<p>{el.count}</p></li>)
-      }
+      <ul className={c.devices_list} >
+        {res.map((el: basketItem) => <CheckoutListDeviceItem  id={el.id} color={el.color} innerId={el.innerId} count={el.count} />)
+        }
+      </ul>
     </div>
   )
 }
