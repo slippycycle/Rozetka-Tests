@@ -10,10 +10,10 @@ interface CountInputProps {
     defaultVal: number
     changeValueState: Dispatch<SetStateAction<number>>
     devicePrice: number,
-    id: DeviceId
+    innerId: string
 }
 
-export default function CountInput({ defaultVal, changeValueState, devicePrice,id }: CountInputProps) {
+export default function CountInput({ defaultVal, changeValueState, devicePrice, innerId}: CountInputProps) {
 
     const inputRef = React.useRef<HTMLInputElement | any>(null);
 
@@ -53,7 +53,8 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice,i
 
             console.log(totalSumFromDeleteDevice, 'AAAAA')
 
-            dispatch(setCurrentCountAtDevicesInfo({ id: id, count: number   }))
+        
+            dispatch(setCurrentCountAtDevicesInfo( {count: number, innerId, } ))
         }
 
     }

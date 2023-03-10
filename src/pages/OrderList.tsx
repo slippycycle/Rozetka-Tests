@@ -3,7 +3,7 @@ import { deviceFromBasket } from '../store/features/BasketData'
 import { useAppSelector } from '../store/hooks'
 import c from '../styles/OrderPage.module.scss'
 
-export default function OrderList() {
+export default function OrderPage() {
 
 
   const [res, setRes] = React.useState<deviceFromBasket[]>([])

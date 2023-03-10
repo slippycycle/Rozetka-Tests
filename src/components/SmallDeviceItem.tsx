@@ -7,7 +7,7 @@ import { addToTotalSum,  handleBasket,  setDevicesIdFromBasket } from '../store/
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
-import { dleteItemFromDeviceInfo, setCurrentCountAtDevicesInfo } from '../store/features/BasketData'
+import { dleteItemFromDeviceInfo, setCurrentCountAtDevicesInfo, } from '../store/features/BasketData'
 
 interface SmallDeviceItemProps {
     device: DeviceI
@@ -87,7 +87,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 setInnerNum(prev => prev + 1)
                 setNumber(prev => prev + 1)
                 dispatch(addToTotalSum(+ device.price))
-                dispatch(setCurrentCountAtDevicesInfo({ id: device.id, count: innerNum + 1 }))
+                 dispatch(setCurrentCountAtDevicesInfo( {count: innerNum + 1, innerId:currentInnerID } ))
             }
 
         }
@@ -97,7 +97,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 setInnerNum(prev => prev - 1)
                 setNumber(prev => prev - 1)
                 dispatch(addToTotalSum(-device.price))
-                dispatch(setCurrentCountAtDevicesInfo({ id: device.id, count: innerNum - 1 }))
+                dispatch(setCurrentCountAtDevicesInfo( {count: innerNum - 1, innerId:currentInnerID } ))
             }
         }
 
@@ -124,7 +124,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                                 <p>-</p>
                             </button>
 
-                            <CountInput  id={device.id} devicePrice={device.price} changeValueState={setNumber} defaultVal={number} ></CountInput>
+                            <CountInput  innerId={currentInnerID} devicePrice={device.price} changeValueState={setNumber} defaultVal={number} ></CountInput>
 
                             <button onClick={() => { handleNumber(true) }}>
                                 <p >+</p>

@@ -29,6 +29,14 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
     let currentBcket = JSON.parse(localStorage.getItem('basket') as string)
 
 
+    function findSameDeviceInBasket() {
+
+        if (currentBcket.find((dev: basketItem) => dev.id == device.id && dev.color === device.colors[0])) {
+            return true
+        }
+
+        return false
+    }
 
 
     function handleDevicebacket() {
@@ -46,21 +54,23 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
         }
         if (Array.isArray(currentBcket)) {
 
-            if (currentBcket.find((el) => el.id == device.id && el.color == 'default')) {
+            if (findSameDeviceInBasket()) {
                 //already included 
                 dispatch(handleBasket())
             }
             else {
                 //on success
 
-                let result = currentBcket
+                let basketDevice: basketItem =  { id: device.id,  innerId: uuid(), color: device.colors[0] }
 
-                result.push({ id: device.id, innerId: uuid(), color: 'default' })
+                    let result = currentBcket
+
+                result.push(basketDevice)
                 localStorage.setItem('basket', JSON.stringify(result))
 
                 // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
                 dispatch(makeRender())
-                dispatch(pushDeviceInfo({ id: device.id, count: 1, innerId: uuid(), color: 'default' }))
+                dispatch(pushDeviceInfo({...basketDevice, count: 1 }))
 
 
             }
@@ -73,19 +83,6 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
         dispatch(makeRender())
 
     }
-
-
-
-
-    function findSameDeviceInBasket() {
-
-        if (currentBcket.find((dev: basketItem) => dev.id == device.id && dev.color == 'default')) {
-            return true
-        } 
-
-        return false
-    }
-
 
     const [isHovered, setIsHovered] = React.useState(false)
 

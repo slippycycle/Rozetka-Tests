@@ -8,6 +8,7 @@ type deviceId = string | number
 export type deviceFromBasket = {
     id: deviceId
     count: number
+    innerId :string
 }
 
 interface BacketState {
@@ -32,10 +33,15 @@ const basketDataSlice = createSlice({
         },
         setCurrentCountAtDevicesInfo(state, action) {
 
+       
+
             for (let i = 0; i < state.devicesIdCounts.length; i++) {
 
-                if (state.devicesIdCounts[i].id == action.payload.id) {
-                    state.devicesIdCounts[i] = action.payload
+                console.log( state.devicesIdCounts[i] ,action.payload, 'OUR SITUATION');
+
+                if (state.devicesIdCounts[i].innerId == action.payload.innerId) {
+
+                    state.devicesIdCounts[i].count = action.payload.count
                 }
             }
 
@@ -57,7 +63,7 @@ const basketDataSlice = createSlice({
 
             for (let i = 0; i < action.payload.length; i++) {
 
-                result.push({ id: action.payload[i], count: 1 })
+                result.push(action.payload[i])
 
             }
 
@@ -71,8 +77,8 @@ export default basketDataSlice.reducer
 export const {
     pushDeviceInfo,
     dleteItemFromDeviceInfo,
-    setCurrentCountAtDevicesInfo,
-    setStartDevicesInfo
+    setStartDevicesInfo,
+    setCurrentCountAtDevicesInfo
 } = basketDataSlice.actions
 
 

@@ -38,14 +38,14 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
     const handleBasketButton = () => {
 
 
-        if (currentBasket.find((el) => el.id == device.id && el.color == currentColor)) {
+        if (currentBasket.find((dev) => dev.id == device.id && dev.color == currentColor)) {
             //already included 
             dispatch(handleBasket())
         }
         else {
             //on success
 
-            let basketDevice = { id: device.id, count: 1, innerId: uuid(), color: currentColor }
+            let basketDevice: basketItem = { id: device.id,  innerId: uuid(), color: currentColor }
 
             let result = currentBasket
             result.push(basketDevice)
@@ -54,7 +54,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
             // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
             dispatch(makeRender())
 
-            dispatch(pushDeviceInfo(basketDevice))
+            dispatch(pushDeviceInfo({...basketDevice, count: 1}))
 
 
         }
