@@ -36,7 +36,7 @@ export default function OrderPage() {
     <div className={c.wrap}>
       <h2>{totalSum}</h2>
       <ul className={c.devices_list} >
-        {res.map((el: basketItem) => <CheckoutListDeviceItem  id={el.id} color={el.color} innerId={el.innerId} count={el.count} />)
+        {res.map((el: basketItem) => <CheckoutListDeviceItem key={el.innerId}  id={el.id} color={el.color} innerId={el.innerId} count={el.count} />)
         }
       </ul>
     </div>

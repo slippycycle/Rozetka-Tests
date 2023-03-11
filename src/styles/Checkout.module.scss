@@ -1,12 +1,15 @@
 .checkout_container {
     width: 100%;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
     display: flex;
+    justify-content: center;
+    justify-content: space-around;
 
     .order_list {
         width: 65%;
+        border-radius: 1px solid red;
     }
 
-   
+
 }
