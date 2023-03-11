@@ -11,7 +11,16 @@ interface QuestionsChatProps {
 
 export default function QuestionsChat({ chat }: QuestionsChatProps) {
 
-    //i use castom pagination as JSON server cant make it inside key message 
+    // i use castom pagination as JSON server cant make it inside key message 
+    //
+    //       /\
+    //     /    \
+    //   /    !   \
+    //
+    //  i cant use back end pagination as i need rewrite whole chat in case i want change/post/delete one item 
+    //
+    //
+    //
 
     const { chatItemsOpened, topChatItems } = useAppSelector(state => state.chatReducer)
 

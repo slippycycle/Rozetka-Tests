@@ -34,27 +34,27 @@ function App() {
    function menuHandle() {
       setMenuActive(prev => !prev)
    }
-   
+
    return (
       <BrowserRouter>
          <div className='app-wrapp'>
-            <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
-               <MobileSortActive.Provider value={{ active, handleMenuState }} >
+            <MobileSortActive.Provider value={{ active, handleMenuState }} >
+               <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
                   <Menu />
                   <TopNavbar />
-                  <Basket />
-                  <LeftMobileFilter />
-                  <Routes>
+               </MenuContext.Provider>
+               <Basket />
+               <LeftMobileFilter />
+               <Routes>
 
-                     <Route element={<HomePage />} path='/'></Route>
-                     <Route element={<SelectedDevicesPage />} path=':id/'></Route>
-                     <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
-                     <Route element={<SearchPage />} path='/search/:id/'></Route>
-                     <Route element={<Checkout />} path='checkout'></Route>
+                  <Route element={<HomePage />} path='/'></Route>
+                  <Route element={<SelectedDevicesPage />} path=':id/'></Route>
+                  <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
+                  <Route element={<SearchPage />} path='/search/:id/'></Route>
+                  <Route element={<Checkout />} path='checkout'></Route>
 
-                  </Routes>
-               </MobileSortActive.Provider>
-            </MenuContext.Provider>
+               </Routes>
+            </MobileSortActive.Provider>
          </div>
          <BottomBanner />
       </BrowserRouter>

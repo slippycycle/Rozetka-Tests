@@ -16,26 +16,27 @@ export interface ModifiedDeviceItem  extends DeviceI  {
     innerId: UniqueStringId
     count: number
     color: string
+   
 } 
 
 interface BacketState {
     devicesFromBasket :ModifiedDeviceItem[] 
     loading: boolean
+    totalDevicesNumber: number
 
 }
 
 export const initialState: BacketState = {
     devicesFromBasket: [],
-    loading: true
+    loading: true,
+    totalDevicesNumber: 1,
 }
 
 const basketDevicesSlice = createSlice({
     name: 'basketDevices',
     initialState,
     reducers: {
-      
-        setBasketDevices(state, action) {
-           
+        setBasketDevices(state, action) {     
         },
         pushBasketDevices (state, action) {
             state.devicesFromBasket.push(action.payload)
@@ -58,7 +59,8 @@ const basketDevicesSlice = createSlice({
             }
 
         },
-     }
+        
+    }
 
        
 })

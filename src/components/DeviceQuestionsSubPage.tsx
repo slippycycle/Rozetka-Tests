@@ -19,7 +19,15 @@ interface DeviceQuestionsSubPageProops {
     questionsId: number
 }
 
-
+//
+//       /\
+//     /    \
+//   /    !   \
+//
+//  i cant use back end pagination as i need rewrite whole chat in case i want change/post/delete one item 
+//
+//
+//
 
 export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsSubPageProops) {
 

@@ -37,8 +37,6 @@ const basketSlice = createSlice({
         handleBasket(state) {
             state.basketActive = !state.basketActive
         },
-
-      
         setDevicesIdFromBasket(state, actions) {
             state.devicesId = actions.payload
         },

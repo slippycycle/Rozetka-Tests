@@ -9,14 +9,11 @@ export default function Checkout() {
 
       <div className={c.order_list}>
         <OrderPage />
-        
       </div>
 
-
-
-      
+      <div className={c.info_panel_container}>
         <CheckOutInfoPanel />
-
+      </div>
 
     </div>
   )

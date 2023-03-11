@@ -1,8 +1,9 @@
 import React from 'react'
 import CheckoutListDeviceItem from '../components/CheckoutListDeviceItem'
 import { basketItem } from '../models/models'
+import { handleBasket } from '../store/features/Basket.Slice'
 import { deviceFromBasket } from '../store/features/BasketData'
-import { useAppSelector } from '../store/hooks'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/OrderList.module.scss'
 
 export default function OrderPage() {
@@ -29,21 +30,36 @@ export default function OrderPage() {
 
     console.log(devicesIdCounts);
 
-  }, [, devicesIdCounts, totalSum,devicesFromBasket])
+  }, [, devicesIdCounts, totalSum, devicesFromBasket])
 
 
   // <CheckoutListDeviceItem key={el.innerId}  id={el.id} color={el.color} innerId={el.innerId} count={el.count} />
 
-  console.log(devicesFromBasket,'ORDER LIST PROUD')
+  console.log(devicesFromBasket, 'ORDER LIST PROUD')
+
+  const dispatch = useAppDispatch()
+
 
   return (
     <div className={c.wrap}>
-      <h2>{totalSum}</h2>
-      <ul className={c.devices_list} >
-        {devicesFromBasket.map((el, index) => <CheckoutListDeviceItem key={el.innerId + el.color} device={el} /> )
-          
-        }
-      </ul>
+      <div className={c.top_order_bar}>
+        <h2>Order</h2>
+        <div className={c.order_manage}>
+          <p>total sum: {totalSum}</p>
+          <div onClick={() => dispatch(handleBasket())  }  className={c.edit_container}>
+            Edit 
+            <span className="material-symbols-outlined">
+              edit_note
+          </span>
+        </div>
     </div>
+      </div >
+
+    <ul className={c.devices_list} >
+      {devicesFromBasket.map((el, index) => <CheckoutListDeviceItem key={el.innerId + el.color} device={el} />)
+
+      }
+    </ul>
+    </div >
   )
 }
