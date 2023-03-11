@@ -6,26 +6,30 @@ import { ModifiedDeviceItem } from '../store/features/BasketDevices'
 import c from '../styles/CheckoutListDeviceItem.module.scss'
 
 interface CheckoutListDeviceItemProps {
-    device : ModifiedDeviceItem
+    device: ModifiedDeviceItem
 }
 
 export default function CheckoutListDeviceItem({ device }: CheckoutListDeviceItemProps) {
 
-   
-   const [fisrtImageUrl, setFirstmImgUrl] = React.useState('')
 
-    console.log(device,'INNNER LIST DEVICE')
+    const [fisrtImageUrl, setFirstmImgUrl] = React.useState('')
+
+    console.log(device, 'INNNER LIST DEVICE')
 
 
     return (
         <>
             {
                 <div className={c.item}>
-                    <div className={c.image_container}>
-                        <img src={  device.images[device.color][0] }></img>
-                    </div>
-                    <div className={c.body}>
+
+                    <div className={c.face_dev_ifno}>
+                        <span className={c.image_container}>
+                            <img src={device.images[device.color][0]}></img>
+                        </span>
                         <h2>{device?.faceDescription}</h2>
+                    </div>
+
+                    <div className={c.body}>
                         <div className={c.number}>
                             <h3>number</h3>
                             <p>{device.count ? device.count : '1'}</p>

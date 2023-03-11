@@ -17,11 +17,13 @@
         align-items: end;
 
         .order_manage {
-            width: 30%;
+            width: 60%;
             text-align: center;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+
+            font-size: 0.8rem;
 
             .edit_container {
                 
@@ -50,7 +52,7 @@
                 margin-top: 2px;
                 &::after {
                     content: '₴';
-                    font-size: 0.9rem;
+                    font-size: 0.7rem;
                 }
             }
         }

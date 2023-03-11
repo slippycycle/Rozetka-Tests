@@ -14,6 +14,8 @@ export default function OrderInputsContainer() {
 
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
         const value = evt.target.value;
+       
+     
         setInputData({
             ...inputData,
             [evt.target.name]: value
@@ -44,7 +46,7 @@ export default function OrderInputsContainer() {
             </div>
             <div className={c.input_container_mobile}>
                 <p>modile phone</p>
-                <input onChange={(e) => handleChange(e)} name='phone' defaultValue={'+38'} type="text" />
+                <input onChange={(e) => handleChange(e)} name='phone' defaultValue={'+38'} type="number" />
             </div>
         </div>
     )

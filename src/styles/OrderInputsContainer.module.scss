@@ -3,11 +3,11 @@
 $border_inpt: $light_grey;
 
 .input_container_mobile {
-    margin-top: 0px;
-    position: relative;
+   
+  
 
     p {
-        position: absolute;
+        
         font-size: 0.8rem;
         color: gray;
         top: 0px;
@@ -52,7 +52,7 @@ $border_inpt: $light_grey;
         margin-top: 15px;
 
         p {
-            position: absolute;
+            
             font-size: 0.8rem;
             color: gray;
             top: 0px;
@@ -61,7 +61,7 @@ $border_inpt: $light_grey;
 
         .input_container {
             width: 48%;
-            position: relative;
+         
             padding-top: 22px;
             padding-bottom: 12px;
 
@@ -81,7 +81,7 @@ $border_inpt: $light_grey;
             width: 48%;
             padding-top: 22px;
             padding-bottom: 12px;
-            position: relative;
+          
 
             .firts_name {
                 height: 45px;
