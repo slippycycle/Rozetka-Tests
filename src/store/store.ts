@@ -11,6 +11,7 @@ import basketStateSlice from './features/BasketState.Slice';
 import viewedReducer from './features/ViewedDevices.Slice';
 import suggetsionsReducer from './features/Suggestions.SLice'
 import basketDataReducer from './features/BasketData'
+import  basketDevcies from './features/BasketDevices'
 
 
 
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   basketStateSlice,
   viewedReducer,
   suggetsionsReducer,
-  basketDataReducer
+  basketDataReducer,
+  basketDevcies
 
    
 })

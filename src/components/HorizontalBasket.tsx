@@ -1,4 +1,5 @@
 import React from 'react'
+import uuid from 'react-uuid'
 import { handleBasket } from '../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/HorizontalBasket.module.scss'
@@ -42,7 +43,7 @@ export default function HorizontalBasket() {
                     <div className={c.photo_container}>
                         {
                             basket.map((id: string | number) =>
-                                <div key={id} className={c.device_photo_container}>
+                                <div key={id + uuid()} className={c.device_photo_container}>
                                     <HorizontalBasketImageContainer id={id} />
                                 </div>)
                         }

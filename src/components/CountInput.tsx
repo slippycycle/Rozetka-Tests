@@ -3,6 +3,7 @@ import { CountContext } from '../context';
 import { DeviceId } from '../models/models';
 import { addToTotalSum, } from '../store/features/Basket.Slice';
 import { setCurrentCountAtDevicesInfo } from '../store/features/BasketData';
+import { setCurrentCountAtDevices } from '../store/features/BasketDevices';
 import { useAppDispatch } from '../store/hooks';
 
 
@@ -11,9 +12,10 @@ interface CountInputProps {
     changeValueState: Dispatch<SetStateAction<number>>
     devicePrice: number,
     innerId: string
+    color : string
 }
 
-export default function CountInput({ defaultVal, changeValueState, devicePrice, innerId}: CountInputProps) {
+export default function CountInput({ defaultVal, changeValueState, devicePrice, innerId, color}: CountInputProps) {
 
     const inputRef = React.useRef<HTMLInputElement | any>(null);
 
@@ -55,6 +57,7 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice, 
 
         
             dispatch(setCurrentCountAtDevicesInfo( {count: number, innerId, } ))
+            dispatch(setCurrentCountAtDevices( {count: number, innerId, color } ) )
         }
 
     }

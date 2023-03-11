@@ -2,6 +2,8 @@ import axios, { Axios, AxiosError } from 'axios'
 import React from 'react'
 import { fetchDevice } from '../API/fetchDevice'
 import { DeviceI, DeviceId } from '../models/models'
+import { pushBasketDevices } from '../store/features/BasketDevices'
+import { useAppDispatch } from '../store/hooks'
 import SmallDeviceItem from './SmallDeviceItem'
 
 interface DeviceItemFromBacketProps {
@@ -10,13 +12,13 @@ interface DeviceItemFromBacketProps {
     color: string
 }
 
-export function DeviceItemFromBasket({ id,innerId,color}: DeviceItemFromBacketProps) {
+export function DeviceItemFromBasket({ id, innerId, color }: DeviceItemFromBacketProps) {
 
     const [loading, setLoading] = React.useState<boolean>(true)
     const [device, setDevice] = React.useState<DeviceI | null>(null)
     const [error, setError] = React.useState<string | null>(null)
 
-
+    const dispatch = useAppDispatch()
 
     React.useEffect(() => {
         setLoading(true)
@@ -27,10 +29,11 @@ export function DeviceItemFromBasket({ id,innerId,color}: DeviceItemFromBacketPr
 
             if (fetchedDevice.faceDescription && fetchedDevice.colors) {
                 setDevice(res as DeviceI)
+                dispatch( pushBasketDevices({...fetchedDevice, innerId, color, count: 1}) )
             } else {
                 setError('Error')
             }
-            
+
             setLoading(false)
         }
 

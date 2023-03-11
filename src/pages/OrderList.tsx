@@ -12,13 +12,15 @@ export default function OrderPage() {
 
   const { devicesIdCounts } = useAppSelector(state => state.basketDataReducer)
 
+  const { devicesFromBasket } = useAppSelector(state => state.basketDevcies)
+
   const { totalSum } = useAppSelector(state => state.basketReducer)
 
   React.useEffect(() => {
 
     if (devicesIdCounts.length > 0) {
       console.log('first case')
-      setRes(devicesIdCounts)
+      setRes(devicesFromBasket)
     } else {
       console.log('second case')
       setRes(JSON.parse(localStorage.getItem('basketData') as string))
@@ -27,16 +29,19 @@ export default function OrderPage() {
 
     console.log(devicesIdCounts);
 
-  }, [, devicesIdCounts, totalSum])
+  }, [, devicesIdCounts, totalSum,devicesFromBasket])
 
 
-  
+  // <CheckoutListDeviceItem key={el.innerId}  id={el.id} color={el.color} innerId={el.innerId} count={el.count} />
+
+  console.log(devicesFromBasket,'ORDER LIST PROUD')
 
   return (
     <div className={c.wrap}>
       <h2>{totalSum}</h2>
       <ul className={c.devices_list} >
-        {res.map((el: basketItem) => <CheckoutListDeviceItem key={el.innerId}  id={el.id} color={el.color} innerId={el.innerId} count={el.count} />)
+        {devicesFromBasket.map((el, index) => <CheckoutListDeviceItem key={el.innerId + el.color} device={el} /> )
+          
         }
       </ul>
     </div>

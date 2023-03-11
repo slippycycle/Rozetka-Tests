@@ -42,6 +42,10 @@ export default function Basket() {
 
 
 
+  const { devicesFromBasket } = useAppSelector(state => state.basketDevcies)
+  console.log(devicesFromBasket,'OUR CURRENT BASKET STORE');
+
+  
   return (
     <div className={basketActive ? c.backet_bloor : c.hide}>
       <div className={c.backet_container} >

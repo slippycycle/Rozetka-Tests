@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
 import { dleteItemFromDeviceInfo, setCurrentCountAtDevicesInfo, } from '../store/features/BasketData'
+import { deleteBasketDevcie, setCurrentCountAtDevices } from '../store/features/BasketDevices'
 
 interface SmallDeviceItemProps {
     device: DeviceI
@@ -49,6 +50,10 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
 
         dispatch(dleteItemFromDeviceInfo(currentInnerID))
 
+        dispatch(deleteBasketDevcie(currentInnerID))
+
+        
+
 
     }
 
@@ -87,7 +92,8 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 setInnerNum(prev => prev + 1)
                 setNumber(prev => prev + 1)
                 dispatch(addToTotalSum(+ device.price))
-                 dispatch(setCurrentCountAtDevicesInfo( {count: innerNum + 1, innerId:currentInnerID } ))
+                dispatch(setCurrentCountAtDevicesInfo( {count: innerNum + 1, innerId:currentInnerID } ))
+                dispatch(setCurrentCountAtDevices( {count: innerNum + 1, innerId:currentInnerID,color: color } ) )
             }
 
         }
@@ -98,6 +104,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 setNumber(prev => prev - 1)
                 dispatch(addToTotalSum(-device.price))
                 dispatch(setCurrentCountAtDevicesInfo( {count: innerNum - 1, innerId:currentInnerID } ))
+                dispatch(setCurrentCountAtDevices( {count: innerNum - 1, innerId:currentInnerID, color: color } ) )
             }
         }
 
@@ -124,7 +131,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                                 <p>-</p>
                             </button>
 
-                            <CountInput  innerId={currentInnerID} devicePrice={device.price} changeValueState={setNumber} defaultVal={number} ></CountInput>
+                            <CountInput color={color} innerId={currentInnerID} devicePrice={device.price} changeValueState={setNumber} defaultVal={number} ></CountInput>
 
                             <button onClick={() => { handleNumber(true) }}>
                                 <p >+</p>
