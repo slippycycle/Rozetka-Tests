@@ -4,33 +4,12 @@
 .checkout_infro_panle_wrap {
     width: 100%;
     height: 550px;
+    
     $borr: 5px;
-
     $wdth:100%;
     $global_padding: 15px;
 
-    .promo_code_banner {
-        border: 1px solid $light_grey;
-        width: $wdth;
-        height: 10%;
-        padding:  $global_padding;
-        background-color: $banners_bck_color;
-        display: flex;
-        flex-direction: row;
-        border-radius: $borr;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-
-        h3 {
-            color: $links_color;
-        }
-
-        p {
-            color: rgb(88, 88, 88);
-        }
-    }
-
+   
     .content {
         padding:  $global_padding;
         border: 1px solid $light_grey;

@@ -62,12 +62,12 @@ export default function DeliveryContent() {
                     </p>
                     <input onClick={() => setCurrentSubContent(3)} type="radio" name="radio" />
                     <span className={c.radio_checkmark}></span>
+                </label>
                     {currentSubContent === 3 ?
                         <CurierForm />
                         :
                         null
                     }
-                </label>
 
             </div>
 

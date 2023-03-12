@@ -1,16 +1,16 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/CheckOutInfoPanel.module.scss'
+import PromocodeContent from './PromocodeContent'
 
 export default function CheckOutInfoPanel() {
 
    const { totalSum } = useAppSelector(state => state.basketReducer)
-
    const { devicesFromBasket, totalDevicesNumber } = useAppSelector(state => state.basketDevcies)
-
    const [total, setTotal] = React.useState(devicesFromBasket.length)
-
+  
    const dispacth = useAppDispatch()
+
 
    function setDevicesNumber() {
 
@@ -40,10 +40,10 @@ export default function CheckOutInfoPanel() {
 
    return (
       <div className={c.checkout_infro_panle_wrap}>
-         <div className={c.promo_code_banner}>
-            <p>Promocode</p>
-            <h3>Add</h3>
-         </div>
+        
+        <PromocodeContent/>
+        
+
          <div className={c.content}>
 
             <h1>Together</h1>
