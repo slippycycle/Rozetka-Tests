@@ -1,10 +1,10 @@
 import axios, { AxiosError } from 'axios'
 import React from 'react'
-import DevicePageContent from '../components/DevicePageContent'
-import DevicePageTopComponent from '../components/DevicePageTopComponent'
-import Loader from '../components/Loader'
-import { DeviceI } from '../models/models'
-import c from '../styles/DevicePage.module.scss'
+import DevicePageContent from '../../components/DevicePageContent'
+import DevicePageTopComponent from '../../components/DevicePageTopComponent'
+import Loader from '../../components/Loader'
+import { DeviceI } from '../../models/models'
+import c from './styles/DevicePage.module.scss'
 
 export default function DevicePage() {
 

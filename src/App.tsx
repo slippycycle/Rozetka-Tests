@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Router, Routes } from 'react-router';
 import HomePage from './pages/HomePage';
-import DevicePage from './pages/DevicePage';
+import DevicePage from './pages/DevicePage/DevicePage';
 import SelectedDevicesPage from './pages/SelectedDevicesCategory';
 import TopNavbar from './components/TopNavbar';
 import Basket from './components/Basket';
