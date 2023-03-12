@@ -1,5 +1,5 @@
 import React from 'react'
-import { DeviceI } from '../models/models'
+import { DeviceI } from '../../../models/models'
 import c from '../styles/DevicePage.module.scss'
 
 

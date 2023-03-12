@@ -1,12 +1,13 @@
 import React from 'react'
-import { firstColorIndex } from '../consts'
-import { SelectedSubPageContext } from '../context'
-import { DeviceI } from '../models/models'
-import SubPages from '../pages/SubPage'
-import { SelectedSubPageType } from '../pages/SubPage'
+import { firstColorIndex } from '../../../consts'
+import { SelectedSubPageContext } from '../../../context'
+import { DeviceI } from '../../../models/models'
+import SubPages from '../../SubPage'
+import { SelectedSubPageType } from '../../SubPage'
 import c from '../styles/DevicePage.module.scss'
 import DeviceInfoPanel from './DeviceInfoPanel'
 import SubPagesVariatyList from './SubPagesVariatyList'
+
 
 
 

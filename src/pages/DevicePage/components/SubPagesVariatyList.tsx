@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { SelectedSubPageContext } from '../context'
-import { setDefaultPositions } from '../store/features/Chat.Slice'
-import { useAppDispatch } from '../store/hooks'
+import { SelectedSubPageContext } from '../../../context'
+import { setDefaultPositions } from '../../../store/features/Chat.Slice'
+import { useAppDispatch } from '../../../store/hooks'
 import c from '../styles/DevicePage.module.scss'
 
 export default React.memo(function SubPagesVariatyList() {

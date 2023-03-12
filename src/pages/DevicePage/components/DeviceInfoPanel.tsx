@@ -1,11 +1,11 @@
 import React from 'react'
-import { SelectedSubPageContext } from '../context'
-import { BasketDevicesIdArray, basketItem, DeviceI, DeviceId } from '../models/models'
-import { makeRender } from '../store/features/BasketState.Slice'
-import { handleBasket } from '../store/features/Basket.Slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { SelectedSubPageContext } from '../../../context'
+import { BasketDevicesIdArray, basketItem, DeviceI, DeviceId } from '../../../models/models'
+import { makeRender } from '../../../store/features/BasketState.Slice'
+import { handleBasket } from '../../../store/features/Basket.Slice'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/DevicePage.module.scss'
-import { pushDeviceInfo } from '../store/features/BasketData'
+import { pushDeviceInfo } from '../../../store/features/BasketData'
 import uuid from 'react-uuid'
 
 
@@ -45,7 +45,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
         else {
             //on success
 
-            let basketDevice: basketItem = { id: device.id,  innerId: uuid(), color: currentColor }
+            let basketDevice: basketItem = { id: device.id, innerId: uuid(), color: currentColor }
 
             let result = currentBasket
             result.push(basketDevice)
@@ -54,7 +54,7 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
             // setActive(currentBcket?.length > 0 ? currentBcket.find((el) => el == device.id): false)
             dispatch(makeRender())
 
-            dispatch(pushDeviceInfo({...basketDevice, count: 1}))
+            dispatch(pushDeviceInfo({ ...basketDevice, count: 1 }))
 
 
         }
@@ -88,8 +88,6 @@ export default function DeviceInfoPanel({ device }: DeviceInfoPanelProps) {
                         <div className={c.cloror__container__text}>
                             <h3>Color:</h3> <p>{currentColor}</p>
                         </div>
-
-
 
                         <div className={c.colors__container}>
                             {device?.colors ?
