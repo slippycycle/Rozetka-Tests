@@ -2,8 +2,9 @@
     width: 97%;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: aqua;
-    
+
+    $slider_hgth: 380px;
+
     .fourtneen_slider {
         .discount_label {
             background-color: red;
@@ -19,25 +20,25 @@
         }
         display: none;
         width: 100%;
-        height: 370px;
+        height: $slider_hgth;
     }
 
     @media (min-width: 1000px) {
-        
+
         .fourtneen_slider {
             display: flex;
         }
     }
-    
+
     .treeple_slider {
         display: none;
         width: 100%;
-        height: 370px;
+        height: $slider_hgth;
     }
 
-    @media (max-width: 1000px ) and (min-width: 700px) {
-        
-        .treeple_slider {       
+    @media (max-width: 1000px) and (min-width: 700px) {
+
+        .treeple_slider {
             display: flex;
         }
     }
@@ -45,12 +46,12 @@
     .double_slider {
         display: none;
         width: 100%;
-        height: 370px;
+        height: $slider_hgth;
     }
 
-    @media (max-width: 700px ) and (min-width: 320px) {
-        
-        .double_slider {       
+    @media (max-width: 700px) and (min-width: 320px) {
+
+        .double_slider {
             display: flex;
         }
     }
@@ -65,20 +66,20 @@
         font-size: 2.2rem;
         font-weight: 500;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-family:   'Nanum Gothic', sans-serif;
+        font-family: 'Nanum Gothic', sans-serif;
         margin-top: 20px;
         margin-bottom: 20px;
     }
 
     .slider_container {
-        height: 340px;
+        height: $slider_hgth;
         width: 100%;
-        
+
     }
 
     .empty_message_wrap {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
@@ -90,9 +91,10 @@
         }
 
         h2 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 500;
             color: gray;
+            margin-bottom: 10px;
         }
 
     }

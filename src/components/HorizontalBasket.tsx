@@ -1,6 +1,7 @@
 import React from 'react'
 import uuid from 'react-uuid'
 import { handleBasket } from '../store/features/Basket.Slice'
+import { ModifiedDeviceItem } from '../store/features/BasketDevices'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/HorizontalBasket.module.scss'
 import HorizontalBasketImageContainer from './HorizontalBasketImage'
@@ -9,9 +10,14 @@ import HorizontalBasketImageContainer from './HorizontalBasketImage'
 export default function HorizontalBasket() {
 
     const { totalSum } = useAppSelector(state => state.basketReducer)
-    const { reload } = useAppSelector(state => state.basketStateSlice)
+    
+    
 
     const [basket, setBasket] = React.useState([])
+
+    const {devicesFromBasket} = useAppSelector(state => state.basketDevcies)
+
+    console.log(devicesFromBasket,'FROM HORIZONTAL');
 
     const dispatch = useAppDispatch()
 
@@ -42,9 +48,9 @@ export default function HorizontalBasket() {
                     </div>
                     <div className={c.photo_container}>
                         {
-                            basket.map((id: string | number) =>
-                                <div key={id + uuid()} className={c.device_photo_container}>
-                                    <HorizontalBasketImageContainer id={id} />
+                            devicesFromBasket.map((dev: ModifiedDeviceItem) =>
+                                <div key={dev.innerId} className={c.device_photo_container}>
+                                    <HorizontalBasketImageContainer device={dev} />
                                 </div>)
                         }
                     </div>

@@ -10,7 +10,6 @@ import Loader from './Loader'
 
 export default function SuggestionDevices() {
 
-  const [devices, setDevices] = React.useState<DeviceI[] | []>([])
   const [count, setCount] = React.useState<number>(2)
 
   const { suggestionDevices, loading } = useAppSelector(state => state.suggetsionsReducer)
@@ -21,7 +20,6 @@ export default function SuggestionDevices() {
 
 
   React.useEffect(() => {
-
     dispatch(fetchSuggestion())
     console.log('THIRD REFETCH')
   }, [])

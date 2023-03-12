@@ -1,5 +1,5 @@
 import React from 'react'
-import ViewedeDeviceItem from './DeviceFromSlider'
+import IntroDeviceItem from './DeviceFromSlider'
 import c from '../styles/DevicesSlider.module.scss'
 import axios from 'axios'
 import { SERVER_URL } from '../consts'
@@ -68,7 +68,7 @@ export default function DiscountDevices() {
                                     {devices.map((dev) =>
                                         <SwiperSlide key={dev.id} >
                                               <label className={c.discount_label}>DISCOUNT%</label>
-                                             <ViewedeDeviceItem deviceI={dev} />
+                                             <IntroDeviceItem deviceI={dev} />
                                         </SwiperSlide>
                                     )}
 
@@ -86,7 +86,7 @@ export default function DiscountDevices() {
                                     className="mySwiper"
                                 >
                                     {devices.map((dev) =>
-                                        <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
+                                        <SwiperSlide key={dev.id} ><IntroDeviceItem deviceI={dev} /></SwiperSlide>
                                     )}
 
 
@@ -104,7 +104,7 @@ export default function DiscountDevices() {
                                     className="mySwiper"
                                 >
                                     {devices.map((dev) =>
-                                        <SwiperSlide key={dev.id} ><ViewedeDeviceItem deviceI={dev} /></SwiperSlide>
+                                        <SwiperSlide key={dev.id} ><IntroDeviceItem deviceI={dev} /></SwiperSlide>
                                     )}
 
                                 </Swiper>

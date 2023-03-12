@@ -1,11 +1,7 @@
 import React from 'react'
 import c from '../styles/HomePage.module.scss'
 import BannerSlider from './BannerSlider'
-import DiscountDevices from './DiscountDevices'
 import HorizontalBasket from './HorizontalBasket'
-import RecentlyViewedDevices from './RecentlyViewedDevices'
-import SuggestionDevices from './SuggestionDevices'
-import { useInView } from 'react-intersection-observer'
 import HomeContent from './HomeContent'
 
 interface HandleCategoryProps {
