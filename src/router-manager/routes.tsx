@@ -1,6 +1,6 @@
 import Checkout from "../pages/Checkout/Checkout"
 import DevicePage from "../pages/DevicePage/DevicePage"
-import HomePage from "../pages/HomePage"
+import HomePage from "../pages/Home/HomePage"
 import SearchPage from "../pages/SearchPage"
 import SelectedCategoryPage from "../pages/SelectedDevicesCategory"
 

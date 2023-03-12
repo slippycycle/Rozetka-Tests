@@ -1,11 +1,11 @@
 import React from 'react'
-import { Types } from '../models/models'
+import { Types } from '../../../models/models'
 import { useNavigate } from "react-router-dom";
 import c from '../styles/HomePage.module.scss'
-import { useAppDispatch } from '../store/hooks';
-import { addSelectedBrands } from '../store/features/Brands.Slice';
-import { setCurrentPage } from '../store/features/Devices.Slice';
-import { setMaxRangePrice, setMinRangePrice } from '../store/features/PriceRange';
+import { useAppDispatch } from '../../../store/hooks';
+import { addSelectedBrands } from '../../../store/features/Brands.Slice';
+import { setCurrentPage } from '../../../store/features/Devices.Slice';
+import { setMaxRangePrice, setMinRangePrice } from '../../../store/features/PriceRange';
 
 interface TypesComponentProps {
     typesArray: Types[]

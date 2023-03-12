@@ -1,11 +1,11 @@
 import React from 'react'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/HomePage.module.scss'
-import Loader from './Loader'
+import Loader from '../../../components/Loader'
 import TypesComponent from './TypesComponent'
-import { fetchTypes } from '../store/features/Types.Slice'
-import { Types } from '../models/models'
-import InformationAboutCompanyList from './InformationAboutCompanyList'
+import { fetchTypes } from '../../../store/features/Types.Slice'
+import { Types } from '../../../models/models'
+import InformationAboutCompanyList from '../../../components/InformationAboutCompanyList'
 
 interface CategoryLeftBar {
   visible: boolean

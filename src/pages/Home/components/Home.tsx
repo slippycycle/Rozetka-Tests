@@ -1,8 +1,8 @@
 import React from 'react'
 import c from '../styles/HomePage.module.scss'
-import BannerSlider from './BannerSlider'
-import HorizontalBasket from './HorizontalBasket'
-import HomeContent from './HomeContent'
+import BannerSlider from '../../../components/BannerSlider'
+import HorizontalBasket from '../../../components/HorizontalBasket'
+import HomeContent from '../../../components/HomeContent'
 
 interface HandleCategoryProps {
   handleCategory: React.Dispatch<React.SetStateAction<boolean>>
