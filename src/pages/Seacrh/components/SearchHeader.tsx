@@ -1,6 +1,6 @@
 import React from 'react'
 import c from '../styles/SearchPage.module.scss'
-import DropdownSortButton from './DropdownSortButton'
+import DropdownSortButton from '../../../components/DropdownSortButton'
 
 
 interface SearchHeaderProps {

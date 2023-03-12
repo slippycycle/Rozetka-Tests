@@ -10,7 +10,7 @@ import TopNavbar from './components/TopNavbar';
 import Basket from './components/Basket';
 import Menu from './components/Menu';
 import { MenuContext, MobileSortActive } from './context';
-import SearchPage from './pages/SearchPage';
+import SearchPage from './pages/Seacrh/SearchPage';
 import LeftMobileFilter from './components/LeftMobileFilter';
 import BottomBanner from './components/BottomBanner';
 import OrderPage from './pages/Checkout/components/OrderList';

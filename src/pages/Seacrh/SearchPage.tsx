@@ -1,11 +1,10 @@
 import React from 'react'
-import LeftMobileFilter from '../components/LeftMobileFilter'
-import PaginationControll from '../components/PaginationControll'
-import SearchHeader from '../components/SearchHeader'
-import SearchPageDevicesPanel from '../components/SearchPageDevicesPanel'
-import SerachPageFilter from '../components/SerachPageFilter'
-import { AllBrandsContex, MobileSortActive } from '../context'
-import c from '../styles/SearchPage.module.scss'
+import LeftMobileFilter from '../../components/LeftMobileFilter'
+import SearchHeader from './components/SearchHeader'
+import SearchPageDevicesPanel from './components/SearchPageDevicesPanel'
+import SerachPageFilter from './components/SerachPageFilter'
+import { MobileSortActive } from '../../context'
+import c from './styles/SearchPage.module.scss'
 
 
 export default function SearchPage() {

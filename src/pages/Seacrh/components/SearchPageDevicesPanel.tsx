@@ -1,12 +1,12 @@
 import React, { useRef } from 'react'
-import { handleBasket } from '../store/features/Basket.Slice'
-import { fetchProducts, setCurrentPage, setNextPage } from '../store/features/Devices.Slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { handleBasket } from '../../../store/features/Basket.Slice'
+import { fetchProducts, setCurrentPage, setNextPage } from '../../../store/features/Devices.Slice'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/SearchPage.module.scss'
-import { getPages } from '../utils/pagination'
-import DeviceItem from './DeviceItem'
-import Loader from './Loader'
-import PaginationControll from './PaginationControll'
+import { getPages } from '../../../utils/pagination'
+import DeviceItem from '../../../components/DeviceItem'
+import Loader from '../../../components/Loader'
+import PaginationControll from '../../../components/PaginationControll'
 
 type searchQuery = string
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import { useAppSelector } from '../store/hooks'
+import { useAppSelector } from '../../../store/hooks'
 import c from '../styles/SearchPage.module.scss'
-import BrandsCheckList from './BrandsCheckList'
-import RangeContainer from './RangeContainer'
+import BrandsCheckList from '../../../components/BrandsCheckList'
+import RangeContainer from '../../../components/RangeContainer'
 
 export default function SerachPageFilter() {
 
