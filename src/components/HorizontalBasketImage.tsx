@@ -15,7 +15,7 @@ export default function HorizontalBasketImageContainer({ device }: HorizontalBas
             {loading ?
                 <h2>Loading</h2>
                 :
-                    <img src={device?  device.images[device.color][0] : 'Device not found'} ></img>
+                    <img alt={device.faceDescription} src={device?  device.images[device.color][0] : 'Device not found'} ></img>
             }
         </>
     )

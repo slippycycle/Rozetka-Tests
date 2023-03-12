@@ -29,14 +29,19 @@
     padding: 10px;
 
 
-
     .banner_wrap {
       width: 100%;
       margin-top: 10px;
       display: block;
-      background-color: aliceblue;
+      background-color: #000000;
       height: 400px;
 
+    }
+
+    @media (max-width: 1200px) and (min-width: 900px)  {
+      .banner_wrap { 
+        height: 350px;
+      }
     }
 
   }

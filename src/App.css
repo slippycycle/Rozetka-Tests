@@ -1,17 +1,17 @@
 .App {
   text-align: center;
-  
+
 }
 
 .app-wrapp {
   scrollbar-gutter: stable;
-  position: relative; 
+  position: relative;
   display: block;
   background-color: rgb(255, 255, 255);
-  height: 100%;  
+  height: 100%;
 
 
-  
+
 
 }
 
@@ -29,8 +29,8 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background-color: white;
   border-radius: 5px;
-  border: 1px solid rgb(141, 141, 255); 
-  bottom: 55px ;
+  border: 1px solid rgb(141, 141, 255);
+  bottom: 55px;
 }
 
 .alert_error {
@@ -46,10 +46,10 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background-color: rgb(255, 121, 121);
   border-radius: 5px;
-  border: 1px solid rgb(223, 0, 0); 
-  bottom: 55px ;
+  border: 1px solid rgb(223, 0, 0);
+  bottom: 55px;
 
- 
+
 }
 
 
@@ -82,6 +82,7 @@
   display: flex;
   align-items: center;
 }
+
 .vertical {
   width: 300px;
   flex-direction: column;
@@ -90,8 +91,9 @@
 .android {
   width: 45%;
 }
+
 .apple {
-  width:45%;
+  width: 45%;
 }
 
 
@@ -99,18 +101,22 @@
 
 .slider-img-container-banner {
 
-  background-color: #2196F3;
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  
+
 
 }
 
 .slider-img-container-banner img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  object-position: center;
+  margin: auto;
+  width: auto;
+  height: auto;
+
+  max-height: 100%;
+  max-width: 100%;
 }
 
 

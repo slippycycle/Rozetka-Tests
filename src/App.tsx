@@ -15,13 +15,10 @@ import LeftMobileFilter from './components/LeftMobileFilter';
 import BottomBanner from './components/BottomBanner';
 import OrderPage from './pages/OrderList';
 import Checkout from './pages/Checkout';
+import { routes } from './router-manager/routes';
 
 
 function App() {
-
-
-
-
 
    const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
@@ -46,13 +43,9 @@ function App() {
                <Basket />
                <LeftMobileFilter />
                <Routes>
+                  {routes.map((route) => <Route element={route.element} path={route.path}></Route>)
 
-                  <Route element={<HomePage />} path='/'></Route>
-                  <Route element={<SelectedDevicesPage />} path=':id/'></Route>
-                  <Route element={<DevicePage />} path='/:deviceType/:id/'></Route>
-                  <Route element={<SearchPage />} path='/search/:id/'></Route>
-                  <Route element={<Checkout />} path='checkout'></Route>
-
+                  }
                </Routes>
             </MobileSortActive.Provider>
          </div>

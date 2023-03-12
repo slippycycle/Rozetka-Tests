@@ -32,7 +32,7 @@ export default function BannerSlider() {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className=''>
+                    <div className='slider-img-container-banner'>
                         <img src={'https://casfurb.com/wp-content/uploads/2022/10/CASFURB_BANNER71.jpg'} />
                     </div>
                 </SwiperSlide>
