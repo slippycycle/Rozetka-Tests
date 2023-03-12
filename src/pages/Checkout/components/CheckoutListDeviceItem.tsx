@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ModifiedDeviceItem } from '../store/features/BasketDevices'
+import { ModifiedDeviceItem } from '../../../store/features/BasketDevices'
 import c from '../styles/CheckoutListDeviceItem.module.scss'
 
 interface CheckoutListDeviceItemProps {

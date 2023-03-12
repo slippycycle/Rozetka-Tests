@@ -1,9 +1,9 @@
 import React from 'react'
-import CheckoutListDeviceItem from '../components/CheckoutListDeviceItem'
-import { basketItem } from '../models/models'
-import { handleBasket } from '../store/features/Basket.Slice'
-import { deviceFromBasket } from '../store/features/BasketData'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import CheckoutListDeviceItem from './CheckoutListDeviceItem'
+import { basketItem } from '../../../models/models'
+import { handleBasket } from '../../../store/features/Basket.Slice'
+import { deviceFromBasket } from '../../../store/features/BasketData'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/OrderList.module.scss'
 
 export default function OrderPage() {

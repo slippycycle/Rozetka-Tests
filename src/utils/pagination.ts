@@ -1,4 +1,9 @@
- export function getPages(limit, totalElements) {
+ 
+ type LimitItems = number
+
+ type TotalElemts = number
+ 
+ export function getPages(limit : LimitItems, totalElements: TotalElemts) {
 
     const pahesArray = []
     const count = Math.ceil(totalElements / limit)

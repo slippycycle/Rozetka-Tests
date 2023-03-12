@@ -1,8 +1,9 @@
 import React from 'react'
-import OrderPage from './OrderList'
-import CheckOutInfoPanel from '../components/CheckOutInfoPanel'
-import c from '../styles/Checkout.module.scss'
-import OrderInputsContainer from '../components/OrderInputsContainer'
+import CheckOutInfoPanel from './components/CheckOutInfoPanel'
+import c from './styles/Checkout.module.scss'
+import OrderInputsContainer from './components/OrderInputsContainer'
+import OrderPage from './components/OrderList'
+
 
 export default function Checkout() {
   return (

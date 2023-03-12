@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/CheckOutInfoPanel.module.scss'
 
 export default function CheckOutInfoPanel() {

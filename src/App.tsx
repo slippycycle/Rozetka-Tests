@@ -13,8 +13,8 @@ import { MenuContext, MobileSortActive } from './context';
 import SearchPage from './pages/SearchPage';
 import LeftMobileFilter from './components/LeftMobileFilter';
 import BottomBanner from './components/BottomBanner';
-import OrderPage from './pages/OrderList';
-import Checkout from './pages/Checkout';
+import OrderPage from './pages/Checkout/components/OrderList';
+import Checkout from './pages/Checkout/Checkout';
 import { routes } from './router-manager/routes';
 
 

@@ -1,4 +1,4 @@
-import Checkout from "../pages/Checkout"
+import Checkout from "../pages/Checkout/Checkout"
 import DevicePage from "../pages/DevicePage"
 import HomePage from "../pages/HomePage"
 import SearchPage from "../pages/SearchPage"
