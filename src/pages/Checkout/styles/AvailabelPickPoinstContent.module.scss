@@ -1,0 +1,51 @@
+
+
+@import '../../../styles/colors';
+
+.wrap {
+    width: 70%;
+    border: 1px solid $links_color;
+    border-radius: 5px;
+    height: 300px;
+    margin-top: 30px;
+    padding: 20px;
+
+    button {
+        width: 90%;
+        border-radius: 5px;
+        border: 1px solid  rgb(159, 159, 159) ;
+        font-size: 1rem;
+        padding: 10px;
+
+    }
+    .search_content {
+        width: 90%;
+        border-radius: 5px;
+        border: 1px solid  $light_grey ;
+        font-size: 1rem;
+        padding: 10px;
+
+    
+        .search_input {
+            width: 100%;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            font-size: 1.1rem;
+            padding-left: 3px;
+            border-bottom: 2px solid $links_color;
+        }
+
+        .points_list {
+             li {
+                padding: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(240, 240, 240);
+                }
+             }
+        }
+
+
+    }
+}

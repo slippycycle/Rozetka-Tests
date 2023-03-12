@@ -1,4 +1,61 @@
 {
+  "daddyraficpoints": [
+    {
+     "number":"1",
+     "street": "Alexandra Sniper From Mayami"
+    },
+    {
+     "number":"2",
+     "street": "Harnizona 1488"
+    },
+    {
+     "number":"3",
+     "street": "Prospect DrugDillervo"
+    },
+    {
+     "number":"4",
+     "street": "Slava Ukraine"
+    },
+
+    {
+      "number":"5",
+      "street": "Alexandra pulemetchik From Florida"
+     },
+     {
+      "number":"6",
+      "street": "Perl Harobr"
+     },
+     {
+      "number":"7",
+      "street": "Prospect Front End masterov"
+     },
+     {
+      "number":"8",
+      "street": "Geroyam slava"
+     }
+   ],
+  "novaposhtapoints": [
+   {
+    "number":1,
+    "street": "Slavik Pochtalyon"
+   },
+   {
+    "number":2,
+    "street": "Albacuce New Mexico"
+   },
+   {
+    "number":3,
+    "street": "Prospect New York"
+   },
+   {
+    "number":4,
+    "street": "Lorem Ipsum Urban"
+   },
+   {
+    "number":5,
+    "street": "Mona Lisa"
+   }
+  ],
   "baners": [
     {
       "src": "https://content2.rozetka.com.ua/files/images/original/315022359.jpg",
