@@ -67,6 +67,7 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
     }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice])
 
 
+console.log(    'MAIN RENDER');
 
     return (
         <div className={c.wrap}>

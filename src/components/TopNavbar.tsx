@@ -16,7 +16,6 @@ export default function TopNavbar() {
         <div ref={containerRef} className={c.menu__container}>
             <div className={c.top_navbar}>
                 <MenuHandleButton />
-             
                 <NavbarInputContainer />
                 <BasketTopItem />
             </div>

@@ -37,8 +37,8 @@ function App() {
          <div className='app-wrapp'>
             <MobileSortActive.Provider value={{ active, handleMenuState }} >
                <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
-                  <Menu />
-                  <TopNavbar />
+                  <Menu/>
+                  <TopNavbar  />
                </MenuContext.Provider>
                <Basket />
                <LeftMobileFilter />
