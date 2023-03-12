@@ -19,23 +19,19 @@ export default function OrderPage() {
 
   React.useEffect(() => {
 
-    if (devicesIdCounts.length > 0) {
-      console.log('first case')
+  
       setRes(devicesFromBasket)
-    } else {
-      console.log('second case')
-      setRes(JSON.parse(localStorage.getItem('basketData') as string))
-    }
+   
 
 
     console.log(devicesIdCounts);
+    console.log(devicesFromBasket, 'ORDER LIST PROUD')
 
-  }, [, devicesIdCounts, totalSum, devicesFromBasket])
+  }, [totalSum, devicesFromBasket])
 
 
   // <CheckoutListDeviceItem key={el.innerId}  id={el.id} color={el.color} innerId={el.innerId} count={el.count} />
 
-  console.log(devicesFromBasket, 'ORDER LIST PROUD')
 
   const dispatch = useAppDispatch()
 

@@ -1,4 +1,4 @@
-import { color } from '@mui/system'
+
 import React from 'react'
 import { basketItem } from '../models/models'
 import c from '../styles/Basket.module.scss'
@@ -12,7 +12,8 @@ interface BacketListProps {
 
 export default function BasketList({ devicesIdArray }: BacketListProps) {
 
-    console.log('OUR ENOMY ',devicesIdArray)
+    console.log('OUDR ENOMY ',devicesIdArray)
+    //ALERT
 
     return ( 
         <div className={c.backet_list}>

@@ -18,18 +18,24 @@ export function DeviceItemFromBasket({ id, innerId, color }: DeviceItemFromBacke
     const [device, setDevice] = React.useState<DeviceI | null>(null)
     const [error, setError] = React.useState<string | null>(null)
 
+    const includedRef = React.useRef<boolean>(null)
+
     const dispatch = useAppDispatch()
 
     React.useEffect(() => {
         setLoading(true)
 
+        
         fetchDevice(id).then((res) => {
 
             const fetchedDevice = res as DeviceI
 
             if (fetchedDevice.faceDescription && fetchedDevice.colors) {
                 setDevice(res as DeviceI)
+              
+                //HERE MY PROBLEM 
                 dispatch( pushBasketDevices({...fetchedDevice, innerId, color, count: 1}) )
+                
             } else {
                 setError('Error')
             }

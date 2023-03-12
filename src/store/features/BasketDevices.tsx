@@ -19,6 +19,10 @@ export interface ModifiedDeviceItem  extends DeviceI  {
    
 } 
 
+type SubDevice = Pick<ModifiedDeviceItem, 'innerId' | 'count' | 'color' >
+
+
+
 interface BacketState {
     devicesFromBasket :ModifiedDeviceItem[] 
     loading: boolean
@@ -36,10 +40,12 @@ const basketDevicesSlice = createSlice({
     name: 'basketDevices',
     initialState,
     reducers: {
-        setBasketDevices(state, action) {     
-        },
-        pushBasketDevices (state, action) {
-            state.devicesFromBasket.push(action.payload)
+        pushBasketDevices (state, action: PayloadAction<ModifiedDeviceItem>) {
+           if ( state.devicesFromBasket.find((dev) => dev.innerId === action.payload.innerId) ) {
+
+           } else {
+               state.devicesFromBasket.push(action.payload)
+           }
           
         },
         deleteBasketDevcie (state, action) {
@@ -48,7 +54,7 @@ const basketDevicesSlice = createSlice({
         loadingHandle( state, action: PayloadAction<boolean>) {
             state.loading  = action.payload
         },
-        setCurrentCountAtDevices(state, action) {
+        setCurrentCountAtDevices(state, action: PayloadAction<SubDevice>) {
 
             for (let i = 0; i < state.devicesFromBasket.length; i++) {
 
@@ -61,13 +67,12 @@ const basketDevicesSlice = createSlice({
         },
         
     }
-
        
 })
 
 export default basketDevicesSlice.reducer
 
-export const {setBasketDevices,pushBasketDevices,deleteBasketDevcie,loadingHandle,setCurrentCountAtDevices} = basketDevicesSlice.actions
+export const {pushBasketDevices,deleteBasketDevcie,loadingHandle,setCurrentCountAtDevices} = basketDevicesSlice.actions
 
 
 

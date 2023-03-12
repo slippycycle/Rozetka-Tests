@@ -1,7 +1,6 @@
-import { color } from '@mui/system'
+
 import React from 'react'
-import { fetchDevice } from '../API/fetchDevice'
-import { DeviceI, DeviceId } from '../models/models'
+import { useNavigate } from 'react-router-dom'
 import { ModifiedDeviceItem } from '../store/features/BasketDevices'
 import c from '../styles/CheckoutListDeviceItem.module.scss'
 
@@ -11,18 +10,15 @@ interface CheckoutListDeviceItemProps {
 
 export default function CheckoutListDeviceItem({ device }: CheckoutListDeviceItemProps) {
 
-
-    const [fisrtImageUrl, setFirstmImgUrl] = React.useState('')
-
-    console.log(device, 'INNNER LIST DEVICE')
-
+    let navigate = useNavigate()
+    
 
     return (
         <>
             {
                 <div className={c.item}>
 
-                    <div className={c.face_dev_ifno}>
+                    <div onClick={() => { navigate(`/${device.type}/${device.id}`) }} className={c.face_dev_ifno}>
                         <span className={c.image_container}>
                             <img src={device.images[device.color][0]}></img>
                         </span>
@@ -38,16 +34,11 @@ export default function CheckoutListDeviceItem({ device }: CheckoutListDeviceIte
                             <h3>price</h3>
                             {device.oldPrice > device.price ?
                                 <>
-
                                     <p className={c.old_prc}>{device?.oldPrice}</p>
                                     <p className={c.discount_price}>{device.price}</p>
                                 </>
                                 :
-
                                 <p>{device.price}</p>
-
-
-
 
                             }
                         </div>
