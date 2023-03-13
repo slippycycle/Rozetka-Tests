@@ -10,7 +10,7 @@ interface HandleCategoryProps {
 
 export default function Home({ handleCategory }: HandleCategoryProps) {
 
- 
+  console.log('HOME CONTENT RENDER (AS ALL RIGHT )');
 
   return (
     <div className={c.home_container}>

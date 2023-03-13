@@ -12,8 +12,7 @@ interface BacketListProps {
 
 export default function BasketList({ devicesIdArray }: BacketListProps) {
 
-    console.log('OUDR ENOMY ',devicesIdArray)
-    //ALERT
+    
 
     return ( 
         <div className={c.backet_list}>

@@ -14,7 +14,7 @@ interface CategoryLeftBar {
 
 
 
-export default React.memo(function CategoryLeftBar({ visible, handleCategory }: CategoryLeftBar) {
+export default function CategoryLeftBar({ visible, handleCategory }: CategoryLeftBar) {
 
   const { types, loading, error } = useAppSelector(state => state.typeReducer)
 
@@ -23,11 +23,12 @@ export default React.memo(function CategoryLeftBar({ visible, handleCategory }: 
 
   //fetching types
   React.useEffect(() => {
-    dispatch(fetchTypes())
-
+   if ( types.length < 1 ) {
+     dispatch(fetchTypes())
+   }
   }, [])
 
-  console.log('render left types bar')
+  console.log('CategoryLeftBar RENDER !!!!',types)
 
   return (
     <>
@@ -105,4 +106,4 @@ export default React.memo(function CategoryLeftBar({ visible, handleCategory }: 
 
 
   )
-})
+}

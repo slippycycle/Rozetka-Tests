@@ -7,8 +7,10 @@ import LeftFilter from './LeftFilter'
 
 
 export default function ComponentsCategory() {
-  //after 880px wdth SortbyBrandsLeftBar will disappear 
+  
   const takeCurrentType = window.location.pathname.slice(1, 100).replaceAll('/', '')
+
+  console.log('ComponentsCategory render')
 
   return (
     <div className={c.wrap}>

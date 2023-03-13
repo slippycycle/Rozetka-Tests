@@ -1,9 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import axios, { AxiosError } from "axios"
-
-
-
-
 
 interface BacketState {
     reload: boolean

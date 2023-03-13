@@ -7,17 +7,14 @@ import c from '../styles/CategoryHeader.module.scss'
 
 
 
-export default function CategoryHeader({ }) {
+export default function CategoryHeader() {
 
+   console.log( 'CATEGORY HEADRE RENDR');
 
     const takeCurrentType = window.location.pathname.replaceAll('/', '')
     const [categoryObject, setCategoryObject] = React.useState<Types | null>(null)
     const [error, setError] = React.useState<string | null>(null)
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
-
-
-
-
 
 
     async function fetchInfoAboutCurrentCategory() {

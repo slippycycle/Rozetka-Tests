@@ -1,8 +1,6 @@
 import React from 'react'
 import { MobileSortActive } from '../context'
-import { sortDevicestypes } from '../models/models';
-import { setLimit, setSortType } from '../store/features/Devices.Slice';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
+import {  useAppSelector } from '../store/hooks';
 import c from '../styles/LeftMobileFilter.module.scss'
 import BrandsCheckListContainer from './BrandsCheckListContainer';
 import DoubleRangeSlider from './DoubleRangeSlider';
@@ -11,13 +9,13 @@ import DropdownLimitButton from './DropdownLimitButton';
 
 
 
-export default function LeftMobileFilter() {
+export default  function LeftMobileFilter() {
 
     const menuState = React.useContext(MobileSortActive)
 
     const { defaultMaxPrice, defaultminPrice, maxPrice, minPrice } = useAppSelector(state => state.rangeReducer)
 
-    console.log('left mobile filter RENDER CCCCC')
+    console.log('left mobile filter RENDER ')
 
     return (
         <div className={menuState.active ? c.menu_active : c.menu}>

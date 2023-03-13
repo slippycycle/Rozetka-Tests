@@ -26,7 +26,6 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
 
     const dispatch = useAppDispatch()
 
-
     
     function deleteHandleBacket() {
         

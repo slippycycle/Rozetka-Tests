@@ -13,8 +13,8 @@ interface DevicePanelProps {
     takeCurrentType: string
 }
 
-export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
- 
+export default function DevicePanel({ takeCurrentType }: DevicePanelProps) {
+
     const dispatch = useAppDispatch()
 
     const { error, loading, devices, currentSortType, currentPage, limit } = useAppSelector((state) => state.productReducer)
@@ -24,7 +24,7 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
 
-   
+
 
     React.useEffect(() => {
 
@@ -62,12 +62,12 @@ export default function DevicePanel({takeCurrentType}: DevicePanelProps) {
                 dispatch(fetchProducts({ type: takeCurrentType, brand: selectedBrands, _page: currentPage, _limit: limit }))
 
         }
-        console.log('render device fetch block')
+        
 
     }, [selectedBrands, currentSortType, currentPage, limit, maxPrice, minPrice])
 
 
-console.log(    'MAIN RENDER');
+    console.log('MAIN RENDER');
 
     return (
         <div className={c.wrap}>

@@ -14,6 +14,8 @@ function SortDevicesBar() {
 
   let { handleMenuState } = React.useContext(MobileSortActive)
 
+  console.log('SORT DEVICE BAR');
+
   return (
 
     <div className={c.container}>

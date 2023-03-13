@@ -15,7 +15,9 @@ export default function Menu() {
   
     const menuRef = React.useRef(null)
     
+    console.log('MENU RENDER');
 
+    
     function handleCatalog() {
         menuHandle(false)
         setCatalogVisible(true)

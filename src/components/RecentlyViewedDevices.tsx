@@ -17,6 +17,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchDevice } from "../API/fetchDevice";
 import { pushViewedDevice } from "../store/features/ViewedDevices.Slice";
 import Loader from "./Loader";
+import { useInView } from "react-intersection-observer";
 
 
 export default function RecentlyViewedDevices() {
@@ -25,50 +26,61 @@ export default function RecentlyViewedDevices() {
   const [devicesId, setDevicesId] = React.useState<DeviceId[]>([])
   const [loading, setLoading] = React.useState<boolean>(true)
   const { viewedDevices } = useAppSelector(state => state.viewedReducer)
+  const [wasObserver, setWasObserver] = React.useState<boolean>(false)
 
+  const { ref, inView } = useInView({
+    threshold: 0.9
+  })
 
-
-
-
+  console.log('VIEWED DEVICES RENDER');
+    
   const dispatch = useAppDispatch()
 
   React.useEffect(() => {
-    console.log('SECOND FECTH')
-    const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed') as string)
-    setDevicesId(recentlyViewed)
 
-    setLoading(true)
+    if (inView) {
+      console.log('SECOND FECTH')
+      const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed') as string)
+      setDevicesId(recentlyViewed)
 
-    if (recentlyViewed.length > 0) {
-      for (let i = 0; i < recentlyViewed.length; i++) {
+      setLoading(true)
 
-        fetchDevice(recentlyViewed[i]).then(res => {
+      if (recentlyViewed.length > 0) {
+        for (let i = 0; i < recentlyViewed.length; i++) {
 
-          let device: DeviceI = res as DeviceI
+          fetchDevice(recentlyViewed[i]).then(res => {
 
-          if (device.images && device.id && device.colors && device.price) {
+            console.log('VIEWED DEVICES FECTH')
+            let device: DeviceI = res as DeviceI
 
-            dispatch(pushViewedDevice(device))
+            if (device.images && device.id && device.colors && device.price) {
+
+              dispatch(pushViewedDevice(device))
+            }
+
+          })
+
+          if (i == recentlyViewed.length - 1) {
+            setLoading(false)
           }
-
-
-        })
-
-        if (i == recentlyViewed.length - 1) {
-          setLoading(false)
         }
+
+      } else {
+        setLoading(false)
       }
 
-    } else {
-      setLoading(false)
+      setWasObserver(true)
     }
 
-
-
-  }, [])
+  }, [inView])
 
   return (
     <div className={c.wrap}>
+      {wasObserver ?
+        null
+        :
+        <div className={c.devices_observer} ref={ref} >OBSERVERD</div>
+      }
       <h1>Recently viewed</h1>
       {loading ?
         <Loader />

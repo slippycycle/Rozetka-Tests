@@ -12,8 +12,8 @@ export default function Basket() {
   const { basketActive } = useAppSelector(state => state.basketReducer)
   const { reload } = useAppSelector(state => state.basketStateSlice)
   const { totalSum } = useAppSelector(state => state.basketReducer)
-
   const { devicesIdCounts } = useAppSelector(state => state.basketDataReducer)
+ 
 
   let devicesId: basketItem[] = JSON.parse(localStorage.getItem('basket') as string)
 
@@ -21,30 +21,22 @@ export default function Basket() {
 
   const dispatch = useAppDispatch()
 
-
-  function handleRedirect() {
-
-    console.log('BEFORE REDIRECT',devicesIdCounts)
+  function handleRedirect() {    
     localStorage.setItem('basketData', JSON.stringify(devicesIdCounts))
     navigate(`/checkout`)
     dispatch(handleBasket())
   }
 
-
-  console.log(devicesId, 'DEVICES ID AT BASKET')
+  console.log('BASKET RENDER')
 
   React.useEffect(() => {
-
     dispatch(setStartDevicesInfo(devicesId))
-
 
   }, [])
 
 
 
-  const { devicesFromBasket } = useAppSelector(state => state.basketDevcies)
-  console.log(devicesFromBasket,'OUR CURRENT BASKET STORE');
-  
+
   return (
     <div className={basketActive ? c.backet_bloor : c.hide}>
       <div className={c.backet_container} >
