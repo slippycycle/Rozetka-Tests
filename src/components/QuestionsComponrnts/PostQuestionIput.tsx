@@ -2,8 +2,11 @@ import React from 'react';
 import { useTransition, animated } from 'react-spring';
 import { MessageContext } from '../../context'
 import c from './style/ChatInputs.module.scss'
-import { handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
+import { CustomRes, handlePostThrowButton } from './chatAPI/inpustHandleFunctions';
 
+type res = {
+    status: string
+}
 
 export default function PostQuestionIput() {
 
@@ -12,7 +15,7 @@ export default function PostQuestionIput() {
     const [verified, setVerified] = React.useState(true)
     const [delivered, setDelivered] = React.useState(false)
 
-  
+
     const [error, setError] = React.useState<boolean>(false)
 
     const { postQuestion } = React.useContext(MessageContext)
@@ -46,16 +49,16 @@ export default function PostQuestionIput() {
     return (
         <div className={c.input_block}>
 
-        
+
             {
-                error? transitionbadReq((style, item) =>
+                error ? transitionbadReq((style, item) =>
 
                     item ? <animated.div style={style} className='alert_error'>Ups something went wrong</animated.div>
                         :
                         ''
                 )
-                :
-                null
+                    :
+                    null
 
 
             }
@@ -83,15 +86,13 @@ export default function PostQuestionIput() {
                 if (value.replaceAll(' ', '').length > 3) {
                     handlePostThrowButton(value, setValue, postQuestion, postLoading)
                         .then(res => {
-                            res.statusText == 'OK' ?
+
+                            const response = res as CustomRes
+
+                            response.statusText == 'OK' ?
                                 alertTimeLive()
-                               
                                 :
-
-                               
                                 setError(true)
-
-
                         })
                     setVerified(true)
                 } else {

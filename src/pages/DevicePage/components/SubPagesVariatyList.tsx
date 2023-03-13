@@ -10,18 +10,18 @@ export default React.memo(function SubPagesVariatyList() {
 
     const dispatch= useAppDispatch()
 
-    const { changeCurrentSubPage, selected } = useContext(SelectedSubPageContext)
+    const {setCurSubPages , selected } = useContext(SelectedSubPageContext)
 
     function handleChageQuestions() {
-        changeCurrentSubPage('Questions')
+        setCurSubPages('Questions')
         dispatch(setDefaultPositions())
     }
 
     return (
         <div className={c.subpages_list_container}>
             <ul className={c.subpages_variaty_list}>
-                <li className={selected == 'All information' ? c.li_active : ''} onClick={() => changeCurrentSubPage('All information')}>All information</li>
-                <li className={selected == 'characteristics' ? c.li_active : ''} onClick={() => changeCurrentSubPage('characteristics')}>characteristics</li>
+                <li className={selected == 'All information' ? c.li_active : ''} onClick={() => setCurSubPages('All information')}>All information</li>
+                <li className={selected == 'characteristics' ? c.li_active : ''} onClick={() => setCurSubPages('characteristics')}>characteristics</li>
                 <li className={selected == 'Questions' ? c.li_active : ''} onClick={handleChageQuestions} >Questions</li>
             </ul>
         </div>

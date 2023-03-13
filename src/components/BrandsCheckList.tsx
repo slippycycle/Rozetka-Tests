@@ -1,11 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Brands, Types } from '../models/models';
+import React from 'react'
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addSelectedBrands } from '../store/features/Brands.Slice';
 import { setCurrentPage } from '../store/features/Devices.Slice';
 import c from '../styles/BrandsCheckList.module.scss'
-import { AllBrandsContex } from '../context';
-import axios from 'axios';
 import { fetchBrands } from '../API/fetchBrands';
 import { takeType } from '../API/fetchType';
 import { useLocation } from 'react-router-dom';

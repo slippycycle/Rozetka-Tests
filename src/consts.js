@@ -8,7 +8,7 @@ export const IMAGINARY_USER = 'Ugwei'
 
 export const firstColorIndex = 0
 
-export const scrollAddition = 650
+export const scrollAddition = 450
 
 export const SERVER_URL = 'http://localhost:3001/'
 

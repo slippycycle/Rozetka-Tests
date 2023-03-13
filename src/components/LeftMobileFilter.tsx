@@ -18,10 +18,10 @@ export default  function LeftMobileFilter() {
     console.log('left mobile filter RENDER ')
 
     return (
-        <div className={menuState.active ? c.menu_active : c.menu}>
+        <div className={menuState?.active ? c.menu_active : c.menu}>
 
             <div className={c.content}>
-                <button onClick={menuState.handleMenuState} className={c.close__button}>
+                <button onClick={menuState?.handleMenuState} className={c.close__button}>
                     <span className="material-symbols-outlined">
                         close
                     </span>

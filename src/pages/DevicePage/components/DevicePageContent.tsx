@@ -24,15 +24,12 @@ export default function DevicePageContent({ device }: DevicePageContent) {
 
     const currentImgs = device?.images[currentColor]
 
-    function changeCurrentSubPage(page: SelectedSubPageType) {
-        setCurSubPages(page)
-    }
-
+  
 
 
     return (
         <>
-            <SelectedSubPageContext.Provider value={{ selected: currentSubPage, changeCurrentSubPage, currentColor, setCurrentColor }}>
+            <SelectedSubPageContext.Provider value={{ selected: currentSubPage, setCurSubPages, currentColor, setCurrentColor }}>
                 <SubPagesVariatyList />
                 <div className={c.wrap}>
                     <SubPages currentImgs={currentImgs} device={device} />

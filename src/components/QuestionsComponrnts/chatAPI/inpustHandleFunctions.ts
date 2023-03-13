@@ -1,11 +1,17 @@
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import React, { KeyboardEvent } from 'react';
 
 type handleValueFunctionTypee = (value: string) => void
 
-type postFnType = (value : string) => AxiosResponse
+export interface CustomRes {
+   statusText: string
+}
 
-export async function handlePostThrowButton(value: string, handleValueFunction: handleValueFunctionTypee, postFn: postFnType, loading: boolean) {
+type postFnType = (value: string) => Promise<AxiosError<unknown, any> | AxiosResponse<CustomRes, any> | CustomRes>
+
+type postRep = (value: string) => Promise<void>
+
+export async function handlePostThrowButton(value: string, handleValueFunction: handleValueFunctionTypee, postFn: postFnType | postRep , loading: boolean) {
 
    
    let response = postFn(value)
@@ -17,14 +23,3 @@ export async function handlePostThrowButton(value: string, handleValueFunction: 
  
 }
 
-// export function handlePost(e: KeyboardEvent<HTMLInputElement>, value: string, handleValueFunction: handleValueFunctionTypee, postFn: postFnType, loading: boolean) {
-
-//     if (value.replaceAll(' ', '').length > 3 && !loading) {
-//         if (e.key === 'Enter' || e.keyCode === 13) {
-//             postFn(value)
-//             handleValueFunction('')
-//         }
-//     } else {
-//         console.log('no');
-//     }
-// }

@@ -1,21 +1,20 @@
+// @ts-nocheck
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import { CountContext } from '../context';
-import { DeviceId } from '../models/models';
 import { addToTotalSum, } from '../store/features/Basket.Slice';
 import { setCurrentCountAtDevicesInfo } from '../store/features/BasketData';
 import { setCurrentCountAtDevices } from '../store/features/BasketDevices';
 import { useAppDispatch } from '../store/hooks';
-
 
 interface CountInputProps {
     defaultVal: number
     changeValueState: Dispatch<SetStateAction<number>>
     devicePrice: number,
     innerId: string
-    color : string
+    color: string
 }
 
-export default function CountInput({ defaultVal, changeValueState, devicePrice, innerId, color}: CountInputProps) {
+export default function CountInput({ defaultVal, changeValueState, devicePrice, innerId, color }: CountInputProps) {
 
     const inputRef = React.useRef<HTMLInputElement | any>(null);
 
@@ -25,7 +24,7 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice, 
 
 
     useEffect(() => {
-        
+
         inputRef.current.defaultValue = defaultVal
 
     }, [])
@@ -55,9 +54,9 @@ export default function CountInput({ defaultVal, changeValueState, devicePrice, 
 
             console.log(totalSumFromDeleteDevice, 'AAAAA')
 
-        
-            dispatch(setCurrentCountAtDevicesInfo( {count: number, innerId, } ))
-            dispatch(setCurrentCountAtDevices( {count: number, innerId, color } ) )
+
+            dispatch(setCurrentCountAtDevicesInfo({ count: number, innerId, }))
+            dispatch(setCurrentCountAtDevices({ count: number, innerId, color }))
         }
 
     }

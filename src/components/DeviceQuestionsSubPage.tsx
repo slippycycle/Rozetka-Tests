@@ -2,7 +2,7 @@ import axios, { Axios, AxiosError, AxiosResponse } from 'axios'
 import React, { useCallback, useState } from 'react'
 import uuid from 'react-uuid'
 import { IMAGINARY_USER, scrollAddition } from '../consts'
-import { MessageContext } from '../context'
+import { MessageContext, MessageContextI } from '../context'
 import { Chat, Message, MessageId, ReplyMessage, ReplyMessageId } from '../models/models'
 import c from '../styles/DeviceSubPages.module.scss'
 import ChatComponent from './QuestionsComponrnts/ChatComponent'
@@ -24,7 +24,7 @@ interface DeviceQuestionsSubPageProops {
 //     /    \
 //   /    !   \
 //
-//  i cant use back end pagination as i need rewrite whole chat in case i want change/post/delete one item 
+//  i cant use back end pagination as i need rewrite whole chat in case i want change/post/delete one item (not my fault, it is weakneses JSON server abilities)
 //
 //
 //
@@ -36,7 +36,7 @@ export default function DeviceQuestionsSubPage({ questionsId }: DeviceQuestionsS
     const [loading, setLoading] = useState<boolean>(true)
     const [reload, setReload] = useState<boolean>(false)
     const [postLoading, setPostLoading] = useState<boolean>(false)
-    const [replyTargetYcords, setReplyTargetYcords] = React.useState(0)
+    const [replyTargetYcords, setReplyTargetYcords] = React.useState<number>(0)
     const [isReplyMessage, setIsReplyMessage] = useState<boolean>(false)
     const [replyTarget, setReplyTarget] = useState<Message | null>(null)
 

@@ -86,30 +86,29 @@
       "messages": [
         {
           "from": "Ugwei",
-          "message": "dddawd",
-          "id": "360022ca-fd8f-73c5-e85a-8aa1a983df90",
+          "message": "Hello PUPS",
+          "id": "72e6587f-fd48-e3a8-824f-f562a0d4791b",
           "replies": [],
           "date": "13-3-2023"
         },
         {
           "from": "Ugwei",
-          "message": "awd wa dwad wad wa d",
-          "id": "f9eab5a0-5148-4de5-d7b1-e00f430c9a54",
-          "replies": [],
-          "date": "13-3-2023"
-        },
-        {
-          "from": "Ugwei",
-          "message": "wadawd wa dwa ",
-          "id": "19ab609e-147c-ef08-a1c8-0bf6af880e9a",
-          "replies": [],
-          "date": "13-3-2023"
-        },
-        {
-          "from": "Ugwei",
-          "message": "awdwad aw",
-          "id": "3e352ca7-e999-4a08-392b-855d3597848d",
-          "replies": [],
+          "message": "Hello PUPS",
+          "id": "8a3c81b1-6c83-58ad-e35d-d29e03db38e5",
+          "replies": [
+            {
+              "from": "Ugwei",
+              "message": "adwada",
+              "id": "d3d80572-d0b3-5e56-9201-34f10bf111b4",
+              "date": "13-3-2023"
+            },
+            {
+              "from": "Ugwei",
+              "message": "awdwadwad",
+              "id": "8b924871-a4a5-2123-9c75-2e58cae0741d",
+              "date": "13-3-2023"
+            }
+          ],
           "date": "13-3-2023"
         },
         {
@@ -2259,7 +2258,6 @@
         ],
         "blue": [
           "https://content.rozetka.com.ua/goods/images/big/30872903.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872861.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
@@ -2302,17 +2300,14 @@
       "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB",
       "images": {
         "black": [
-          "https://content.rozetka.com.ua/goods/images/big/253281460.jpg",
-          "https://content.rozetka.com.ua/goods/images/big/253281461.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/173867781.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/173867782.jpg"
+          "https://content2.rozetka.com.ua/goods/images/big/310648274.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310648276.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310648277.jpg"
         ],
         "green": [
-          "https://content.rozetka.com.ua/goods/images/big/30872903.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872861.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
+          "https://content.rozetka.com.ua/goods/images/big/310649357.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/310649359.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310649360.jpg"
         ]
       }
     },
@@ -2731,7 +2726,6 @@
         ],
         "blue": [
           "https://content.rozetka.com.ua/goods/images/big/30872903.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872861.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
           "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
@@ -2774,17 +2768,14 @@
       "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB",
       "images": {
         "black": [
-          "https://content.rozetka.com.ua/goods/images/big/253281460.jpg",
-          "https://content.rozetka.com.ua/goods/images/big/253281461.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/173867781.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/173867782.jpg"
+          "https://content2.rozetka.com.ua/goods/images/big/310648274.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310648276.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310648277.jpg"
         ],
         "green": [
-          "https://content.rozetka.com.ua/goods/images/big/30872903.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872861.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
+          "https://content.rozetka.com.ua/goods/images/big/310649357.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/310649359.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310649360.jpg"
         ]
       }
     },
@@ -3196,17 +3187,14 @@
       "faceDescription": "Galaxy 12 S22 42mgpx S22 Ultra 12/256GB",
       "images": {
         "black": [
-          "https://content.rozetka.com.ua/goods/images/big/253281460.jpg",
-          "https://content.rozetka.com.ua/goods/images/big/253281461.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/173867781.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/173867782.jpg"
+          "https://content2.rozetka.com.ua/goods/images/big/310648274.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310648276.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310648277.jpg"
         ],
         "green": [
-          "https://content.rozetka.com.ua/goods/images/big/30872903.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872861.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872883.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872918.jpg",
-          "https://content1.rozetka.com.ua/goods/images/big/30872938.jpg"
+          "https://content.rozetka.com.ua/goods/images/big/310649357.jpg",
+          "https://content.rozetka.com.ua/goods/images/big/310649359.jpg",
+          "https://content1.rozetka.com.ua/goods/images/big/310649360.jpg"
         ]
       }
     },

@@ -1,13 +1,8 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { CatergoryContext } from '../context'
-import { sortDevicestypes, Types } from '../models/models'
-import { addSelectedBrands } from '../store/features/Brands.Slice'
 import { fetchProducts } from '../store/features/Devices.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
-import { getPages } from '../utils/pagination'
-import CategoryHeader from './CategoryHeader'
 import DevicesContainer from './DevicesContainer'
 import Loader from './Loader'
 

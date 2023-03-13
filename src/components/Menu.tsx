@@ -2,24 +2,24 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { MenuContext } from '../context'
 import { Types } from '../models/models'
-import {  useAppSelector } from '../store/hooks'
+import { useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'
 import InformationAboutCompanyList from './InformationAboutCompanyList'
 
 
 export default function Menu() {
 
-    
+
     const { types, loading, error } = useAppSelector(state => state.typeReducer)
     const { active, menuHandle, setCatalogVisible } = React.useContext(MenuContext)
-  
+
     const menuRef = React.useRef(null)
-    
+
     console.log('MENU RENDER');
 
-    
+
     function handleCatalog() {
-        menuHandle(false)
+        menuHandle()
         setCatalogVisible(true)
     }
 
@@ -28,6 +28,7 @@ export default function Menu() {
     return (
 
         <div ref={menuRef} className={active ? c.menu__active : c.menu}>
+
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuHandle}>
                     <span className="material-symbols-outlined">
@@ -44,16 +45,20 @@ export default function Menu() {
                     </span>
                     Catalog
                     <div className={c.arrow__container}>
-                       
+
                     </div>
                 </div>
 
                 <ul className={c.ul_links}>
                     <li>
-                        <span className="material-symbols-outlined">
-                            home
-                        </span>
-                        <Link onClick={() => menuHandle(false)} to={'/'}>HOME</Link>
+                        <Link onClick={ menuHandle} to={'/'}>
+                            <span className="material-symbols-outlined">
+                                home
+                            </span>
+                            <a>
+                                HOME
+                            </a>
+                        </Link>
                     </li>
                     <li>
                         <span className="material-symbols-outlined">
@@ -86,6 +91,8 @@ export default function Menu() {
                 </div>
 
             </div>
+
+
         </div>
     )
 }

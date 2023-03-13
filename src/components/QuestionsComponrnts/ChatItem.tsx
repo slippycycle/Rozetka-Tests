@@ -35,7 +35,12 @@ export default function ChatItem({ message }: ChatItemProsp) {
     const ref = React.useRef<HTMLDivElement>(null)
 
     function handlScrollToReplyMessage() {
-        setReplyTargetYcords(ref?.current?.offsetTop)
+        
+      
+
+        if (ref.current) {
+            setReplyTargetYcords(ref?.current?.offsetTop as number)
+        }
     }
 
     return (
