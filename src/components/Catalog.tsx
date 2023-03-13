@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { SERVER_URL } from '../consts'
 import { MenuContext } from '../context'
 import { Types } from '../models/models'
@@ -18,9 +18,9 @@ export default function Catalog() {
 
     const dispatch = useAppDispatch()
 
-    let navigate = useNavigate()
+  
 
-    
+
 
     console.log('MODAL CATALOG RENDER')
 
@@ -36,19 +36,10 @@ export default function Catalog() {
         }
     }
 
-    function redirectHandle(tp: Types) {
-        if (window.location.pathname !== `/${tp.type}`) {
-            navigate(`/${tp.type}`)
-            //reset selected brands in case we change category page  
-            window.location.reload();
-            console.log(window.location.pathname, 'LOACTION');
-        } else {
-            setCatalogVisible(false)
-        }
-    }
+ 
 
     React.useEffect(() => {
-        if ( types.length < 1 ) {
+        if (types.length < 1) {
             fetchAllTypes().then(res => setLoading(false))
         } else {
             setLoading(false)
@@ -79,7 +70,12 @@ export default function Catalog() {
                                         <div className={c.image_container}>
                                             <img src={t.image} ></img>
                                         </div>
-                                        <button onClick={() => redirectHandle(t)} >{t.fullTypeName}</button>
+                                        <button>
+                                        <Link onClick={() => setCatalogVisible(false)}  to={t.type}>
+                                            {t.fullTypeName}
+                                        </Link>
+
+                                        </button>
                                     </li>
                                 )}
                             </ul>
