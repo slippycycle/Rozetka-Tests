@@ -17,16 +17,16 @@ export default function DevicePage() {
 
 
   React.useEffect(() => {
-    
+
     //adding to recently viewed
     const recentlyViewedItems = JSON.parse(localStorage.getItem('recentlyViewed') as string)
     if (!recentlyViewedItems.includes(deviceId)) {
 
       recentlyViewedItems.unshift(deviceId)
-      localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewedItems) )
-    } 
+      localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewedItems))
+    }
 
-    
+
 
   }, [])
 
@@ -34,7 +34,6 @@ export default function DevicePage() {
   async function fetchingDeviceById() {
 
     try {
-     
       const response = await axios.get(`http://localhost:3001/products?id=${deviceId}`)
       return await response.data[0] as DeviceI
     } catch (error) {
