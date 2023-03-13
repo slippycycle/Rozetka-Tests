@@ -12,7 +12,6 @@ import viewedReducer from './features/ViewedDevices.Slice';
 import suggetsionsReducer from './features/Suggestions.SLice'
 import basketDataReducer from './features/BasketData'
 import  basketDevcies from './features/BasketDevices'
-import typeUrlReducer from './features/TypeUrlContext.Slice';
 
 
 
@@ -30,7 +29,7 @@ const rootReducer = combineReducers({
   suggetsionsReducer,
   basketDataReducer,
   basketDevcies,
-  typeUrlReducer,
+  
 
 
    

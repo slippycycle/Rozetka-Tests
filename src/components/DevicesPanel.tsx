@@ -4,7 +4,6 @@ import { CatergoryContext } from '../context'
 import { sortDevicestypes, Types } from '../models/models'
 import { addSelectedBrands } from '../store/features/Brands.Slice'
 import { fetchProducts } from '../store/features/Devices.Slice'
-import { setCurrentTypeByUrl } from '../store/features/TypeUrlContext.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/DevicePanel.module.scss'
 import { getPages } from '../utils/pagination'
@@ -18,24 +17,18 @@ export default function DevicePanel() {
 
     const dispatch = useAppDispatch()
 
-    const { typeByCurrentUrl } = useAppSelector((state) => state.typeUrlReducer)
+
     const { error, loading, devices, currentSortType, currentPage, limit, reload } = useAppSelector((state) => state.productReducer)
     const { maxPrice, minPrice, defaultMaxPrice, defaultminPrice } = useAppSelector((state) => state.rangeReducer)
     const { selectedBrands } = useAppSelector((state) => state.brandReducer)
 
 
     const location = useLocation()
+    const typeByCurrentUrl  = location.pathname.replaceAll('/', '')
+   
+    
 
-
-    window.onpopstate = e => {
-        dispatch(setCurrentTypeByUrl(window.location.pathname.slice(1, 100).replaceAll('/', '')))
-        dispatch(addSelectedBrands([]))
-        console.log('GLOBAL @', window.location.pathname.slice(1, 100).replaceAll('/', ''))
-
-    }
-
-    console.log(location.pathname,'FRESH ????');
-
+   
     React.useEffect(() => {
 
         //as we dont need inculde price verify in default range

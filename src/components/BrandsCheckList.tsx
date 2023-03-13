@@ -8,6 +8,7 @@ import { AllBrandsContex } from '../context';
 import axios from 'axios';
 import { fetchBrands } from '../API/fetchBrands';
 import { takeType } from '../API/fetchType';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -18,12 +19,21 @@ export default function BrandsCheckList() {
     const [list, setList] = React.useState<string[] | []>([])
     const brandsStore = useAppSelector(state => state.brandReducer)
    
-    const { typeByCurrentUrl } = useAppSelector((state) => state.typeUrlReducer)
+    
+    const location = useLocation()
+    const typeByCurrentUrl  = location.pathname.replaceAll('/', '')
 
+    const dispatch = useAppDispatch()
 
     const dispacth = useAppDispatch()
 
-   
+    window.onpopstate = e => {
+      
+        dispatch(addSelectedBrands([]))
+       
+
+    }
+
    
 
 

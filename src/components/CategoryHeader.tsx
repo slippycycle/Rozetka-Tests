@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios'
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import { Types } from '../models/models'
 import { useAppSelector } from '../store/hooks'
 import c from '../styles/CategoryHeader.module.scss'
@@ -11,8 +12,11 @@ export default function CategoryHeader() {
 
    console.log( 'CATEGORY HEADRE RENDR');
 
-   
-    const takeCurrentType = window.location.pathname.replaceAll('/', '')
+
+   const location = useLocation()
+   const takeCurrentType  = location.pathname.replaceAll('/', '')
+
+   console.log(takeCurrentType, 'HEADER REFRESH');
 
     const [categoryObject, setCategoryObject] = React.useState<Types | null>(null)
     const [error, setError] = React.useState<string | null>(null)
@@ -33,7 +37,7 @@ export default function CategoryHeader() {
 
     React.useEffect(() => {
         fetchInfoAboutCurrentCategory()
-    }, [])
+    }, [takeCurrentType])
 
     return (
         <div className={c.category}>

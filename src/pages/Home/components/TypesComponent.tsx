@@ -6,7 +6,7 @@ import { useAppDispatch } from '../../../store/hooks';
 import { addSelectedBrands } from '../../../store/features/Brands.Slice';
 import { setCurrentPage } from '../../../store/features/Devices.Slice';
 import { setMaxRangePrice, setMinRangePrice } from '../../../store/features/PriceRange';
-import { setCurrentTypeByUrl } from '../../../store/features/TypeUrlContext.Slice';
+
 
 interface TypesComponentProps {
     typesArray: Types[]
@@ -31,7 +31,7 @@ export default function TypesComponent({ typesArray }: TypesComponentProps) {
         dispatch(setMaxRangePrice(300000))
         dispatch(setMinRangePrice(0))
 
-        dispatch( setCurrentTypeByUrl(tp.type) )
+       
         
     }
 
