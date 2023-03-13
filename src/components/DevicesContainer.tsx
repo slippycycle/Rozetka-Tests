@@ -32,7 +32,7 @@ export default function DevicesContainer({ devicesArray }: DevicesContainerProps
                 {devicesArray?.map((dev) => <DeviceItem key={dev.id} handleBacketFn={handleBasket} dispatch={dispacth} device={dev} />)}
             </div>
             <div className={c.pages_conatiner}>
-                {pagesArray.length > 1 ?
+              
                     <>
                         {pagesArray.map((el) =>
                             <button key={el} className={el == currentPage ? c.page__button_active : c.page__button} onClick={() => { dispacth(setCurrentPage(el)) }} >
@@ -40,9 +40,7 @@ export default function DevicesContainer({ devicesArray }: DevicesContainerProps
                             </button>
                         )}
                     </>
-                    :
-                    null
-                }
+                   
                 {
                     currentPage !== pagesArray[pagesArray.length - 1] && pagesArray.length > 1?
                     <button className={c.page__button__next} onClick={() => { dispacth(setNextPage()) }}>Next page</button>

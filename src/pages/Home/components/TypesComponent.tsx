@@ -29,6 +29,7 @@ export default function TypesComponent({ typesArray }: TypesComponentProps) {
         //reset range slider
         dispatch(setMaxRangePrice(300000))
         dispatch(setMinRangePrice(0))
+        
     }
 
     return (

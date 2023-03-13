@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { MenuContext } from '../context'
 import c from '../styles/Navbar.module.scss'
 
 export default function NavbarInputContainer() {
@@ -7,7 +8,8 @@ export default function NavbarInputContainer() {
     const [value, setValue] = React.useState<string>('')
 
     let navigate = useNavigate()
-
+ 
+    const { setCatalogVisible } = React.useContext(MenuContext)
 
 
     function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -28,7 +30,7 @@ export default function NavbarInputContainer() {
 
     return (
         <div className={c.search__container}>
-            <button className={c.category_btn}>
+            <button onClick={() =>  {setCatalogVisible(true)}} className={c.category_btn}>
                 <p>Catalog</p>
                 <span className="material-symbols-outlined">
                     category

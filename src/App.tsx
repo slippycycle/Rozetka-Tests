@@ -16,13 +16,16 @@ import BottomBanner from './components/BottomBanner';
 import OrderPage from './pages/Checkout/components/OrderList';
 import Checkout from './pages/Checkout/Checkout';
 import { routes } from './router-manager/routes';
+import Catalog from './components/Catalog';
 
 
 function App() {
 
    const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
-   const [active, setActive] = React.useState(false)
+   const [active, setActive] = React.useState<boolean>(false)
+
+   const [catalogVisible, setCatalogVisible] = React.useState<boolean>(false)
 
    function handleMenuState() {
       setActive(active => !active)
@@ -36,7 +39,8 @@ function App() {
       <BrowserRouter>
          <div className='app-wrapp'>
             <MobileSortActive.Provider value={{ active, handleMenuState }} >
-               <MenuContext.Provider value={{ active: menuActive, menuHandle }}>
+               <MenuContext.Provider value={{ active: menuActive, menuHandle, catalogVisible, setCatalogVisible }}>
+                  <Catalog />
                   <Menu/>
                   <TopNavbar  />
                </MenuContext.Provider>

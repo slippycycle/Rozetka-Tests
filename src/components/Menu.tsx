@@ -1,5 +1,7 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { MenuContext } from '../context'
+import { Types } from '../models/models'
 import {  useAppSelector } from '../store/hooks'
 import c from '../styles/Menu.module.scss'
 import InformationAboutCompanyList from './InformationAboutCompanyList'
@@ -9,10 +11,18 @@ export default function Menu() {
 
     
     const { types, loading, error } = useAppSelector(state => state.typeReducer)
-    const { active, menuHandle } = React.useContext(MenuContext)
-    const [activeContent, setActiveContent] = React.useState<boolean>(false)
+    const { active, menuHandle, setCatalogVisible } = React.useContext(MenuContext)
+  
     const menuRef = React.useRef(null)
     
+
+    function handleCatalog() {
+        menuHandle(false)
+        setCatalogVisible(true)
+    }
+
+
+
     return (
 
         <div ref={menuRef} className={active ? c.menu__active : c.menu}>
@@ -26,7 +36,7 @@ export default function Menu() {
                     <h2>SKRIX Devices</h2>
                 </div>
 
-                <div onClick={() => setActiveContent(prev => !prev)} className={c.menu__category}>
+                <div onClick={handleCatalog} className={c.menu__category}>
                     <span className="material-symbols-outlined">
                         category
                     </span>
@@ -35,7 +45,6 @@ export default function Menu() {
                        
                     </div>
                 </div>
-
 
                 <ul className={c.ul_links}>
                     <li>

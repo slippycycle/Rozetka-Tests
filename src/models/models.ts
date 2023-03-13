@@ -1,16 +1,11 @@
 
-
-type UrlIcon = string
-
-type brand = string
-
 export type BasketDevicesIdArray = DeviceId[]
 
 export type Types = {
     type: string
     brands: string[]
     fullTypeName: string
-    icon: UrlIcon
+    image: string
 }
 
 export type Brands = string[]

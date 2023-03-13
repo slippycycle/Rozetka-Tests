@@ -14,7 +14,7 @@ interface AvailabelPickPoinstContent {
 }
 
 
-export default function AvailabelPickPoinstContent({pointChain}:AvailabelPickPoinstContent) {
+export default function AvailabelPickPoinstContent({ pointChain }: AvailabelPickPoinstContent) {
 
     const [value, setValue] = React.useState<string>('')
     const [poinst, setPoints] = React.useState<PointInterface[]>()
@@ -26,7 +26,7 @@ export default function AvailabelPickPoinstContent({pointChain}:AvailabelPickPoi
     function handleSelect(p: PointInterface) {
         setSelectedPoint(p)
         setVisible(false)
-        setValue( p.street + " #" + p.number)
+        setValue(p.street + " #" + p.number)
     }
 
 
@@ -67,18 +67,18 @@ export default function AvailabelPickPoinstContent({pointChain}:AvailabelPickPoi
                 <div className={c.search_content}>
                     <input className={c.search_input} placeholder='enter pickup point' value={value} onChange={(e) => setValue(e.target.value)} type="text">
                     </input>
-                    {loading ?
-                        <Loader />
-                        :
-                        <>
-                            {error ?
-                                <p>
-                                    {error}
-                                </p>
-                                :
-                                null
-                            }
-                            <ul className={c.points_list} >
+                    <ul className={c.points_list} >
+                        {loading ?
+                            <Loader />
+                            :
+                            <>
+                                {error ?
+                                    <p>
+                                        {error}
+                                    </p>
+                                    :
+                                    null
+                                }
                                 {
                                     (poinst as PointInterface[]).map((point) =>
                                         <li onClick={() => handleSelect(point)} >
@@ -86,10 +86,10 @@ export default function AvailabelPickPoinstContent({pointChain}:AvailabelPickPoi
                                         </li>
                                     )
                                 }
-                            </ul>
-                        </>
+                            </>
 
-                    }
+                        }
+                    </ul>
                 </div>
                 :
                 null
