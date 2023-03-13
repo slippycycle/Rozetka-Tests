@@ -1,60 +1,59 @@
 {
   "daddyraficpoints": [
     {
-     "number":"1",
-     "street": "Alexandra Sniper From Mayami"
+      "number": "1",
+      "street": "Alexandra Sniper From Mayami"
     },
     {
-     "number":"2",
-     "street": "Harnizona 1488"
+      "number": "2",
+      "street": "Harnizona 1488"
     },
     {
-     "number":"3",
-     "street": "Prospect DrugDillervo"
+      "number": "3",
+      "street": "Prospect DrugDillervo"
     },
     {
-     "number":"4",
-     "street": "Slava Ukraine"
+      "number": "4",
+      "street": "Slava Ukraine"
     },
-
     {
-      "number":"5",
+      "number": "5",
       "street": "Alexandra pulemetchik From Florida"
-     },
-     {
-      "number":"6",
+    },
+    {
+      "number": "6",
       "street": "Perl Harobr"
-     },
-     {
-      "number":"7",
+    },
+    {
+      "number": "7",
       "street": "Prospect Front End masterov"
-     },
-     {
-      "number":"8",
+    },
+    {
+      "number": "8",
       "street": "Geroyam slava"
-     }
-   ],
+    }
+  ],
   "novaposhtapoints": [
-   {
-    "number":1,
-    "street": "Slavik Pochtalyon"
-   },
-   {
-    "number":2,
-    "street": "Albacuce New Mexico"
-   },
-   {
-    "number":3,
-    "street": "Prospect New York"
-   },
-   {
-    "number":4,
-    "street": "Lorem Ipsum Urban"
-   },
-   {
-    "number":5,
-    "street": "Mona Lisa"
-   }
+    {
+      "number": 1,
+      "street": "Slavik Pochtalyon"
+    },
+    {
+      "number": 2,
+      "street": "Albacuce New Mexico"
+    },
+    {
+      "number": 3,
+      "street": "Prospect New York"
+    },
+    {
+      "number": 4,
+      "street": "Lorem Ipsum Urban"
+    },
+    {
+      "number": 5,
+      "street": "Mona Lisa"
+    }
   ],
   "baners": [
     {
@@ -85,6 +84,34 @@
     {
       "id": "12",
       "messages": [
+        {
+          "from": "Ugwei",
+          "message": "dddawd",
+          "id": "360022ca-fd8f-73c5-e85a-8aa1a983df90",
+          "replies": [],
+          "date": "13-3-2023"
+        },
+        {
+          "from": "Ugwei",
+          "message": "awd wa dwad wad wa d",
+          "id": "f9eab5a0-5148-4de5-d7b1-e00f430c9a54",
+          "replies": [],
+          "date": "13-3-2023"
+        },
+        {
+          "from": "Ugwei",
+          "message": "wadawd wa dwa ",
+          "id": "19ab609e-147c-ef08-a1c8-0bf6af880e9a",
+          "replies": [],
+          "date": "13-3-2023"
+        },
+        {
+          "from": "Ugwei",
+          "message": "awdwad aw",
+          "id": "3e352ca7-e999-4a08-392b-855d3597848d",
+          "replies": [],
+          "date": "13-3-2023"
+        },
         {
           "from": "Ugwei",
           "message": "PS% dwa dwa d???D wad wa d",

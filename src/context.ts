@@ -20,3 +20,5 @@ export const MessageContext = React.createContext<any>(null)
 export const CountContext = React.createContext<any>(null)
 
 export const CatroryVisibleContext = React.createContext<boolean | null>(null)
+
+export const CatergoryContext = React.createContext<any>(null)

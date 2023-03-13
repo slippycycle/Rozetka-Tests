@@ -111,7 +111,10 @@ export default function DeviceItem({ device, dispatch, handleBacketFn }: DeviceI
                 </ul>
                 <div className={c.device__text__block}>
                     <p className={c.name_header}>
+                       <Link to={`/${device.type}/${device.id}`} >
                         {device.faceDescription?.length > 50 ? device.faceDescription.slice(0, 50) + '...' : device?.faceDescription}
+                       </Link>
+                       
                     </p>
                 </div>
 

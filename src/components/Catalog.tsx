@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { SERVER_URL } from '../consts'
 import { MenuContext } from '../context'
 import { Types } from '../models/models'
-import { addSelectedBrands } from '../store/features/Brands.Slice'
-import { setCurrentPage } from '../store/features/Devices.Slice'
-import { setMaxRangePrice, setMinRangePrice } from '../store/features/PriceRange'
 import { fetchTypes } from '../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import c from '../styles/Catalog.module.scss'
@@ -16,15 +13,14 @@ import Loader from './Loader'
 export default function Catalog() {
 
     const { catalogVisible, setCatalogVisible } = React.useContext(MenuContext)
-
     const { types } = useAppSelector(state => state.typeReducer)
-
-
     const [loading, setLoading] = React.useState(true)
 
     const dispatch = useAppDispatch()
 
     let navigate = useNavigate()
+
+    
 
     console.log('MODAL CATALOG RENDER')
 
@@ -80,7 +76,7 @@ export default function Catalog() {
                             <ul className={c.types_list} >
                                 {types.map((t: Types) =>
                                     <li>
-                                        <div onClick={() => redirectHandle(t)} className={c.image_container}>
+                                        <div className={c.image_container}>
                                             <img src={t.image} ></img>
                                         </div>
                                         <button onClick={() => redirectHandle(t)} >{t.fullTypeName}</button>

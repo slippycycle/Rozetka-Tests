@@ -32,4 +32,4 @@ function SortDevicesBar() {
   )
 }
 
-export default SortDevicesBar;
+export default React.memo( SortDevicesBar )

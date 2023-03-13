@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { MenuContext } from '../context'
 import { Types } from '../models/models'
 import {  useAppSelector } from '../store/hooks'
@@ -53,9 +53,7 @@ export default function Menu() {
                         <span className="material-symbols-outlined">
                             home
                         </span>
-                        <a>
-                            HOME
-                        </a>
+                        <Link onClick={() => menuHandle(false)} to={'/'}>HOME</Link>
                     </li>
                     <li>
                         <span className="material-symbols-outlined">

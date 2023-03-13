@@ -13,6 +13,7 @@ export interface DeviceState {
     currentPage: number
     tottalItems: number
     limit: number
+    reload: boolean
     
 }
 
@@ -38,6 +39,7 @@ const initialState : DeviceState = {
     currentSortType: '',
     error: null,
     limit: 30,
+    reload: false
   
 }
 
@@ -62,10 +64,6 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts',
 
 
 
-//x-total-count
-
-
-
 const productsSlice = createSlice({
     name: 'product',
     initialState,
@@ -81,6 +79,9 @@ const productsSlice = createSlice({
         },
         setLimit(state, action) {
             state.limit = action.payload
+        },
+        handleDevicesReload(state) {
+            state.reload = !state.reload
         }
      
     },
@@ -106,4 +107,4 @@ const productsSlice = createSlice({
 export default productsSlice.reducer
 
 
-export const { setSortType, setCurrentPage, setNextPage,setLimit} = productsSlice.actions
+export const { setSortType, setCurrentPage, setNextPage,setLimit,handleDevicesReload} = productsSlice.actions

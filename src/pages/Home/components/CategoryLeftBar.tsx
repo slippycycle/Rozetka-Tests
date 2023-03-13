@@ -23,12 +23,12 @@ export default function CategoryLeftBar({ visible, handleCategory }: CategoryLef
 
   //fetching types
   React.useEffect(() => {
-   if ( types.length < 1 ) {
-     dispatch(fetchTypes())
-   }
+    if (types.length < 1) {
+      dispatch(fetchTypes())
+    }
   }, [])
 
-  console.log('CategoryLeftBar RENDER !!!!',types)
+  console.log('CategoryLeftBar RENDER !!!!', types)
 
   return (
     <>
@@ -48,15 +48,9 @@ export default function CategoryLeftBar({ visible, handleCategory }: CategoryLef
             </>
           }
         </div>
-
         <div>
-
         </div>
-
-
         <InformationAboutCompanyList />
-
-
       </div>
 
 

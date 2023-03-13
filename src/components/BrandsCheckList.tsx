@@ -17,25 +17,34 @@ export default function BrandsCheckList() {
 
     const [list, setList] = React.useState<string[] | []>([])
     const brandsStore = useAppSelector(state => state.brandReducer)
-    const takeCurrentTypeThrowUrl = window.location.pathname.replaceAll('/', '')
-  
+   
+    const { typeByCurrentUrl } = useAppSelector((state) => state.typeUrlReducer)
+
+
     const dispacth = useAppDispatch()
- 
+
+   
+   
+
+
     React.useEffect(() => {
 
-        if (takeCurrentTypeThrowUrl.includes('search')) {
+        if (typeByCurrentUrl.includes('search')) {
             // in case we have search page just fetch all brands to list 
             fetchBrands().then(res => setList(res as string[] | []))
             return;
         }
 
         //fetch brands which alow this category => phone/apple / samsung / ...
-        takeType(takeCurrentTypeThrowUrl).then(res => setList(res.brands)).then(res => console.log(res,))
 
-    }, [takeCurrentTypeThrowUrl,])
+        console.log(typeByCurrentUrl,'ENOMY')
+
+        takeType(typeByCurrentUrl).then(res => setList(res.brands)).then(res => console.log(res))
+
+    }, [typeByCurrentUrl])
 
 
-   
+
 
     function handleSelect(event: React.MouseEvent<HTMLInputElement>) {
 
