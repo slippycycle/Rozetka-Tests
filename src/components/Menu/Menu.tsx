@@ -26,12 +26,12 @@ export default function Menu() {
     // console.log(e.target.className === e.currentTarget.className); 
 
     function handleMenu(e: React.MouseEvent<HTMLElement>) {
-        if ( (e.target as HTMLTextAreaElement ).className    === e.currentTarget.className) { menuHandle() }
+        if ((e.target as HTMLTextAreaElement).className === e.currentTarget.className) { menuHandle() }
     }
 
     return (
 
-        <div onClick={(e) => {handleMenu(e) }} ref={menuRef} className={active ? c.menu__active : c.menu}>
+        <div onClick={(e) => { handleMenu(e) }} ref={menuRef} className={active ? c.menu__active : c.menu}>
 
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuHandle}>

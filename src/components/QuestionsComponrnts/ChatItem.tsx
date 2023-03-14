@@ -17,7 +17,7 @@ type ReplyMessageID = string | number
 
 export default function ChatItem({ message }: ChatItemProsp) {
 
-    
+
 
     const { setIsReplyMessage, setReplyTarget, deleteQuestion, deleteReplyQuestion, setReplyTargetYcords } = React.useContext(MessageContext)
 
@@ -26,7 +26,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
     const [messControllVisible, setmessControllVisible] = React.useState<boolean>(false)
     const [messReplyControllVisibleId, setmessControllReplyVisibleId] = React.useState<string | number>('none')
     const [replyIdWhichWasRemoved, setReplyIdWhichWasRemoved] = React.useState<ReplyMessageID>('')
-    
+
     const dispatch = useAppDispatch()
 
     console.log('chatItem render')
@@ -35,9 +35,6 @@ export default function ChatItem({ message }: ChatItemProsp) {
     const ref = React.useRef<HTMLDivElement>(null)
 
     function handlScrollToReplyMessage() {
-        
-      
-
         if (ref.current) {
             setReplyTargetYcords(ref?.current?.offsetTop as number)
         }
@@ -45,26 +42,26 @@ export default function ChatItem({ message }: ChatItemProsp) {
 
     return (
         <>
-            <div ref={ref} className={isDeleted ? c.deleted : c.message}>
+            <div onClick={() => {
+                setmessControllVisible(false)
+            }}
+                ref={ref} className={isDeleted ? c.deleted : c.message}>
 
-                <div onClick={() => {
-                    setmessControllVisible(false)
-                }} className={c.user__container} >
+                <div className={c.user__container} >
                     <h3>
                         {message.from}
                     </h3>
                 </div>
-                <div onClick={() => {
-                    setmessControllVisible(false)
-                }} className={c.body__container}>
+                <div className={c.body__container}>
                     {message.message}
                 </div>
                 <div className={c.message__control__block}>
 
                     {
                         message.from === IMAGINARY_USER ?
-                            <span onClick={() => {
-                                setmessControllVisible(prev => !prev)
+                            <span onClick={(e) => {
+                                e.stopPropagation()
+                                setmessControllVisible(true)
 
                             }} className="material-symbols-outlined">
                                 more_vert
@@ -80,7 +77,7 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                     deleteQuestion(message.id)
                                     setmessControllVisible(false)
                                     setIsDeleted(true)
-                                   
+
                                 }} >
                                     <span className="material-symbols-outlined">
                                         delete
@@ -101,9 +98,8 @@ export default function ChatItem({ message }: ChatItemProsp) {
                         setIsReplyMessage(true)
                         setReplyesVisible(true)
                         setReplyTarget(message)
-                         
                         handlScrollToReplyMessage()
-                        dispatch( setlastReplyPosition() )
+                        dispatch(setlastReplyPosition())
 
                     }}>
                         <span className="material-symbols-outlined">
@@ -121,20 +117,20 @@ export default function ChatItem({ message }: ChatItemProsp) {
                 </div>
                 {
                     replyesVisible && message.replies.length > 0 ?
-                        <div className={c.replyes_block}>
+                        <div className={c.replyes_block} onClick={() => { setmessControllReplyVisibleId('none') }} >
                             <>
                                 {
                                     message.replies.map((rep) =>
-                                        <div className={replyIdWhichWasRemoved === rep.id?  c.deleted:c.reply__message}>
+                                        <div className={replyIdWhichWasRemoved === rep.id ? c.deleted : c.reply__message}>
                                             <div className={c.message__control__block__reply}>
 
                                                 {
                                                     rep.from === IMAGINARY_USER ?
                                                         <>
                                                             <div className={c.ss}>
-                                                                <span onClick={() => {
+                                                                <span onClick={(e) => {
+                                                                    e.stopPropagation()
                                                                     setmessControllReplyVisibleId(rep.id)
-                                                                    setmessControllVisible(false)
 
                                                                 }} className="material-symbols-outlined">
                                                                     more_vert
@@ -144,10 +140,10 @@ export default function ChatItem({ message }: ChatItemProsp) {
                                                                 messReplyControllVisibleId == rep.id ?
                                                                     <div className={c.message__controll__reply}>
 
-                                                                        <button onClick={() => { 
+                                                                        <button onClick={() => {
                                                                             deleteReplyQuestion(rep.id, message.id)
                                                                             setReplyIdWhichWasRemoved(rep.id)
-                                                                            }} >
+                                                                        }} >
                                                                             <span className="material-symbols-outlined">
                                                                                 delete
                                                                             </span>

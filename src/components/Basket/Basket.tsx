@@ -13,7 +13,7 @@ export default function Basket() {
   const { reload } = useAppSelector(state => state.basketStateSlice)
   const { totalSum } = useAppSelector(state => state.basketReducer)
   const { devicesIdCounts } = useAppSelector(state => state.basketDataReducer)
- 
+
 
   let devicesId: basketItem[] = JSON.parse(localStorage.getItem('basket') as string)
 
@@ -21,7 +21,7 @@ export default function Basket() {
 
   const dispatch = useAppDispatch()
 
-  function handleRedirect() {    
+  function handleRedirect() {
     localStorage.setItem('basketData', JSON.stringify(devicesIdCounts))
     navigate(`/checkout`)
     dispatch(handleBasket())
@@ -34,11 +34,13 @@ export default function Basket() {
 
   }, [])
 
-
+  function closeBasketHandler(e: React.MouseEvent<HTMLElement>) {
+    if ((e.target as HTMLTextAreaElement).className === e.currentTarget.className) { dispatch(handleBasket()) }
+  }
 
 
   return (
-    <div className={basketActive ? c.backet_bloor : c.hide}>
+    <div onClick={(e) => { closeBasketHandler(e) }} className={basketActive ? c.backet_bloor : c.hide}>
       <div className={c.backet_container} >
 
         <button className={c.close__button} onClick={() => dispatch(handleBasket())}>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { SERVER_URL } from '../../consts'
 import { MenuContext } from '../../context'
 import { Types } from '../../models/models'
@@ -18,7 +18,7 @@ export default function Catalog() {
 
     const dispatch = useAppDispatch()
 
-  
+
 
 
 
@@ -36,7 +36,6 @@ export default function Catalog() {
         }
     }
 
- 
 
     React.useEffect(() => {
         if (types.length < 1) {
@@ -47,12 +46,14 @@ export default function Catalog() {
 
     }, [])
 
-
+    function handleCategoryVisible(e: React.MouseEvent<HTMLElement>) {
+        if ((e.target as HTMLTextAreaElement).className === e.currentTarget.className) { setCatalogVisible(false) }
+    }
 
     return (
         <>
             {catalogVisible ?
-                <div className={c.wrap}>
+                <div onClick={(e) => handleCategoryVisible(e)} className={c.wrap}>
 
 
                     {loading ?
@@ -71,9 +72,9 @@ export default function Catalog() {
                                             <img src={t.image} ></img>
                                         </div>
                                         <button>
-                                        <Link onClick={() => setCatalogVisible(false)}  to={t.type}>
-                                            {t.fullTypeName}
-                                        </Link>
+                                            <Link onClick={() => setCatalogVisible(false)} to={t.type}>
+                                                {t.fullTypeName}
+                                            </Link>
 
                                         </button>
                                     </li>
