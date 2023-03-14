@@ -122,7 +122,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 </div>
 
 
-                <div className={c.count__container}>
+                <div  className={c.count__container}>
                     <div className={c.count}>
                         <CountContext.Provider value={{ setInnerNum, innerNum }}>
 

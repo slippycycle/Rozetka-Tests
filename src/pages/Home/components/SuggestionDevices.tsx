@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import { SERVER_URL } from '../consts'
-import { DeviceI } from '../models/models'
-import { fetchSuggestion, fetchSuggestionNext } from '../store/features/Suggestions.SLice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { SERVER_URL } from '../../../consts'
+import { DeviceI } from '../../../models/models'
+import { fetchSuggestion, fetchSuggestionNext } from '../../../store/features/Suggestions.SLice'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/SuggestionDevices.module.scss'
-import ViewedeDeviceItem from './DeviceFromSlider'
-import Loader from './Loader'
+import ViewedeDeviceItem from '../../../components/DeviceFromSlider'
+import Loader from '../../../components/Loader'
 
 export default function SuggestionDevices() {
 

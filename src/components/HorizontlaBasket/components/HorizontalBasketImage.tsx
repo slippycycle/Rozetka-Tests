@@ -1,6 +1,6 @@
 
 import React from "react"
-import { ModifiedDeviceItem } from "../store/features/BasketDevices"
+import { ModifiedDeviceItem } from "../../../store/features/BasketDevices"
 import c from '../styles/HorizontalBasket.module.scss'
 
 interface HorizontalBasketImageContainerProps {

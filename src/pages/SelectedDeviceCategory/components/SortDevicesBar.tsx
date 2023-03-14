@@ -1,8 +1,8 @@
 import React from 'react'
 import c from '../styles/SortDevicesBar.module.css'
-import { MobileSortActive  } from '../context'
-import DropdownLimitButton from './DropdownLimitButton'
-import DropdownSortButton from './DropdownSortButton'
+import { MobileSortActive  } from '../../../context'
+import DropdownLimitButton from '../../../components/DropdownLimitButton'
+import DropdownSortButton from '../../../components/DropdownSortButton'
 
 
 

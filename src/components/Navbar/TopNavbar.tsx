@@ -1,9 +1,8 @@
 import React from 'react'
-import c from '../styles/Navbar.module.scss'
+import c from './style/Navbar.module.scss'
 import MenuHandleButton from './MenuHandleButton'
 import NavbarInputContainer from './NavbarInputContainer'
-import BasketTopItem from './TopBasketItem'
-
+import TopNavbarBasket from './TopBasketItem'
 
 
 export default function TopNavbar() {
@@ -17,7 +16,7 @@ export default function TopNavbar() {
             <div className={c.top_navbar}>
                 <MenuHandleButton />
                 <NavbarInputContainer />
-                <BasketTopItem />
+                <TopNavbarBasket/>
             </div>
         </div>
 

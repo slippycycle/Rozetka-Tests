@@ -1,10 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { handleBasket } from '../store/features/Basket.Slice'
-import { ModifiedDeviceItem } from '../store/features/BasketDevices'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import c from '../styles/HorizontalBasket.module.scss'
-import HorizontalBasketImageContainer from './HorizontalBasketImage'
+import { handleBasket } from '../../store/features/Basket.Slice'
+import { ModifiedDeviceItem } from '../../store/features/BasketDevices'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import c from './styles/HorizontalBasket.module.scss'
+import HorizontalBasketImageContainer from './components/HorizontalBasketImage'
 
 
 export default function HorizontalBasket() {

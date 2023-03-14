@@ -2,7 +2,7 @@ import React from 'react'
 import { IMAGINARY_USER } from '../../consts'
 import { Chat } from '../../models/models'
 import ChatItem from './ChatItem'
-import QuestionsChat from './QuestionsChat'
+import QuestionsChat from '../../pages/SubPage/components/QuestionsChat'
 
 
 interface ChatComponentProps {

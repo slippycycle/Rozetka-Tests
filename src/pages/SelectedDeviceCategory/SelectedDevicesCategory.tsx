@@ -1,9 +1,8 @@
 import React from 'react'
-import CategoryHeader from '../components/CategoryHeader'
-import ComponentsCategory from '../components/ComponentsCategory'
-import SortDevicesBar from '../components/SortDevicesBar'
-import { useAppSelector } from '../store/hooks'
-import  c from '../styles/SelectedDevicePage.module.scss'
+import SortDevicesBar from './components/SortDevicesBar'
+import CategoryHeader from './components/CategoryHeader'
+import  c from './styles/SelectedDevicePage.module.scss'
+import ComponentsCategory from './components/ComponentsCategory'
 
 export default function SelectedCategoryPage() {
 

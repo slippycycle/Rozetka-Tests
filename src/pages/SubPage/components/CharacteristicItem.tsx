@@ -1,7 +1,7 @@
 import React from 'react'
 import c from '../styles/DeviceSubPages.module.scss'
 
-import { Characteristic } from '../models/models'
+import { Characteristic } from '../../../models/models'
 
 interface CharacteristicItemProps {
     char: Characteristic

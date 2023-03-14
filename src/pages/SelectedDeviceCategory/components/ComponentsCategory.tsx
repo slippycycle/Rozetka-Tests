@@ -1,7 +1,8 @@
 import React from 'react'
+import DevicePanel from '../../../components/DevicesPanel'
+import LeftFilter from '../../../components/LeftFilter'
 import c from '../styles/DevicesComponents.module.scss'
-import DevicePanel from './DevicesPanel'
-import LeftFilter from './LeftFilter'
+
 
 export default function ComponentsCategory() {
 

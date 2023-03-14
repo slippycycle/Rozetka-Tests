@@ -1,7 +1,7 @@
 import React from 'react'
-import { handleBasket } from '../store/features/Basket.Slice';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import c from '../styles/Navbar.module.scss'
+import { handleBasket } from '../../store/features/Basket.Slice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import c from './style/Navbar.module.scss'
 
 export default function TopNavbarBasket() {
    

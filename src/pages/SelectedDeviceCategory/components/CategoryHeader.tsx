@@ -1,8 +1,8 @@
 import axios, { AxiosError } from 'axios'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { Types } from '../models/models'
-import { useAppSelector } from '../store/hooks'
+import { Types } from '../../../models/models'
+import { useAppSelector } from '../../../store/hooks'
 import c from '../styles/CategoryHeader.module.scss'
 
 

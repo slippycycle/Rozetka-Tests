@@ -1,7 +1,7 @@
 import React from 'react'
-import { Characteristic } from '../models/models'
+import { Characteristic } from '../../../models/models'
 import c from '../styles/DeviceSubPages.module.scss'
-import CharacteristicItem from './CharacteristicItem'
+import CharacteristicItem from '../components/CharacteristicItem'
 
 
 

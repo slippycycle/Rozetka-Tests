@@ -1,10 +1,10 @@
 import React from 'react'
-import DeviceQuestionsSubPage from '../components/DeviceQuestionsSubPage'
-import DeviceSliderSubPage from '../components/DeviceSliderSubPage'
-import DeviceCharacteristicsSubPage from '../components/DeviceСharacteristics.'
-import { SelectedSubPageContext } from '../context'
+import DeviceQuestionsSubPage from './sub_pages/DeviceQuestionsSubPage'
+import DeviceSliderSubPage from './sub_pages/DeviceSliderSubPage'
+import DeviceCharacteristicsSubPage from './sub_pages/DeviceСharacteristics.'
+import { SelectedSubPageContext } from '../../context'
 
-import { DeviceI, urlImg } from '../models/models'
+import { DeviceI, urlImg } from '../../models/models'
 
 export type SelectedSubPageType = 'All information' | 'Questions' | 'characteristics'
 

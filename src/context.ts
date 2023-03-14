@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from "axios"
 import React, { Dispatch, SetStateAction } from "react"
 import { Message, MessageId, ReplyMessageId } from "./models/models"
-import { SelectedSubPageType } from "./pages/SubPage"
+import { SelectedSubPageType } from "./pages/SubPage/SubPage"
 
 export type MobileSortActiveType = {
     active: boolean,

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Chat, Message } from '../../models/models'
-import { makeChateStepTobottom, makeChatStepToTop } from '../../store/features/Chat.Slice'
-import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import c from './../../styles/DeviceSubPages.module.scss'
-import ChatItem from './ChatItem'
+import { Chat, Message } from '../../../models/models'
+import { makeChateStepTobottom, makeChatStepToTop } from '../../../store/features/Chat.Slice'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import c from '../styles/DeviceSubPages.module.scss'
+import ChatItem from '../../../components/QuestionsComponrnts/ChatItem'
 
 interface QuestionsChatProps {
     chat: Chat
@@ -39,8 +39,6 @@ export default function QuestionsChat({ chat }: QuestionsChatProps) {
                 :
                 null
             }
-
-
             {
                 chat.messages.slice(topChatItems, chatItemsOpened).map((mes: Message) => <ChatItem key={mes.id} message={mes} />)
             }

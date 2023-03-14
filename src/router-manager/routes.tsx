@@ -2,7 +2,7 @@ import Checkout from "../pages/Checkout/Checkout"
 import DevicePage from "../pages/DevicePage/DevicePage"
 import HomePage from "../pages/Home/HomePage"
 import SearchPage from "../pages/Seacrh/SearchPage"
-import SelectedCategoryPage from "../pages/SelectedDevicesCategory"
+import SelectedCategoryPage from "../pages/SelectedDeviceCategory/SelectedDevicesCategory"
 
 const HOME_ROUTE = '/'
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { urlImg } from '../models/models'
-import DeviceSlider from './DevicSlider'
+import { urlImg } from '../../../models/models'
+import DeviceSlider from '../../../components/DevicSlider'
 import c from '../styles/DeviceSubPages.module.scss'
 
 
