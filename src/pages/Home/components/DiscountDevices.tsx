@@ -2,8 +2,8 @@ import React from 'react'
 import IntroDeviceItem from './DeviceFromSlider'
 import c from '../styles/DevicesSlider.module.scss'
 import axios from 'axios'
-import { SERVER_URL } from '../consts'
-import { DeviceI } from '../models/models'
+import { SERVER_URL } from '../../../consts'
+import { DeviceI } from '../../../models/models'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 

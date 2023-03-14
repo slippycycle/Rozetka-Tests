@@ -1,9 +1,9 @@
 // @ts-nocheck
-import c from '../styles/DoubleRangeSlider.module.scss'
+import c from './styles/DoubleRangeSlider.module.scss'
 import React, { useRef, useState } from 'react'
-import { useAppDispatch } from '../store/hooks'
-import { setMaxRangePrice, setMinRangePrice } from '../store/features/PriceRange'
-import { setCurrentPage } from '../store/features/Devices.Slice'
+import { useAppDispatch } from '../../store/hooks'
+import { setMaxRangePrice, setMinRangePrice } from '../../store/features/PriceRange'
+import { setCurrentPage } from '../../store/features/Devices.Slice'
 
 
 

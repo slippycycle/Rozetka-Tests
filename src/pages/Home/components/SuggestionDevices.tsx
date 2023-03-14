@@ -6,7 +6,7 @@ import { DeviceI } from '../../../models/models'
 import { fetchSuggestion, fetchSuggestionNext } from '../../../store/features/Suggestions.SLice'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/SuggestionDevices.module.scss'
-import ViewedeDeviceItem from '../../../components/DeviceFromSlider'
+import ViewedeDeviceItem from './DeviceFromSlider'
 import Loader from '../../../components/Loader'
 
 export default function SuggestionDevices() {

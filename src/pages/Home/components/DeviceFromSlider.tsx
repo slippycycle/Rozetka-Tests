@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { DeviceI, } from '../models/models'
+import { DeviceI, } from '../../../models/models'
 import c from '../styles/DeviceFromSlider.module.scss'
 
 interface ViewedeDeviceItem {

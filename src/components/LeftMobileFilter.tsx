@@ -3,8 +3,8 @@ import { MobileSortActive } from '../context'
 import {  useAppSelector } from '../store/hooks';
 import c from '../styles/LeftMobileFilter.module.scss'
 import BrandsCheckListContainer from './BrandsCheckListContainer';
-import DoubleRangeSlider from './DoubleRangeSlider';
-import DoubleRangeSliderMobile from './DoubleRangeSliderMobile';
+import DoubleRangeSlider from './DoubleRangeSlider/DoubleRangeSlider';
+import DoubleRangeSliderMobile from './DoubleRangeSlider/DoubleRangeSliderMobile';
 import DropdownLimitButton from './DropdownLimitButton';
 
 

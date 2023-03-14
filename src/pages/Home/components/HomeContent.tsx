@@ -1,7 +1,7 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import DiscountDevices from '../../../components/DiscountDevices'
-import RecentlyViewedDevices from '../../../components/RecentlyViewedDevices'
+import DiscountDevices from './DiscountDevices'
+import RecentlyViewedDevices from './RecentlyViewedDevices'
 import SuggestionDevices from './SuggestionDevices'
 
 export default function HomeContent() {

@@ -12,11 +12,11 @@ import { FreeMode, Pagination } from "swiper";
 
 import c from '../styles/DevicesSlider.module.scss'
 import ViewedeDeviceItem from "./DeviceFromSlider";
-import { DeviceI, DeviceId } from "../models/models";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { fetchDevice } from "../API/fetchDevice";
-import { pushViewedDevice } from "../store/features/ViewedDevices.Slice";
-import Loader from "./Loader";
+import { DeviceI, DeviceId } from "../../../models/models";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { fetchDevice } from "../../../API/fetchDevice";
+import { pushViewedDevice } from "../../../store/features/ViewedDevices.Slice";
+import Loader from "../../../components/Loader";
 import { useInView } from "react-intersection-observer";
 
 

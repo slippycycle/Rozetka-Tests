@@ -1,6 +1,6 @@
 import React from 'react'
-import DoubleRangeSlider from './DoubleRangeSlider'
-import DoubleRangeSliderMobile from './DoubleRangeSliderMobile'
+import DoubleRangeSlider from './DoubleRangeSlider/DoubleRangeSlider'
+import DoubleRangeSliderMobile from './DoubleRangeSlider/DoubleRangeSliderMobile'
 import c from '../styles/RangeContainer.module.scss'
 import {  useAppSelector } from '../store/hooks'
 
