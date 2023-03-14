@@ -42,15 +42,13 @@ function App() {
             <MobileSortActive.Provider value={{ active, handleMenuState }} >
                <MenuContext.Provider value={{ active: menuActive, menuHandle, catalogVisible, setCatalogVisible }}>
                   <Catalog />
-                  <Menu/>
-                  <TopNavbar  />
+                  <Menu />
+                  <TopNavbar />
                </MenuContext.Provider>
                <Basket />
                <LeftMobileFilter />
                <Routes>
-                  {routes.map((route) => <Route element={route.element} path={route.path}></Route>)
-
-                  }
+                  {routes.map((route) => <Route key={route.path} element={route.element} path={route.path}></Route>)}
                </Routes>
             </MobileSortActive.Provider>
          </div>

@@ -6,6 +6,7 @@ import TypesComponent from './TypesComponent'
 import { fetchTypes } from '../../../store/features/Types.Slice'
 import { Types } from '../../../models/models'
 import InformationAboutCompanyList from '../../../components/InformationAboutCompanyList'
+import { handleClickonParent } from '../../../utils/handleClickonParent'
 
 interface CategoryLeftBar {
   visible: boolean
@@ -29,6 +30,8 @@ export default function CategoryLeftBar({ visible, handleCategory }: CategoryLef
   }, [])
 
   console.log('CategoryLeftBar RENDER !!!!', types)
+
+
 
   return (
     <>
@@ -58,7 +61,7 @@ export default function CategoryLeftBar({ visible, handleCategory }: CategoryLef
 
       {
 
-        <div className={visible ? c.category_mobile_active : c.category_mobile}>
+        <div onClick={(e) => handleClickonParent(e, () => { handleCategory(false) } ) }  className={visible ? c.category_mobile_active : c.category_mobile}>
 
           <div className={c.category}>
 

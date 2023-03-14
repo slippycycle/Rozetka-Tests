@@ -40,7 +40,7 @@ export default function TypesComponent({ typesArray }: TypesComponentProps) {
             {
                 typesArray.length ?
                     typesArray.map((tp: Types) =>
-                        <li>
+                        <li key={tp.type} >
                             <a onClick={() => { redirectHandle(tp) }} key={tp.type} className={c.item}>{tp.fullTypeName}</a>
                             <span className="material-symbols-outlined">
                                 chevron_right

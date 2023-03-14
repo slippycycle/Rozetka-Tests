@@ -5,6 +5,7 @@ import { Types } from '../../models/models'
 import { useAppSelector } from '../../store/hooks'
 import c from './styles/Menu.module.scss'
 import InformationAboutCompanyList from '../InformationAboutCompanyList'
+import { handleClickonParent } from '../../utils/handleClickonParent'
 
 
 export default function Menu() {
@@ -23,15 +24,11 @@ export default function Menu() {
         setCatalogVisible(true)
     }
 
-    // console.log(e.target.className === e.currentTarget.className); 
-
-    function handleMenu(e: React.MouseEvent<HTMLElement>) {
-        if ((e.target as HTMLTextAreaElement).className === e.currentTarget.className) { menuHandle() }
-    }
+ 
 
     return (
 
-        <div onClick={(e) => { handleMenu(e) }} ref={menuRef} className={active ? c.menu__active : c.menu}>
+        <div onClick={(e) => { handleClickonParent(e, () => { menuHandle() }) }} ref={menuRef} className={active ? c.menu__active : c.menu}>
 
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuHandle}>

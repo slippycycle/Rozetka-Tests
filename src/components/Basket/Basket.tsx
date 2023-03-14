@@ -6,6 +6,7 @@ import { setStartDevicesInfo } from '../../store/features/BasketData'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import c from './styles/Basket.module.scss'
 import BacketList from './components/BasketList'
+import { handleClickonParent } from '../../utils/handleClickonParent'
 
 export default function Basket() {
 
@@ -34,13 +35,11 @@ export default function Basket() {
 
   }, [])
 
-  function closeBasketHandler(e: React.MouseEvent<HTMLElement>) {
-    if ((e.target as HTMLTextAreaElement).className === e.currentTarget.className) { dispatch(handleBasket()) }
-  }
+
 
 
   return (
-    <div onClick={(e) => { closeBasketHandler(e) }} className={basketActive ? c.backet_bloor : c.hide}>
+    <div onClick={(e) => { handleClickonParent(e, () => { dispatch(handleBasket()) }) }} className={basketActive ? c.backet_bloor : c.hide}>
       <div className={c.backet_container} >
 
         <button className={c.close__button} onClick={() => dispatch(handleBasket())}>

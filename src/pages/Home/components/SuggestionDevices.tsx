@@ -63,7 +63,7 @@ export default function SuggestionDevices() {
             :
             <div className={c.content}>
               {suggestionDevices.map((dev, index) =>
-                <div className={c.deviceItem_wrap}>
+                <div key={dev.id} className={c.deviceItem_wrap}>
                   <label className={c.small_banner}>TOP</label>
                   <ViewedeDeviceItem deviceI={dev} />
 

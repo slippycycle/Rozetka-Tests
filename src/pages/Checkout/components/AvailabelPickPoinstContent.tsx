@@ -81,7 +81,7 @@ export default function AvailabelPickPoinstContent({ pointChain }: AvailabelPick
                                 }
                                 {
                                     (poinst as PointInterface[]).map((point) =>
-                                        <li onClick={() => handleSelect(point)} >
+                                        <li key={point.street + point.number} onClick={() => handleSelect(point)} >
                                             {point.street + '  #' + point.number}
                                         </li>
                                     )

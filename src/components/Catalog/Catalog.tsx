@@ -8,6 +8,7 @@ import { fetchTypes } from '../../store/features/Types.Slice'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import c from './styles/Catalog.module.scss'
 import Loader from '../Loader'
+import { handleClickonParent } from '../../utils/handleClickonParent'
 
 
 export default function Catalog() {
@@ -43,17 +44,14 @@ export default function Catalog() {
         } else {
             setLoading(false)
         }
-
     }, [])
 
-    function handleCategoryVisible(e: React.MouseEvent<HTMLElement>) {
-        if ((e.target as HTMLTextAreaElement).className === e.currentTarget.className) { setCatalogVisible(false) }
-    }
+
 
     return (
         <>
             {catalogVisible ?
-                <div onClick={(e) => handleCategoryVisible(e)} className={c.wrap}>
+                <div onClick={(e) => handleClickonParent(e, () => {setCatalogVisible(false)})} className={c.wrap}>
 
 
                     {loading ?
@@ -67,7 +65,7 @@ export default function Catalog() {
                             </button>
                             <ul className={c.types_list} >
                                 {types.map((t: Types) =>
-                                    <li>
+                                    <li key={t.type} >
                                         <div className={c.image_container}>
                                             <img src={t.image} ></img>
                                         </div>
