@@ -1,10 +1,10 @@
 // @ts-nocheck
 import React, { Dispatch, SetStateAction, useEffect } from 'react'
-import { CountContext } from '../context';
-import { addToTotalSum, } from '../store/features/Basket.Slice';
-import { setCurrentCountAtDevicesInfo } from '../store/features/BasketData';
-import { setCurrentCountAtDevices } from '../store/features/BasketDevices';
-import { useAppDispatch } from '../store/hooks';
+import { CountContext } from '../../../context';
+import { addToTotalSum, } from '../../../store/features/Basket.Slice';
+import { setCurrentCountAtDevicesInfo } from '../../../store/features/BasketData';
+import { setCurrentCountAtDevices } from '../../../store/features/BasketDevices';
+import { useAppDispatch } from '../../../store/hooks';
 
 interface CountInputProps {
     defaultVal: number

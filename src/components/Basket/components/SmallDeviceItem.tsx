@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
-import { CountContext } from '../context'
-import { basketItem, DeviceI } from '../models/models'
-import { makeRender } from '../store/features/BasketState.Slice'
-import { addToTotalSum,  handleBasket,  setDevicesIdFromBasket } from '../store/features/Basket.Slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { CountContext } from '../../../context'
+import { basketItem, DeviceI } from '../../../models/models'
+import { makeRender } from '../../../store/features/BasketState.Slice'
+import { addToTotalSum,  handleBasket,  setDevicesIdFromBasket } from '../../../store/features/Basket.Slice'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
-import { dleteItemFromDeviceInfo, setCurrentCountAtDevicesInfo, } from '../store/features/BasketData'
-import { deleteBasketDevcie, setCurrentCountAtDevices } from '../store/features/BasketDevices'
+import { dleteItemFromDeviceInfo, setCurrentCountAtDevicesInfo, } from '../../../store/features/BasketData'
+import { deleteBasketDevcie, setCurrentCountAtDevices } from '../../../store/features/BasketDevices'
 
 interface SmallDeviceItemProps {
     device: DeviceI

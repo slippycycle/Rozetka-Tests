@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { MenuContext } from '../context'
-import { Types } from '../models/models'
-import { useAppSelector } from '../store/hooks'
-import c from '../styles/Menu.module.scss'
-import InformationAboutCompanyList from './InformationAboutCompanyList'
+import { MenuContext } from '../../context'
+import { Types } from '../../models/models'
+import { useAppSelector } from '../../store/hooks'
+import c from './styles/Menu.module.scss'
+import InformationAboutCompanyList from '../InformationAboutCompanyList'
 
 
 export default function Menu() {

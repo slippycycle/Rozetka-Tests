@@ -1,9 +1,9 @@
 import axios, { Axios, AxiosError } from 'axios'
 import React from 'react'
-import { fetchDevice } from '../API/fetchDevice'
-import { DeviceI, DeviceId } from '../models/models'
-import { pushBasketDevices } from '../store/features/BasketDevices'
-import { useAppDispatch } from '../store/hooks'
+import { fetchDevice } from '../../../API/fetchDevice'
+import { DeviceI, DeviceId } from '../../../models/models'
+import { pushBasketDevices } from '../../../store/features/BasketDevices'
+import { useAppDispatch } from '../../../store/hooks'
 import SmallDeviceItem from './SmallDeviceItem'
 
 interface DeviceItemFromBacketProps {

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { basketItem } from '../models/models'
-import { handleBasket } from '../store/features/Basket.Slice'
-import { setStartDevicesInfo } from '../store/features/BasketData'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import c from '../styles/Basket.module.scss'
-import BacketList from './BasketList'
+import { basketItem } from '../../models/models'
+import { handleBasket } from '../../store/features/Basket.Slice'
+import { setStartDevicesInfo } from '../../store/features/BasketData'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import c from './styles/Basket.module.scss'
+import BacketList from './components/BasketList'
 
 export default function Basket() {
 

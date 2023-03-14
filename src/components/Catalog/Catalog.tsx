@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { SERVER_URL } from '../consts'
-import { MenuContext } from '../context'
-import { Types } from '../models/models'
-import { fetchTypes } from '../store/features/Types.Slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import c from '../styles/Catalog.module.scss'
-import Loader from './Loader'
+import { SERVER_URL } from '../../consts'
+import { MenuContext } from '../../context'
+import { Types } from '../../models/models'
+import { fetchTypes } from '../../store/features/Types.Slice'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import c from './styles/Catalog.module.scss'
+import Loader from '../Loader'
 
 
 export default function Catalog() {

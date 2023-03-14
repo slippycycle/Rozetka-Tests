@@ -7,8 +7,8 @@ import HomePage from './pages/Home/HomePage';
 import DevicePage from './pages/DevicePage/DevicePage';
 import SelectedDevicesPage from './pages/SelectedDeviceCategory/SelectedDevicesCategory';
 
-import Basket from './components/Basket';
-import Menu from './components/Menu';
+import Basket from './components/Basket/Basket';
+import Menu from './components/Menu/Menu';
 import { MenuContext, MobileSortActive } from './context';
 import SearchPage from './pages/Seacrh/SearchPage';
 import LeftMobileFilter from './components/LeftMobileFilter';
@@ -16,7 +16,7 @@ import BottomBanner from './components/BottomBanner';
 import OrderPage from './pages/Checkout/components/OrderList';
 import Checkout from './pages/Checkout/Checkout';
 import { routes } from './router-manager/routes';
-import Catalog from './components/Catalog';
+import Catalog from './components/Catalog/Catalog';
 import TopNavbar from './components/Navbar/TopNavbar';
 
 

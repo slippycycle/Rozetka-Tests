@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { basketItem } from '../models/models'
+import { basketItem } from '../../../models/models'
 import c from '../styles/Basket.module.scss'
 import { DeviceItemFromBasket } from './DeviceItemFromBasket'
 
@@ -11,8 +11,6 @@ interface BacketListProps {
 }
 
 export default function BasketList({ devicesIdArray }: BacketListProps) {
-
-    
 
     return ( 
         <div className={c.backet_list}>
