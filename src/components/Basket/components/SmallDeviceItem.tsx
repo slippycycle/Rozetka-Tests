@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { CountContext } from '../../../context'
 import { basketItem, DeviceI } from '../../../models/models'
 import { makeRender } from '../../../store/features/BasketState.Slice'
-import { addToTotalSum,  handleBasket,  setDevicesIdFromBasket } from '../../../store/features/Basket.Slice'
+import { addToTotalSum, handleBasket, setDevicesIdFromBasket } from '../../../store/features/Basket.Slice'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import c from '../styles/SmallDeviceItem.module.scss'
 import CountInput from './CountInput'
@@ -16,7 +16,7 @@ interface SmallDeviceItemProps {
     color: string
 }
 
-export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDeviceItemProps) {
+export default function SmallDeviceItem({ device, currentInnerID, color }: SmallDeviceItemProps) {
 
     const [number, setNumber] = React.useState<number>(1)
     const [innerNum, setInnerNum] = React.useState<number>(1)
@@ -26,13 +26,13 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
 
     const dispatch = useAppDispatch()
 
-    
+
     function deleteHandleBacket() {
-        
-        
+
+
         let takeCurrentBasket = JSON.parse(localStorage.getItem('basket') as string)
 
-        let result = takeCurrentBasket.filter((dev: basketItem) => dev.innerId !== currentInnerID )  
+        let result = takeCurrentBasket.filter((dev: basketItem) => dev.innerId !== currentInnerID)
 
         localStorage.setItem('basket', JSON.stringify(result))
 
@@ -51,13 +51,13 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
 
         dispatch(deleteBasketDevcie(currentInnerID))
 
-        
+
 
 
     }
 
     const currentColor = device.colors[0]
-    const firstmImgUrl = device.images[color !== 'default'? color : currentColor][0]
+    const firstmImgUrl = device.images[color !== 'default' ? color : currentColor][0]
 
 
 
@@ -91,8 +91,8 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 setInnerNum(prev => prev + 1)
                 setNumber(prev => prev + 1)
                 dispatch(addToTotalSum(+ device.price))
-                dispatch(setCurrentCountAtDevicesInfo( {count: innerNum + 1, innerId:currentInnerID } ))
-                dispatch(setCurrentCountAtDevices( {count: innerNum + 1, innerId:currentInnerID,color: color } ) )
+                dispatch(setCurrentCountAtDevicesInfo({ count: innerNum + 1, innerId: currentInnerID }))
+                dispatch(setCurrentCountAtDevices({ count: innerNum + 1, innerId: currentInnerID, color: color }))
             }
 
         }
@@ -102,15 +102,20 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 setInnerNum(prev => prev - 1)
                 setNumber(prev => prev - 1)
                 dispatch(addToTotalSum(-device.price))
-                dispatch(setCurrentCountAtDevicesInfo( {count: innerNum - 1, innerId:currentInnerID } ))
-                dispatch(setCurrentCountAtDevices( {count: innerNum - 1, innerId:currentInnerID, color: color } ) )
+                dispatch(setCurrentCountAtDevicesInfo({ count: innerNum - 1, innerId: currentInnerID }))
+                dispatch(setCurrentCountAtDevices({ count: innerNum - 1, innerId: currentInnerID, color: color }))
             }
         }
 
     }
 
+    function handleMoreContentVisible(e: React.MouseEvent<HTMLElement>) {
+        e.stopPropagation()
+        setMoreVisible(true)
+    }
+
     return (
-        <div className={c.item_wrap}>
+        <div onClick={() => setMoreVisible(false)} className={c.item_wrap}>
             <div className={c.img__container} onClick={handleCLikDevice}>
                 <img alt={`${device.name} photo`} src={firstmImgUrl}></img>
             </div>
@@ -122,7 +127,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
                 </div>
 
 
-                <div  className={c.count__container}>
+                <div className={c.count__container}>
                     <div className={c.count}>
                         <CountContext.Provider value={{ setInnerNum, innerNum }}>
 
@@ -146,7 +151,7 @@ export default function SmallDeviceItem({ device,currentInnerID,color}: SmallDev
 
             <div className={c.more__block}>
 
-                <span onClick={() => setMoreVisible(true)} className="material-symbols-outlined">
+                <span onClick={(e) => handleMoreContentVisible(e)} className="material-symbols-outlined">
                     more_vert
                 </span>
             </div>

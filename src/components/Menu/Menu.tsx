@@ -23,11 +23,15 @@ export default function Menu() {
         setCatalogVisible(true)
     }
 
+    // console.log(e.target.className === e.currentTarget.className); 
 
+    function handleMenu(e: React.MouseEvent<HTMLElement>) {
+        if ( (e.target as HTMLTextAreaElement ).className    === e.currentTarget.className) { menuHandle() }
+    }
 
     return (
 
-        <div ref={menuRef} className={active ? c.menu__active : c.menu}>
+        <div onClick={(e) => {handleMenu(e) }} ref={menuRef} className={active ? c.menu__active : c.menu}>
 
             <div className={c.menu_content}>
                 <button className={c.close__button} onClick={menuHandle}>
@@ -51,7 +55,7 @@ export default function Menu() {
 
                 <ul className={c.ul_links}>
                     <li>
-                        <Link onClick={ menuHandle} to={'/'}>
+                        <Link onClick={menuHandle} to={'/'}>
                             <span className="material-symbols-outlined">
                                 home
                             </span>
