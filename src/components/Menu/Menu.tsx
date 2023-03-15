@@ -24,7 +24,7 @@ export default function Menu() {
         setCatalogVisible(true)
     }
 
- 
+
 
     return (
 
@@ -51,16 +51,16 @@ export default function Menu() {
                 </div>
 
                 <ul className={c.ul_links}>
-                    <li>
-                        <Link onClick={menuHandle} to={'/'}>
+                    <Link className='link_conatiner'  onClick={menuHandle} to={'/'}>
+                        <li>
                             <span className="material-symbols-outlined">
                                 home
                             </span>
-                            <a>
+                            <a >
                                 HOME
                             </a>
-                        </Link>
-                    </li>
+                        </li>
+                    </Link>
                     <li>
                         <span className="material-symbols-outlined">
                             support_agent

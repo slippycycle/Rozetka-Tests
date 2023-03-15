@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 // import required modules
 
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 export default function BannerSlider() {
 
@@ -33,19 +34,25 @@ export default function BannerSlider() {
             >
                 <SwiperSlide>
                     <div className='slider-img-container-banner'>
-                        <img src={'https://casfurb.com/wp-content/uploads/2022/10/CASFURB_BANNER71.jpg'} />
-                    </div>
-                </SwiperSlide>
-              
-                <SwiperSlide>
-                    <div className='slider-img-container-banner'>
-                        <img src={'https://blog.daraz.pk/wp-content/uploads/2020/03/LAPTOP-BANNER.jpg'} />
+                        <Link to="/laptops/11">
+                            <img src={'https://i0.wp.com/store.ave.com.bn/wp-content/uploads/2022/07/MacBook_Air_M2_Web_Banner-1400x700-Now-Available.png?fit=1400%2C700&ssl=1'} />
+                        </Link>
                     </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <div className='slider-img-container-banner'>
-                        <img src={'https://thumbs.dreamstime.com/b/vector-banner-iphone-vinnytsia-ukraine-september-illustration-app-web-presentation-design-229970813.jpg'} />
+                        <Link to="/phone/7">
+                            <img src={'https://i0.wp.com/store.ave.com.bn/wp-content/uploads/2022/09/SEA_iPhone_14_Pro_Web_Banner_Pre-avail_1400x700_FFH-1.png?fit=1400%2C700&ssl=1'} />
+                        </Link>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className='slider-img-container-banner'>
+                        <Link to="/phone/9">
+                            <img src={'https://i0.wp.com/store.ave.com.bn/wp-content/uploads/2022/09/ROSA_iPhone_14_Web_Banner_Pre-avail_1400x700_FFH-1.png?fit=1400%2C700&ssl=1'} />
+                        </Link>
                     </div>
                 </SwiperSlide>
             </Swiper>

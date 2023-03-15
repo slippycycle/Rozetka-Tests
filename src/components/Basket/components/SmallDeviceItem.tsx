@@ -122,7 +122,7 @@ export default function SmallDeviceItem({ device, currentInnerID, color }: Small
             <div className={c.body__content}>
 
                 <div className={c.info__container}>
-                    <p onClick={handleCLikDevice} >{device.faceDescription}</p>
+                    <p onClick={handleCLikDevice} >{device.faceDescription.slice(0,40)}</p>
                     <h2>{device.price * number}</h2>
                 </div>
 

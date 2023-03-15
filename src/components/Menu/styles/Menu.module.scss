@@ -27,6 +27,7 @@
 
             .list_container {
                 padding-left: 30px;
+                margin-bottom: 50px;
             }
 
             .category__content {
@@ -113,6 +114,9 @@
                 width: 100%;
                 background-color: rgb(255, 255, 255);
 
+                a {
+                    width: 100%;
+                }
 
                 li {
                     margin-top: 2px;

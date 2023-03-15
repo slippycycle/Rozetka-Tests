@@ -136,9 +136,12 @@
             align-items: center;
             justify-content: center;
             height: 50%;
+            flex-shrink: 0;
 
             img {
+                position: relative;
                 height: 70%;
+                flex-shrink: 0;
                 width: auto;
             }
         }
@@ -168,6 +171,7 @@
     .backet_bloor {
         padding: 0px;
         .backet_container {
+            border-radius: 0px;
             height: 100%;
             width: 100%;
         }
