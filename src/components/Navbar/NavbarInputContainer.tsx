@@ -17,14 +17,14 @@ export default function NavbarInputContainer() {
 
         if (event.key === 'Enter') {
             navigate(`/search/${value.replace(/ /g, '').toLowerCase().replaceAll('/', '')} `)
-            window.location.reload();
+           
         }
     }
 
     function navigateBySearchItem() {
 
         navigate(`/search/${value.replace(/ /g, '').toLowerCase().replaceAll('/', '')}`)
-        window.location.reload();
+       
     }
 
 
