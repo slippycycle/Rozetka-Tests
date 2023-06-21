@@ -10,6 +10,7 @@ export function detectMob() {
     ];
     
     return toMatch.some((toMatchItem) => {
+        //2
         return navigator.userAgent.match(toMatchItem);
     });
 }
